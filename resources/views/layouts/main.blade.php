@@ -9,12 +9,8 @@
 
 		<title>@yield('title')</title>
 
-        {{-- <link rel="stylesheet" href="assets/css/normalize.css"> --}}
-
 		<link href="css/app.css" rel="stylesheet">
-
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Roboto+Slab:300,700|Roboto:400,400i,700,700i&display=swap&subset=cyrillic" rel="stylesheet">
-
 		<script src="https://kit.fontawesome.com/01555a23fc.js" crossorigin="anonymous"></script>
 	</head>
 	<body class="">
@@ -65,13 +61,9 @@
 				</div>
 			</footer>
 		</div>
-		
-
 
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
-		<script src="assets/javascript/scripts.js"></script>
-
+		<script src="/assets/javascript/scripts.js"></script>
 
 	</body>
 </html>
