@@ -8,10 +8,11 @@
 		<link rel="icon" href="favicon.ico">
 
 		<title>@yield('title')</title>
-
-		<link href="css/app.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<link href="/css/app.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Roboto+Slab:300,700|Roboto:400,400i,700,700i&display=swap&subset=cyrillic" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/01555a23fc.js" crossorigin="anonymous"></script>
+		{{-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> --}}
 	</head>
 	<body class="">
 		<progress value="0">
@@ -24,7 +25,7 @@
 				<div class="header-inner">					
 					<div class="site-header-content">
 						<h1 class="site-title">							
-							<a href="index.html">alvar</a>
+							<a href="/">alvar</a>
 						</h1>
 						<h2 class="site-description">Блог веб-дизайнера</h2>
 						<div class="social-links">
@@ -41,9 +42,9 @@
 						<div class="site-nav-content">
 							<a href="#" onclick="return false" class="menu_link"><span></span></a>								
 							<ul>
-								<li><a href="tag.html">Тэги</a></li>
-								<li><a href="post.html">Пост</a></li>
-								<li><a href="page.html">Страница</a></li>
+								<li><a href="">Тэги</a></li>
+								<li><a href="">Пост</a></li>
+								<li><a href="">Страница</a></li>
 							</ul>									
 						</div>							
 					</nav>
