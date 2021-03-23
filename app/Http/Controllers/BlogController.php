@@ -26,7 +26,7 @@ class BlogController extends Controller
         ]);
     }
 
-    public function getPost($slug_category, $slug_post) {
+    public function getPost($slug_post) {
         $post = Post::where('slug', $slug_post)->first();
         return view('post', [
             'post' => $post

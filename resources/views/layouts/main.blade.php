@@ -8,13 +8,12 @@
 		<link rel="icon" href="favicon.ico">
 
 		<title>@yield('title')</title>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 		<link href="/css/app.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Roboto+Slab:300,700|Roboto:400,400i,700,700i&display=swap&subset=cyrillic" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/01555a23fc.js" crossorigin="anonymous"></script>
-		{{-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> --}}
 	</head>
 	<body class="">
+		<a href="#" onclick="return false" class="menu_link"><span></span></a>
 		<progress value="0">
 			<div class="progress-container">
 				<span class="progress-bar"></span>
@@ -38,16 +37,7 @@
 							<a href="" class="sub_btn">Подписаться</a>
 						</div>
 					</div>
-					<nav class="site-nav">						
-						<div class="site-nav-content">
-							<a href="#" onclick="return false" class="menu_link"><span></span></a>								
-							<ul>
-								<li><a href="">Тэги</a></li>
-								<li><a href="">Пост</a></li>
-								<li><a href="">Страница</a></li>
-							</ul>									
-						</div>							
-					</nav>
+					@include('includes.navigation')
 				</div>
 			</header>
                 
