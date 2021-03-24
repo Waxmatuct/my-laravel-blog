@@ -11,12 +11,13 @@
 				<header class="post-header">
 					<h2 class="post-title"><a href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a></h2>
 				</header>
-				<section class="post-excerpt">{!! $post->description !!}</section>
+				<section class="post-excerpt"><p>{{ $post->description }}</p></section>
 				<div class="meta">
 					<span class="post-date">
-						<time datetime="2019-11-29">29 нояб. 2019</time>
+						<time datetime="2019-11-29">{{$post->created_at->diffForHumans()}}</time>
 					</span>
 					<span class="post-tag"><a href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a></span>
+					<span class="post-tag"><a href="{{route('editPost', $post->slug)}}">Edit</a></span>
 				</div>
 			</article>			
 		@endforeach

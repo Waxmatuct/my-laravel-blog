@@ -12,7 +12,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Roboto+Slab:300,700|Roboto:400,400i,700,700i&display=swap&subset=cyrillic" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/01555a23fc.js" crossorigin="anonymous"></script>
 	</head>
-	<body class="">
+	<body>
 		<a href="#" onclick="return false" class="menu_link"><span></span></a>
 		<progress value="0">
 			<div class="progress-container">

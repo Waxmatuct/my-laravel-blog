@@ -14,7 +14,7 @@
             </section>
             <div class="meta">
                 <span class="post-date">
-                    <time datetime="2019-11-29">29 нояб. 2019</time>
+                    <time datetime="2019-11-29">{{$post->created_at}}</time>
                 </span>
                 <span class="post-tag"><a href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a></span>
             </div>

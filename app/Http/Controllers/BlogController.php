@@ -32,4 +32,11 @@ class BlogController extends Controller
             'post' => $post
         ]);
     }
+
+    public function editPost($slug_post) {
+        $post = Post::where('slug', $slug_post)->first();
+        return view('edit_post', [
+            'post' => $post
+        ]);
+    }
 }
