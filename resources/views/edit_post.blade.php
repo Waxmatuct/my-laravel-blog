@@ -26,7 +26,7 @@
 
                 <div class="mb-8">
                     <label class="text-xl text-gray-600">Пост <span class="text-red-500">*</span></label></br>
-                    <textarea name="content" class="border-2 border-gray-500">
+                    <textarea id="tiny" name="content" class="border-2 border-gray-500" style="height:500px;">
                         {{$post->content}}
                     </textarea>
                 </div>
@@ -39,9 +39,12 @@
     </div>
 </div>
 
-<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
-
 <script>
-    CKEDITOR.replace( 'content' );
-</script>
+    tinymce.init({
+      selector: '#tiny',
+      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      toolbar_mode: 'floating',
+   });
+  </script>
+
 @endsection
