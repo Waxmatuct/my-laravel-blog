@@ -3,48 +3,47 @@
 @section('title', $post->title)
 
 @section('content')
-<div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            <form method="POST" action="action.php">
-                <div class="mb-4">
-                    <label class="text-xl text-gray-600">Название <span class="text-red-500">*</span></label></br>
-                    <input type="text" class="border-2 border-gray-300 p-2 w-full" name="title" id="title" value="{{$post->title}}" required></input>
-                </div>
-
-                <div class="mb-4">
-                    <label class="text-xl text-gray-600">Url поста <span class="text-red-500">*</span></label></br>
-                    <input type="text" class="border-2 border-gray-300 p-2 w-full" name="slug" id="slug" value="{{$post->slug}}" required></input>
-                </div>
-
-                <div class="mb-8">
-                    <label class="text-xl text-gray-600">Описание</label></br>
-                    <textarea name="description" class="form-textarea border-1 border-gray-300 p-2 w-full" rows="4">
-                        {{$post->description}}
-                    </textarea>
-                </div>
-
-                <div class="mb-8">
-                    <label class="text-xl text-gray-600">Пост <span class="text-red-500">*</span></label></br>
-                    <textarea id="tiny" name="content" class="border-2 border-gray-500" style="height:500px;">
-                        {{$post->content}}
-                    </textarea>
-                </div>
-
-                <div class="flex p-1">
-                    <button role="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400" required>Сохранить</button>
-                </div>
-            </form>
+<div class="container mt-5">
+    <h2>Редактирование поста «{{$post->title}}»</h2>
+    <form>
+        <div class="form-row">
+            <div class="form-group col-6">
+                <label for="exampleFormControlInput1">Заголовок</label>
+                <input type="text" class="form-control" id="title" value="{{$post->title}}">
+            </div>
+            <div class="form-group col-6">
+                <label for="exampleFormControlInput2">URL</label>
+                <input type="text" class="form-control" id="url" value="{{$post->slug}}">
+            </div>
         </div>
-    </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput3">Описание</label>
+            <textarea class="form-control" id="description" rows="4">
+                {{$post->description}}
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea">Пост</label>
+            <textarea class="form-control" id="tiny" rows="18">
+                {{$post->content}}
+            </textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
 </div>
-
-<script>
-    tinymce.init({
-      selector: '#tiny',
-      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-      toolbar_mode: 'floating',
-   });
-  </script>
-
 @endsection
+
+@push('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+@endpush
+
+@push('tinymce')
+    <script src="https://cdn.tiny.cloud/1/7oc5a4pw1zhkloaxzcp0owb2if5b7vw0wbam8avvv26u7usu/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+          selector: '#tiny',
+          plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+          toolbar_mode: 'floating',
+       });
+    </script>
+@endpush

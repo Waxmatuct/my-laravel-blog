@@ -519,8 +519,8 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"/js/app": 0,
-/******/ 			"css/app": 0,
+/******/ 			"/js/auth": 0,
+/******/ 			"css/auth": 0,
 /******/ 			"assets/css/styles": 0
 /******/ 		};
 /******/ 		
@@ -569,9 +569,9 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","assets/css/styles"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","assets/css/styles"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","assets/css/styles"], () => (__webpack_require__("./resources/sass/styles.sass")))
+/******/ 	__webpack_require__.O(undefined, ["css/auth","assets/css/styles"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/auth","assets/css/styles"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/auth","assets/css/styles"], () => (__webpack_require__("./resources/sass/styles.sass")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

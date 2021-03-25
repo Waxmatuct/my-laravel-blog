@@ -1,4 +1,6 @@
 {
+    "/js/auth.js": "/js/auth.js",
+    "/css/auth.css": "/css/auth.css",
     "/assets/css/styles.css": "/assets/css/styles.css",
     "/css/app.css": "/css/app.css"
 }
