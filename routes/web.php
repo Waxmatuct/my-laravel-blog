@@ -22,3 +22,23 @@ Route::get('/posts/{slug_post}/edit', [BlogController::class, 'editPost'])->name
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
+
+// Dahboard routes
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->name('dashboard');
+Route::get('/dashboard/posts', [App\Http\Controllers\Admin\PostController::class, 'index'])->name('dashboard-posts');
+
+Route::get('/dashboard/blank', function () {
+    return view('dashboard.blank');
+})->name('dashboard-blank');
+Route::get('/dashboard/calendar', function () {
+    return view('dashboard.calendar');
+})->name('dashboard-calendar');
+Route::get('/dashboard/forms', function () {
+    return view('dashboard.forms');
+})->name('dashboard-forms');
+
+Route::get('/dashboard/tabs', function () {
+    return view('dashboard.tabs');
+})->name('dashboard-tabs');

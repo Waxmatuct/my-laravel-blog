@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,7 +8,7 @@
 		<link rel="icon" href="favicon.ico">
 
 		<title>@yield('title')</title>
-		<link href="/css/app.css" rel="stylesheet">
+		<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Roboto+Slab:300,700|Roboto:400,400i,700,700i&display=swap&subset=cyrillic" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/01555a23fc.js" crossorigin="anonymous"></script>
 	</head>
