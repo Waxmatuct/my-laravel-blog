@@ -42,3 +42,6 @@ Route::get('/dashboard/forms', function () {
 Route::get('/dashboard/tabs', function () {
     return view('dashboard.tabs');
 })->name('dashboard-tabs');
+Route::get('/dashboard/new-post', function () {
+    return view('dashboard.new-post');
+})->name('dashboard-new-post');

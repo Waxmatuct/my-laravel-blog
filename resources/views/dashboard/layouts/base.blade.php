@@ -6,22 +6,25 @@
         <title>@yield('title')</title>
         <meta name="author" content="David Grzyb">
         <meta name="description" content="">
-
+        @stack('editor') 
         <!-- Tailwind -->
         <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+         
         <style>
-            @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-            .font-family-karla { font-family: karla; }
-            .bg-sidebar { background: #3d68ff; }
-            .cta-btn { color: #3d68ff; }
-            .upgrade-btn { background: #1947ee; }
+            /* @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap'); */
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+            .font-family-roboto { font-family: 'Roboto', sans-serif; }
+            .bg-sidebar { background: #2e2e2e; }
+            .bg-header { background: #202020; }
+            .cta-btn { color: #fff; }
+            .upgrade-btn { background: #5940b5; }
             .upgrade-btn:hover { background: #0038fd; }
-            .active-nav-link { background: #1947ee; }
-            .nav-item:hover { background: #1947ee; }
-            .account-link:hover { background: #3d68ff; }
+            .active-nav-link { background: #5940b5; }
+            .nav-item:hover { background: #5940b5; }
+            .account-link:hover { background: #5940b5; }
         </style>
     </head>
-    <body class="bg-gray-100 font-family-karla flex">
+    <body class="bg-gray-200 font-family-roboto flex">
 
         @include('dashboard.includes.sidebar')
 
@@ -29,7 +32,7 @@
 
             @include('dashboard.includes.navigation')
 
-            <div class="w-full overflow-x-hidden border-t flex flex-col">
+            <div class="w-full overflow-x-hidden flex flex-col">
                 <main class="w-full flex-grow p-6">
 
                 @yield('content')
@@ -42,7 +45,7 @@
             </div>
         </div>
     
-        @stack('scripts')    
+        @stack('scripts')  
 
     </body>
 </html>

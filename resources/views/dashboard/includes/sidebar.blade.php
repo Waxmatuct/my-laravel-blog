@@ -1,7 +1,7 @@
 <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
     <div class="p-6">
-        <a href="№" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Админка</a>
-        <a href="#" class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
+        <a href="{{ route('index') }}" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">На сайт</a>
+        <a href="{{ route('dashboard-new-post') }}" class="w-full bg-green-500 cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-green-300 flex items-center justify-center">
             <i class="fas fa-plus mr-3"></i> Новый пост
         </a>
     </div>
