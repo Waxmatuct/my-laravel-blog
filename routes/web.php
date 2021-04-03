@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,11 @@ Route::get('/dashboard', function () {
 // Dashboard posts
 Route::get('/dashboard/posts', [App\Http\Controllers\Admin\PostController::class, 'index'])->name('dashboard-posts');
 Route::resource('posts', App\Http\Controllers\Admin\PostController::class);
-Route::get('/dashboard/new-post', function () {
-    return view('dashboard.new-post');
-})->name('dashboard-new-post');
+Route::get('/dashboard/new-post', [App\Http\Controllers\Admin\PostController::class, 'create'])->name('dashboard-new-post');
+
+// Dashboard categories
+Route::get('/dashboard/new-category', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('dashboard-new-category');
+Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
 
 Route::get('/dashboard/blank', function () {
     return view('dashboard.blank');

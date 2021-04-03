@@ -4,6 +4,9 @@
         <a href="{{ route('dashboard-new-post') }}" class="w-full bg-green-500 cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-green-300 flex items-center justify-center">
             <i class="fas fa-plus mr-3"></i> Новый пост
         </a>
+        <a href="{{ route('dashboard-new-category') }}" class="w-full bg-green-500 cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-green-300 flex items-center justify-center">
+            <i class="fas fa-plus mr-3"></i> Новая категория
+        </a>
     </div>
     <nav class="text-white text-base font-semibold pt-3">
         <a href="{{ route('dashboard') }}" class="flex items-center text-white py-4 pl-6 nav-item">

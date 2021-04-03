@@ -5,11 +5,7 @@
 @section('content')
 <h1 class="text-3xl text-black pb-6">Посты</h1>
 
-@if ($message = Session::get('success'))
-<div class="bg-green-200 alert alert-success px-3 py-3">
-    <p class="text-gray-700">{{ $message }}</p>
-</div>
-@endif
+@include('dashboard.includes.message')
 
 <div class="w-full mt-6">
     <div class="bg-white overflow-auto">

@@ -15,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('dashboard.new-category', compact('categories'));
     }
 
     /**
@@ -36,7 +37,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required',
+        ]);
+
+        Category::create($request->all());
+
+        return redirect()->route('dashboard-new-category')
+            ->with('success', 'Категория успешно добавлена');
+
     }
 
     /**

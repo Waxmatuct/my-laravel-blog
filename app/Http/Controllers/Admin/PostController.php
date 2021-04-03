@@ -31,7 +31,12 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        $posts = Post::all();
+        return view('dashboard.new-post', [
+            'posts' => $posts,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -42,7 +47,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'category_id' => 'required',
+            'description' => 'required',
+            'content' => 'required',
+            'slug' => 'required',
+        ]);
+
+        Post::create($request->all());
+
+        return redirect()->route('dashboard-posts')
+            ->with('success', 'Пост успешно добавлен');
     }
 
     /**
