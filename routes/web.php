@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +24,17 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 
-// Dahboard routes
+// Dashboard routes
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->name('dashboard');
+
+// Dashboard posts
 Route::get('/dashboard/posts', [App\Http\Controllers\Admin\PostController::class, 'index'])->name('dashboard-posts');
+Route::resource('posts', App\Http\Controllers\Admin\PostController::class);
+Route::get('/dashboard/new-post', function () {
+    return view('dashboard.new-post');
+})->name('dashboard-new-post');
 
 Route::get('/dashboard/blank', function () {
     return view('dashboard.blank');
@@ -42,6 +49,3 @@ Route::get('/dashboard/forms', function () {
 Route::get('/dashboard/tabs', function () {
     return view('dashboard.tabs');
 })->name('dashboard-tabs');
-Route::get('/dashboard/new-post', function () {
-    return view('dashboard.new-post');
-})->name('dashboard-new-post');

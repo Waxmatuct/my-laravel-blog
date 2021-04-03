@@ -1,9 +1,15 @@
 @extends('dashboard.layouts.base')
 
-@section('title', 'Tables')
+@section('title', 'Админка: Посты')
 
 @section('content')
 <h1 class="text-3xl text-black pb-6">Посты</h1>
+
+@if ($message = Session::get('success'))
+<div class="bg-green-200 alert alert-success px-3 py-3">
+    <p class="text-gray-700">{{ $message }}</p>
+</div>
+@endif
 
 <div class="w-full mt-6">
     <div class="bg-white overflow-auto">
@@ -30,20 +36,53 @@
                     <td class="text-center py-3 px-4"><a href="" class="text-xs px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full">
                         <i class="fas fa-pen mr-2"></i>Правка</a>
                     </td>
-                    <td class="text-center py-3 px-4"><a href="" class="text-xs px-3 py-1 bg-red-600 text-gray-50 rounded-full">
-                        <i class="fas fa-trash mr-2"></i>Удалить</a>
+                    <td class="text-center py-3 px-4">
+                        <form action="{{ route('posts.destroy', $post) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+
+                            <button class="delete-btn text-xs px-3 py-1 bg-red-600 text-gray-50 rounded-full" type="submit">
+                                <i class="fas fa-trash mr-2"></i>Удалить
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-    {{ $posts->links('vendor.pagination.semantic-ui') }}
+    {{-- {{ $posts->links('vendor.pagination.semantic-ui') }} --}}
 </div>
 @endsection
 @push('scripts')
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <!-- JQuery -->
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+        crossorigin="anonymous">
+    </script>
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            // $(".nav-treeview .nav-link, .nav-link").each(function () {
+            //     var location2 = window.location.protocol + '//' + window.location.host + window.location.pathname;
+            //     var link = this.href;
+            //     if(link == location2){
+            //         $(this).addClass('active');
+            //         $(this).parent().parent().parent().addClass('menu-is-opening menu-open');
+
+            //     }
+            // });
+
+            $('.delete-btn').click(function () {
+                var res = confirm('Подтвердите действия');
+                if(!res){
+                    return false;
+                }
+            });
+        })
+    </script>
 @endpush

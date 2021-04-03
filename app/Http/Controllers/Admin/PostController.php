@@ -16,8 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $categories = Category::get();
-        $posts = Post::paginate(10);
+        $categories = Category::all();
+        $posts = Post::all();
         return view('dashboard.posts', [
             'posts' => $posts,
             'categories' => $categories
@@ -87,6 +87,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect()->route('dashboard-posts')
+            ->with('success', 'Запись успешно удалена');
     }
 }
