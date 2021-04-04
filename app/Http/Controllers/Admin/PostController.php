@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -17,7 +18,7 @@ class PostController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')->get();
         return view('dashboard.posts', [
             'posts' => $posts,
             'categories' => $categories
@@ -48,14 +49,20 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|max:255',
             'category_id' => 'required',
-            'description' => 'required',
-            'content' => 'required',
+            'description' => 'required|max:255',
+            'content' => 'required|min:100',
             'slug' => 'required',
         ]);
 
-        Post::create($request->all());
+        Post::create([
+            'title' => $request->get('title'),
+            'category_id' => $request->get('category_id'),
+            'description' => $request->get('description'),
+            'content' => $request->get('content'),
+            'slug' => Str::slug($request->get('slug')),
+        ]);
 
         return redirect()->route('dashboard-posts')
             ->with('success', 'Пост успешно добавлен');
@@ -79,8 +86,13 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        $post = Post::find($id);
+        $categories = Category::all();
+        return view('dashboard.edit-post', [
+            'post' => $post,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -92,7 +104,24 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255',
+            'category_id' => 'required',
+            'description' => 'required|max:255',
+            'content' => 'required|min:100',
+            'slug' => 'required',
+        ]);
+
+        $post = Post::find($id);
+        $post->title = $request->get('title');
+        $post->category_id = $request->get('category_id');
+        $post->description = $request->get('description');
+        $post->content = $request->get('content');
+        $post->slug = Str::slug($request->get('slug'));
+        $post->save();
+
+        return redirect()->route('dashboard-posts')
+        ->with('success', 'Пост успешно отредактирован');
     }
 
     /**

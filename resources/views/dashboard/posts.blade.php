@@ -29,7 +29,7 @@
                     <td class="text-center py-3 px-4">{{$post->slug}}</td>
                     <td class="text-center py-3 px-4">{{$post->category['title']}}</td>
                     <td class="text-center py-3 px-4">{{$post->created_at}}</td>
-                    <td class="text-center py-3 px-4"><a href="" class="text-xs px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full">
+                    <td class="text-center py-3 px-4"><a href="{{ route('posts.edit', $post) }}" class="text-xs px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full">
                         <i class="fas fa-pen mr-2"></i>Правка</a>
                     </td>
                     <td class="text-center py-3 px-4">
@@ -37,9 +37,38 @@
                             @csrf
                             @method('DELETE')
 
-                            <button class="delete-btn text-xs px-3 py-1 bg-red-600 text-gray-50 rounded-full" type="submit">
-                                <i class="fas fa-trash mr-2"></i>Удалить
-                            </button>
+                            <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false" x-cloak>
+                                <button class="delete-btn text-xs px-3 py-1 bg-red-600 text-gray-50 rounded-full" @click="showModal = true" type="button">
+                                    <i class="fas fa-trash mr-2"></i>Удалить
+                                </button>
+
+                                <!--Overlay-->
+                                <div class="overflow-auto" style="background-color: rgba(0,0,0,0.5)" x-show="showModal" :class="{ 'absolute inset-0 z-10 flex items-center justify-center': showModal }">
+                                    <!--Dialog-->
+                                    <div class="bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg py-4 text-left px-6" x-show="showModal" @click.away="showModal = false" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
+
+                                        <!--Title-->
+                                        <div class="flex justify-between items-center pb-3">
+                                            <p class="text-2xl font-bold">Удалить пост?</p>
+                                            <div class="cursor-pointer z-50" @click="showModal = false">
+                                                <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                        <!-- content -->
+                                        {{-- <p>Удалить пост?</p> --}}
+
+                                        <!--Footer-->
+                                        <div class="flex justify-end pt-2">
+                                            <button class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2" type="submit">Удалить</button>
+                                            <button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400" type="button" @click="showModal = false">Нет</button>
+                                        </div>
+                                    </div>
+                                    <!--/Dialog -->
+                                </div><!-- /Overlay -->
+                            </div>
                         </form>
                     </td>
                 </tr>
@@ -53,32 +82,7 @@
 @push('scripts')
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <!-- JQuery -->
-    <script
-        src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-        crossorigin="anonymous">
-    </script>
+
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function () {
-            // $(".nav-treeview .nav-link, .nav-link").each(function () {
-            //     var location2 = window.location.protocol + '//' + window.location.host + window.location.pathname;
-            //     var link = this.href;
-            //     if(link == location2){
-            //         $(this).addClass('active');
-            //         $(this).parent().parent().parent().addClass('menu-is-opening menu-open');
-
-            //     }
-            // });
-
-            $('.delete-btn').click(function () {
-                var res = confirm('Подтвердите действия');
-                if(!res){
-                    return false;
-                }
-            });
-        })
-    </script>
 @endpush

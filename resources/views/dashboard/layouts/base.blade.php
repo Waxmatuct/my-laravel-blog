@@ -22,6 +22,7 @@
             .active-nav-link { background: #5940b5; }
             .nav-item:hover { background: #5940b5; }
             .account-link:hover { background: #5940b5; }
+            .leading-loose p { line-height: 1.4; }
         </style>
     </head>
     <body class="bg-gray-200 font-family-roboto flex">

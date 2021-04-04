@@ -19,8 +19,8 @@ use App\Http\Controllers\Admin\CategoryController;
 
 Route::get('/', [BlogController::class, 'index'])->name('index');
 Route::get('/category/{slug}', [BlogController::class, 'getPostsByCategory'])->name('getPostsByCategory');
-Route::get('/posts/{slug_post}', [BlogController::class, 'getPost'])->name('getPost');
-Route::get('/posts/{slug_post}/edit', [BlogController::class, 'editPost'])->name('editPost');
+Route::get('/post/{slug_post}', [BlogController::class, 'getPost'])->name('getPost');
+Route::get('/post/{slug_post}/edit', [BlogController::class, 'editPost'])->name('editPost');
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');

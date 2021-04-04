@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -15,8 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('dashboard.new-category', compact('categories'));
+        //
     }
 
     /**
@@ -26,7 +26,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('dashboard.new-category', compact('categories'));
     }
 
     /**
@@ -42,7 +43,10 @@ class CategoryController extends Controller
             'slug' => 'required',
         ]);
 
-        Category::create($request->all());
+        Category::create([
+            'title' => $request->get('title'),
+            'slug' => Str::slug($request->get('slug')),
+        ]);
 
         return redirect()->route('dashboard-new-category')
             ->with('success', 'Категория успешно добавлена');
