@@ -17,7 +17,6 @@
 						<time datetime="2019-11-29">{{$post->created_at->diffForHumans()}}</time>
 					</span>
 					<span class="post-tag"><a href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a></span>
-					<span class="post-tag"><a href="{{route('editPost', $post->slug)}}">Edit</a></span>
 				</div>
 			</article>			
 		@endforeach

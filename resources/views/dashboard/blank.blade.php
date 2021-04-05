@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.base')
 
 @section('content')
-<h1 class="text-3xl text-black pb-6">Blank Page</h1>
+<h1 class="text-2xl font-bold text-black pb-6">Blank Page</h1>
 
 <div class="flex flex-wrap">
     <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">

@@ -24,7 +24,7 @@
 				<div class="header-inner">					
 					<div class="site-header-content">
 						<h1 class="site-title">							
-							<a href="/">alvar</a>
+							<a href="/">pletnev</a>
 						</h1>
 						<h2 class="site-description">Блог веб-дизайнера</h2>
 						<div class="social-links">

@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.base')
 
 @section('content')
-<h1 class="text-3xl text-black">Добавить новый пост</h1>
+<h1 class="text-2xl font-bold text-black">Добавить новый пост</h1>
 
 @include('dashboard.includes.message')
 

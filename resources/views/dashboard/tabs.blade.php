@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="text-3xl text-black pb-6">Tabbed Content</h1>
+<h1 class="text-2xl font-bold text-black pb-6">Tabbed Content</h1>
 
 <div class="w-full mt-6" x-data="{ openTab: 1 }">
     <div>

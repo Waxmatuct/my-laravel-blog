@@ -1,4 +1,4 @@
-<!-- Desktop Header -->
+<!-- Desktop Header 
 <header class="w-full items-center bg-header py-2 px-6 hidden sm:flex">
     <div class="w-1/2"></div>
     <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
@@ -18,12 +18,12 @@
             </form>
         </div>
     </div>
-</header>
+</header> -->
 
 <!-- Mobile Header & Nav -->
 <header x-data="{ isOpen: false }" class="w-full bg-sidebar py-5 px-6 sm:hidden">
     <div class="flex items-center justify-between">
-        <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
+        <a href="/" class="text-white text-2xl font-semibold uppercase hover:text-gray-300">На сайт</a>
         <button @click="isOpen = !isOpen" class="text-white text-3xl focus:outline-none">
             <i x-show="!isOpen" class="fas fa-bars"></i>
             <i x-show="isOpen" class="fas fa-times"></i>
@@ -73,9 +73,6 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
         </form>
-        <button class="w-full bg-white cta-btn font-semibold py-2 mt-3 rounded-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-            <i class="fas fa-arrow-circle-up mr-3"></i> Upgrade to Pro!
-        </button>
     </nav>
     <!-- <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
         <i class="fas fa-plus mr-3"></i> New Report

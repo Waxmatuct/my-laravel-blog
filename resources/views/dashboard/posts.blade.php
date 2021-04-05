@@ -3,7 +3,7 @@
 @section('title', 'Админка: Посты')
 
 @section('content')
-<h1 class="text-3xl text-black pb-6">Посты</h1>
+<h1 class="text-2xl font-bold text-black pb-6">Посты</h1>
 
 @include('dashboard.includes.message')
 

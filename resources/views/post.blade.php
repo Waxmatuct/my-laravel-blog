@@ -17,6 +17,7 @@
                     <time datetime="2019-11-29">{{$post->created_at}}</time>
                 </span>
                 <span class="post-tag"><a href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a></span>
+                <span class="post-tag"><a href="{{route('posts.edit', $post)}}">Править</a></span>
             </div>
             <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
             <script src="https://yastatic.net/share2/share.js"></script>
