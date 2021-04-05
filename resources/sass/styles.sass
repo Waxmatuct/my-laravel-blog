@@ -5,11 +5,9 @@
 
 body
 	font-size: 16px
-	background-color: #ddd
+	background-color: $bg
 	font-family: 'Roboto', sans-serif
 	color: $black
-	background: #f6f6f6
-
 
 h1, h2, h3
 	font-family: 'Roboto', sans-serif
@@ -34,7 +32,7 @@ a
 .site-nav
 	display: flex
 	justify-content: space-between
-	height: 70px
+	min-height: 70px
 	box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.2)
 	border-radius: 20px 20px 0px 0px
 	background-color: $white
@@ -44,9 +42,10 @@ a
 	display: flex
 	align-items: center
 	margin: 0 auto
-	justify-content: space-between
+	justify-content: center
 	width: 100%
 	padding: 0 50px
+	flex-wrap: wrap
 
 
 .site-nav-content ul
@@ -429,16 +428,16 @@ figure figcaption
 	color: #aaa
 
 
-
-
 @media (max-width: 575.98px)
 
 	.site-nav-content
 		justify-content: center
 		padding: 0
+		flex-wrap: wrap
 
 	.site-nav-content ul
 		opacity: 1
+		flex-direction: column
 	
 	.site-nav-content ul li
 		margin-right: 10px

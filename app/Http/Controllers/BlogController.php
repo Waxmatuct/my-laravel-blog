@@ -10,9 +10,16 @@ class BlogController extends Controller
 {
     public function index() {
         $categories = Category::orderBy('title')->get();
-        $posts = Post::orderBy('created_at', 'desc')->paginate(4);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
         return view('index', [
             'posts' => $posts,
+            'categories' => $categories
+        ]);
+    }
+
+    public function getCategories() {
+        $categories = Category::compact();
+        return view('includes.navigation', [
             'categories' => $categories
         ]);
     }
@@ -21,15 +28,17 @@ class BlogController extends Controller
         $categories = Category::orderBy('title')->get();
         $current_category = Category::where('slug', $slug)->first();
         return view('index', [
-            'posts' => $current_category->posts()->paginate(4),
+            'posts' => $current_category->posts()->paginate(10),
             'categories' => $categories
         ]);
     }
 
     public function getPost($slug_post) {
+        $categories = Category::get();
         $post = Post::where('slug', $slug_post)->first();
         return view('post', [
-            'post' => $post
+            'post' => $post,
+            'categories' => $categories
         ]);
     }
 

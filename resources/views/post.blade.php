@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', $post->title)
+@section('title', env('APP_NAME').' | '.$post->title)
 
 @section('content')
 <main id="site-main" class="site-main">

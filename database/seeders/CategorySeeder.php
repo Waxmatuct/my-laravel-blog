@@ -16,10 +16,10 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             DB::table('categories')->insert([
-                'title' => 'Category '.$i,
-                'slug' => 'category-'.$i,
+                'title' => 'Категория '.$i,
+                'slug' => Str::slug('Категория '.$i),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);

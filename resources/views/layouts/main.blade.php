@@ -24,14 +24,14 @@
 				<div class="header-inner">					
 					<div class="site-header-content">
 						<h1 class="site-title">							
-							<a href="/">pletnev</a>
+							<a href="/">{{ env('APP_NAME')}}</a>
 						</h1>
-						<h2 class="site-description">Блог веб-дизайнера</h2>
+						<h2 class="site-description">{{ env('APP_DESCR')}}</h2>
 						<div class="social-links">
-							<a class="social-link social-link-telegram" href="" title="Telegram" target="_blank" rel="noopener"></a>
-							<a class="social-link social-link-tw" href="" title="Twitter" target="_blank" rel="noopener"></a>
-							<a class="social-link social-link-fb" href="" title="Facebook" target="_blank" rel="noopener"></a>
-							<a class="social-link social-link-insta" href="" title="Instagram" target="_blank" rel="noopener"></a>
+							<a class="social-link social-link-telegram" href="#" title="Telegram" target="_blank" rel="noopener"></a>
+							<a class="social-link social-link-tw" href="#" title="Twitter" target="_blank" rel="noopener"></a>
+							<a class="social-link social-link-fb" href="#" title="Facebook" target="_blank" rel="noopener"></a>
+							<a class="social-link social-link-insta" href="#" title="Instagram" target="_blank" rel="noopener"></a>
 						</div>
 						<div class="subscribe">
 							<a href="" class="sub_btn">Подписаться</a>
@@ -44,12 +44,12 @@
             @yield('content')
 
 			<footer class="site-footer">
-				<div class="inner underline">
+				{{-- <div class="inner underline">
 					<section class="credits">
 						<span class="credits-theme">Дизайн: Alvar</span>
 						<span class="credits-software">Движок: Ghost</span>
 					</section>
-				</div>
+				</div> --}}
 			</footer>
 		</div>
 
