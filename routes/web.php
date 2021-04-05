@@ -31,13 +31,13 @@ Route::get('/dashboard', function () {
 })->name('dashboard');
 
 // Dashboard posts
-Route::get('/dashboard/posts', [App\Http\Controllers\Admin\PostController::class, 'index'])->name('dashboard-posts');
-Route::resource('posts', App\Http\Controllers\Admin\PostController::class);
-Route::get('/dashboard/new-post', [App\Http\Controllers\Admin\PostController::class, 'create'])->name('dashboard-new-post');
+// Route::get('/dashboard/posts', [App\Http\Controllers\Admin\PostController::class, 'index'])->name('dashboard-posts');
+Route::resource('/dashboard/posts', App\Http\Controllers\Admin\PostController::class);
+// Route::get('/dashboard/new-post', [App\Http\Controllers\Admin\PostController::class, 'create'])->name('dashboard-new-post');
 
 // Dashboard categories
-Route::get('/dashboard/new-category', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('dashboard-new-category');
-Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
+// Route::get('/dashboard/new-category', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('dashboard-new-category');
+Route::resource('/dashboard/categories', App\Http\Controllers\Admin\CategoryController::class);
 
 Route::get('/dashboard/blank', function () {
     return view('dashboard.blank');

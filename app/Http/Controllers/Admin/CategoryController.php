@@ -48,7 +48,7 @@ class CategoryController extends Controller
             'slug' => Str::slug($request->get('slug')),
         ]);
 
-        return redirect()->route('dashboard-new-category')
+        return redirect()->route('categories.create')
             ->with('success', 'Категория успешно добавлена');
 
     }

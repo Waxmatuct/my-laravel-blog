@@ -64,7 +64,7 @@ class PostController extends Controller
             'slug' => Str::slug($request->get('slug')),
         ]);
 
-        return redirect()->route('dashboard-posts')
+        return redirect()->route('posts.index')
             ->with('success', 'Пост успешно добавлен');
     }
 
@@ -120,7 +120,7 @@ class PostController extends Controller
         $post->slug = Str::slug($request->get('slug'));
         $post->save();
 
-        return redirect()->route('dashboard-posts')
+        return redirect()->route('posts.index')
         ->with('success', 'Пост успешно отредактирован');
     }
 

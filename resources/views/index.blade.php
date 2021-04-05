@@ -24,7 +24,7 @@
 
 	</div>
 	<div class="pagination-block">
-		{{ $posts->links('vendor.pagination.semantic-ui') }}
+		{{ $posts->links('vendor.pagination.default') }}
 	</div>
 </main>
 @endsection
