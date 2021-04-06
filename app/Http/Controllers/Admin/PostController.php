@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -34,9 +35,11 @@ class PostController extends Controller
     {
         $categories = Category::all();
         $posts = Post::all();
+        $tags = Tag::all();
         return view('dashboard.new-post', [
             'posts' => $posts,
-            'categories' => $categories
+            'categories' => $categories,
+            'tags' => $tags,
         ]);
     }
 
@@ -56,13 +59,13 @@ class PostController extends Controller
             'slug' => 'required',
         ]);
 
-        Post::create([
+        $post = Post::create([
             'title' => $request->get('title'),
             'category_id' => $request->get('category_id'),
             'description' => $request->get('description'),
             'content' => $request->get('content'),
             'slug' => Str::slug($request->get('slug')),
-        ]);
+        ])->tags()->attach($request->tags);
 
         return redirect()->route('posts.index')
             ->with('success', 'Пост успешно добавлен');
@@ -89,9 +92,11 @@ class PostController extends Controller
     {   
         $post = Post::find($id);
         $categories = Category::all();
+        $tags = Tag::all();
         return view('dashboard.edit-post', [
             'post' => $post,
-            'categories' => $categories
+            'categories' => $categories,
+            'tags' => $tags,
         ]);
     }
 
@@ -118,6 +123,7 @@ class PostController extends Controller
         $post->description = $request->get('description');
         $post->content = $request->get('content');
         $post->slug = Str::slug($request->get('slug'));
+        $post->tags()->sync($request->tags);
         $post->save();
 
         return redirect()->route('posts.index')

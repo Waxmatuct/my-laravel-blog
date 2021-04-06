@@ -16,6 +16,7 @@
                     <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Заголовок</th>
                     <th class="text-center py-3 px-4 uppercase font-semibold text-sm">URL</th>
                     <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Категория</th>
+                    <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Теги</th>
                     <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Дата создания</td>
                     <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Правка</td>
                     <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Удалить</td>    
@@ -28,6 +29,11 @@
                     <td class="text-center py-3 px-4">{{$post->title}}</td>
                     <td class="text-center py-3 px-4">{{$post->slug}}</td>
                     <td class="text-center py-3 px-4">{{$post->category['title']}}</td>
+                    <td class="text-center py-3 px-4">
+                        @foreach ($post->tags as $tag)
+                        <span class="inline-block rounded-min text-white bg-purple-500 px-2 py-1 text-xs font-bold mr-3">{{ $tag->name }}</span>
+                        @endforeach
+                    </td>
                     <td class="text-center py-3 px-4">{{$post->created_at}}</td>
                     <td class="text-center py-3 px-4"><a href="{{ route('posts.edit', $post) }}" class="text-xs px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full">
                         <i class="fas fa-pen mr-2"></i>Правка</a>

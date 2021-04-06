@@ -53,6 +53,20 @@
                         </span>
                     </div>
                 </div>
+
+                <div class="mt-5">
+                    <label class="block text-sm text-gray-600" for="category">Теги</label>
+                    @foreach ($tags as $tag)
+                        <label for="tag{{ $tag->id }}" class="inline-flex items-center mr-3 wrap">
+                            <input type="checkbox" name="tags[]" id="tag{{ $tag->id }}" class="h-4 w-4 text-purple-600" value="{{ $tag->id }}"
+                            @foreach ($post->tags as $t )
+                                @if ($tag->id == $t->id) checked @endif
+                            @endforeach
+                            ><span class="text-sm ml-1 text-gray-700">{{ $tag->name }}</span>
+                        </label>    
+                    @endforeach
+                </div>
+
                 <div class="mt-5">
                     <label class=" block text-sm text-gray-600" for="message">Пост</label>
                     <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="tiny" name="content" rows="12" required="" placeholder="" aria-label="Content">{{$post->content}}</textarea>

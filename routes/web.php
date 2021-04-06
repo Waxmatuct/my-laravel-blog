@@ -5,7 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CategoryController;
-
+use App\Http\Controllers\Admin\TagController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +38,9 @@ Route::resource('/dashboard/posts', App\Http\Controllers\Admin\PostController::c
 // Dashboard categories
 // Route::get('/dashboard/new-category', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('dashboard-new-category');
 Route::resource('/dashboard/categories', App\Http\Controllers\Admin\CategoryController::class);
+
+// Dashboard tags
+Route::resource('/dashboard/tags', App\Http\Controllers\Admin\TagController::class);
 
 Route::get('/dashboard/blank', function () {
     return view('dashboard.blank');
