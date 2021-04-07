@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -26,10 +27,12 @@ class BlogController extends Controller
 
     public function getPostsByCategory($slug) {
         $categories = Category::orderBy('title')->get();
+        $tags = Tag::all();
         $current_category = Category::where('slug', $slug)->first();
         return view('index', [
             'posts' => $current_category->posts()->paginate(10),
-            'categories' => $categories
+            'categories' => $categories,
+            'tags' => $tags,
         ]);
     }
 
@@ -38,7 +41,7 @@ class BlogController extends Controller
         $post = Post::where('slug', $slug_post)->first();
         return view('post', [
             'post' => $post,
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 
@@ -46,6 +49,17 @@ class BlogController extends Controller
         $post = Post::where('slug', $slug_post)->first();
         return view('edit_post', [
             'post' => $post
+        ]);
+    }
+
+    public function getPostsByTag($slug) {
+        $tags = Tag::orderBy('name')->get();
+        $categories = Category::all();
+        $current_tag = Tag::where('slug', $slug)->first();
+        return view('index', [
+            'posts' => $current_tag->posts()->paginate(4),
+            'categories' => $categories,
+            'tags' => $tags,
         ]);
     }
 }

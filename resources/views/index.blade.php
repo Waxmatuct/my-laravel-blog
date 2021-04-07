@@ -19,7 +19,7 @@
 					</span>
 					<span class="post-tag">
 						@foreach ($post->tags as $tag)
-							<a href="{{route('getPostsByCategory', $post->category['slug'])}}">{{ $tag->name }}</a>
+							<a href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
 						@endforeach
 					</span>
 					{{-- <span class="post-tag"><a href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a></span> --}}

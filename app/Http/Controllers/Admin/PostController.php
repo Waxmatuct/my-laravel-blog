@@ -54,7 +54,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'category_id' => 'required',
-            'description' => 'required|max:255',
+            'description' => 'required|min:100',
             'content' => 'required|min:100',
             'slug' => 'required',
         ]);
@@ -112,7 +112,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'category_id' => 'required',
-            'description' => 'required|max:255',
+            'description' => 'required|min:100',
             'content' => 'required|min:100',
             'slug' => 'required',
         ]);

@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\TagController;
 
 Route::get('/', [BlogController::class, 'index'])->name('index');
 Route::get('/category/{slug}', [BlogController::class, 'getPostsByCategory'])->name('getPostsByCategory');
+Route::get('/tag/{slug}', [BlogController::class, 'getPostsByTag'])->name('getPostsByTag');
 Route::get('/post/{slug_post}', [BlogController::class, 'getPost'])->name('getPost');
 Route::get('/post/{slug_post}/edit', [BlogController::class, 'editPost'])->name('editPost');
 Auth::routes();
