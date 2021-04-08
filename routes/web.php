@@ -22,7 +22,6 @@ Route::get('/category/{slug}', [BlogController::class, 'getPostsByCategory'])->n
 Route::get('/tag/{slug}', [BlogController::class, 'getPostsByTag'])->name('getPostsByTag');
 Route::get('/post/{slug_post}', [BlogController::class, 'getPost'])->name('getPost');
 Route::get('/post/{slug_post}/edit', [BlogController::class, 'editPost'])->name('editPost');
-Auth::routes();
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 
