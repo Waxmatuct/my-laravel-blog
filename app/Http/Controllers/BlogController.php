@@ -11,7 +11,7 @@ class BlogController extends Controller
 {
     public function index() {
         $categories = Category::orderBy('title')->get();
-        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
         return view('index', [
             'posts' => $posts,
             'categories' => $categories

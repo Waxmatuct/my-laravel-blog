@@ -5,9 +5,9 @@
 
 body
 	font-size: 16px
-	background-color: $bg
+	background-color: #1f2126 // $bg
 	font-family: 'Roboto', sans-serif
-	color: $black
+	color: $gray // $black
 
 h1, h2, h3
 	font-family: 'Roboto', sans-serif
@@ -27,7 +27,7 @@ a
 
 .header-inner
 	// padding: 10px 15px
-	background: url('/assets/images/header.jpg') no-repeat center top
+	// background: url('/assets/images/header.jpg') no-repeat center top
 
 .site-nav
 	display: flex
@@ -35,7 +35,7 @@ a
 	min-height: 70px
 	box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.2)
 	border-radius: 20px 20px 0px 0px
-	background-color: $white
+	background-color: $bg // $white
 	position: relative
 
 .site-nav-content
@@ -58,7 +58,7 @@ a
 	li
 		margin-right: 20px
 		a
-			color: $black
+			color: $green  // $black
 			display: block
 			text-decoration: none
 			text-transform: uppercase
@@ -71,9 +71,9 @@ a
 				position: absolute
 				right: 100%
 				bottom: 5px
-				left: 12px
+				left: 10px
 				height: 1px
-				background: $black
+				background: $green // $black
 				opacity: .25
 				transition: all .35s ease-in-out
 			&:hover:before
@@ -133,30 +133,37 @@ a
 	display: flex
 	flex-direction: column
 	justify-content: center
-	align-items: flex-start
+	align-items: center
 	height: 300px
-	margin-left: 50px
+	// margin-left: 50px
+
+.site-avatar
+	max-width: 100px
+	max-height: 100px
+	border-radius: 100%
+	display: block
+	border: 3px solid $green
 
 .site-title
 	font-family: 'Roboto', serif
 	font-style: normal
 	font-weight: 700
-	font-size: 4.500em
+	font-size: 3.00em
 	letter-spacing: 0.115em
 	text-transform: uppercase
 	text-align: center
 	margin: 0
 	a
 		text-decoration: none
-		color: $black
+		color: $white // $black
 
 .site-description
 	font-family: 'Roboto', sans-serif
 	font-style: normal
 	font-weight: 400
-	font-size: 1.2em
+	font-size: 1em
 	text-align: center
-	color: $black
+	color: rgba($white, 0.5) // $black
 	margin: 10px 0
 
 .header-social-links
@@ -228,10 +235,10 @@ a
 	padding: 0px 30px 30px
 
 .site-main
-	background-color: $white
+	background-color: $bg // $white
 	z-index: 1
 	position: relative
-	box-shadow: 0px 0px 50px rgba(50, 50, 50, 0.3)
+	// box-shadow: 0px 0px 50px rgba(50, 50, 50, 0.3)
 	border-radius: 0 0 20px 20px
 
 .inner
@@ -241,7 +248,7 @@ a
 
 .post
 	margin-bottom: 40px
-	border-bottom: 1px solid rgba($black, 0.1)
+	border-bottom: 1px solid rgba($gray, 0.1) // rgba($black, 0.1)
 
 .post:last-child
 	margin-bottom: 0
@@ -258,64 +265,29 @@ a
 	margin: 0px 20px 0 0
 	font-size: 0.750em
 	a
-		color: $black
+		color: $blue // $black
 		margin-right: 7px
 		text-decoration: none
-		border-bottom: 1px solid #ddd
+		border-bottom: 1px solid rgba($blue, 0.5 ) // #ddd
 		&:hover
-			border-bottom: 1px solid $black
+			border-bottom: 1px solid $blue // $black
 
 .post-category
 	margin: 0px
-	font-size: 0.750em
+	font-size: 0.850em
 	a
 		display: inline-block
 		border-radius: 0px 5px 
-		color: $black
-		padding: 7px
+		color: $green
+		// padding: 7px
 		text-decoration: none
-		border-bottom: 0px solid #ddd
-		background: rgba($black,0.2)
+		text-transform: uppercase
+		// border-bottom: 0px solid #ddd
+		// background: $green // rgba($black,0.2)
 		&:hover
 			color: $white
-			background: rgba($black,0.7)
-			border-bottom: 0px solid $black
-
-progress
-	position: fixed
-	left: 0
-	top: 0
-	width: 100%
-	height: 3px
-	appearance: none
-	border: none
-	background: transparent
-	color: orange
-	z-index: 1000
-
-progress::-webkit-progress-bar
-	background: transparent
-
-progress::-webkit-progress-value
-	background: orange
-
-progress::-moz-progress-bar
-	background: orange
-
-.progress-container
-	width: 100%
-	background: transparent
-	position: fixed
-	top: 0
-	left: 0
-	height: 3px
-	display: block
-
-.progress-bar
-	background: orange
-	width: 0%
-	display: block
-	height: inherit
+			// background: rgba($green,0.7) // rgba($black,0.7)
+			// border-bottom: 0px solid $black
 
 .post-title
 	margin: 15px 0 20px 0
@@ -326,16 +298,16 @@ progress::-moz-progress-bar
 	font-size: 28px
 	line-height: 100%
 	width: 100%
-	color: $black
+	color: $white // $black
 	text-align: left
 	a
 		text-decoration: none
-		color: $black
+		color: $white // $black
 
 .post-date, .read-time
 	display: block
 	font-size: 0.750em
-	color: $black
+	color: $gray // $black
 	margin: 0px 20px 0 0
 
 .post-content>* 
@@ -446,6 +418,41 @@ figure figcaption
 	font-size: 0.850em
 	color: #aaa
 
+progress
+	position: fixed
+	left: 0
+	top: 0
+	width: 100%
+	height: 3px
+	appearance: none
+	border: none
+	background: transparent
+	color: orange
+	z-index: 1000
+
+progress::-webkit-progress-bar
+	background: transparent
+
+progress::-webkit-progress-value
+	background: orange
+
+progress::-moz-progress-bar
+	background: orange
+
+.progress-container
+	width: 100%
+	background: transparent
+	position: fixed
+	top: 0
+	left: 0
+	height: 3px
+	display: block
+
+.progress-bar
+	background: orange
+	width: 0%
+	display: block
+	height: inherit
 
 @media (max-width: 575.98px)
 
