@@ -24,7 +24,7 @@
 				<div class="header-inner">					
 					<div class="site-header-content">
 						<a href="#">
-							<img class="site-avatar" src="https://alvar.ru/avatar.jpg">
+							<img class="site-avatar" src="{{ asset('/assets/images/logo.jpg') }}">
 						</a>
 						<h1 class="site-title">							
 							<a href="/">{{ env('APP_NAME')}}</a>

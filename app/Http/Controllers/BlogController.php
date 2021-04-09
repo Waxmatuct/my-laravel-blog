@@ -6,6 +6,9 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Http\Controllers\DB;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -14,7 +17,7 @@ class BlogController extends Controller
         $posts = Post::orderBy('id', 'desc')->paginate(10);
         return view('index', [
             'posts' => $posts,
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 
@@ -62,4 +65,14 @@ class BlogController extends Controller
             'tags' => $tags,
         ]);
     }
+
+    // public function isAdmin() {
+    //     $isAdmin = Auth::check()->isAdmin(1);
+    //     if ($isAdmin) {
+    //         return view('index', [
+    //             'isAdmin' => $isAdmin,
+    //         ]);
+    //     }
+    // }
+
 }

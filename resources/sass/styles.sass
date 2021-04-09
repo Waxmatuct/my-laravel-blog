@@ -5,7 +5,7 @@
 
 body
 	font-size: 16px
-	background-color: #1f2126 // $bg
+	background-color: $black // $bg
 	font-family: 'Roboto', sans-serif
 	color: $gray // $black
 
@@ -58,12 +58,12 @@ a
 	li
 		margin-right: 20px
 		a
-			color: $green  // $black
+			color: $white  // $black
 			display: block
 			text-decoration: none
 			text-transform: uppercase
 			font-size: 0.850em
-			font-weight: 700
+			font-weight: 400
 			padding: 10px
 			position: relative
 			&:before
@@ -73,7 +73,7 @@ a
 				bottom: 5px
 				left: 10px
 				height: 1px
-				background: $green // $black
+				background: $white // $black
 				opacity: .25
 				transition: all .35s ease-in-out
 			&:hover:before
@@ -142,7 +142,7 @@ a
 	max-height: 100px
 	border-radius: 100%
 	display: block
-	border: 3px solid $green
+	border: 6px solid $bg
 
 .site-title
 	font-family: 'Roboto', serif
@@ -290,12 +290,12 @@ a
 			// border-bottom: 0px solid $black
 
 .post-title
-	margin: 15px 0 20px 0
+	margin: 15px 0
 	font-style: normal
 	display: block
 	font-weight: 700
 	font-family: 'Roboto', sans-serif
-	font-size: 28px
+	font-size: 1.500em
 	line-height: 100%
 	width: 100%
 	color: $white // $black
@@ -318,12 +318,13 @@ a
 .post-content pre
 	overflow-x: auto
 	margin: 1.5em 0 1.5em
-	padding: 20px
+	padding-left: 10px
 	max-width: 100%
 	color: #e5eff5
-	font-size: 1.000rem
-	background: #242635
-	border-radius: 5px
+	font-size: 0.850rem
+	background: $bg
+	// border-radius: 5px
+	border-left: 5px solid $green
 	code
 		padding: 0
 		font-size: inherit
@@ -336,11 +337,11 @@ a
 	font-size: 1em
 
 .post-content a
-	border-bottom: 1px solid #ddd
+	border-bottom: 1px solid rgba($green, 0.5)
 	text-decoration: none
-	color: $black
+	color: $green
 	&:hover
-		border-bottom: 1px solid $black
+		border-bottom: 1px solid $green
 
 .post-content p, .post-excerpt, .post-content blockquote, .post-content ol li, .post-content ul li
 	line-height: 1.4em
