@@ -25,33 +25,35 @@ Route::get('/post/{slug_post}/edit', [BlogController::class, 'editPost'])->name(
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 
-// Dashboard routes
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-})->name('dashboard')->middleware('isAdmin');
+Route::middleware(['isAdmin'])->group(function () {
+    
+    // Dashboard routes
+    Route::get('/dashboard', function () {
+        return view('dashboard.index');
+    })->name('dashboard');
 
-// Dashboard posts
-// Route::get('/dashboard/posts', [App\Http\Controllers\Admin\PostController::class, 'index'])->name('dashboard-posts');
-Route::resource('/dashboard/posts', App\Http\Controllers\Admin\PostController::class)->middleware('isAdmin');
-// Route::get('/dashboard/new-post', [App\Http\Controllers\Admin\PostController::class, 'create'])->name('dashboard-new-post');
+    // Dashboard posts
+    Route::resource('/dashboard/posts', App\Http\Controllers\Admin\PostController::class);
 
-// Dashboard categories
-// Route::get('/dashboard/new-category', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('dashboard-new-category');
-Route::resource('/dashboard/categories', App\Http\Controllers\Admin\CategoryController::class)->middleware('isAdmin');
+    // Dashboard categories
+    Route::resource('/dashboard/categories', App\Http\Controllers\Admin\CategoryController::class);
 
-// Dashboard tags
-Route::resource('/dashboard/tags', App\Http\Controllers\Admin\TagController::class)->middleware('isAdmin');
+    // Dashboard tags
+    Route::resource('/dashboard/tags', App\Http\Controllers\Admin\TagController::class);
 
-Route::get('/dashboard/blank', function () {
-    return view('dashboard.blank');
-})->name('dashboard-blank')->middleware('isAdmin');
-Route::get('/dashboard/calendar', function () {
-    return view('dashboard.calendar')->middleware('isAdmin');
-})->name('dashboard-calendar');
-Route::get('/dashboard/forms', function () {
-    return view('dashboard.forms');
-})->name('dashboard-forms')->middleware('isAdmin');
+    Route::get('/dashboard/blank', function () {
+        return view('dashboard.blank');
+    })->name('dashboard-blank');
+    Route::get('/dashboard/calendar', function () {
+        return view('dashboard.calendar');
+    })->name('dashboard-calendar');
+    Route::get('/dashboard/forms', function () {
+        return view('dashboard.forms');
+    })->name('dashboard-forms');
 
-Route::get('/dashboard/tabs', function () {
-    return view('dashboard.tabs');
-})->name('dashboard-tabs')->middleware('isAdmin');
+    Route::get('/dashboard/tabs', function () {
+        return view('dashboard.tabs');
+    })->name('dashboard-tabs');
+    
+});
+

@@ -15,7 +15,7 @@
 				<section class="post-excerpt"><p>{{ Str::words($post->description,30,) }}</p></section>
 				<div class="meta">
 					<span class="post-date">
-						<time datetime="2019-11-29"><i class="far fa-clock"></i> {{$post->created_at->diffForHumans()}}</time>
+						<time><i class="far fa-clock"></i> {{$post->created_at->diffForHumans()}}</time>
 					</span>
 					@if ($post->tags->count() == 0)
 					<span></span>							
@@ -27,15 +27,12 @@
 						@endforeach
 					</span>	
 					@endif
-					{{-- @if ($isAdmin)
-						@foreach ($isAdmin->username as $name)
-							<span class="post-tag">
-								<a href="{{ route('posts.edit', $post) }}">Править {{ $isAdmin->name }}</a>
-							</span>
-						@endforeach
-					@endif --}}
 
-					{{-- <span class="post-tag"><a href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a></span> --}}
+					@if (Auth::user())
+						<span class="post-tag">
+							<a href="{{ route('posts.edit', $post) }}">Править</a>
+						</span>
+					@endif
 				</div>
 			</article>			
 		@endforeach

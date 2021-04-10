@@ -62,7 +62,7 @@ a {
   margin-right: 20px;
 }
 .site-nav-content ul li a {
-  color: #e9e9e9;
+  color: #98c376;
   display: block;
   text-decoration: none;
   text-transform: uppercase;
@@ -78,7 +78,7 @@ a {
   bottom: 5px;
   left: 10px;
   height: 1px;
-  background: #e9e9e9;
+  background: #98c376;
   opacity: 0.25;
   transition: all 0.35s ease-in-out;
 }
@@ -410,6 +410,25 @@ a {
   justify-content: center;
   max-width: 700px;
   margin: 0 auto;
+}
+
+.pagination a.item {
+  color: #98c376;
+  padding: 6px;
+  border-radius: 10%;
+  text-decoration: none;
+}
+.pagination a:hover {
+  color: #e9e9e9;
+}
+.pagination a.active {
+  background: #22272e;
+}
+
+.pagination a.icon {
+  border-radius: 0;
+  border: 0px solid #e9e9e9;
+  background: none;
 }
 
 .pagination-info {

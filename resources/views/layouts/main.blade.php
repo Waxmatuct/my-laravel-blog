@@ -47,12 +47,12 @@
             @yield('content')
 
 			<footer class="site-footer">
-				{{-- <div class="inner underline">
+				<div class="inner underline">
 					<section class="credits">
 						<span class="credits-theme">Дизайн: Alvar</span>
 						<span class="credits-software">Движок: Ghost</span>
 					</section>
-				</div> --}}
+				</div>
 			</footer>
 		</div>
 
