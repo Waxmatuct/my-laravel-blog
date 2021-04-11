@@ -41,6 +41,8 @@ Route::middleware(['isAdmin'])->group(function () {
     // Dashboard tags
     Route::resource('/dashboard/tags', App\Http\Controllers\Admin\TagController::class);
 
+    Route::patch('/dashboard/posts/online/{id}', [BlogController::class, 'online'])->name('online');
+
     Route::get('/dashboard/blank', function () {
         return view('dashboard.blank');
     })->name('dashboard-blank');

@@ -24,6 +24,6 @@ class HomeController extends Controller
     public function home()
     {
         // return view('home');
-        return redirect('dashboard');
+        return redirect()->route('dashboard');
     }
 }

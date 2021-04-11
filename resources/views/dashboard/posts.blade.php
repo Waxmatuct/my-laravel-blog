@@ -18,6 +18,7 @@
                     <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Категория</th>
                     <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Теги</th>
                     <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Дата создания</td>
+                    <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Статус</td>
                     <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Правка</td>
                     <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Удалить</td>    
                 </tr>
@@ -35,6 +36,16 @@
                         @endforeach
                     </td>
                     <td class="text-center py-3 px-4">{{$post->created_at}}</td>
+                    <td class="text-center py-3 px-4">
+                        <form id="online-form" action="{{ route('online', $post) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+
+                            <input type="checkbox" class="form-checkbox h-3 w-3" name="online"
+                            @if ($post->online) checked @endif
+                            onchange="document.getElementById('online-form').submit();">
+                        </form>
+                    </td>
                     <td class="text-center py-3 px-4"><a href="{{ route('posts.edit', $post) }}" class="text-xs px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full">
                         <i class="fas fa-pen mr-2"></i>Правка</a>
                     </td>

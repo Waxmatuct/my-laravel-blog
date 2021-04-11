@@ -124,10 +124,15 @@ class PostController extends Controller
         $post->content = $request->get('content');
         $post->slug = Str::slug($request->get('slug'));
         $post->tags()->sync($request->tags);
+        $post->online = $request->get('online');
         $post->save();
 
         return redirect()->route('posts.index')
         ->with('success', 'Пост успешно отредактирован');
+
+        $online = Post::find($id);
+        $online->online = $request->online;
+        $online->save();
     }
 
     /**

@@ -14,7 +14,7 @@ class BlogController extends Controller
 {
     public function index() {
         $categories = Category::orderBy('title')->get();
-        $posts = Post::orderBy('id', 'desc')->paginate(10);
+        $posts = Post::where('online', true)->orderBy('id', 'desc')->paginate(10);
         return view('index', [
             'posts' => $posts,
             'categories' => $categories,
@@ -33,7 +33,7 @@ class BlogController extends Controller
         $tags = Tag::all();
         $current_category = Category::where('slug', $slug)->first();
         return view('index', [
-            'posts' => $current_category->posts()->paginate(10),
+            'posts' => $current_category->posts()->where('online', true)->orderBy('id', 'desc')->paginate(10),
             'categories' => $categories,
             'tags' => $tags,
         ]);
@@ -60,19 +60,20 @@ class BlogController extends Controller
         $categories = Category::all();
         $current_tag = Tag::where('slug', $slug)->first();
         return view('index', [
-            'posts' => $current_tag->posts()->paginate(4),
+            'posts' => $current_tag->posts()->where('online', true)->orderBy('id', 'desc')->paginate(4),
             'categories' => $categories,
             'tags' => $tags,
         ]);
     }
 
-    // public function isAdmin() {
-    //     $isAdmin = Auth::check()->isAdmin(1);
-    //     if ($isAdmin) {
-    //         return view('index', [
-    //             'isAdmin' => $isAdmin,
-    //         ]);
-    //     }
-    // }
+    public function online(Request $request, $id)
+    {
+        $post = Post::find($id);
+        $post->online = $request->online;
+        $post->save();
+
+        return redirect()->route('posts.index')
+        ->with('success', 'Пост включен');
+    }
 
 }
