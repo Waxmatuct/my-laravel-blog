@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
+use App\Models\User;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -37,7 +38,11 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
         Fortify::loginView(fn () => view('auth.login'));
         Fortify::registerView(function () {
-            return view('auth.register');
+            if (User::where("isAdmin","=", "1")->exists()) {
+                return redirect()->route('index');
+            } else {                
+                return view('auth.register');
+            }
         });
         Fortify::requestPasswordResetLinkView(function () {
             return view('auth.forgot-password');
