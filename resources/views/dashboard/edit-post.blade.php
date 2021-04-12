@@ -53,24 +53,31 @@
                         </span>
                     </div>
                 </div>
-
-                <div class="mt-5">
-                    <label class="block text-sm text-gray-600" for="category">Теги</label>
-                    @foreach ($tags as $tag)
-                        <label for="tag{{ $tag->id }}" class="inline-flex items-center mr-3 wrap">
-                            <input type="checkbox" name="tags[]" id="tag{{ $tag->id }}" class="h-4 w-4 text-purple-600" value="{{ $tag->id }}"
-                            @foreach ($post->tags as $t )
-                                @if ($tag->id == $t->id) checked @endif
-                            @endforeach
-                            ><span class="text-sm ml-1 text-gray-700">{{ $tag->name }}</span>
-                        </label>    
-                    @endforeach
+                <div class="flex flex-col sm:flex-row">
+                    <div class="md:w-2/3 sm:mr-5 mt-5">
+                        <label class="block text-sm text-gray-600" for="category">Теги</label>
+                        @foreach ($tags as $tag)
+                            <label for="tag{{ $tag->id }}" class="inline-flex items-center mr-3 wrap">
+                                <input type="checkbox" name="tags[]" id="tag{{ $tag->id }}" class="h-4 w-4 text-purple-600" value="{{ $tag->id }}"
+                                @foreach ($post->tags as $t )
+                                    @if ($tag->id == $t->id) checked @endif
+                                @endforeach
+                                ><span class="text-sm ml-1 text-gray-700">{{ $tag->name }}</span>
+                            </label>    
+                        @endforeach
+                    </div>
+                    <div class="md:w-1/3 sm:mr-5 mt-5">
+                        <label class="inline-flex items-center text-sm text-gray-600" for="online">
+                            <input type="checkbox" class="form-checkbox h-3 w-3" name="online"
+                            @if ($post->online) checked @endif value="1"><span class="ml-1 text-gray-600">Статус</span>
+                        </label>
+                    </div>
                 </div>
-
                 <div class="mt-5">
                     <label class=" block text-sm text-gray-600" for="message">Пост</label>
                     <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="tiny" name="content" rows="12" required="" placeholder="" aria-label="Content">{{$post->content}}</textarea>
                 </div>
+
                 <div class="mt-6">
                     <button class="px-4 py-1 text-white font-light tracking-wider bg-purple-700 hover:bg-green-500 rounded" type="submit">Сохранить</button>
                 </div>

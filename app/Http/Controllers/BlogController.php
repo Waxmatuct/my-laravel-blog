@@ -60,7 +60,7 @@ class BlogController extends Controller
         $categories = Category::all();
         $current_tag = Tag::where('slug', $slug)->first();
         return view('index', [
-            'posts' => $current_tag->posts()->where('online', true)->orderBy('id', 'desc')->paginate(4),
+            'posts' => $current_tag->posts()->where('online', true)->orderBy('id', 'desc')->paginate(10),
             'categories' => $categories,
             'tags' => $tags,
         ]);
