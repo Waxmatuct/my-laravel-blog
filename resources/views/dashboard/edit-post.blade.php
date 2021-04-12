@@ -36,24 +36,25 @@
                     <label class="block text-sm text-gray-600" for="slug">Описание</label>
                     <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="description" name="description" type="text" placeholder="Описание поста" aria-label="Description" value="{{$post->description}}">
                 </div>
-                <div class="mt-5">
-                    <label class="block text-sm text-gray-600" for="category">Категория</label>
-                    <div class="relative w-max">
-                        <select class="text-gray-600 bg-gray-200 rounded appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10" id="category_id" name="category_id">
-                            @foreach ($categories as $category)
-                                @if ($post->category_id === $category->id)
-                                    <option selected="selected" value="{{ $category->id }}">{{ $category->title }}</option>
-                                @else
-                                    <option value="{{ $category->id }}">{{ $category->title }}</option>
-                                @endif
-                            @endforeach
-                        </select>
-                        <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                    </div>
-                </div>
                 <div class="flex flex-col sm:flex-row">
+                    <div class="md:w-1/3 sm:mr-5 mt-5">
+                        <label class="block text-sm text-gray-600" for="category">Категория</label>
+                        <div class="relative w-max">
+                            <select class="text-gray-600 bg-gray-200 rounded appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10" id="category_id" name="category_id">
+                                @foreach ($categories as $category)
+                                    @if ($post->category_id === $category->id)
+                                        <option selected="selected" value="{{ $category->id }}">{{ $category->title }}</option>
+                                    @else
+                                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </div>
+                    </div>
+                
                     <div class="md:w-2/3 sm:mr-5 mt-5">
                         <label class="block text-sm text-gray-600" for="category">Теги</label>
                         @foreach ($tags as $tag)
@@ -65,12 +66,6 @@
                                 ><span class="text-sm ml-1 text-gray-700">{{ $tag->name }}</span>
                             </label>    
                         @endforeach
-                    </div>
-                    <div class="md:w-1/3 sm:mr-5 mt-5">
-                        <label class="inline-flex items-center text-sm text-gray-600" for="online">
-                            <input type="checkbox" class="form-checkbox h-3 w-3" name="online"
-                            @if ($post->online) checked @endif value="1"><span class="ml-1 text-gray-600">Статус</span>
-                        </label>
                     </div>
                 </div>
                 <div class="mt-5">
@@ -99,8 +94,17 @@
     <script>
         tinymce.init({
           selector: '#tiny',
-          plugins: 'advlist autolink lists link image charmap preview hr anchor pagebreak',
-          toolbar_mode: 'floating',
+          menubar: false,
+          language: 'ru',
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+            ],
+        toolbar: 'undo redo preview | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help'
        });
     </script>
 @endpush

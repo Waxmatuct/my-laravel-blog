@@ -7,6 +7,7 @@
         <meta name="author" content="David Grzyb">
         <meta name="description" content="">
         @stack('editor') 
+        @stack('switch')
         <!-- Tailwind -->
         <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
          

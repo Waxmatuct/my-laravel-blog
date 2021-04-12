@@ -6,7 +6,7 @@
 <h1 class="text-2xl font-bold text-black pb-6">Посты</h1>
 
 @include('dashboard.includes.message')
-
+{{ $posts->links('vendor.pagination.tailwind') }}
 <div class="w-full mt-6">
     <div class="bg-white overflow-auto">
         <table class="min-w-full bg-white border-2">
@@ -35,14 +35,23 @@
                         <span class="inline-block rounded-min text-white bg-purple-500 px-2 py-1 text-xs font-bold mr-3">{{ $tag->name }}</span>
                         @endforeach
                     </td>
-                    <td class="text-center py-3 px-4">{{$post->created_at}}</td>
+                    <td class="text-center py-3 px-4">{{$post->created_at->isoFormat('D MMMM  YYYY')}}</td>
                     <td class="text-center py-3 px-4">
                         <form id="online-form{{ $post->id}}" action="{{ route('online', $post) }}" method="POST">
                             @csrf
                             @method('PATCH')
-                            <input type="checkbox" class="form-checkbox h-3 w-3" name="online"
+
+                            <label class="switch">
+                                <input type="checkbox"
+                                    name="online"
+                                    @if ($post->online) checked @endif
+                                    onclick="document.getElementById('online-form{{ $post->id}}').submit();" value="1">
+                                <span class="slider round"></span>
+                            </label>
+
+                            {{-- <input type="checkbox" class="form-checkbox h-3 w-3" name="online"
                             @if ($post->online) checked @endif
-                            onclick="document.getElementById('online-form{{ $post->id}}').submit();" value="1">
+                            onclick="document.getElementById('online-form{{ $post->id}}').submit();" value="1"> --}}
                         </form>
                     </td>
                     <td class="text-center py-3 px-4"><a href="{{ route('posts.edit', $post) }}" class="text-xs px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full">
@@ -92,9 +101,69 @@
             </tbody>
         </table>
     </div>
-    {{-- {{ $posts->links('vendor.pagination.semantic-ui') }} --}}
 </div>
 @endsection
+@push('switch')
+    <style>
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 36px;
+            height: 20px;
+        }
+
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #10b981;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #10b981;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(16px);
+            -ms-transform: translateX(16px);
+            transform: translateX(16px);
+        }
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+@endpush
 @push('scripts')
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
