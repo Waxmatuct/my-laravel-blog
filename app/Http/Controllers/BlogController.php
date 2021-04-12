@@ -72,8 +72,13 @@ class BlogController extends Controller
         $post->online = $request->online;
         $post->save();
 
-        return redirect()->route('posts.index')
-        ->with('success', 'Пост включен');
+        if ($request->online) {
+            return redirect()->route('posts.index')
+            ->with('success', 'Пост «'.$post->title.'» включен');
+        } else {
+            return redirect()->route('posts.index')
+            ->with('success', 'Пост «'.$post->title.'» выключен');
+        }
     }
 
 }

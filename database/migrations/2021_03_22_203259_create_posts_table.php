@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->text('description');
             $table->text('content');
             $table->string('slug')->unique();
-            $table->integer('online')->nullable()->default(true);
+            $table->boolean('online')->nullable()->default(true);
             $table->timestamps();
         });
     }

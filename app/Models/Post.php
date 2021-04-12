@@ -15,6 +15,7 @@ class Post extends Model
         'description',
         'slug',
         'content',
+        'online',
     ];
 
     public function category() {
