@@ -103,7 +103,7 @@
             ],
         toolbar: 'undo redo preview | formatselect | ' +
             'bold italic backcolor | alignleft aligncenter ' +
-            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'alignright alignjustify | bullist numlist outdent indent | link media code image | ' +
             'removeformat | help'
        });
     </script>

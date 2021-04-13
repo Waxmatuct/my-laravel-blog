@@ -54,7 +54,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'category_id' => 'required',
-            'description' => 'required|min:100',
+            'description' => 'required|min:10',
             'content' => 'required|min:100',
             'slug' => 'required',
         ]);
@@ -65,6 +65,7 @@ class PostController extends Controller
             'description' => $request->get('description'),
             'content' => $request->get('content'),
             'slug' => Str::slug($request->get('slug')),
+            'online' => $request->get('online'),
         ])->tags()->attach($request->tags);
 
         return redirect()->route('posts.index')
@@ -124,15 +125,10 @@ class PostController extends Controller
         $post->content = $request->get('content');
         $post->slug = Str::slug($request->get('slug'));
         $post->tags()->sync($request->tags);
-        $post->online = $request->get('online');
         $post->save();
 
         return redirect()->route('posts.index')
         ->with('success', 'Пост успешно отредактирован');
-
-        $online = Post::find($id);
-        $online->online = $request->online;
-        $online->save();
     }
 
     /**

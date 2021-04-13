@@ -83,8 +83,17 @@
     <script>
         tinymce.init({
           selector: '#tiny',
-          plugins: 'advlist autolink lists link image charmap preview hr anchor pagebreak',
-          toolbar_mode: 'floating',
+          menubar: false,
+          language: 'ru',
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+            ],
+        toolbar: 'undo redo preview | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | link media code image | ' +
+            'removeformat | help'
        });
     </script>
 @endpush

@@ -33,13 +33,13 @@ Route::middleware(['isAdmin'])->group(function () {
     })->name('dashboard');
 
     // Dashboard posts
-    Route::resource('/dashboard/posts', App\Http\Controllers\Admin\PostController::class);
+    Route::resource('/dashboard/posts', PostController::class);
 
     // Dashboard categories
-    Route::resource('/dashboard/categories', App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('/dashboard/categories', CategoryController::class);
 
     // Dashboard tags
-    Route::resource('/dashboard/tags', App\Http\Controllers\Admin\TagController::class);
+    Route::resource('/dashboard/tags', TagController::class);
 
     Route::patch('/dashboard/posts/online/{id}', [BlogController::class, 'online'])->name('online');
 
