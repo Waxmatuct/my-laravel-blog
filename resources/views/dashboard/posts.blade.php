@@ -6,10 +6,11 @@
 <h1 class="text-2xl font-bold text-black pb-6">Посты</h1>
 
 @include('dashboard.includes.message')
+
 {{ $posts->links('vendor.pagination.tailwind') }}
 <div class="w-full mt-6">
-    <div class="bg-white overflow-auto">
-        <table class="min-w-full bg-white border-2">
+    <div class="bg-white shadow-md rounded-lg overflow-auto">
+        <table class="min-w-full bg-white">
             <thead class="bg-gray-500 text-white">
                 <tr>
                     <th class="min-w-min text-center py-3 px-4 uppercase font-semibold text-sm">ID</th>
@@ -25,7 +26,7 @@
             </thead>
             <tbody class="text-gray-700">
                 @foreach ($posts as $post)
-                <tr class="border-2">
+                <tr @if ($loop->even) class="bg-gray-200" @endif>
                     <td class="min-w-min text-center py-3 px-4">{{$post->id}}</td>
                     <td class="text-center py-3 px-4">{{$post->title}}</td>
                     <td class="text-center py-3 px-4">{{$post->slug}}</td>
@@ -170,4 +171,18 @@
 
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <script>
+        function fade(element) {
+            var op = 1;  // initial opacity
+            var timer = setInterval(function () {
+                if (op <= 0.1){
+                    clearInterval(timer);
+                    element.style.display = 'none';
+                }
+                element.style.opacity = op;
+                element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+                op -= op * 0.1;
+            }, 50);
+        }
+    </script>
 @endpush
