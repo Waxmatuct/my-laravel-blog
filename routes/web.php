@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\SettingResource;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +42,9 @@ Route::middleware(['isAdmin'])->group(function () {
 
     // Dashboard tags
     Route::resource('/dashboard/tags', TagController::class);
+
+    // Dashboard settings
+    Route::resource('/dashboard/settings', SettingResource::class);
 
     Route::patch('/dashboard/posts/online/{id}', [BlogController::class, 'online'])->name('online');
 
