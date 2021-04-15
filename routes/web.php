@@ -58,9 +58,9 @@ Route::middleware(['isAdmin'])->group(function () {
         return view('dashboard.forms');
     })->name('dashboard-forms');
 
-    Route::get('/dashboard/tabs', function () {
-        return view('dashboard.tabs');
-    })->name('dashboard-tabs');
+    // Route::get('/dashboard/tabs', function () {
+    //     return view('dashboard.tabs');
+    // })->name('dashboard-tabs');
     
 });
 

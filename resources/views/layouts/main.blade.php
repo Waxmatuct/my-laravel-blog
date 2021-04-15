@@ -26,10 +26,14 @@
 						<a href="#">
 							<img class="site-avatar" src="{{ asset('/assets/images/logo.jpg') }}">
 						</a>
-						<h1 class="site-title">							
-							<a href="/">{{ env('APP_NAME')}}</a>
+						<h1 class="site-title">
+							@foreach ( $site_name as $name )
+								<a href="{{ route('dashboard') }}">{{ $name->option }}</a>
+							@endforeach
 						</h1>
-						<h2 class="site-description">{{ env('APP_DESCR')}}</h2>
+						@foreach ( $site_description as $desc )
+							<h2 class="site-description">{{ $desc->option }}</h2>
+						@endforeach
 						<div class="social-links">
 							<a class="social-link social-link-telegram" href="#" title="Telegram" target="_blank" rel="noopener"></a>
 							<a class="social-link social-link-tw" href="#" title="Twitter" target="_blank" rel="noopener"></a>

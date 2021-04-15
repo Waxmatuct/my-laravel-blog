@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Setting;
-use Illuminate\Support\Collection;
+// use Illuminate\Support\Collection;
 
 class SettingResource extends Controller
 {
@@ -16,12 +16,14 @@ class SettingResource extends Controller
      */
     public function index()
     {
-        $settings = Setting::get();
-        // dd(__METHOD__, $settings, $settings->toArray());
+        $site_name = Setting::where('name', 'site_name')->get();
+        $site_description = Setting::where('name', 'site_description')->get();
+        
+        return view('dashboard.settings', [
+            'site_name' => $site_name,
+            'site_description' => $site_description,
 
-        $collection = collect($settings->toArray());
-        $site_name = $collection->where('name', 'site_name')->get('option');
-        dd($site_name);
+        ]);
     }
 
     /**
@@ -76,7 +78,16 @@ class SettingResource extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'option' => 'required|min:1',
+        ]);
+
+        $set = Setting::find($id);
+        $set->option = $request->get('option');
+        $set->save();
+
+        return redirect()->route('settings.index')
+        ->with('success', 'Опция сохранена');
     }
 
     /**

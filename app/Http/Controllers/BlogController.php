@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\DB;
@@ -15,9 +16,13 @@ class BlogController extends Controller
     public function index() {
         $categories = Category::orderBy('title')->get();
         $posts = Post::where('online', true)->orderBy('id', 'desc')->paginate(10);
+        $site_name = Setting::where('name', 'site_name')->get();
+        $site_description = Setting::where('name', 'site_description')->get();
         return view('index', [
             'posts' => $posts,
             'categories' => $categories,
+            'site_name' => $site_name,
+            'site_description' => $site_description,
         ]);
     }
 

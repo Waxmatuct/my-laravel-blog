@@ -45,9 +45,9 @@
             <i class="fas fa-align-left mr-3"></i>
             Forms
         </a>
-        <a href="{{ route('dashboard-tabs') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-            <i class="fas fa-tablet-alt mr-3"></i>
-            Tabbed Content
+        <a href="{{ route('settings.index') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <i class="fas fa-cogs mr-3"></i>
+            Настройки
         </a>
         <a href="{{ route('dashboard-calendar') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-calendar mr-3"></i>
