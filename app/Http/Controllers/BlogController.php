@@ -7,9 +7,6 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Setting;
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Http\Controllers\DB;
-use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -18,11 +15,14 @@ class BlogController extends Controller
         $posts = Post::where('online', true)->orderBy('id', 'desc')->paginate(10);
         $site_name = Setting::where('name', 'site_name')->get();
         $site_description = Setting::where('name', 'site_description')->get();
+        $site_footer = Setting::where('name', 'site_footer')->get();
         return view('index', [
             'posts' => $posts,
             'categories' => $categories,
             'site_name' => $site_name,
             'site_description' => $site_description,
+            'site_footer' => $site_footer,
+
         ]);
     }
 

@@ -18,10 +18,12 @@ class SettingResource extends Controller
     {
         $site_name = Setting::where('name', 'site_name')->get();
         $site_description = Setting::where('name', 'site_description')->get();
+        $site_footer = Setting::where('name', 'site_footer')->get();
         
         return view('dashboard.settings', [
             'site_name' => $site_name,
             'site_description' => $site_description,
+            'site_footer' => $site_footer,
 
         ]);
     }

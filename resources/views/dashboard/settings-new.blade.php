@@ -25,46 +25,31 @@
         </div>
         <div class="bg-white p-6">
             <div id="" class="" x-show="openTab === 1">
-               
-                @foreach ($site_name as $name)
-                <form action="{{ route('settings.update', $name) }}" method="POST">
+
+                <form action="{{ route('settings.update', array($set)) }}" method="POST">
                     @csrf
                     @method('PATCH')
+                    
                     <div class="md:w-1/3 sm:mr-5 mb-5">
                         <label class="block text-sm text-gray-600" for="title">Название сайта</label>
-                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="option{{ $name->id}}" name="option" type="text" required="" placeholder="Название сайта"
-                        value="{{ $name->option }}"
-                        onfocusout="event.preventDefault(); document.getElementById('option{{ $name->id}}'); form.submit();">
+                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="option0" name="set[]" type="text" required="" placeholder="Название сайта"
+                        value="">
                     </div>
-                </form>
-                @endforeach
                 
-                @foreach ($site_description as $desc)
-                <form action="{{ route('settings.update', $desc) }}" method="POST">
-                    @csrf
-                    @method('PATCH')
                     <div class="md:w-1/3 sm:mr-5 mb-5">
                         <label class="block text-sm text-gray-600" for="title">Описание</label>
-                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="option{{ $desc->id}}" name="option" type="text" required="" placeholder="Описание сайта"
-                            value="{{ $desc->option }}"
-                            onfocusout="event.preventDefault(); document.getElementById('option{{ $desc->id}}'); form.submit();">
+                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="option1" name="set[]" type="text" required="" placeholder="Описание сайта"
+                            value="">
                     </div>
-                </form>
-                @endforeach
 
-                @foreach ($site_footer as $foot)
-                <form action="{{ route('settings.update', $foot) }}" method="POST">
-                    @csrf
-                    @method('PATCH')
                     <div class="md:w-1/2 sm:mr-5 mb-5">
                         <label class="block text-sm text-gray-600" for="title">Футер</label>
-                        <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="option{{ $foot->id}}" name="option" rows="12" required="">{{ $foot->option }}</textarea>
+                        <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="option2" name="$set[]" rows="12" required=""></textarea>
                         <div class="mt-6">
                             <button class="px-4 py-1 text-white font-light tracking-wider bg-purple-700 hover:bg-green-500 rounded" type="submit">Сохранить</button>
                         </div>
                     </div>
                 </form>
-                @endforeach
 
             </div>
             <div id="" class="" x-show="openTab === 2">

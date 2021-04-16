@@ -23,17 +23,23 @@
 			<header class="site-home-header">
 				<div class="header-inner">					
 					<div class="site-header-content">
-						<a href="#">
+						<a href="/">
 							<img class="site-avatar" src="{{ asset('/assets/images/logo.jpg') }}">
 						</a>
 						<h1 class="site-title">
-							@foreach ( $site_name as $name )
-								<a href="{{ route('dashboard') }}">{{ $name->option }}</a>
-							@endforeach
+							@forelse ( $site_name as $name )
+								<a href="{{ route('login') }}">{{ $name->option }}</a>
+
+								@empty <a href="{{ route('login') }}">alvar</a>
+								
+							@endforelse
 						</h1>
-						@foreach ( $site_description as $desc )
+						@forelse ( $site_description as $desc )
 							<h2 class="site-description">{{ $desc->option }}</h2>
-						@endforeach
+						
+							@empty <h2 class="site-description">Простой блог на Laravel</h2>
+					
+						@endforelse
 						<div class="social-links">
 							<a class="social-link social-link-telegram" href="#" title="Telegram" target="_blank" rel="noopener"></a>
 							<a class="social-link social-link-tw" href="#" title="Twitter" target="_blank" rel="noopener"></a>
@@ -52,10 +58,19 @@
 
 			<footer class="site-footer">
 				<div class="inner underline">
-					<section class="credits">
-						<span class="credits-theme">Дизайн: Alvar</span>
-						<span class="credits-software">Движок: Ghost</span>
-					</section>
+					@forelse ( $site_footer as $foot )
+					
+					{!! $foot->option !!}
+						
+						@empty 
+						<div class="inner underline">
+							<section class="credits">
+								<span class="credits-theme">Дизайн: Alvar</span>
+								<span class="credits-software">Движок: Ghost</span>
+							</section>
+						</div>
+					
+					@endforelse
 				</div>
 			</footer>
 		</div>
