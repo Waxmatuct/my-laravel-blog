@@ -16,20 +16,21 @@ class BlogController extends Controller
         $site_name = Setting::where('name', 'site_name')->get();
         $site_description = Setting::where('name', 'site_description')->get();
         $site_footer = Setting::where('name', 'site_footer')->get();
+        
         return view('index', [
             'posts' => $posts,
             'categories' => $categories,
             'site_name' => $site_name,
             'site_description' => $site_description,
             'site_footer' => $site_footer,
-
         ]);
     }
 
     public function getCategories() {
-        $categories = Category::compact();
+        $categories = Category::orderBy('id', 'asc')->get();
+
         return view('includes.navigation', [
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 
@@ -37,10 +38,17 @@ class BlogController extends Controller
         $categories = Category::orderBy('title')->get();
         $tags = Tag::all();
         $current_category = Category::where('slug', $slug)->first();
+        $site_name = Setting::where('name', 'site_name')->get();
+        $site_description = Setting::where('name', 'site_description')->get();
+        $site_footer = Setting::where('name', 'site_footer')->get();
+        
         return view('index', [
             'posts' => $current_category->posts()->where('online', true)->orderBy('id', 'desc')->paginate(10),
             'categories' => $categories,
             'tags' => $tags,
+            'site_name' => $site_name,
+            'site_description' => $site_description,
+            'site_footer' => $site_footer,
         ]);
     }
 
@@ -48,11 +56,17 @@ class BlogController extends Controller
         
         $categories = Category::get();
         $post = Post::where('slug', $slug_post)->first();
+        $site_name = Setting::where('name', 'site_name')->get();
+        $site_description = Setting::where('name', 'site_description')->get();
+        $site_footer = Setting::where('name', 'site_footer')->get();
         
             if ($post->online) {
                 return view('post', [
                     'post' => $post,
                     'categories' => $categories,
+                    'site_name' => $site_name,
+                    'site_description' => $site_description,
+                    'site_footer' => $site_footer,
                 ]);
             }
 
@@ -62,21 +76,20 @@ class BlogController extends Controller
         
     }
 
-    public function editPost($slug_post) {
-        $post = Post::where('slug', $slug_post)->first();
-        return view('edit_post', [
-            'post' => $post
-        ]);
-    }
-
     public function getPostsByTag($slug) {
         $tags = Tag::orderBy('name')->get();
         $categories = Category::all();
         $current_tag = Tag::where('slug', $slug)->first();
+        $site_name = Setting::where('name', 'site_name')->get();
+        $site_description = Setting::where('name', 'site_description')->get();
+        $site_footer = Setting::where('name', 'site_footer')->get();
         return view('index', [
             'posts' => $current_tag->posts()->where('online', true)->orderBy('id', 'desc')->paginate(10),
             'categories' => $categories,
             'tags' => $tags,
+            'site_name' => $site_name,
+            'site_description' => $site_description,
+            'site_footer' => $site_footer,
         ]);
     }
 

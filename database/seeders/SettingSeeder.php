@@ -17,7 +17,7 @@ class SettingSeeder extends Seeder
         DB::table('settings')->insert([
             [
                 'name' => 'site_name', 
-                'option' => 'Альвар'
+                'option' => 'Alvar'
             ],
             [
                 'name' => 'site_description', 
@@ -26,9 +26,16 @@ class SettingSeeder extends Seeder
             [
                 'name' => 'site_footer', 
                 'option' => '<section class="credits">
-                                <span class="credits-theme">Автор: Alvar</span>
-                                <span class="credits-software">Сделан с любовью на Laravel</span>
-                            </section>'
+                <span class="credit">Сделан с любовью на Laravel</span>
+                <span class="credit">
+                    <div class="social-links">
+                        <a class="social-link social-link-telegram" href="#" title="Telegram" target="_blank" rel="noopener"></a>
+                        <a class="social-link social-link-tw" href="#" title="Twitter" target="_blank" rel="noopener"></a>
+                        <a class="social-link social-link-fb" href="#" title="Facebook" target="_blank" rel="noopener"></a>
+                        <a class="social-link social-link-insta" href="#" title="Instagram" target="_blank" rel="noopener"></a>
+                    </div>
+                </span>
+            </section>'
             ],
         ]);
     }

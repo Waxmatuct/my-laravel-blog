@@ -1,10 +1,10 @@
-@extends('layouts.main')
+@extends('layouts.base')
 
 @section('title', env('APP_NAME').' | '.$post->title)
 
 @section('content')
 <main id="site-main" class="site-main">
-	<div class="inner">
+	<div class="post-page">
         <article class="post">
             <header class="post-header">
                 <span class="post-category"><a href="{{route('getPostsByCategory', $post->category['slug'])}}"><i class="fas fa-layer-group"></i> {{$post->category['title']}}</a></span>

@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.base')
 
 @section('title', env('APP_NAME').' | '.env('APP_DESCR'))
 
@@ -43,7 +43,24 @@
 		@endforeach
 
 	</div>
-	
+	<aside class="sidebar">
+		<div class="widget">
+			<h2>
+				Заголовок виджета 1
+			</h2>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque reiciendis obcaecati sint quae aut modi eligendi error, ipsam libero aliquid, quo quisquam sapiente. Enim in quia modi eos, sed fugit.
+			</p>
+		</div>
+		<div class="widget">
+			<h2>
+				Заголовок виджета 2
+			</h2>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque reiciendis obcaecati sint quae aut modi eligendi error, ipsam libero aliquid, quo quisquam sapiente. Enim in quia modi eos, sed fugit.
+			</p>
+		</div>
+	</aside>
 	<div class="pagination-block">
 		{{ $posts->links('vendor.pagination.semantic-ui') }}
 	</div>

@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -16,13 +15,23 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 5; $i++) {
-            DB::table('categories')->insert([
-                'title' => 'Категория '.$i,
-                'slug' => Str::slug('Категория '.$i),
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]);
-        }
+        DB::table('categories')->insert([
+            [
+                'title' => 'Жизнь',
+                'slug' => Str::slug('жизнь'),
+            ],
+            [
+                'title' => 'Работа',
+                'slug' => Str::slug('работа'),
+            ],
+            [
+                'title' => 'Отдых',
+                'slug' => Str::slug('отдых'),
+            ],
+            [
+                'title' => 'Интернет',
+                'slug' => Str::slug('интернет'),
+            ],
+        ]);
     }
 }

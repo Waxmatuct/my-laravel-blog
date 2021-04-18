@@ -47,7 +47,6 @@ a
 	padding: 0 50px
 	flex-wrap: wrap
 
-
 .site-nav-content ul
 	display: flex
 	margin: 0
@@ -240,15 +239,33 @@ a
 	position: relative
 	// box-shadow: 0px 0px 50px rgba(50, 50, 50, 0.3)
 	border-radius: 0 0 20px 20px
+	display: flex
+	flex-flow: row wrap
+	justify-content: space-between
+	width: 100%
 
 .inner
-	max-width: 780px
+	width: 70%
 	margin: 0 auto
 	padding: 45px 0 0 0 
 
+.sidebar
+	width: 30%
+	flex-shrink: 0
+
+.widget
+	font-size: 0.850em
+
+.post-page
+	max-width: 780px
+	margin: 0 auto
+	padding: 45px 0 0 0
+
 .post
 	margin-bottom: 40px
-	border-bottom: 1px solid rgba($gray, 0.1) // rgba($black, 0.1)
+	// border-bottom: 1px solid rgba($gray, 0.1) // rgba($black, 0.1)
+	padding: 0 20px
+	// max-width: 720px
 
 .post:last-child
 	margin-bottom: 0
@@ -360,8 +377,9 @@ a
 .pagination-block
 	display: flex
 	justify-content: center
-	max-width: 700px
+	// max-width: 700px
 	margin: 0 auto
+	width: 100%
 
 .pagination a
 	&.item
@@ -433,14 +451,17 @@ figure figcaption
 
 .credits
 	display: flex
-	justify-content: space-between
+	justify-content: center
+	align-items: center
+	flex-flow: column nowrap
 	width: 100%
-	padding: 30px 0
+	padding: 30px 0 0
 
-.credits-theme, .credits-software
+.credit
 	display: block
 	font-size: 0.850em
 	color: #aaa
+	padding: 10px 0
 
 progress
 	position: fixed
@@ -503,3 +524,15 @@ progress::-moz-progress-bar
 
 	.header-social-links
 		display: block
+	
+	.site-main
+		flex-flow: column wrap
+
+	.inner, .sidebar
+		width: 100%
+	
+	.sidebar
+		margin-bottom: 30px
+
+	.post, .widget
+		padding: 0

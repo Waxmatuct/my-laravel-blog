@@ -56,9 +56,9 @@
                 <form action="{{ route('settings.update', $foot) }}" method="POST">
                     @csrf
                     @method('PATCH')
-                    <div class="md:w-1/2 sm:mr-5 mb-5">
+                    <div class="md:w-2/3 sm:mr-5 mb-5">
                         <label class="block text-sm text-gray-600" for="title">Футер</label>
-                        <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="option{{ $foot->id}}" name="option" rows="12" required="">{{ $foot->option }}</textarea>
+                        <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="option{{ $foot->id}}" name="option" rows="12">{{ $foot->option }}</textarea>
                         <div class="mt-6">
                             <button class="px-4 py-1 text-white font-light tracking-wider bg-purple-700 hover:bg-green-500 rounded" type="submit">Сохранить</button>
                         </div>
