@@ -59,9 +59,17 @@
                 </div>
     
                 <div class="mt-5">
-                    <label class=" block text-sm text-gray-600" for="message">Пост</label>
+                    <label class="block text-sm text-gray-600" for="message">Пост</label>
                     <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="tiny" name="content" rows="12" required="" placeholder="" aria-label="Content">{{ old('content') }}</textarea>
                 </div>
+
+                <div class="mt-5">
+                    <label class="block text-sm text-gray-600" for="feature_image">Картинка поста</label>
+                    <input type="text" class="w-1/2 px-5 py-1 mr-2 text-gray-700 bg-gray-200 rounded" id="feature_image" name="feature_image" value="">
+                    <a href="" class="popup_selector px-4 py-1 text-white font-light tracking-wider bg-purple-700 hover:bg-green-500 rounded" data-inputid="feature_image">Выбрать</a>
+                    <img src="" class="image-uploaded w-1/2 block py-2" alt="">
+                </div>
+                
                 <div class="mt-6">
                     <button class="px-4 py-1 text-white font-light tracking-wider bg-purple-700 hover:bg-green-500 rounded" type="submit">Отправить</button>
                 </div>
@@ -73,6 +81,7 @@
 @endsection
 @push('editor')
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jodit/3.6.1/jodit.min.css"/>
+    <link href="{{ asset('/css/colorbox.css') }}" rel="stylesheet">
 @endpush
 @push('scripts')
     <!-- AlpineJS -->
@@ -80,33 +89,8 @@
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
     <script src="https://cdn.tiny.cloud/1/7oc5a4pw1zhkloaxzcp0owb2if5b7vw0wbam8avvv26u7usu/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-          selector: '#tiny',
-          menubar: false,
-          language: 'ru',
-          plugins: [
-            'advlist autolink lists link image charmap print preview anchor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table paste code help wordcount'
-            ],
-        toolbar: 'undo redo preview | formatselect | ' +
-            'bold italic backcolor | alignleft aligncenter ' +
-            'alignright alignjustify | bullist numlist outdent indent | link media code image | ' +
-            'removeformat | help'
-       });
-
-       function fade(element) {
-            var op = 1;  // initial opacity
-            var timer = setInterval(function () {
-                if (op <= 0.1){
-                    clearInterval(timer);
-                    element.style.display = 'none';
-                }
-                element.style.opacity = op;
-                element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-                op -= op * 0.1;
-            }, 50);
-        }
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{ asset('/js/jquery.colorbox-min.js') }}"></script>
+    <script type="text/javascript" src="/packages/barryvdh/elfinder/js/standalonepopup.js"></script>
+    <script src="{{ asset('/js/admin.js') }}"></script>
 @endpush
