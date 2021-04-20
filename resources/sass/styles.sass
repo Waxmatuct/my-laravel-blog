@@ -321,6 +321,11 @@ a
 		text-decoration: none
 		color: $white // $black
 
+.post-image
+	display: block
+	margin: 15px 0
+	// max-width: 150px
+
 .post-date, .read-time
 	display: block
 	font-size: 0.750em
@@ -497,40 +502,4 @@ progress::-moz-progress-bar
 	display: block
 	height: inherit
 
-@media (max-width: 575.98px)
-
-	.site-nav-content
-		justify-content: center
-		padding: 0
-		flex-wrap: wrap
-
-	.site-nav-content ul
-		opacity: 1
-		flex-direction: column
-	
-	.site-nav-content ul li
-		margin-right: 10px
-
-	.menu_link
-		display: block
-
-	.site-header-content
-		margin-left: 30px
-
-	// .social-links
-	// 	display: none
-
-	.header-social-links
-		display: block
-	
-	.site-main
-		flex-flow: column wrap
-
-	.inner, .sidebar
-		width: 100%
-	
-	.sidebar
-		margin-bottom: 30px
-
-	.post, .widget
-		padding: 0
+@import query

@@ -66,6 +66,7 @@ class PostController extends Controller
             'content' => $request->get('content'),
             'slug' => Str::slug($request->get('slug')),
             'online' => $request->get('online'),
+            'image' => $request->get('image'),
         ])->tags()->attach($request->tags);
 
         return redirect()->route('posts.index')
@@ -124,6 +125,7 @@ class PostController extends Controller
         $post->description = $request->get('description');
         $post->content = $request->get('content');
         $post->slug = Str::slug($request->get('slug'));
+        $post->image = $request->get('image');
         $post->tags()->sync($request->tags);
         $post->save();
 

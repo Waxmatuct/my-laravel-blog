@@ -8,6 +8,9 @@
         <article class="post">
             <header class="post-header">
                 <span class="post-category"><a href="{{route('getPostsByCategory', $post->category['slug'])}}"><i class="fas fa-layer-group"></i> {{$post->category['title']}}</a></span>
+                @if ($post->image)
+                    <img src="{{$post->image}}" alt="" class="post-image">
+                @endif
                 <h2 class="post-title">{{$post->title}}</h2>
             </header>
             <section class="post-content">
@@ -17,15 +20,13 @@
                 <span class="post-date">
                     <time><i class="far fa-clock"></i> {{$post->created_at->diffForHumans()}}</time>
                 </span>
-                @if ($post->tags->count() == 0)
-                <span></span>							
-                @else
-                <span class="post-tag">
-                    <i class="fas fa-tags"></i>
-                    @foreach ($post->tags as $tag)
-                        <a href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
-                    @endforeach
-                </span>	
+                @if ($post->tags->isNotEmpty())
+                    <span class="post-tag">
+                        <i class="fas fa-tags"></i>
+                        @foreach ($post->tags as $tag)
+                            <a href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
+                        @endforeach
+                    </span>	
                 @endif
                 <span class="post-tag"><a href="{{route('posts.edit', $post)}}">Править</a></span>
             </div>
