@@ -61,7 +61,7 @@ a
 			display: block
 			text-decoration: none
 			text-transform: uppercase
-			font-size: 0.850em
+			font-size: 1em
 			font-weight: 400
 			padding: 10px
 			position: relative
@@ -71,7 +71,7 @@ a
 				right: 100%
 				bottom: 5px
 				left: 10px
-				height: 1px
+				height: 2px
 				background: $green // $black
 				opacity: .25
 				transition: all .35s ease-in-out
@@ -240,32 +240,46 @@ a
 	// box-shadow: 0px 0px 50px rgba(50, 50, 50, 0.3)
 	border-radius: 0 0 20px 20px
 	display: flex
-	flex-flow: row wrap
+	flex-wrap: wrap
 	justify-content: space-between
 	width: 100%
 
 .inner
-	width: 70%
-	margin: 0 auto
-	padding: 45px 0 0 0 
+	width: 80%
+	margin: 45px auto 30px
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-around
 
 .sidebar
-	width: 30%
-	flex-shrink: 0
+	flex: 0 1 30%
 
 .widget
 	font-size: 0.850em
 
 .post-page
-	max-width: 780px
-	margin: 0 auto
-	padding: 45px 0 0 0
+	margin: 45px auto 30px
+	flex: 1 0 70%
+
+.posts
+	margin: 20px
+	display: flex
+	flex-wrap: nowrap
+	border-bottom: 2px solid rgba($gray,0.1)
+
+.post-block
+	flex-grow: 1
+
+.post-info
+	width: 12rem
+	display: flex
+	flex-direction: column
+	flex-shrink: 0
 
 .post
-	margin-bottom: 40px
-	// border-bottom: 1px solid rgba($gray, 0.1) // rgba($black, 0.1)
-	padding: 0 20px
-	// max-width: 720px
+	margin: 0 20px 0
+	flex-shrink: 0
+	flex-grow: 1
 
 .post:last-child
 	margin-bottom: 0
@@ -277,9 +291,20 @@ a
 .meta
 	display: flex
 	margin-bottom: 30px
+	justify-content: space-between
+	align-items: center
+
+.learn-more
+	font-size: 0.950em
+	a
+		color: $green // $black
+		margin-right: 7px
+		text-decoration: none
+		&:hover
+			color: $white
 
 .post-tag
-	margin: 0px 20px 0 0
+	margin: 5px 0 0
 	font-size: 0.750em
 	a
 		color: $blue // $black
@@ -290,8 +315,8 @@ a
 			border-bottom: 1px solid $blue // $black
 
 .post-category
-	margin: 0px
-	font-size: 0.850em
+	margin: 0 0 5px
+	font-size: 0.950em
 	a
 		display: inline-block
 		border-radius: 0px 5px 
@@ -307,7 +332,7 @@ a
 			// border-bottom: 0px solid $black
 
 .post-title
-	margin: 15px 0
+	margin: 0 0 15px
 	font-style: normal
 	display: block
 	font-weight: 700
@@ -365,8 +390,12 @@ a
 	&:hover
 		border-bottom: 1px solid $green
 
-.post-content p, .post-excerpt, .post-content blockquote, .post-content ol li, .post-content ul li
+.post-content p, .post-content blockquote, .post-content ol li, .post-content ul li
 	line-height: 1.4em
+
+.post-excerpt
+	font-size: 0.950em
+	line-height: 1.3em
 
 .post-content ol li, .post-content ul li
 	margin-bottom: 20px

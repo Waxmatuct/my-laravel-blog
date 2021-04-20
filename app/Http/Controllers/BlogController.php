@@ -12,7 +12,7 @@ class BlogController extends Controller
 {
     public function index() {
         $categories = Category::orderBy('title')->get();
-        $posts = Post::where('online', true)->orderBy('id', 'desc')->paginate(5);
+        $posts = Post::where('online', true)->orderBy('id', 'desc')->paginate(7);
         $site_name = Setting::where('name', 'site_name')->get();
         $site_description = Setting::where('name', 'site_description')->get();
         $site_footer = Setting::where('name', 'site_footer')->get();
