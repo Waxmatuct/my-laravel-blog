@@ -2,9 +2,11 @@
     "/js/auth.js": "/js/auth.js",
     "/js/admin.js": "/js/admin.js",
     "/js/scripts.js": "/js/scripts.js",
+    "/js/app.js": "/js/app.js",
     "/css/auth.css": "/css/auth.css",
+    "/css/app.css": "/css/app.css",
     "/assets/css/styles.css": "/assets/css/styles.css",
     "/js/jquery.colorbox-min.js": "/js/jquery.colorbox-min.js",
-    "/css/app.css": "/css/app.css",
+    "/css/styles.css": "/css/styles.css",
     "/css/colorbox.css": "/css/colorbox.css"
 }

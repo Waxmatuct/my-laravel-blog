@@ -8,7 +8,7 @@
 		<link rel="icon" href="favicon.ico">
 
 		<title>@yield('title')</title>
-		<link href="{{ asset('/css/styles.css') }}" rel="stylesheet">
+		<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Roboto+Slab:300,700|Roboto:400,400i,700,700i&display=swap&subset=cyrillic" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/01555a23fc.js" crossorigin="anonymous"></script>
 	</head>
@@ -19,11 +19,11 @@
 				<span class="progress-bar"></span>
 			</div>
 		</progress>
-		<div class="site-wrapper">
-			<header class="site-home-header">
+		<div class="site-wrapper mx-auto">
+			<header class="site-home-header relative">
 				<div class="header-inner">					
-					<div class="site-header-content">
-						<a href="/">
+					<div class="site-header-content flex flex-col justify-center items-center">
+						<a href="/blog">
 							<img class="site-avatar" src="{{ asset('/assets/images/logo.jpg') }}">
 						</a>
 						<h1 class="site-title">
@@ -50,7 +50,7 @@
 							<a href="" class="sub_btn">Подписаться</a>
 						</div>
 					</div>
-					@include('includes.navigation')
+					@include('includes.navigation__')
 				</div>
 			</header>
                 
@@ -76,7 +76,8 @@
 		</div>
 
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		<script src="{{ asset('/js/scripts.js') }}"></script>
+		<script src="{{ asset('/js/app.js') }}"></script>
+        <script src="{{ asset('/js/scripts.js') }}"></script>
 
 	</body>
 </html>

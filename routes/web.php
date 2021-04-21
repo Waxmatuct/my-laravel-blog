@@ -25,6 +25,12 @@ Route::get('/tag/{slug}', [BlogController::class, 'getPostsByTag'])->name('getPo
 Route::get('/post/{slug_post}', [BlogController::class, 'getPost'])->name('getPost');
 Route::get('/post/{slug_post}/edit', [BlogController::class, 'editPost'])->name('editPost');
 
+Route::get('/blog', [HomeController::class, 'index'])->name('index__');
+Route::get('/blog/category/{slug}', [HomeController::class, 'getPostsByCategory'])->name('getPostsByCategory__');
+Route::get('/blog/tag/{slug}', [HomeController::class, 'getPostsByTag'])->name('getPostsByTag__');
+Route::get('/blog/post/{slug_post}', [HomeController::class, 'getPost'])->name('getPost__');
+Route::get('/blog/post/{slug_post}/edit', [HomeController::class, 'editPost'])->name('editPost__');
+
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 
 Route::middleware(['isAdmin'])->group(function () {

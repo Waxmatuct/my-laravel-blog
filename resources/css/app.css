@@ -1,0 +1,132 @@
+/* ./resources/css/app.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    body {
+        background-color: #22272e;
+        /* font-family: "Roboto", sans-serif; */
+        color: #a8a8a8;
+      }
+
+    .site-wrapper {
+        max-width: 1050px;
+    }
+
+    .site-home-header {
+        min-height: 370px;
+    }
+
+    .site-header-content {
+        height: 300px;
+    }
+
+    .site-avatar {
+        max-width: 100px;
+        max-height: 100px;
+        border-radius: 100%;
+        display: block;
+        border: 6px solid #2d333b;
+    }
+
+    .menu_link {
+        display: none;
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        z-index: 999;
+        background-color: #f6f6f6;
+    }
+    
+    .menu_link span, .menu_link span::before, .menu_link span::after {
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        margin-left: -6px;
+        margin-top: -1px;
+        width: 12px;
+        height: 2px;
+        background-color: #22272e;
+        transition: all 0.3s;
+    }
+    
+    .menu_link span::before {
+        content: "";
+        margin-top: -5px;
+    }
+    
+    .menu_link span::after {
+        content: "";
+        margin-top: 3px;
+    }
+    
+    .menu_link_active span {
+        background: transparent;
+    }
+    
+    .menu_link_active span::before {
+        transform: rotate(-135deg);
+        margin-top: 0;
+        width: 12px;
+        margin-left: -6px;
+    }
+    
+    .menu_link_active span::after {
+        transform: rotate(135deg);
+        margin-top: 0;
+        width: 12px;
+        margin-left: -6px;
+    }
+
+    /* Progress bar */
+    progress {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 3px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+                appearance: none;
+        border: none;
+        background: transparent;
+        color: orange;
+        z-index: 1000;
+    }
+    
+    progress::-webkit-progress-bar {
+        background: transparent;
+    }
+    
+    progress::-webkit-progress-value {
+        background: orange;
+    }
+    
+    progress::-moz-progress-bar {
+        background: orange;
+    }
+    
+    .progress-container {
+        width: 100%;
+        background: transparent;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        display: block;
+    }
+    
+    .progress-bar {
+        background: orange;
+        width: 0%;
+        display: block;
+        height: inherit;
+    }
+
+}

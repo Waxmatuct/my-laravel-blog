@@ -25,6 +25,11 @@ mix.sass('resources/sass/styles.sass', 'public/assets/css/styles.css');
 mix.styles([
     'public/assets/css/normalize.css',
     'public/assets/css/styles.css'
- ], 'public/css/app.css');
+ ], 'public/css/styles.css');
 
  mix.styles('node_modules/jquery-colorbox/example5/colorbox.css', 'public/css/colorbox.css');
+
+ mix.js("resources/js/app.js", "public/js")
+    .postCss("resources/css/app.css", "public/css", [
+        require("tailwindcss"),
+    ]);
