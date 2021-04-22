@@ -5,16 +5,6 @@
 
 @layer base {
 
-    body {
-        background-color: #22272e;
-        /* font-family: "Roboto", sans-serif; */
-        color: #a8a8a8;
-      }
-
-    .site-wrapper {
-        max-width: 1050px;
-    }
-
     .site-home-header {
         min-height: 370px;
     }
@@ -23,12 +13,8 @@
         height: 300px;
     }
 
-    .site-avatar {
-        max-width: 100px;
-        max-height: 100px;
-        border-radius: 100%;
-        display: block;
-        border: 6px solid #2d333b;
+    .site-nav {
+        min-height: 70px;
     }
 
     .menu_link {

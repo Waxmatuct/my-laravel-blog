@@ -1,40 +1,48 @@
 module.exports = {
 
-  theme: {
-      
-      screens: {
-        '2xl': {'max': '1535px'},
-        // => @media (max-width: 1535px) { ... }
-  
-        'xl': {'max': '1279px'},
-        // => @media (max-width: 1279px) { ... }
-  
-        'lg': {'max': '1023px'},
-        // => @media (max-width: 1023px) { ... }
-  
-        'md': {'max': '767px'},
-        // => @media (max-width: 767px) { ... }
-  
-        'sm': {'max': '639px'},
-        // => @media (max-width: 639px) { ... }
-      },
-
-      fontFamily: {
-        sans: ['Roboto', 'sans-serif'],
-        serif: ['Merriweather', 'serif'],
-      },
-
-  },
-
   purge: [
-    './resources/**/*__.blade.php',
-    './resources/views/layouts/default.blade.php',
+    './resources/**/*.blade.php',
     './resources/**/*.js',
 
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+
+    fontFamily: {
+      sans: ['Roboto', 'sans-serif'],
+      serif: ['Merriweather', 'serif'],
+    },
+
+    colors: {
+      
+      current: 'currentColor',
+      dark: {
+          DEFAULT: '#22272e',
+          lighter: '#2d333b',
+        },
+
+      'green': '#98c376',
+      'blue': '#539bf5',
+      'gray': '#a8a8a8',
+      'light-gray': '#e9e9e9',
+      'telegram': '#0088cc',
+      'twitter': '#1da1f2',
+      'facebook': '#3b5998',
+      'insta': '#e1306c',
+
+    },
+
+    borderWidth: {
+      DEFAULT: '1px',
+          '0': '0',
+          '2': '2px',
+          '3': '3px',
+          '4': '4px',
+          '6': '6px',
+          '8': '8px',
+    },
+    
   },
   variants: {
     extend: {},

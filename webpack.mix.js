@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+// const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -27,9 +28,9 @@ mix.styles([
     'public/assets/css/styles.css'
  ], 'public/css/styles.css');
 
- mix.styles('node_modules/jquery-colorbox/example5/colorbox.css', 'public/css/colorbox.css');
+mix.styles('node_modules/jquery-colorbox/example5/colorbox.css', 'public/css/colorbox.css');
 
- mix.js("resources/js/app.js", "public/js")
-    .postCss("resources/css/app.css", "public/css", [
-        require("tailwindcss"),
+mix.js('resources/js/app.js', 'public/js')
+    .postCss('resources/css/app.css', 'public/css', [
+        require('tailwindcss'),
     ]);
