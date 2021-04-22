@@ -30,7 +30,6 @@ mix.styles([
 
 mix.styles('node_modules/jquery-colorbox/example5/colorbox.css', 'public/css/colorbox.css');
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
+mix.postCss('resources/css/app.css', 'public/css', [
         require('tailwindcss'),
     ]);

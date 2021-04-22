@@ -17,13 +17,18 @@ module.exports = {
     colors: {
       
       current: 'currentColor',
+      
       dark: {
           DEFAULT: '#22272e',
           lighter: '#2d333b',
         },
+      
+      blue: {
+          DEFAULT:'#539bf5',
+          darker: '#3f6798',
+      },
 
       'green': '#98c376',
-      'blue': '#539bf5',
       'gray': '#a8a8a8',
       'light-gray': '#e9e9e9',
       'telegram': '#0088cc',

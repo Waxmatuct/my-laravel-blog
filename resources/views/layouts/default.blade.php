@@ -20,7 +20,7 @@
 				<span class="progress-bar"></span>
 			</div>
 		</progress>
-		<div class="max-w-6xl mx-auto">
+		<div class="max-w-5xl mx-auto">
 			<header class="site-home-header relative">
 				<div class="site-header-content flex flex-col justify-center items-center">
 					<a href="/blog">
@@ -55,22 +55,17 @@
                 
             @yield('content')
 
-			<footer class="site-footer">
-				<div class="inner underline">
-					@forelse ( $site_footer as $foot )
+			<footer class="site-footer mt-4">
+				@forelse ( $site_footer as $foot )
+				
+				{!! $foot->option !!}
 					
-					{!! $foot->option !!}
-						
-						@empty 
-						<div class="inner underline">
-							<section class="credits">
-								<span class="credits-theme">Дизайн: Alvar</span>
-								<span class="credits-software">Движок: Ghost</span>
-							</section>
-						</div>
-					
-					@endforelse
-				</div>
+				@empty 
+					<section class="credits mx-auto py-5 w-full flex items-center justify-around">
+						<span class="credits-theme">Дизайн: Alvar</span>
+						<span class="credits-software">Движок: Ghost</span>
+					</section>
+				@endforelse
 			</footer>
 		</div>
 
