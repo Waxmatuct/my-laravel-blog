@@ -20,7 +20,7 @@
 				<span class="progress-bar"></span>
 			</div>
 		</progress>
-		<div class="max-w-5xl mx-auto">
+		<div class="max-w-6xl mx-auto">
 			<header class="site-home-header relative">
 				<div class="site-header-content flex flex-col justify-center items-center">
 					<a href="/blog">
@@ -40,11 +40,11 @@
 						@empty <h2 class="site-description">Простой блог на Laravel</h2>
 				
 					@endforelse
-					<div class="social-links block my-2.5">
-						<a class="social-link text-telegram mr-2.5" href="#" title="Telegram" target="_blank" rel="noopener"><i class="fab fa-telegram-plane"></i></a>
-						<a class="social-link text-twitter mr-2.5" href="#" title="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-						<a class="social-link text-facebook mr-2.5" href="#" title="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-square"></i></a>
-						<a class="social-link text-insta" href="#" title="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+					<div class="social-links flex my-2.5">
+						<a class="icon-telegram block w-5 h-5 mr-2.5" href="#" title="Telegram" target="_blank" rel="noopener"></a> 
+						<a class="icon-twitter block w-5 h-5 mr-2.5" href="#" title="Twitter" target="_blank" rel="noopener"></a>
+						<a class="icon-facebook block w-5 h-5 mr-2.5" href="#" title="Facebook" target="_blank" rel="noopener"></a>
+						<a class="icon-instagram block w-5 h-5" href="#" title="Instagram" target="_blank" rel="noopener"></a>
 					</div>
 					<div class="subscribe hidden">
 						<a href="" class="sub_btn">Подписаться</a>

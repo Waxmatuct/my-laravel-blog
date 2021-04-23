@@ -31,10 +31,6 @@ module.exports = {
       'green': '#98c376',
       'gray': '#a8a8a8',
       'light-gray': '#e9e9e9',
-      'telegram': '#0088cc',
-      'twitter': '#1da1f2',
-      'facebook': '#3b5998',
-      'insta': '#e1306c',
 
     },
 

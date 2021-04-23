@@ -1,4 +1,4 @@
-<nav class="site-nav bg-dark-lighter flex justify-center rounded-tl-3xl rounded-tr-3xl shadow-lg">						
+<nav class="site-nav bg-dark-lighter flex justify-center rounded-tl-3xl rounded-tr-3xl shadow-md">						
     <div class="site-nav-content flex justify-center items-center px-12">
         <ul class="flex flex-wrap list-none ">
             @foreach ($categories as $category)

@@ -10,9 +10,9 @@
 			
 			<article class="posts my-5 flex flex-wrap md:flex-nowrap border-b-2 border-gray border-opacity-10">
 
-						<div class="post-info md:w-56 md:mb-0 mb-6 flex-shrink-0 flex flex-col"> 
+						<div class="post-info md:w-56 md:mb-0 md:mt-2 mb-6 flex-shrink-0 flex flex-col"> 
 							<span class="post-category">
-								<a class="text-green uppercase transition duration-300 ease-in-out hover:text-light-gray" href="{{route('getPostsByCategory__', $post->category['slug'])}}">{{$post->category['title']}}</a>
+								<a class="text-green text-sm uppercase transition duration-300 ease-in-out hover:text-light-gray" href="{{route('getPostsByCategory__', $post->category['slug'])}}">{{$post->category['title']}}</a>
 							</span>
 							<span class="post-date mt-1 text-xs">
 								<time>{{$post->created_at->diffForHumans()}}</time>
@@ -36,7 +36,7 @@
 							
 							<div class="meta flex mt-5 mb-7 justify-between items-center">
 								<span class="learn-more text-sm">
-									<a class="text-green bg-dark py-3 px-4 shadow-md rounded-md transition duration-300 ease-in-out hover:text-light-gray hover:shadow-xl" href="{{ route('getPost__', $post->slug) }}">Читать далее
+									<a class="text-green transition duration-300 ease-in-out hover:text-light-gray" href="{{ route('getPost__', $post->slug) }}">Читать далее
 										<i class="fas fa-arrow-right" style="font-size: 0.750em"></i>
 									</a>
 								</span>
