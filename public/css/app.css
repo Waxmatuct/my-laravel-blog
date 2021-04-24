@@ -684,22 +684,39 @@ progress::-moz-progress-bar {
   height: inherit;
 }
 
-.post-content pre {
-  overflow-x: auto;
-  margin: 1.5em 0 1.5em;
-  padding-left: 10px;
-  max-width: 100%;
-  color: #e5eff5;
-  font-size: 0.85rem;
-  background: #2d333b;
-  border-left: 5px solid #98c376;
+.post-content h2 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-top: 1.5rem;
+  --tw-text-opacity: 1;
+  color: rgba(233, 233, 233, var(--tw-text-opacity));
 }
 
-.post-content pre code {
-  padding: 0;
-  font-size: inherit;
-  line-height: inherit;
-  background: transparent;
+.post-content h3 {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin-top: 1.5rem;
+  --tw-text-opacity: 1;
+  color: rgba(233, 233, 233, var(--tw-text-opacity));
+}
+
+.post-content pre {
+  --tw-bg-opacity: 1;
+  background-color: rgba(40, 41, 61, var(--tw-bg-opacity));
+  --tw-border-opacity: 1;
+  border-color: rgba(93, 217, 159, var(--tw-border-opacity));
+  border-left-width: 7px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+  overflow-x: auto;
+  padding-left: 0.75rem;
+  --tw-text-opacity: 1;
+  color: rgba(168, 168, 168, var(--tw-text-opacity));
 }
 
 .post-content a {
@@ -727,6 +744,22 @@ progress::-moz-progress-bar {
 
 .post-content p, .post-content blockquote, .post-content ol li, .post-content ul li {
   line-height: 1.375;
+}
+
+.post-content ol li, .post-content ul li {
+  list-style-position: inside;
+}
+
+.post-content ol, .post-content ul {
+  margin-left: 1rem;
+}
+
+.post-content ol li {
+  list-style-type: decimal;
+}
+
+.post-content ul li {
+  list-style-type: disc;
 }
 
 .post-content p {
@@ -1664,6 +1697,18 @@ progress::-moz-progress-bar {
   border-left-width: calc(4px * calc(1 - var(--tw-divide-x-reverse)));
 }
 
+.divide-y-5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(5px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(5px * var(--tw-divide-y-reverse));
+}
+
+.divide-x-5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-x-reverse: 0;
+  border-right-width: calc(5px * var(--tw-divide-x-reverse));
+  border-left-width: calc(5px * calc(1 - var(--tw-divide-x-reverse)));
+}
+
 .divide-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
   border-top-width: calc(6px * calc(1 - var(--tw-divide-y-reverse)));
@@ -1674,6 +1719,18 @@ progress::-moz-progress-bar {
   --tw-divide-x-reverse: 0;
   border-right-width: calc(6px * var(--tw-divide-x-reverse));
   border-left-width: calc(6px * calc(1 - var(--tw-divide-x-reverse)));
+}
+
+.divide-y-7 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(7px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(7px * var(--tw-divide-y-reverse));
+}
+
+.divide-x-7 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-x-reverse: 0;
+  border-right-width: calc(7px * var(--tw-divide-x-reverse));
+  border-left-width: calc(7px * calc(1 - var(--tw-divide-x-reverse)));
 }
 
 .divide-y-8 > :not([hidden]) ~ :not([hidden]) {
@@ -3839,8 +3896,16 @@ progress::-moz-progress-bar {
   border-width: 4px;
 }
 
+.border-5 {
+  border-width: 5px;
+}
+
 .border-6 {
   border-width: 6px;
+}
+
+.border-7 {
+  border-width: 7px;
 }
 
 .border-8 {
@@ -3915,6 +3980,22 @@ progress::-moz-progress-bar {
   border-left-width: 4px;
 }
 
+.border-t-5 {
+  border-top-width: 5px;
+}
+
+.border-r-5 {
+  border-right-width: 5px;
+}
+
+.border-b-5 {
+  border-bottom-width: 5px;
+}
+
+.border-l-5 {
+  border-left-width: 5px;
+}
+
 .border-t-6 {
   border-top-width: 6px;
 }
@@ -3929,6 +4010,22 @@ progress::-moz-progress-bar {
 
 .border-l-6 {
   border-left-width: 6px;
+}
+
+.border-t-7 {
+  border-top-width: 7px;
+}
+
+.border-r-7 {
+  border-right-width: 7px;
+}
+
+.border-b-7 {
+  border-bottom-width: 7px;
+}
+
+.border-l-7 {
+  border-left-width: 7px;
 }
 
 .border-t-8 {
@@ -4438,7 +4535,7 @@ progress::-moz-progress-bar {
 }
 
 .font-serif {
-  font-family: Merriweather, serif;
+  font-family: Noto Serif, serif;
 }
 
 .font-thin {
@@ -19830,6 +19927,18 @@ progress::-moz-progress-bar {
     border-left-width: calc(4px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
+  .sm\:divide-y-5 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(5px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(5px * var(--tw-divide-y-reverse));
+  }
+
+  .sm\:divide-x-5 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(5px * var(--tw-divide-x-reverse));
+    border-left-width: calc(5px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
   .sm\:divide-y-6 > :not([hidden]) ~ :not([hidden]) {
     --tw-divide-y-reverse: 0;
     border-top-width: calc(6px * calc(1 - var(--tw-divide-y-reverse)));
@@ -19840,6 +19949,18 @@ progress::-moz-progress-bar {
     --tw-divide-x-reverse: 0;
     border-right-width: calc(6px * var(--tw-divide-x-reverse));
     border-left-width: calc(6px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
+  .sm\:divide-y-7 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(7px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(7px * var(--tw-divide-y-reverse));
+  }
+
+  .sm\:divide-x-7 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(7px * var(--tw-divide-x-reverse));
+    border-left-width: calc(7px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
   .sm\:divide-y-8 > :not([hidden]) ~ :not([hidden]) {
@@ -22005,8 +22126,16 @@ progress::-moz-progress-bar {
     border-width: 4px;
   }
 
+  .sm\:border-5 {
+    border-width: 5px;
+  }
+
   .sm\:border-6 {
     border-width: 6px;
+  }
+
+  .sm\:border-7 {
+    border-width: 7px;
   }
 
   .sm\:border-8 {
@@ -22081,6 +22210,22 @@ progress::-moz-progress-bar {
     border-left-width: 4px;
   }
 
+  .sm\:border-t-5 {
+    border-top-width: 5px;
+  }
+
+  .sm\:border-r-5 {
+    border-right-width: 5px;
+  }
+
+  .sm\:border-b-5 {
+    border-bottom-width: 5px;
+  }
+
+  .sm\:border-l-5 {
+    border-left-width: 5px;
+  }
+
   .sm\:border-t-6 {
     border-top-width: 6px;
   }
@@ -22095,6 +22240,22 @@ progress::-moz-progress-bar {
 
   .sm\:border-l-6 {
     border-left-width: 6px;
+  }
+
+  .sm\:border-t-7 {
+    border-top-width: 7px;
+  }
+
+  .sm\:border-r-7 {
+    border-right-width: 7px;
+  }
+
+  .sm\:border-b-7 {
+    border-bottom-width: 7px;
+  }
+
+  .sm\:border-l-7 {
+    border-left-width: 7px;
   }
 
   .sm\:border-t-8 {
@@ -22604,7 +22765,7 @@ progress::-moz-progress-bar {
   }
 
   .sm\:font-serif {
-    font-family: Merriweather, serif;
+    font-family: Noto Serif, serif;
   }
 
   .sm\:font-thin {
@@ -37826,6 +37987,18 @@ progress::-moz-progress-bar {
     border-left-width: calc(4px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
+  .md\:divide-y-5 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(5px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(5px * var(--tw-divide-y-reverse));
+  }
+
+  .md\:divide-x-5 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(5px * var(--tw-divide-x-reverse));
+    border-left-width: calc(5px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
   .md\:divide-y-6 > :not([hidden]) ~ :not([hidden]) {
     --tw-divide-y-reverse: 0;
     border-top-width: calc(6px * calc(1 - var(--tw-divide-y-reverse)));
@@ -37836,6 +38009,18 @@ progress::-moz-progress-bar {
     --tw-divide-x-reverse: 0;
     border-right-width: calc(6px * var(--tw-divide-x-reverse));
     border-left-width: calc(6px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
+  .md\:divide-y-7 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(7px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(7px * var(--tw-divide-y-reverse));
+  }
+
+  .md\:divide-x-7 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(7px * var(--tw-divide-x-reverse));
+    border-left-width: calc(7px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
   .md\:divide-y-8 > :not([hidden]) ~ :not([hidden]) {
@@ -40001,8 +40186,16 @@ progress::-moz-progress-bar {
     border-width: 4px;
   }
 
+  .md\:border-5 {
+    border-width: 5px;
+  }
+
   .md\:border-6 {
     border-width: 6px;
+  }
+
+  .md\:border-7 {
+    border-width: 7px;
   }
 
   .md\:border-8 {
@@ -40077,6 +40270,22 @@ progress::-moz-progress-bar {
     border-left-width: 4px;
   }
 
+  .md\:border-t-5 {
+    border-top-width: 5px;
+  }
+
+  .md\:border-r-5 {
+    border-right-width: 5px;
+  }
+
+  .md\:border-b-5 {
+    border-bottom-width: 5px;
+  }
+
+  .md\:border-l-5 {
+    border-left-width: 5px;
+  }
+
   .md\:border-t-6 {
     border-top-width: 6px;
   }
@@ -40091,6 +40300,22 @@ progress::-moz-progress-bar {
 
   .md\:border-l-6 {
     border-left-width: 6px;
+  }
+
+  .md\:border-t-7 {
+    border-top-width: 7px;
+  }
+
+  .md\:border-r-7 {
+    border-right-width: 7px;
+  }
+
+  .md\:border-b-7 {
+    border-bottom-width: 7px;
+  }
+
+  .md\:border-l-7 {
+    border-left-width: 7px;
   }
 
   .md\:border-t-8 {
@@ -40600,7 +40825,7 @@ progress::-moz-progress-bar {
   }
 
   .md\:font-serif {
-    font-family: Merriweather, serif;
+    font-family: Noto Serif, serif;
   }
 
   .md\:font-thin {
@@ -55822,6 +56047,18 @@ progress::-moz-progress-bar {
     border-left-width: calc(4px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
+  .lg\:divide-y-5 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(5px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(5px * var(--tw-divide-y-reverse));
+  }
+
+  .lg\:divide-x-5 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(5px * var(--tw-divide-x-reverse));
+    border-left-width: calc(5px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
   .lg\:divide-y-6 > :not([hidden]) ~ :not([hidden]) {
     --tw-divide-y-reverse: 0;
     border-top-width: calc(6px * calc(1 - var(--tw-divide-y-reverse)));
@@ -55832,6 +56069,18 @@ progress::-moz-progress-bar {
     --tw-divide-x-reverse: 0;
     border-right-width: calc(6px * var(--tw-divide-x-reverse));
     border-left-width: calc(6px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
+  .lg\:divide-y-7 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(7px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(7px * var(--tw-divide-y-reverse));
+  }
+
+  .lg\:divide-x-7 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(7px * var(--tw-divide-x-reverse));
+    border-left-width: calc(7px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
   .lg\:divide-y-8 > :not([hidden]) ~ :not([hidden]) {
@@ -57997,8 +58246,16 @@ progress::-moz-progress-bar {
     border-width: 4px;
   }
 
+  .lg\:border-5 {
+    border-width: 5px;
+  }
+
   .lg\:border-6 {
     border-width: 6px;
+  }
+
+  .lg\:border-7 {
+    border-width: 7px;
   }
 
   .lg\:border-8 {
@@ -58073,6 +58330,22 @@ progress::-moz-progress-bar {
     border-left-width: 4px;
   }
 
+  .lg\:border-t-5 {
+    border-top-width: 5px;
+  }
+
+  .lg\:border-r-5 {
+    border-right-width: 5px;
+  }
+
+  .lg\:border-b-5 {
+    border-bottom-width: 5px;
+  }
+
+  .lg\:border-l-5 {
+    border-left-width: 5px;
+  }
+
   .lg\:border-t-6 {
     border-top-width: 6px;
   }
@@ -58087,6 +58360,22 @@ progress::-moz-progress-bar {
 
   .lg\:border-l-6 {
     border-left-width: 6px;
+  }
+
+  .lg\:border-t-7 {
+    border-top-width: 7px;
+  }
+
+  .lg\:border-r-7 {
+    border-right-width: 7px;
+  }
+
+  .lg\:border-b-7 {
+    border-bottom-width: 7px;
+  }
+
+  .lg\:border-l-7 {
+    border-left-width: 7px;
   }
 
   .lg\:border-t-8 {
@@ -58596,7 +58885,7 @@ progress::-moz-progress-bar {
   }
 
   .lg\:font-serif {
-    font-family: Merriweather, serif;
+    font-family: Noto Serif, serif;
   }
 
   .lg\:font-thin {
@@ -73818,6 +74107,18 @@ progress::-moz-progress-bar {
     border-left-width: calc(4px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
+  .xl\:divide-y-5 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(5px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(5px * var(--tw-divide-y-reverse));
+  }
+
+  .xl\:divide-x-5 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(5px * var(--tw-divide-x-reverse));
+    border-left-width: calc(5px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
   .xl\:divide-y-6 > :not([hidden]) ~ :not([hidden]) {
     --tw-divide-y-reverse: 0;
     border-top-width: calc(6px * calc(1 - var(--tw-divide-y-reverse)));
@@ -73828,6 +74129,18 @@ progress::-moz-progress-bar {
     --tw-divide-x-reverse: 0;
     border-right-width: calc(6px * var(--tw-divide-x-reverse));
     border-left-width: calc(6px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
+  .xl\:divide-y-7 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(7px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(7px * var(--tw-divide-y-reverse));
+  }
+
+  .xl\:divide-x-7 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(7px * var(--tw-divide-x-reverse));
+    border-left-width: calc(7px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
   .xl\:divide-y-8 > :not([hidden]) ~ :not([hidden]) {
@@ -75993,8 +76306,16 @@ progress::-moz-progress-bar {
     border-width: 4px;
   }
 
+  .xl\:border-5 {
+    border-width: 5px;
+  }
+
   .xl\:border-6 {
     border-width: 6px;
+  }
+
+  .xl\:border-7 {
+    border-width: 7px;
   }
 
   .xl\:border-8 {
@@ -76069,6 +76390,22 @@ progress::-moz-progress-bar {
     border-left-width: 4px;
   }
 
+  .xl\:border-t-5 {
+    border-top-width: 5px;
+  }
+
+  .xl\:border-r-5 {
+    border-right-width: 5px;
+  }
+
+  .xl\:border-b-5 {
+    border-bottom-width: 5px;
+  }
+
+  .xl\:border-l-5 {
+    border-left-width: 5px;
+  }
+
   .xl\:border-t-6 {
     border-top-width: 6px;
   }
@@ -76083,6 +76420,22 @@ progress::-moz-progress-bar {
 
   .xl\:border-l-6 {
     border-left-width: 6px;
+  }
+
+  .xl\:border-t-7 {
+    border-top-width: 7px;
+  }
+
+  .xl\:border-r-7 {
+    border-right-width: 7px;
+  }
+
+  .xl\:border-b-7 {
+    border-bottom-width: 7px;
+  }
+
+  .xl\:border-l-7 {
+    border-left-width: 7px;
   }
 
   .xl\:border-t-8 {
@@ -76592,7 +76945,7 @@ progress::-moz-progress-bar {
   }
 
   .xl\:font-serif {
-    font-family: Merriweather, serif;
+    font-family: Noto Serif, serif;
   }
 
   .xl\:font-thin {
@@ -91814,6 +92167,18 @@ progress::-moz-progress-bar {
     border-left-width: calc(4px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
+  .\32xl\:divide-y-5 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(5px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(5px * var(--tw-divide-y-reverse));
+  }
+
+  .\32xl\:divide-x-5 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(5px * var(--tw-divide-x-reverse));
+    border-left-width: calc(5px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
   .\32xl\:divide-y-6 > :not([hidden]) ~ :not([hidden]) {
     --tw-divide-y-reverse: 0;
     border-top-width: calc(6px * calc(1 - var(--tw-divide-y-reverse)));
@@ -91824,6 +92189,18 @@ progress::-moz-progress-bar {
     --tw-divide-x-reverse: 0;
     border-right-width: calc(6px * var(--tw-divide-x-reverse));
     border-left-width: calc(6px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
+  .\32xl\:divide-y-7 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(7px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(7px * var(--tw-divide-y-reverse));
+  }
+
+  .\32xl\:divide-x-7 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(7px * var(--tw-divide-x-reverse));
+    border-left-width: calc(7px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
   .\32xl\:divide-y-8 > :not([hidden]) ~ :not([hidden]) {
@@ -93989,8 +94366,16 @@ progress::-moz-progress-bar {
     border-width: 4px;
   }
 
+  .\32xl\:border-5 {
+    border-width: 5px;
+  }
+
   .\32xl\:border-6 {
     border-width: 6px;
+  }
+
+  .\32xl\:border-7 {
+    border-width: 7px;
   }
 
   .\32xl\:border-8 {
@@ -94065,6 +94450,22 @@ progress::-moz-progress-bar {
     border-left-width: 4px;
   }
 
+  .\32xl\:border-t-5 {
+    border-top-width: 5px;
+  }
+
+  .\32xl\:border-r-5 {
+    border-right-width: 5px;
+  }
+
+  .\32xl\:border-b-5 {
+    border-bottom-width: 5px;
+  }
+
+  .\32xl\:border-l-5 {
+    border-left-width: 5px;
+  }
+
   .\32xl\:border-t-6 {
     border-top-width: 6px;
   }
@@ -94079,6 +94480,22 @@ progress::-moz-progress-bar {
 
   .\32xl\:border-l-6 {
     border-left-width: 6px;
+  }
+
+  .\32xl\:border-t-7 {
+    border-top-width: 7px;
+  }
+
+  .\32xl\:border-r-7 {
+    border-right-width: 7px;
+  }
+
+  .\32xl\:border-b-7 {
+    border-bottom-width: 7px;
+  }
+
+  .\32xl\:border-l-7 {
+    border-left-width: 7px;
   }
 
   .\32xl\:border-t-8 {
@@ -94588,7 +95005,7 @@ progress::-moz-progress-bar {
   }
 
   .\32xl\:font-serif {
-    font-family: Merriweather, serif;
+    font-family: Noto Serif, serif;
   }
 
   .\32xl\:font-thin {

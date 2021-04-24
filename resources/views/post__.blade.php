@@ -4,10 +4,10 @@
 
 @section('content')
 <main id="site-main" class="site-main bg-dark-lighter px-8 flex flex-wrap justify-center rounded-bl-3xl rounded-br-3xl">
-	<div class="post-page flex-1 md:w-2/3 w-full mx-auto mt-11 md:mb-11 flex flex-col justify-around">
+	<div class="post-page flex-1 md:w-2/3 w-full mx-auto my-11 flex flex-col justify-around">
         <article class="post mx-auto md:w-2/3">
             <header class="post-header">
-                <h2 class="post-title font-bold text-2xl text-light-gray">{{$post->title}}</h2>
+                <h1 class="post-title font-bold text-2xl text-light-gray">{{$post->title}}</h1>
             </header>
             <section class="post-content my-3">
                 {!! $post->content !!}

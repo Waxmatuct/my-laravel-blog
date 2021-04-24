@@ -135,22 +135,16 @@
         height: inherit;
     }
 
-    .post-content pre {
-        overflow-x: auto;
-        margin: 1.5em 0 1.5em;
-        padding-left: 10px;
-        max-width: 100%;
-        color: #e5eff5;
-        font-size: 0.85rem;
-        background: #2d333b;
-        border-left: 5px solid #98c376;
-      }
+    .post-content h2 {
+        @apply text-xl text-light-gray font-bold mt-6; 
+    }
 
-    .post-content pre code {
-        padding: 0;
-        font-size: inherit;
-        line-height: inherit;
-        background: transparent;
+    .post-content h3 {
+        @apply text-lg text-light-gray font-bold mt-6;
+    }
+
+    .post-content pre {
+        @apply overflow-x-auto my-6 pl-3 max-w-full text-gray text-sm bg-dark-lighter border-l-7 border-green;
     }
 
     .post-content a {
@@ -163,6 +157,22 @@
     
     .post-content p, .post-content blockquote, .post-content ol li, .post-content ul li {
         @apply leading-snug;
+    }
+
+    .post-content ol li, .post-content ul li {
+        @apply list-inside;
+    }
+
+    .post-content ol, .post-content ul {
+        @apply ml-4;
+    }
+
+    .post-content ol li {
+        @apply list-decimal;
+    }
+
+    .post-content ul li {
+        @apply list-disc;
     }
 
     .post-content p {

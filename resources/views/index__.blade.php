@@ -10,7 +10,7 @@
 			
 			<article class="posts my-5 flex flex-wrap md:flex-nowrap border-b-2 border-gray border-opacity-10">
 
-						<div class="post-info md:w-56 md:mb-0 md:mt-2 mb-6 flex-shrink-0 flex flex-col"> 
+						<div class="post-info md:w-48 md:mb-0 md:mt-2 mb-6 flex-shrink-0 flex flex-col"> 
 							<span class="post-category">
 								<a class="text-green text-sm uppercase transition duration-300 ease-in-out hover:text-light-gray" href="{{route('getPostsByCategory__', $post->category['slug'])}}">{{$post->category['title']}}</a>
 							</span>
