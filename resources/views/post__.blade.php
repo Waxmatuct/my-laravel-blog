@@ -5,7 +5,7 @@
 @section('content')
 <main id="site-main" class="site-main bg-dark-lighter px-8 flex flex-wrap justify-center rounded-bl-3xl rounded-br-3xl">
 	<div class="post-page flex-1 md:w-2/3 w-full mx-auto mt-11 md:mb-11 flex flex-col justify-around">
-        <article class="post md:mx-8">
+        <article class="post mx-auto md:w-2/3">
             <header class="post-header">
                 <h2 class="post-title font-bold text-2xl text-light-gray">{{$post->title}}</h2>
             </header>
@@ -37,7 +37,7 @@
         </article>
 	</div>
     
-    <aside class="sidebar flex-shrink-0 md:w-1/3 w-full my-11">
+    {{-- <aside class="sidebar flex-shrink-0 md:w-1/3 w-full my-11">
 		<div class="widget">
 			<h2>
 				Заголовок виджета 1
@@ -54,6 +54,6 @@
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque reiciendis obcaecati sint quae aut modi eligendi error, ipsam libero aliquid, quo quisquam sapiente. Enim in quia modi eos, sed fugit.
 			</p>
 		</div>
-	</aside>
+	</aside> --}}
 </main>
 @endsection

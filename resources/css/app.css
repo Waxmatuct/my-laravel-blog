@@ -34,8 +34,9 @@
     }
 
     .icon-telegram, .icon-twitter, .icon-facebook, .icon-instagram {
-        background-size: contain;
+        @apply bg-contain;
     }
+    
     .menu_link {
         display: none;
         width: 40px;
@@ -133,5 +134,41 @@
         display: block;
         height: inherit;
     }
+
+    .post-content pre {
+        overflow-x: auto;
+        margin: 1.5em 0 1.5em;
+        padding-left: 10px;
+        max-width: 100%;
+        color: #e5eff5;
+        font-size: 0.85rem;
+        background: #2d333b;
+        border-left: 5px solid #98c376;
+      }
+
+    .post-content pre code {
+        padding: 0;
+        font-size: inherit;
+        line-height: inherit;
+        background: transparent;
+    }
+
+    .post-content a {
+        @apply no-underline transition duration-300 ease-in-out text-green border-b-2 border-green border-opacity-50;
+      }
+
+    .post-content a:hover {
+        @apply border-b-2 border-green;
+    }
+    
+    .post-content p, .post-content blockquote, .post-content ol li, .post-content ul li {
+        @apply leading-snug;
+    }
+
+    .post-content p {
+        @apply my-4;
+    }
+      
+
 
 }

@@ -20,7 +20,7 @@
 				<span class="progress-bar"></span>
 			</div>
 		</progress>
-		<div class="max-w-6xl mx-auto">
+		<div class="max-w-5xl mx-auto">
 			<header class="site-home-header relative">
 				<div class="site-header-content flex flex-col justify-center items-center">
 					<a href="/blog">

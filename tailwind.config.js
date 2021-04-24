@@ -19,8 +19,8 @@ module.exports = {
       current: 'currentColor',
       
       dark: {
-          DEFAULT: '#22272e',
-          lighter: '#2d333b',
+          DEFAULT: '#1c1c28',
+          lighter: '#28293d',
         },
       
       blue: {
@@ -28,7 +28,11 @@ module.exports = {
           darker: '#3f6798',
       },
 
-      'green': '#98c376',
+      'green': {
+          DEFAULT: '#5dd99f',//#98c376
+          darker: '#4fae85',
+      },
+      
       'gray': '#a8a8a8',
       'light-gray': '#e9e9e9',
 
