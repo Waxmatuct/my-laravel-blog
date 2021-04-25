@@ -3,7 +3,7 @@
 @section('title', env('APP_NAME').' | '.env('APP_DESCR'))
 
 @section('content')
-<main id="site-main" class="site-main bg-dark-lighter px-8 flex flex-wrap flex-col justify-center rounded-bl-3xl rounded-br-3xl">
+<main id="site-main" class="site-main bg-light-white shadow-2xl dark:bg-dark-lighter px-8 flex flex-wrap flex-col justify-center rounded-bl-3xl rounded-br-3xl">
 	<div class="inner sm:w-4/5 w-full mx-auto mt-11 mb-8 flex flex-col justify-around">
 
 		@foreach ($posts as $post)
@@ -12,7 +12,7 @@
 
 						<div class="post-info md:w-48 md:mb-0 md:mt-2 mb-6 flex-shrink-0 flex flex-col"> 
 							<span class="post-category">
-								<a class="text-green text-sm uppercase transition duration-300 ease-in-out hover:text-light-gray" href="{{route('getPostsByCategory__', $post->category['slug'])}}">{{$post->category['title']}}</a>
+								<a class="text-sm uppercase hover:text-dark dark:hover:text-light" href="{{route('getPostsByCategory__', $post->category['slug'])}}">{{$post->category['title']}}</a>
 							</span>
 							<span class="post-date mt-1 text-xs">
 								<time>{{$post->created_at->diffForHumans()}}</time>
@@ -28,15 +28,15 @@
 						</div>
 					
 						<div class="post-block md:flex-grow">
-							<h2 class="post-title font-bold text-2xl text-light-gray">
-								<a href="{{ route('getPost__', $post->slug) }}">{{$post->title}}</a>
+							<h2 class="post-title font-bold text-2xl">
+								<a class="text-dark dark:text-light-gray" href="{{ route('getPost__', $post->slug) }}">{{$post->title}}</a>
 							</h2>
 							
 							<section class="post-excerpt my-3 text-sm"><p>{{ Str::words($post->description,20,) }}</p></section>
 							
 							<div class="meta flex mt-5 mb-7 justify-between items-center">
 								<span class="learn-more text-sm">
-									<a class="text-green transition duration-300 ease-in-out hover:text-light-gray" href="{{ route('getPost__', $post->slug) }}">Читать далее
+									<a class="text-dark-gray dark:text-green hover:text-green-darker dark:hover:text-light" href="{{ route('getPost__', $post->slug) }}">Читать далее
 										<i class="fas fa-arrow-right" style="font-size: 0.750em"></i>
 									</a>
 								</span>

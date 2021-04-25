@@ -8,13 +8,20 @@
 		<link rel="icon" href="favicon.ico">
 
 		<title>@yield('title')</title>
-		<script src="{{ asset('js/app.js') }}" defer></script>
 		<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Roboto:400,400i,700,700i&display=swap&subset=cyrillic" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/01555a23fc.js" crossorigin="anonymous"></script>
+		<script>
+			if (localStorage.theme === 'dark') {
+					document.documentElement.classList.add('dark')
+				} else {
+					document.documentElement.classList.remove('dark')
+				}				
+		</script>
 	</head>
-	<body class="bg-dark font-sans text-gray">
+	<body class="bg-light text-black font-sans dark:bg-dark dark:text-gray">
 		<a href="#" onclick="return false" class="menu_link"><span></span></a>
+
 		<progress value="0">
 			<div class="progress-container">
 				<span class="progress-bar"></span>
@@ -24,20 +31,20 @@
 			<header class="site-home-header relative">
 				<div class="site-header-content flex flex-col justify-center items-center">
 					<a href="/blog">
-						<img class="site-avatar w-28 h-28 border-6 border-dark-lighter rounded-full mb-4" src="{{ asset('/assets/images/logo.jpg') }}">
+						<img class="site-avatar w-28 h-28 border-6 border-light dark:border-dark-lighter rounded-full mb-4" src="{{ asset('/assets/images/logo.jpg') }}">
 					</a>
 					<h1 class="site-title font-bold text-5xl uppercase tracking-widest">
 						@forelse ( $site_name as $name )
-							<a class="text-light-gray transition duration-500 ease-in-out hover:text-gray" href="{{ route('login') }}">{{ $name->option }}</a>
+							<a class="text-dark dark:text-light-gray hover:text-green-darker dark:hover:text-green" href="{{ route('login') }}">{{ $name->option }}</a>
 
-							@empty <a class="text-light-gray transition duration-500 ease-in-out hover:text-gray" href="{{ route('login') }}">alvar</a>
+							@empty <a class="text-dark dark:text-light-gray hover:text-green-darker dark:hover:text-green" href="{{ route('login') }}">alvar</a>
 							
 						@endforelse
 					</h1>
 					@forelse ( $site_description as $desc )
-						<h2 class="site-description font-normal my-2.5">{{ $desc->option }}</h2>
+						<h2 class="site-description text-dark-gray font-normal my-2.5">{{ $desc->option }}</h2>
 					
-						@empty <h2 class="site-description">Простой блог на Laravel</h2>
+						@empty <h2 class="site-description text-dark-gray font-normal my-2.5">Простой блог на Laravel</h2>
 				
 					@endforelse
 					<div class="social-links flex my-2.5">

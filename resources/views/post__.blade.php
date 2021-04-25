@@ -3,11 +3,11 @@
 @section('title', env('APP_NAME').' | '.$post->title)
 
 @section('content')
-<main id="site-main" class="site-main bg-dark-lighter px-8 flex flex-wrap justify-center rounded-bl-3xl rounded-br-3xl">
+<main id="site-main" class="site-main bg-light-white shadow-2xl dark:bg-dark-lighter px-8 flex flex-wrap justify-center rounded-bl-3xl rounded-br-3xl">
 	<div class="post-page flex-1 md:w-2/3 w-full mx-auto my-11 flex flex-col justify-around">
         <article class="post mx-auto md:w-2/3">
             <header class="post-header">
-                <h1 class="post-title font-bold text-2xl text-light-gray">{{$post->title}}</h1>
+                <h1 class="post-title font-bold text-2xl text-dark dark:text-light-gray">{{$post->title}}</h1>
             </header>
             <section class="post-content my-3">
                 {!! $post->content !!}
@@ -17,7 +17,7 @@
                     <time><i class="far fa-clock"></i> {{$post->created_at->diffForHumans()}}</time>
                 </span>
                 <span class="post-category text-xs">
-                    <a class="text-green uppercase transition duration-300 ease-in-out hover:text-light-gray" href="{{route('getPostsByCategory__', $post->category['slug'])}}"><i class="fas fa-layer-group"></i> {{$post->category['title']}}</a>
+                    <i class="fas fa-layer-group"></i> <a class="text-green-darker uppercase transition duration-300 ease-in-out hover:text-dark" href="{{route('getPostsByCategory__', $post->category['slug'])}}">{{$post->category['title']}}</a>
                 </span>
                 @if ($post->tags->isNotEmpty())
                     <span class="post-tag text-xs">

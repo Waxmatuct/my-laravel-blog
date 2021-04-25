@@ -5,7 +5,8 @@ module.exports = {
     './resources/**/*.js',
 
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
+
   theme: {
     extend: {},
 
@@ -21,7 +22,18 @@ module.exports = {
       dark: {
           DEFAULT: '#1c1c28',
           lighter: '#28293d',
+          gray: '#777',
         },
+      
+      light: {
+        DEFAULT: '#f6f6f6',
+        white: '#ffffff',
+        gray: '#e9e9e9',
+      },
+
+      'black': '#222',
+      'gray': '#a8a8a8',
+      'purple': '#a78bfa', // #8b5cf6
       
       blue: {
           DEFAULT:'#539bf5',
@@ -30,12 +42,9 @@ module.exports = {
 
       'green': {
           DEFAULT: '#5dd99f',//#98c376
-          darker: '#4fae85',
+          darker: '#059669',
       },
       
-      'gray': '#a8a8a8',
-      'light-gray': '#e9e9e9',
-
     },
 
     borderWidth: {
