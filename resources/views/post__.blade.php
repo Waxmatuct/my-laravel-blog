@@ -17,19 +17,25 @@
                     <time><i class="far fa-clock"></i> {{$post->created_at->diffForHumans()}}</time>
                 </span>
                 <span class="post-category text-xs">
-                    <i class="fas fa-layer-group"></i> <a class="text-green-darker uppercase transition duration-300 ease-in-out hover:text-dark" href="{{route('getPostsByCategory__', $post->category['slug'])}}">{{$post->category['title']}}</a>
+                    <i class="fas fa-layer-group"></i> <a class="uppercase" href="{{route('getPostsByCategory__', $post->category['slug'])}}">{{$post->category['title']}}</a>
                 </span>
                 @if ($post->tags->isNotEmpty())
                     <span class="post-tag text-xs">
                         <i class="fas fa-tags"></i>
                         @foreach ($post->tags as $tag)
-                            <a class="text-blue mr-1 border-b border-blue-darker transition duration-300 ease-in-out hover:border-blue" href="{{route('getPostsByTag__', $tag['slug'])}}">{{ $tag->name }}</a>
+                            <a class="text-green-darker dark:text-green hover:text-green-darker dark:hover:text-green text-xs mr-1 border-b border-green-darker hover:border-green-darker dark:hover:border-green border-opacity-50" href="{{route('getPostsByTag__', $tag['slug'])}}">{{ $tag->name }}</a>
                         @endforeach
                     </span>	
                 @endif
+                @if (Auth::user())
                 <span class="text-xs">
-                    <a class="text-blue mr-1 border-b border-blue-darker transition duration-300 ease-in-out hover:border-blue" href="{{route('posts.edit', $post)}}">Править</a>
+                    <a href="{{route('posts.edit', $post)}}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                          </svg>
+                    </a>
                 </span>
+                @endif
             </div>
             {{-- <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
             <script src="https://yastatic.net/share2/share.js"></script>

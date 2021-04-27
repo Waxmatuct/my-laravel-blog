@@ -5,7 +5,7 @@
 
 @layer base {
     a {
-        @apply text-green-darker dark:text-green hover:text-green-darker transition duration-300 ease-in-out; 
+        @apply text-green-darker dark:text-green hover:text-dark dark:hover:text-light transition duration-300 ease-in-out; 
     }
 
     .site-home-header {

@@ -12,7 +12,7 @@
 
 						<div class="post-info md:w-48 md:mb-0 md:mt-2 mb-6 flex-shrink-0 flex flex-col"> 
 							<span class="post-category">
-								<a class="text-sm uppercase hover:text-dark dark:hover:text-light" href="{{route('getPostsByCategory__', $post->category['slug'])}}">{{$post->category['title']}}</a>
+								<a class="text-sm uppercase" href="{{route('getPostsByCategory__', $post->category['slug'])}}">{{$post->category['title']}}</a>
 							</span>
 							<span class="post-date mt-1 text-xs">
 								<time>{{$post->created_at->diffForHumans()}}</time>
@@ -21,7 +21,7 @@
 							@if ($post->tags->isNotEmpty())
 								<span class="post-tag mt-1">
 									@foreach ($post->tags as $tag)
-										<a class="text-blue text-xs mr-1 border-b border-blue-darker transition duration-300 ease-in-out hover:border-blue" href="{{route('getPostsByTag__', $tag['slug'])}}">{{ $tag->name }}</a>
+										<a class="text-green-darker dark:text-green hover:text-green-darker dark:hover:text-green text-xs mr-1 border-b border-green-darker hover:border-green-darker dark:hover:border-green border-opacity-50" href="{{route('getPostsByTag__', $tag['slug'])}}">{{ $tag->name }}</a>
 									@endforeach
 								</span>	
 							@endif			
@@ -29,7 +29,7 @@
 					
 						<div class="post-block md:flex-grow">
 							<h2 class="post-title font-bold text-2xl">
-								<a class="text-dark dark:text-light-gray" href="{{ route('getPost__', $post->slug) }}">{{$post->title}}</a>
+								<a class="text-dark dark:text-light-gray hover:text-green-darker dark:hover:text-green" href="{{ route('getPost__', $post->slug) }}">{{$post->title}}</a>
 							</h2>
 							
 							<section class="post-excerpt my-3 text-sm"><p>{{ Str::words($post->description,20,) }}</p></section>

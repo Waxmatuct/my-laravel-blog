@@ -560,12 +560,17 @@ a {
 
 a:hover {
   --tw-text-opacity: 1;
-  color: rgba(5, 150, 105, var(--tw-text-opacity));
+  color: rgba(28, 28, 40, var(--tw-text-opacity));
 }
 
 .dark a {
   --tw-text-opacity: 1;
   color: rgba(93, 217, 159, var(--tw-text-opacity));
+}
+
+.dark a:hover {
+  --tw-text-opacity: 1;
+  color: rgba(246, 246, 246, var(--tw-text-opacity));
 }
 
 a {
