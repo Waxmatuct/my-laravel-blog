@@ -29,8 +29,8 @@
 		</progress>
 		<div class="max-w-5xl mx-auto">
 			<header class="site-home-header relative">
-				<div class="site-header-content flex flex-col justify-center items-center">
-					<a href="/blog">
+				<div class="site-header-content flex flex-col justify-center mt-5 mb-3 items-center">
+					<a href="/">
 						<img class="site-avatar w-28 h-28 border-6 border-light-gray dark:border-dark-lighter rounded-full mb-4" src="{{ asset('/assets/images/logo.jpg') }}">
 					</a>
 					<h1 class="site-title font-bold text-5xl uppercase tracking-widest">
@@ -57,7 +57,7 @@
 						<a href="" class="sub_btn">Подписаться</a>
 					</div>
 				</div>
-				@include('includes.navigation__')
+				@include('includes.navigation')
 			</header>
                 
             @yield('content')

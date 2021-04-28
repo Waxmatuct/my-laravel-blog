@@ -584,15 +584,15 @@ a {
 }
 
 .site-home-header {
-  min-height: 370px;
+  /* min-height: 370px; */
 }
 
 .site-header-content {
-  height: 300px;
+  /* height: 300px; */
 }
 
 .site-nav {
-  min-height: 70px;
+  min-height: 40px;
 }
 
 .icon-telegram {

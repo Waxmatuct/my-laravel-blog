@@ -23,7 +23,7 @@
 			<header class="site-home-header">
 				<div class="header-inner">					
 					<div class="site-header-content">
-						<a href="/">
+						<a href="/blog">
 							<img class="site-avatar" src="{{ asset('/assets/images/logo.jpg') }}">
 						</a>
 						<h1 class="site-title">
@@ -50,7 +50,7 @@
 							<a href="" class="sub_btn">Подписаться</a>
 						</div>
 					</div>
-					@include('includes.navigation')
+					@include('includes.navigation__')
 				</div>
 			</header>
                 
