@@ -21,7 +21,7 @@
 							@if ($post->tags->isNotEmpty())
 								<span class="post-tag mt-1">
 									@foreach ($post->tags as $tag)
-										<a class="text-green-darker dark:text-green hover:text-green-darker dark:hover:text-green text-xs mr-1 border-b border-green-darker hover:border-green-darker dark:hover:border-green border-opacity-50" href="{{route('getPostsByTag__', $tag['slug'])}}">{{ $tag->name }}</a>
+										<a class="text-primary-darker dark:text-primary hover:text-primary-darker dark:hover:text-primary text-xs mr-1 border-b border-primary-darker hover:border-primary-darker dark:hover:border-primary border-opacity-50" href="{{route('getPostsByTag__', $tag['slug'])}}">{{ $tag->name }}</a>
 									@endforeach
 								</span>	
 							@endif			
@@ -29,14 +29,14 @@
 					
 						<div class="post-block md:flex-grow">
 							<h2 class="post-title font-bold text-2xl">
-								<a class="text-dark dark:text-light-gray hover:text-green-darker dark:hover:text-green" href="{{ route('getPost__', $post->slug) }}">{{$post->title}}</a>
+								<a class="text-dark dark:text-light-gray hover:text-primary-darker dark:hover:text-primary" href="{{ route('getPost__', $post->slug) }}">{{$post->title}}</a>
 							</h2>
 							
 							<section class="post-excerpt my-3 text-sm"><p>{{ Str::words($post->description,20,) }}</p></section>
 							
 							<div class="meta flex mt-5 mb-7 justify-between items-center">
 								<span class="learn-more text-sm">
-									<a class="text-dark-gray dark:text-green hover:text-green-darker dark:hover:text-light" href="{{ route('getPost__', $post->slug) }}">Читать далее
+									<a class="text-dark-gray dark:text-primary hover:text-primary-darker dark:hover:text-light" href="{{ route('getPost__', $post->slug) }}">Читать далее
 										<i class="fas fa-arrow-right" style="font-size: 0.750em"></i>
 									</a>
 								</span>

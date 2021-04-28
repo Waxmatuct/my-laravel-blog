@@ -40,7 +40,7 @@ module.exports = {
           darker: '#3f6798',
       },
 
-      'green': {
+      'primary': {
           DEFAULT: '#5dd99f',//#98c376
           darker: '#059669',
       },

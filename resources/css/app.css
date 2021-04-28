@@ -5,7 +5,7 @@
 
 @layer base {
     a {
-        @apply text-green-darker dark:text-green hover:text-dark dark:hover:text-light transition duration-300 ease-in-out; 
+        @apply text-primary-darker dark:text-primary hover:text-dark dark:hover:text-light transition duration-300 ease-in-out; 
     }
 
     .site-home-header {
@@ -147,15 +147,15 @@
     }
 
     .post-content pre {
-        @apply overflow-x-auto my-6 pl-3 py-3 max-w-full text-gray text-sm bg-dark-lighter border-l-7 border-green-darker dark:border-green rounded-xl;
+        @apply overflow-x-auto my-6 pl-3 py-3 max-w-full text-gray text-sm bg-dark-lighter border-l-7 border-primary-darker dark:border-primary rounded-xl;
     }
 
     .post-content a {
-        @apply no-underline border-b-2 border-green-darker dark:border-dark-lighter border-opacity-50;
+        @apply no-underline border-b-2 border-primary-darker dark:border-dark-lighter border-opacity-50;
       }
 
     .post-content a:hover {
-        @apply border-green-darker;
+        @apply border-primary-darker;
     }
     
     .post-content p, .post-content blockquote, .post-content ol li, .post-content ul li {

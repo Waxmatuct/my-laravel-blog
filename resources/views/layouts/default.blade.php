@@ -35,9 +35,9 @@
 					</a>
 					<h1 class="site-title font-bold text-5xl uppercase tracking-widest">
 						@forelse ( $site_name as $name )
-							<a class="text-green-dark dark:text-green hover:text-black dark:hover:text-light-gray" href="{{ route('login') }}">{{ $name->option }}</a>
+							<a class="text-primary-dark dark:text-primary hover:text-black dark:hover:text-light-gray" href="{{ route('login') }}">{{ $name->option }}</a>
 
-							@empty <a class="text-green-dark dark:text-green hover:text-black dark:hover:text-light-gray" href="{{ route('login') }}">alvar</a>
+							@empty <a class="text-primary-dark dark:text-primary hover:text-black dark:hover:text-light-gray" href="{{ route('login') }}">alvar</a>
 							
 						@endforelse
 					</h1>

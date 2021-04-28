@@ -4,15 +4,6 @@ $(document).ready(function(){
 		$(".site-nav-content ul").toggleClass("menu_active");
 	});
 
-	// $(".kg-gallery-row").slick({
-	//   dots: true,
-	//   infinite: true,
-	//   speed: 1000,
-	//   fade: true,
-	//   cssEase: 'ease',
-	//   autoplay: 'true'
-	// });
-
     $(function() {
     $(window).on("scroll resize", function() {
         var o = $(window).scrollTop() / ($(document).height() - $(window).height());
