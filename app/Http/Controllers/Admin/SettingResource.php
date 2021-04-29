@@ -16,9 +16,10 @@ class SettingResource extends Controller
      */
     public function index()
     {
-        $site_name = Setting::where('name', 'site_name')->get();
-        $site_description = Setting::where('name', 'site_description')->get();
-        $site_footer = Setting::where('name', 'site_footer')->get();
+        // $site_name = Setting::where('name', 'site_name')->get();
+        $site_name = Setting::select(['id','option'])->find(1);
+        $site_description = Setting::select(['id','option'])->find(2);
+        $site_footer = Setting::select(['id','option'])->find(3);
         
         return view('dashboard.settings', [
             'site_name' => $site_name,

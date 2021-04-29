@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', env('APP_NAME').' | '.$post->title)
+@section('title', $site_name.' | '.$post->title)
 
 @section('content')
 <main id="site-main" class="site-main md:bg-light-white md:shadow-2xl dark:shadow-none md:dark:bg-dark-lighter px-8 flex flex-wrap justify-center rounded-3xl">

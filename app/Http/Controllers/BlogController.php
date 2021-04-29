@@ -13,16 +13,16 @@ class BlogController extends Controller
     public function index() {
         $categories = Category::orderBy('title')->get();
         $posts = Post::where('online', true)->orderBy('id', 'desc')->paginate(7);
-        $site_name = Setting::where('name', 'site_name')->get();
-        $site_description = Setting::where('name', 'site_description')->get();
-        $site_footer = Setting::where('name', 'site_footer')->get();
+        $site_name = Setting::select(['id','option'])->find(1);
+        $site_description = Setting::select(['id','option'])->find(2);
+        $site_footer = Setting::select(['id','option'])->find(3);
         
         return view('index', [
             'posts' => $posts,
             'categories' => $categories,
-            'site_name' => $site_name,
-            'site_description' => $site_description,
-            'site_footer' => $site_footer,
+            'site_name' => $site_name->option,
+            'site_description' => $site_description->option,
+            'site_footer' => $site_footer->option,
         ]);
     }
 
@@ -38,17 +38,17 @@ class BlogController extends Controller
         $categories = Category::orderBy('title')->get();
         $tags = Tag::all();
         $current_category = Category::where('slug', $slug)->first();
-        $site_name = Setting::where('name', 'site_name')->get();
-        $site_description = Setting::where('name', 'site_description')->get();
-        $site_footer = Setting::where('name', 'site_footer')->get();
+        $site_name = Setting::select(['id','option'])->find(1);
+        $site_description = Setting::select(['id','option'])->find(2);
+        $site_footer = Setting::select(['id','option'])->find(3);
         
         return view('index', [
             'posts' => $current_category->posts()->where('online', true)->orderBy('id', 'desc')->paginate(10),
             'categories' => $categories,
             'tags' => $tags,
-            'site_name' => $site_name,
-            'site_description' => $site_description,
-            'site_footer' => $site_footer,
+            'site_name' => $site_name->option,
+            'site_description' => $site_description->option,
+            'site_footer' => $site_footer->option,
         ]);
     }
 
@@ -56,17 +56,17 @@ class BlogController extends Controller
         
         $categories = Category::get();
         $post = Post::where('slug', $slug_post)->first();
-        $site_name = Setting::where('name', 'site_name')->get();
-        $site_description = Setting::where('name', 'site_description')->get();
-        $site_footer = Setting::where('name', 'site_footer')->get();
+        $site_name = Setting::select(['id','option'])->find(1);
+        $site_description = Setting::select(['id','option'])->find(2);
+        $site_footer = Setting::select(['id','option'])->find(3);
         
             if ($post->online) {
                 return view('post', [
                     'post' => $post,
                     'categories' => $categories,
-                    'site_name' => $site_name,
-                    'site_description' => $site_description,
-                    'site_footer' => $site_footer,
+                    'site_name' => $site_name->option,
+                    'site_description' => $site_description->option,
+                    'site_footer' => $site_footer->option,
                 ]);
             }
 
@@ -80,16 +80,16 @@ class BlogController extends Controller
         $tags = Tag::orderBy('name')->get();
         $categories = Category::all();
         $current_tag = Tag::where('slug', $slug)->first();
-        $site_name = Setting::where('name', 'site_name')->get();
-        $site_description = Setting::where('name', 'site_description')->get();
-        $site_footer = Setting::where('name', 'site_footer')->get();
+        $site_name = Setting::select(['id','option'])->find(1);
+        $site_description = Setting::select(['id','option'])->find(2);
+        $site_footer = Setting::select(['id','option'])->find(3);
         return view('index', [
             'posts' => $current_tag->posts()->where('online', true)->orderBy('id', 'desc')->paginate(10),
             'categories' => $categories,
             'tags' => $tags,
-            'site_name' => $site_name,
-            'site_description' => $site_description,
-            'site_footer' => $site_footer,
+            'site_name' => $site_name->option,
+            'site_description' => $site_description->option,
+            'site_footer' => $site_footer->option,
         ]);
     }
 
