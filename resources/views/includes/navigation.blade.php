@@ -3,7 +3,7 @@
         <ul class="flex flex-wrap list-none ">
             @foreach ($categories as $category)
                 <li class="mx-5">
-                    <a class="uppercase relative border-b-2 hover:text-primary-darker dark:hover:text-primary border-light dark:border-dark hover:border-primary dark:hover:border-primary" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
+                    <a class="uppercase relative border-b-2 hover:text-primary-darker dark:hover:text-primary border-light dark:border-dark hover:border-primary-darker dark:hover:border-primary" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
                 </li>
             @endforeach
         </ul>

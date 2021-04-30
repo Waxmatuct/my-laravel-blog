@@ -31,7 +31,7 @@
 			<header class="site-home-header relative">
 				<div class="site-header-content flex flex-col justify-center mt-5 mb-3 items-center">
 					<a href="/">
-						<img class="site-avatar w-28 h-28 border-6 border-light-gray dark:border-dark-lighter rounded-full mb-4" src="{{ asset('/assets/images/logo.jpg') }}">
+						<img class="site-avatar w-28 h-28 border-6 rounded-full mb-4 border-light-gray dark:border-dark-lighter hover:border-primary-darker dark:hover:border-primary transition duration-500 ease-in-out" src="{{ asset('/assets/images/logo.jpg') }}">
 					</a>
 					<h1 class="site-title font-bold text-5xl uppercase tracking-widest">
 							@if ($site_name)
@@ -53,6 +53,7 @@
 					<div class="subscribe hidden">
 						<a href="" class="sub_btn">Подписаться</a>
 					</div>
+					<div class="bg-primary-darker dark:bg-primary w-12 h-1 my-3"></div>
 				</div>
 				@include('includes.navigation')
 			</header>
