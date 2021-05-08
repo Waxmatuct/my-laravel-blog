@@ -37,13 +37,17 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
         Fortify::loginView(fn () => view('auth.login'));
+        // Fortify::registerView(function () {
+        //     if (User::where("isAdmin","=", "1")->exists()) {
+        //         return redirect()->route('index');
+        //     } else {                
+        //         return view('auth.register');
+        //     }
+        // });
         Fortify::registerView(function () {
-            if (User::where("isAdmin","=", "1")->exists()) {
-                return redirect()->route('index');
-            } else {                
-                return view('auth.register');
-            }
+            return view('auth.register');
         });
+
         Fortify::requestPasswordResetLinkView(function () {
             return view('auth.forgot-password');
         });

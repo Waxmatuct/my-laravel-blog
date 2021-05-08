@@ -16,6 +16,7 @@ class BlogController extends Controller
         $site_name = Setting::select(['id','option'])->find(1);
         $site_description = Setting::select(['id','option'])->find(2);
         $site_footer = Setting::select(['id','option'])->find(3);
+        $user = \Auth::user();
         
         return view('index', [
             'posts' => $posts,
@@ -23,6 +24,7 @@ class BlogController extends Controller
             'site_name' => $site_name->option,
             'site_description' => $site_description->option,
             'site_footer' => $site_footer->option,
+            'user' => $user,
         ]);
     }
 
@@ -41,6 +43,7 @@ class BlogController extends Controller
         $site_name = Setting::select(['id','option'])->find(1);
         $site_description = Setting::select(['id','option'])->find(2);
         $site_footer = Setting::select(['id','option'])->find(3);
+        $user = \Auth::user();
         
         return view('index', [
             'posts' => $current_category->posts()->where('online', true)->orderBy('id', 'desc')->paginate(10),
@@ -49,6 +52,8 @@ class BlogController extends Controller
             'site_name' => $site_name->option,
             'site_description' => $site_description->option,
             'site_footer' => $site_footer->option,
+            'user' => $user,
+
         ]);
     }
 
@@ -59,8 +64,9 @@ class BlogController extends Controller
         $site_name = Setting::select(['id','option'])->find(1);
         $site_description = Setting::select(['id','option'])->find(2);
         $site_footer = Setting::select(['id','option'])->find(3);
+        $user = \Auth::user();
         
-            if(!(\Auth::user())) {
+            if(\Auth::guest() || !(\Auth::user()->isAdmin)) {
                 $post->increment('views');
             }
         
@@ -71,6 +77,8 @@ class BlogController extends Controller
                     'site_name' => $site_name->option,
                     'site_description' => $site_description->option,
                     'site_footer' => $site_footer->option,
+                    'user' => $user,
+
                 ]);
             }
 
@@ -87,6 +95,8 @@ class BlogController extends Controller
         $site_name = Setting::select(['id','option'])->find(1);
         $site_description = Setting::select(['id','option'])->find(2);
         $site_footer = Setting::select(['id','option'])->find(3);
+        $user = \Auth::user();
+        
         return view('index', [
             'posts' => $current_tag->posts()->where('online', true)->orderBy('id', 'desc')->paginate(10),
             'categories' => $categories,
@@ -94,6 +104,8 @@ class BlogController extends Controller
             'site_name' => $site_name->option,
             'site_description' => $site_description->option,
             'site_footer' => $site_footer->option,
+            'user' => $user,
+
         ]);
     }
 

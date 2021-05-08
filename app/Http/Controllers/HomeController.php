@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function home()
     {
         // return view('home');
-        if (\Auth::user(1)) {
+        if (\Auth::user()->isAdmin) {
             return redirect()->route('dashboard');
         } else {
             return redirect()->route('index');
