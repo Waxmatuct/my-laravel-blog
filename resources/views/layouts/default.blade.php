@@ -9,7 +9,7 @@
 
 		<title>@yield('title')</title>
 		<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Roboto:400,400i,700,700i&display=swap&subset=cyrillic" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&display=swap&subset=cyrillic" rel="stylesheet">
 		<script>
 			if (localStorage.theme === 'dark') {
 				document.documentElement.classList.add('dark')
@@ -39,9 +39,9 @@
 					</a>
 					<h1 class="site-title font-bold text-5xl uppercase tracking-widest">
 							@if ($site_name)
-								<a class="text-primary-dark dark:text-primary hover:text-black dark:hover:text-light-gray" href="/">{{ $site_name }}</a>
+								<a class="text-primary-dark dark:text-primary hover:text-black dark:hover:text-light-gray" href="{{ url('/') }}">{{ $site_name }}</a>
 							@else 
-								<a class="text-primary-dark dark:text-primary hover:text-black dark:hover:text-light-gray" href="/">alvar</a>
+								<a class="text-primary-dark dark:text-primary hover:text-black dark:hover:text-light-gray" href="{{ url('/') }}">alvar</a>
 							@endif
 					</h1>
 					

@@ -5,11 +5,6 @@
 @section('content')
 <main id="site-main" class="site-main md:mt-10 px-8 flex flex-wrap flex-col justify-center">
 	<div class="inner sm:w-4/5 w-full mx-auto md:my-3 flex flex-col justify-around">
-		@auth
-			<span class="text-2xl font-bold mb-5">
-				Привет, {{ $user->username }}!
-			</span>
-		@endauth
 	
 		@foreach ($posts as $post)
 			
