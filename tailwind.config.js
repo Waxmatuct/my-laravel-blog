@@ -13,6 +13,7 @@ module.exports = {
     fontFamily: {
       sans: ['Roboto', 'sans-serif'],
       serif: ['Noto Serif', 'serif'],
+      mono: ['monospace'],
     },
 
     colors: {
@@ -21,7 +22,7 @@ module.exports = {
       
       dark: {
           DEFAULT: '#1c1c28',
-          lighter: '#28293d', //#22222f
+          lighter: '#23243a', //#28293d
           gray: '#777',
         },
       
@@ -33,7 +34,7 @@ module.exports = {
 
       'black': '#222',
       'gray': '#a8a8a8',
-      'purple': '#a78bfa', // #8b5cf6
+      'darkest-purple': '#171826', 
       
       blue: {
           DEFAULT:'#539bf5',

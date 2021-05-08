@@ -60,6 +60,10 @@ class BlogController extends Controller
         $site_description = Setting::select(['id','option'])->find(2);
         $site_footer = Setting::select(['id','option'])->find(3);
         
+            if(!(\Auth::user())) {
+                $post->increment('views');
+            }
+        
             if ($post->online) {
                 return view('post', [
                     'post' => $post,

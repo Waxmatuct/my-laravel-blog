@@ -2,9 +2,17 @@
     <div class="ui pagination menu" role="navigation">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-            <a class="icon item disabled hidden text-primary-darker p-1.5 hover:text-dark dark:hover:text-light-gray" aria-disabled="true" aria-label="@lang('pagination.previous')"> <i class="fas fa-angle-double-left"></i> </a>
+            <a class="icon item disabled hidden text-primary-darker p-1.5 hover:text-dark dark:hover:text-light-gray" aria-disabled="true" aria-label="@lang('pagination.previous')">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                </svg>
+            </a>
         @else
-            <a class="icon item text-primary-darker p-1.5 hover:text-dark dark:hover:text-light-gray" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')"> <i class="fas fa-angle-double-left"></i> </a>
+            <a class="icon item text-primary-darker p-1.5 hover:text-dark dark:hover:text-light-gray inline-flex" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                </svg>
+            </a>
         @endif
 
         {{-- Pagination Elements --}}
@@ -28,9 +36,17 @@
 
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
-            <a class="icon item text-primary-darker p-1.5 hover:text-dark dark:hover:text-light-gray" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')"> <i class="fas fa-angle-double-right"></i> </a>
+            <a class="icon item text-primary-darker p-1.5 hover:text-dark dark:hover:text-light-gray inline-flex" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                </svg>
+            </a>
         @else
-            <a class="icon item disabled text-primary-darker p-1.5 hover:text-dark dark:hover:text-light-gray" aria-disabled="true" aria-label="@lang('pagination.next')"> <i class="fas fa-angle-double-right"></i> </a>
+            <a class="icon item disabled text-primary-darker p-1.5 hover:text-dark dark:hover:text-light-gray inline-flex" aria-disabled="true" aria-label="@lang('pagination.next')">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                </svg>
+            </a>
         @endif
     </div>
 @endif

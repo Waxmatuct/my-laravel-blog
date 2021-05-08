@@ -10,7 +10,7 @@ tinymce.init({
       ],
   toolbar: 'undo redo preview code | formatselect | ' +
       'bold italic backcolor | alignleft aligncenter ' +
-      'alignright alignjustify | bullist numlist outdent indent | link media codesample image | ' +
+      'alignright alignjustify | bullist numlist outdent indent | link media codesample image table | ' +
       'removeformat | help'
  });
 

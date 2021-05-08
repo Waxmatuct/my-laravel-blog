@@ -3,63 +3,76 @@
 @section('title', $site_name.' | '.$post->title)
 
 @section('content')
-<main id="site-main" class="site-main md:bg-light-white md:shadow-2xl dark:shadow-none md:dark:bg-dark-lighter px-8 flex flex-wrap justify-center rounded-3xl">
-	<div class="post-page flex-1 md:w-2/3 w-full mx-auto md:my-16 my-3 flex flex-col justify-around">
-        <article class="post mx-auto md:w-2/3">
+<main id="site-main" class="site-main md:mt-10 px-8 flex flex-wrap justify-center rounded-3xl">
+	<div class="post-page mx-auto md:my-8 my-5 w-full md:w-4/5 flex flex-col justify-around">
+        <div class="breadcrubs inline-flex text-sm items-center">
+            <a class="flex items-center mr-1 pb-1" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+            </a> 
+            
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+
+            <a class="mr-1 border-b border-primary-darker hover:border-primary-darker dark:hover:border-primary border-opacity-30" href="{{ route('getPostsByCategory', $post->category['slug']) }}">
+                {{$post->category['title']}}
+            </a>
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+
+            <span>
+                {{$post->title}}
+            </span>
+        </div>
+        <article class="post mx-auto mt-8 w-full">
             <header class="post-header">
-                <h1 class="post-title font-bold text-2xl text-dark dark:text-light-gray">{{$post->title}}</h1>
+                <h1 class="post-title font-bold text-2xl sm:text-3xl text-black dark:text-light-gray">{{$post->title}}</h1>
             </header>
             <section class="post-content my-3">
                 {!! $post->content !!}
             </section>
-            <div class="meta flex justify-between items-center">
-                <span class="post-date text-xs">
-                    <time><i class="far fa-clock"></i> {{$post->created_at->diffForHumans()}}</time>
+            <div class="meta flex items-center">
+                <span class="post-date text-xs inline-flex mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    {{$post->created_at->diffForHumans()}}</time>
                 </span>
-                <span class="post-category text-xs">
-                    <i class="fas fa-layer-group"></i> <a class="uppercase" href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a>
-                </span>
+
                 @if ($post->tags->isNotEmpty())
-                    <span class="post-tag text-xs">
-                        <i class="fas fa-tags"></i>
+                    <span class="post-tag text-xs inline-flex mx-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                          </svg>
                         @foreach ($post->tags as $tag)
-                            <a class="text-primary-darker dark:text-primary hover:text-primary-darker dark:hover:text-primary text-xs mr-1 border-b border-primary-darker hover:border-primary-darker dark:hover:border-primary border-opacity-50" href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
+                            <a class="text-xs mr-1 border-b border-primary-darker hover:border-primary-darker dark:hover:border-primary border-opacity-30" href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
                         @endforeach
                     </span>	
                 @endif
-                @if (Auth::user())
-                <span class="text-xs">
-                    <a href="{{route('posts.edit', $post)}}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                          </svg>
-                    </a>
+
+                <span class="text-xs inline-flex mx-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>{{ $post->views }}
                 </span>
-                @endif
+
             </div>
+            @if (Auth::user(1))
+            <a class="text-xs mt-4 inline-flex" href="{{route('posts.edit', $post)}}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg> Правка
+            </a>
+            @endif
             {{-- <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
             <script src="https://yastatic.net/share2/share.js"></script>
             <div class="ya-share2" data-services="collections,vkontakte,facebook,odnoklassniki,moimir"></div> --}}
         </article>
 	</div>
-    
-    {{-- <aside class="sidebar flex-shrink-0 md:w-1/3 w-full my-11">
-		<div class="widget">
-			<h2>
-				Заголовок виджета 1
-			</h2>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque reiciendis obcaecati sint quae aut modi eligendi error, ipsam libero aliquid, quo quisquam sapiente. Enim in quia modi eos, sed fugit.
-			</p>
-		</div>
-		<div class="widget">
-			<h2>
-				Заголовок виджета 2
-			</h2>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque reiciendis obcaecati sint quae aut modi eligendi error, ipsam libero aliquid, quo quisquam sapiente. Enim in quia modi eos, sed fugit.
-			</p>
-		</div>
-	</aside> --}}
 </main>
 @endsection

@@ -5,7 +5,7 @@
 
 @layer base {
     a {
-        @apply text-primary-darker dark:text-primary hover:text-dark dark:hover:text-light transition duration-300 ease-in-out; 
+        @apply text-primary-darker dark:text-primary hover:text-black dark:hover:text-light transition duration-300 ease-in-out; 
     }
 
     .site-home-header {
@@ -138,6 +138,10 @@
         height: inherit;
     }
 
+    .post-page {
+        max-width: 960px;
+    }
+
     .post-content h2 {
         @apply text-xl text-dark dark:text-light-gray font-bold mt-6; 
     }
@@ -147,7 +151,7 @@
     }
 
     .post-content pre {
-        @apply overflow-x-auto my-6 pl-3 py-3 max-w-full text-gray text-sm bg-dark-lighter border-l-7 border-primary-darker dark:border-primary rounded-xl;
+        @apply overflow-x-auto my-6 pl-3 py-3 text-sm font-mono bg-light-gray dark:bg-dark border-l-7 border-primary-darker dark:border-primary;
     }
 
     .post-content a {
@@ -181,7 +185,20 @@
     .post-content p {
         @apply my-4;
     }
+
+    .post-content table {
+        @apply mx-auto
+    }
+    .post-content table caption {
+        @apply my-2
+    }
+    .post-content th {
+        @apply text-center py-3 px-4 uppercase font-semibold border
+    }
       
+    .post-content td {
+        @apply text-center py-3 px-4 border
+    }
 
 
 }

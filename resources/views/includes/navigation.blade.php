@@ -1,16 +1,26 @@
-<nav class="site-nav flex justify-center relative mb-5">						
-    <div class="site-nav-content flex justify-center items-center px-12">
-        <ul class="flex flex-wrap list-none ">
+<nav class="site-nav flex justify-center py-4 sm:flex-row items-center flex-col relative md:py-2 bg-light-gray dark:bg-dark">						
+    <a class="hidden md:block" href="/">
+        <img class="site-avatar mr-4 w-12 h-12 border-4 rounded-full border-light dark:border-dark-lighter hover:border-primary-darker dark:hover:border-primary transition duration-500 ease-in-out" src="{{ asset('/assets/images/logo.jpg') }}">
+    </a>
+    <h1 class="hidden md:block site-title font-bold text-4xl uppercase tracking-widest">
+        @if ($site_name)
+            <a class="text-primary-dark dark:text-primary hover:text-black dark:hover:text-light-gray" href="/">{{ $site_name }}</a>
+        @else 
+            <a class="text-primary-dark dark:text-primary hover:text-black dark:hover:text-light-gray" href="/">alvar</a>
+        @endif
+    </h1>
+    <div class="site-nav-content flex justify-center items-center mx-16">
+        <ul class="flex flex-wrap list-none flex-col sm:flex-row items-center">
             @foreach ($categories as $category)
-                <li class="mx-5">
-                    <a class="uppercase relative border-b-2 hover:text-primary-darker dark:hover:text-primary border-light dark:border-dark hover:border-primary-darker dark:hover:border-primary" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
+                <li class="mx-5 my-1 sm:my-0">
+                    <a class="relative border-b-2 hover:text-primary-darker dark:hover:text-primary border-light-gray dark:border-dark-lighter hover:border-primary-darker dark:hover:border-primary" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
                 </li>
             @endforeach
         </ul>
     </div>			
-    <button id="switchTheme" class="w-10 h-10 text-primary absolute top-0 right-4 flex justify-center items-center focus:outline-none ">
-        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
-          </svg>
+    <button id="switchTheme" class="w-10 h-10 text-primary-darker dark:text-primary hover:text-black dark:hover:text-light flex items-center justify-center focus:outline-none ">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
     </button>					
 </nav>
