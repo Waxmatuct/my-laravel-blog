@@ -4,15 +4,15 @@
 
 @section('content')
 <main id="site-main" class="site-main md:mt-10 px-8 flex flex-wrap flex-col justify-center">
-	<div class="inner sm:w-4/5 w-full mx-auto md:my-3 flex flex-col justify-around">
+	<div class="inner w-full mx-auto md:my-3 flex flex-col justify-around">
 	
 		@foreach ($posts as $post)
 			
 			<article class="posts my-5 flex flex-wrap md:flex-nowrap border-b-2 border-gray border-opacity-10">
 
-						<div class="post-info md:w-48 md:mb-0 md:mt-2 mb-6 flex-shrink-0 flex flex-col"> 
+						<div class="post-info md:w-56 md:mb-0 md:mt-2 mb-6 flex-shrink-0 flex flex-col"> 
 							<span class="post-category">
-								<a class="text-sm" href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a>
+								<a class="" href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a>
 							</span>
 							<span class="post-date mt-1 text-xs">
 								<time>{{$post->created_at->diffForHumans()}}</time>
@@ -39,11 +39,11 @@
 						</div>
 					
 						<div class="post-block md:flex-grow">
-							<h2 class="post-title font-bold text-2xl">
+							<h2 class="post-title font-bold text-3xl">
 								<a class="text-black dark:text-light-gray hover:text-primary-darker dark:hover:text-primary" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a>
 							</h2>
 							
-							<section class="post-excerpt my-3 text-sm"><p>{{ Str::words($post->description,20,) }}</p></section>
+							<section class="post-excerpt my-3 text-md"><p>{{ Str::words($post->description,20,) }}</p></section>
 							
 							<div class="meta flex mt-5 mb-7 justify-between items-center">
 								<span class="learn-more text-sm inline-flex">
