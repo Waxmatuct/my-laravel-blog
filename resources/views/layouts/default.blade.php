@@ -23,15 +23,9 @@
 	<body class="bg-light text-black font-sans dark:bg-dark-lighter dark:text-gray">
 		<a href="#" onclick="return false" class="menu_link"><span></span></a>
 
-		<progress value="0">
-			<div class="progress-container">
-				<span class="progress-bar"></span>
-			</div>
-		</progress>
-		
 		@include('includes.navigation')
 
-		<div class="max-w-5xl mx-auto">
+		<div class="container mx-auto">
 			<header class="site-home-header block md:hidden">
 				<div class="site-header-content flex flex-col justify-center mt-5 mb-3 items-center">
 					<a href="/">
@@ -61,8 +55,6 @@
                 
             @yield('content')
 
-			{{-- <div class="bg-gray bg-opacity-10 block mx-auto w-full h-1 my-3"></div> --}}
-
 		</div>
 
 		<footer class="site-footer w-full bg-light-gray dark:bg-dark">
@@ -78,7 +70,8 @@
 			@endif
 		</footer>
 
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="{{ asset('/js/scripts.js') }}"></script>
+		{{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
+		<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+		<script src="{{ asset('/js/scripts.js') }}"></script>
 	</body>
 </html>

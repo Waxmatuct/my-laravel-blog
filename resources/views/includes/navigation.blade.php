@@ -11,6 +11,9 @@
     </h1>
     <div class="site-nav-content flex justify-center items-center mx-16">
         <ul class="flex flex-wrap list-none flex-col sm:flex-row items-center">
+            <li class="mx-5 my-1 sm:my-0">
+                <a class="relative border-b-2 text-primary hover:text-primary dark:hover:text-primary border-dark-lighter hover:border-primary" href="{{url('/blog')}}">Блог</a>
+            </li>
             @foreach ($categories as $category)
                 <li class="mx-5 my-1 sm:my-0">
                     <a class="relative border-b-2 text-primary hover:text-primary dark:hover:text-primary border-dark-lighter hover:border-primary" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>

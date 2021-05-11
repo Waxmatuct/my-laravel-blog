@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function index() {
+    public function blog() {
         $categories = Category::orderBy('title')->get();
         $posts = Post::where('online', true)->orderBy('id', 'desc')->paginate(7);
         $site_name = Setting::select(['id','option'])->find(1);
@@ -18,7 +18,7 @@ class BlogController extends Controller
         $site_footer = Setting::select(['id','option'])->find(3);
         $user = \Auth::user();
         
-        return view('index', [
+        return view('blog', [
             'posts' => $posts,
             'categories' => $categories,
             'site_name' => $site_name->option,
@@ -45,7 +45,7 @@ class BlogController extends Controller
         $site_footer = Setting::select(['id','option'])->find(3);
         $user = \Auth::user();
         
-        return view('index', [
+        return view('blog', [
             'posts' => $current_category->posts()->where('online', true)->orderBy('id', 'desc')->paginate(10),
             'categories' => $categories,
             'tags' => $tags,
@@ -83,7 +83,7 @@ class BlogController extends Controller
             }
 
             else {
-                return redirect()->route('index');
+                return redirect()->route('blog');
             }
         
     }
@@ -97,7 +97,7 @@ class BlogController extends Controller
         $site_footer = Setting::select(['id','option'])->find(3);
         $user = \Auth::user();
         
-        return view('index', [
+        return view('blog', [
             'posts' => $current_tag->posts()->where('online', true)->orderBy('id', 'desc')->paginate(10),
             'categories' => $categories,
             'tags' => $tags,

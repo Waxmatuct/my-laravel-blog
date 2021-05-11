@@ -3,7 +3,7 @@
 @section('title', $site_name.' | '.$post->title)
 
 @section('content')
-<main id="site-main" class="site-main md:mt-10 px-8 flex flex-wrap justify-center rounded-3xl">
+<main id="site-main" class="site-main max-w-5xl mx-auto md:mt-10 px-8 flex flex-wrap justify-center rounded-3xl">
 	<div class="post-page mx-auto md:my-8 my-5 w-full md:w-4/5 flex flex-col justify-around">
         <div class="breadcrubs inline-flex text-sm items-center">
             <a class="flex items-center mr-1 pb-1" href="/">

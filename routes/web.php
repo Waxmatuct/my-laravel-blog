@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -19,17 +20,12 @@ use App\Http\Controllers\Admin\SettingResource;
 |
 */
 
-Route::get('/', [BlogController::class, 'index'])->name('index');
-Route::get('/category/{slug}', [BlogController::class, 'getPostsByCategory'])->name('getPostsByCategory');
-Route::get('/tag/{slug}', [BlogController::class, 'getPostsByTag'])->name('getPostsByTag');
-Route::get('/post/{slug_post}', [BlogController::class, 'getPost'])->name('getPost');
-Route::get('/post/{slug_post}/edit', [BlogController::class, 'editPost'])->name('editPost');
-
-Route::get('/blog', [HomeController::class, 'index'])->name('index__');
-Route::get('/blog/category/{slug}', [HomeController::class, 'getPostsByCategory'])->name('getPostsByCategory__');
-Route::get('/blog/tag/{slug}', [HomeController::class, 'getPostsByTag'])->name('getPostsByTag__');
-Route::get('/blog/post/{slug_post}', [HomeController::class, 'getPost'])->name('getPost__');
-Route::get('/blog/post/{slug_post}/edit', [HomeController::class, 'editPost'])->name('editPost__');
+Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('/blog', [BlogController::class, 'blog'])->name('blog');
+Route::get('/blog/category/{slug}', [BlogController::class, 'getPostsByCategory'])->name('getPostsByCategory');
+Route::get('/blog/tag/{slug}', [BlogController::class, 'getPostsByTag'])->name('getPostsByTag');
+Route::get('/blog/post/{slug_post}', [BlogController::class, 'getPost'])->name('getPost');
+Route::get('/blog/post/{slug_post}/edit', [BlogController::class, 'editPost'])->name('editPost');
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 

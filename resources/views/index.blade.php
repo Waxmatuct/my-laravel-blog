@@ -3,76 +3,44 @@
 @section('title', $site_name.' | '.$site_description)
 
 @section('content')
-<main id="site-main" class="site-main md:mt-10 px-8 flex flex-wrap flex-col justify-center">
-	<div class="inner w-full mx-auto md:my-3 flex flex-col justify-around">
-	
-		@foreach ($posts as $post)
+<main id="site-main" class="site-main md:w-4/5 mx-auto md:my-10 px-8 flex flex-wrap flex-col justify-center">
+	<div class="index-page mx-auto md:my-8 my-5 w-full flex md:flex-row justify-around">
+		
+		<div class="lg:w-2/5 w-full mb-10 lg:mb-0">
+			<img alt="feature" class="object-cover object-bottom " src="{{ asset('/assets/images/alvar.jpg') }}">
+		</div>
+		
+		<div class="flex flex-col flex-wrap lg:w-3/5 lg:pl-12 lg:text-left text-center" x-data="{ openTab: 1 }">
+
+			<div>
+				<ul class="flex border-b border-primary">
+					<li class="-mb-px mr-1" @click="openTab = 1">
+						<a :class="openTab === 1 ? 'border-l border-t border-r rounded-t font-semibold' : 'hover:text-blue-800'" class="inline-block py-2 px-4 font-semibold" href="#">Обо мне</a>
+					</li>
+					<li class="mr-1" @click="openTab = 2">
+						<a :class="openTab === 2 ? 'border-l border-t border-r rounded-t font-semibold' : 'hover:text-blue-800'" class="inline-block py-2 px-4 font-semibold" href="#">Проекты</a>
+					</li>
+					<li class="mr-1" @click="openTab = 3">
+						<a :class="openTab === 3 ? 'border-l border-t border-r rounded-t font-semibold' : 'hover:text-blue-800'" class="inline-block py-2 px-4 font-semibold" href="#">Контакты</a>
+					</li>
+				</ul>
+			</div>
 			
-			<article class="posts my-5 flex flex-wrap md:flex-nowrap border-b-2 border-gray border-opacity-10">
+			<div class="py-6">
+				<div id="" class="" x-show="openTab === 1">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus ligula at condimentum sagittis. Maecenas velit libero, fermentum a leo quis, pretium egestas risus. Proin tempus sem magna, vitae convallis purus rhoncus non. Aenean tristique congue metus in lobortis. Nullam nisi leo, luctus in sapien eget, accumsan mattis leo. Morbi magna dolor, dapibus ut ligula eget, commodo venenatis risus. Nunc quis dignissim velit. Donec nec dapibus ligula. Etiam quis libero ultrices, semper arcu id, suscipit purus. Phasellus eu arcu tincidunt dui pellentesque feugiat et at risus. In hendrerit laoreet ante ac imperdiet. Nam tortor urna, laoreet in malesuada quis, pretium cursus dolor.
+				</div>
+				<div id="" class="" x-show="openTab === 2">
+					Curabitur at lacinia felis. Curabitur elit ante, efficitur molestie iaculis non, blandit dictum dui. Fusce ac faucibus lorem, in aliquet metus. Praesent bibendum justo vitae ante imperdiet, sit amet posuere tortor tincidunt. Nam a arcu eros. In vitae augue tempus, ullamcorper lectus ut, egestas erat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean imperdiet eget sapien nec consequat. Etiam imperdiet diam ac mattis gravida.
+				</div>
+				<div id="" class="" x-show="openTab === 3">
+					Duis imperdiet ullamcorper nibh, sed euismod dolor facilisis sit amet. Etiam quis cursus lorem. Vivamus euismod accumsan neque lobortis tempus. Praesent nec lacinia odio, a dictum risus. Sed eget dictum turpis, vitae iaculis orci. Vivamus laoreet consequat velit, non viverra diam pulvinar a. Aliquam bibendum ligula lacus, ac convallis ipsum hendrerit ut. Suspendisse rutrum dui libero, non aliquam lectus lobortis at. Donec gravida finibus sollicitudin. Nulla ut metus finibus purus vehicula porttitor. Fusce id sem non nisl pulvinar scelerisque.
+				</div>
+			</div>
 
-						<div class="post-info md:w-56 md:mb-0 md:mt-2 mb-6 flex-shrink-0 flex flex-col"> 
-							<span class="post-category">
-								<a class="" href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a>
-							</span>
-							<span class="post-date mt-1 text-xs">
-								<time>{{$post->created_at->diffForHumans()}}</time>
-							</span>
-						
-							@if ($post->tags->isNotEmpty())
-								<span class="post-tag mt-1">
-									@foreach ($post->tags as $tag)
-										<a class="text-primary-darker dark:text-primary hover:text-primary-darker dark:hover:text-primary text-xs mr-1 border-b border-primary-darker hover:border-primary-darker dark:hover:border-primary border-opacity-30" href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
-									@endforeach
-								</span>	
-							@endif
-
-							@if (Auth::check())
-								@if (Auth::user()->isAdmin)
-									<a class="text-xs mt-2 inline-flex" href="{{route('posts.edit', $post)}}">
-										<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-										</svg>Правка
-									</a>
-								@endif
-							@endif	
-							
-						</div>
-					
-						<div class="post-block md:flex-grow">
-							<h2 class="post-title font-bold text-3xl">
-								<a class="text-black dark:text-light-gray hover:text-primary-darker dark:hover:text-primary" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a>
-							</h2>
-							
-							<section class="post-excerpt my-3 text-md"><p>{{ Str::words($post->description,20,) }}</p></section>
-							
-							<div class="meta flex mt-5 mb-7 justify-between items-center">
-								<span class="learn-more text-sm inline-flex">
-									<a class="inline-flex" href="{{ route('getPost', $post->slug) }}">
-										<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-										  </svg>Читать далее
-									</a>
-								</span>
-
-								<span class="text-sm inline-flex">
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-									</svg>{{ $post->views }}
-								</span>
-								
-							</div>
-
-						</div>
-
-			</article>		
-
-		@endforeach
+		</div>
 
 	</div>
 
-	<div class="pagination-block flex justify-center mb-8 mx-auto">
-		{{ $posts->links('vendor.pagination.semantic-ui') }}
-	</div>
 </main>
 @endsection
