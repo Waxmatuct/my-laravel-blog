@@ -23,7 +23,7 @@
 	<body class="bg-light text-black font-sans dark:bg-dark-lighter dark:text-gray">
 		<a href="#" onclick="return false" class="menu_link"><span></span></a>
 
-		@include('includes.navigation')
+		@include('blog.includes.navigation')
 
 		<div class="container mx-auto">
 			<header class="site-home-header block md:hidden">
@@ -57,8 +57,7 @@
 
 		</div>
 
-		{{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
-		<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-		<script src="{{ asset('/js/scripts.js') }}"></script>
+		@include('blog.includes.footer')
+
 	</body>
 </html>

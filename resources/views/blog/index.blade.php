@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.blog')
 
 @section('title', $site_name.' | '.$site_description)
 
