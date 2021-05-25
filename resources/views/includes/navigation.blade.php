@@ -1,4 +1,4 @@
-<nav class="site-nav flex justify-center py-4 sm:flex-row items-center flex-col relative md:py-2 bg-dark">						
+<nav class="site-nav flex justify-center py-4 sm:flex-row items-center flex-col relative md:py-2 bg-dark border-b-2 border-primary dark:border-gray dark:border-opacity-10">						
     <a class="hidden md:block" href="/">
         <img class="site-avatar mr-4 w-12 h-12 border-4 rounded-full border-dark-lighter hover:border-primary transition duration-500 ease-in-out" src="{{ asset('/assets/images/logo.jpg') }}">
     </a>

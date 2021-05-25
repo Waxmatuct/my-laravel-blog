@@ -1,4 +1,4 @@
-<footer class="site-footer w-full bg-light-gray dark:bg-dark">
+<footer class="site-footer w-full text-light bg-dark border-t-2 border-primary dark:border-gray dark:border-opacity-10">
     @if ( $site_footer )
     
         {!! $site_footer !!}
