@@ -13,7 +13,7 @@
         <ul class="flex flex-wrap list-none flex-col sm:flex-row items-center">
             @foreach ($categories as $category)
                 <li class="mx-5 my-1 sm:my-0">
-                    <a class="relative py-1 border-b-2 uppercase text-gray dark:text-gray hover:text-primary dark:hover:text-primary border-dark hover:border-primary" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
+                    <a class="relative py-1 border-b-2 uppercase text-light dark:text-light hover:text-primary dark:hover:text-primary border-dark hover:border-primary" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
                 </li>
             @endforeach
         </ul>
@@ -39,16 +39,16 @@
         </svg>
     </button> --}}
     @guest
-        <a class="block ml-16 text-gray hover:text-primary" href="{{ url('/login') }}" title="Войти">
+        <a class="block ml-16 text-light hover:text-primary" href="{{ url('/login') }}" title="Войти">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
         </a> 
     @else
-        <span class="ml-16 text-sm inline-flex text-gray">
+        <span class="ml-16 text-sm inline-flex text-light">
             Привет, {{ $user->name }}
         </span>
-        <a href="{{ route('logout') }}" class="block ml-1 text-gray dark:text-gray hover:text-primary dark:hover:text-primary" title="Выйти"
+        <a href="{{ route('logout') }}" class="block ml-1 text-light dark:text-light hover:text-primary dark:hover:text-primary" title="Выйти"
         onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
