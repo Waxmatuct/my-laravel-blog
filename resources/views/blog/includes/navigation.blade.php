@@ -1,4 +1,4 @@
-<nav class="site-nav flex justify-center py-4 sm:flex-row items-center flex-col relative md:py-2 bg-dark border-b-2 border-primary  dark:border-gray dark:border-opacity-10">						
+<nav class="site-nav flex justify-center py-4 sm:flex-row items-center flex-col relative md:py-2 bg-dark">						
     <a class="hidden md:block" href="/">
         <img class="site-avatar mr-4 w-12 h-12 border-4 rounded-full border-dark-lighter hover:border-primary transition duration-500 ease-in-out" src="{{ asset('/assets/images/logo.jpg') }}">
     </a>
@@ -13,27 +13,42 @@
         <ul class="flex flex-wrap list-none flex-col sm:flex-row items-center">
             @foreach ($categories as $category)
                 <li class="mx-5 my-1 sm:my-0">
-                    <a class="relative border-b-2 text-primary hover:text-primary dark:hover:text-primary border-dark-lighter hover:border-primary" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
+                    <a class="relative py-1 border-b-2 uppercase text-gray dark:text-gray hover:text-primary dark:hover:text-primary border-dark hover:border-primary" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
                 </li>
             @endforeach
         </ul>
-    </div>			
-    <button id="switchTheme" class="w-10 h-10 text-primary hover:text-light flex items-center justify-center focus:outline-none ">
+    </div>
+
+    <label id="switch" class="switch">
+        <input type="checkbox" id="switchTheme">
+        <span class="slider round"></span>
+    </label>
+    
+    <script>
+        var elem = document.getElementById('switchTheme')
+        if (localStorage.theme === 'dark') {
+            elem.checked = true
+        } else {
+            elem.checked = false
+        }
+    </script>
+
+    {{-- <button id="switchTheme" class="w-10 h-10 text-gray hover:text-primary flex items-center justify-center focus:outline-none ">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
         </svg>
-    </button>
+    </button> --}}
     @guest
-        <a class="block ml-16 text-primary hover:text-light" href="{{ url('/login') }}" title="Войти">
+        <a class="block ml-16 text-gray hover:text-primary" href="{{ url('/login') }}" title="Войти">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
         </a> 
     @else
-        <span class="ml-16 text-sm inline-flex text-light-gray">
+        <span class="ml-16 text-sm inline-flex text-gray">
             Привет, {{ $user->name }}
         </span>
-        <a href="{{ route('logout') }}" class="block ml-1 text-primary hover:text-light" title="Выйти"
+        <a href="{{ route('logout') }}" class="block ml-1 text-gray dark:text-gray hover:text-primary dark:hover:text-primary" title="Выйти"
         onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -14,10 +14,10 @@
 			if (localStorage.theme === 'dark') {
 				document.documentElement.classList.add('dark')
 				localStorage.theme = 'dark';
-				} else {
-				document.documentElement.classList.remove('dark')
-				localStorage.removeItem('theme')
-				}		
+			} else {
+				document.documentElement.classList.remove('dark');
+				localStorage.removeItem('theme');
+			}
 		</script>
 	</head>
 	<body class="bg-light text-black font-sans dark:bg-dark-lighter dark:text-gray">

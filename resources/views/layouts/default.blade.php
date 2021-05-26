@@ -14,9 +14,11 @@
 			if (localStorage.theme === 'dark') {
 				document.documentElement.classList.add('dark')
 				localStorage.theme = 'dark';
+				document.getElementById('switchTheme').checked = true;
 				} else {
-				document.documentElement.classList.remove('dark')
-				localStorage.removeItem('theme')
+				document.documentElement.classList.remove('dark');
+				localStorage.removeItem('theme');
+				document.getElementById('switchTheme').checked = false;
 				}		
 		</script>
 	</head>
