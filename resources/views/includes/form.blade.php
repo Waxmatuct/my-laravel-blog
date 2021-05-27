@@ -1,4 +1,4 @@
-<div x-show.transition.in.opacity.duration.500ms.out.duration.400ms="modalShow" class="fixed left-0 top-0 h-full w-full z-50 bg-dark bg-opacity-80" x-cloak>
+<div x-show.transition.in.opacity.duration.500ms.out.duration.200ms="modalShow" class="fixed left-0 top-0 h-full w-full z-50 bg-dark bg-opacity-80" x-cloak>
     <div @click.away="modalShow = false" class="absolute sm:w-3/12 w-11/12 bg-white" style="left: 50%; top: 50%; transform: translate(-50%, -50%);">
     
         <span @click="modalShow = false" class="absolute right-2.5 text-2xl top-0 text-light hover:text-gray cursor-pointer">×</span>

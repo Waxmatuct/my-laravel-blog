@@ -44,7 +44,7 @@
     </div>
     @else
         <span class="ml-16 text-sm inline-flex text-light">
-            Привет, {{ $user->name }}
+            {{ $user->name }}
         </span>
         <a href="{{ route('logout') }}" class="block ml-1 text-light dark:text-light hover:text-primary dark:hover:text-primary" title="Выйти"
         onclick="event.preventDefault();
