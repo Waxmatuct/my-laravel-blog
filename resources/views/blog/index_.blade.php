@@ -10,7 +10,7 @@
 			
 			<article class="posts my-5 flex flex-wrap md:flex-nowrap border-b-2 border-gray border-opacity-10">
 
-						<div class="post-info md:w-48 md:mb-0 md:mt-2 mb-6 flex-shrink-0 flex flex-col"> 
+						<div class="post-info md:w-56 md:mb-0 md:mt-2 mb-6 flex-shrink-0 flex flex-col"> 
 							<span class="post-category">
 								<a class="" href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a>
 							</span>
@@ -26,13 +26,6 @@
 								</span>	
 							@endif
 
-							<span class="text-xs mt-1 inline-flex">
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-								</svg>{{ $post->views }}
-							</span>
-
 							@if (Auth::check())
 								@if (Auth::user()->isAdmin)
 									<a class="text-xs mt-2 inline-flex" href="{{route('posts.edit', $post)}}">
@@ -45,19 +38,31 @@
 							
 						</div>
 					
-						<div class="post-block w-full md:flex-grow">
+						<div class="post-block md:flex-grow">
 							<h2 class="post-title font-bold text-3xl">
 								<a class="text-black dark:text-light-gray hover:text-primary-darker dark:hover:text-primary" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a>
 							</h2>
 							
-							<section class="post-content my-3 text-md">
-								{!! $post->content !!}
-							</section>
+							<section class="post-excerpt my-3 text-md"><p>{{ Str::words($post->description,20,) }}</p></section>
+							
+							<div class="meta flex mt-5 mb-7 justify-between items-center">
+								<span class="learn-more text-sm inline-flex">
+									<a class="inline-flex" href="{{ route('getPost', $post->slug) }}">
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+										  </svg>Читать далее
+									</a>
+								</span>
 
-							<div class="my-8">
-								<script src="https://yastatic.net/share2/share.js"></script>
-								<div class="ya-share2" data-curtain data-size="s" data-services="vkontakte,facebook,odnoklassniki,telegram,twitter"></div>
+								<span class="text-sm inline-flex">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+									</svg>{{ $post->views }}
+								</span>
+								
 							</div>
+
 						</div>
 
 			</article>		

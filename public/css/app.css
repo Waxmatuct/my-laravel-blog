@@ -698,6 +698,10 @@ progress::-moz-progress-bar {
   max-width: 960px;
 }
 
+.post-block {
+  max-width: 768px;
+}
+
 .post-content h2 {
   font-weight: 700;
   font-size: 1.25rem;

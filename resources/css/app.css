@@ -122,6 +122,10 @@
         max-width: 960px;
     }
 
+    .post-block {
+        max-width: 768px;
+    }
+
     .post-content h2 {
         @apply text-xl text-dark dark:text-light-gray font-bold mt-6; 
     }
