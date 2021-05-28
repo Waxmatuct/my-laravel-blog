@@ -3,12 +3,23 @@
 @section('title', $site_name.' | '.$site_description)
 
 @section('content')
-<main id="site-main" class="site-main max-w-5xl mx-auto md:mt-10 px-8 flex flex-wrap flex-col justify-center">
+
+<section class="categories max-w-5xl mx-auto md:mt-10 px-8 md:px-0 flex flex-wrap flex-col justify-center">
+	<ul class="flex flex-wrap list-none items-center justify-center">
+		@foreach ($categories as $category)
+			<li class="mx-2 mb-3 sm:my-0">
+				<a class="block py-1 px-2 border text-primary dark:text-primary hover:text-black dark:hover:text-light border-primary hover:border-primary  hover:bg-primary dark:hover:bg-primary" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
+			</li>
+		@endforeach
+	</ul>
+</section>
+
+<main id="site-main" class="site-main max-w-5xl mx-auto md:mt-10 px-8 md:px-0 flex flex-wrap flex-col justify-center">
 	<div class="inner w-full mx-auto md:my-3 flex flex-col justify-around">
 	
 		@foreach ($posts as $post)
 			
-			<article class="posts my-5 flex flex-wrap md:flex-nowrap border-b-2 border-gray border-opacity-10">
+			<article class="posts mb-5 flex flex-wrap md:flex-nowrap border-b-2 border-gray border-opacity-10">
 
 						<div class="post-info md:w-48 md:mb-0 md:mt-2 mb-6 flex-shrink-0 flex flex-col"> 
 							<span class="post-category">

@@ -135,7 +135,7 @@
     }
 
     .post-content pre {
-        @apply overflow-x-auto my-6 pl-3 py-3 text-sm font-mono bg-light-gray dark:bg-dark border-l-7 border-primary-darker dark:border-primary;
+        @apply overflow-x-auto my-6 pl-3 py-3 text-sm font-mono bg-light-gray dark:bg-dark border-l-7 border-primary-darker dark:border-primary md:max-w-screen-sm lg:max-w-full;
     }
 
     .post-content a {

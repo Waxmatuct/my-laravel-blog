@@ -763,6 +763,18 @@ progress::-moz-progress-bar {
   padding-left: 0.75rem;
 }
 
+@media (min-width: 768px) {
+  .post-content pre {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .post-content pre {
+    max-width: 100%;
+  }
+}
+
 .post-content a {
   text-decoration: none;
 }
