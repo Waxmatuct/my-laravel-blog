@@ -4,13 +4,16 @@
     </a>
     <h1 class="hidden md:block site-title font-bold text-4xl uppercase tracking-widest">
         @if ($site_name)
-            <a class="text-primary dark:text-primary hover:text-light-gray" href="/">{{ $site_name }}</a>
+            <a class="text-primary dark:text-primary hover:text-light-gray" href="{{ url('/') }}">{{ $site_name }}</a>
         @else 
             <a class="text-primary dark:text-primary hover:text-light-gray" href="/">alvar</a>
         @endif
     </h1>
     <div class="site-nav-content flex justify-center items-center mx-16">
         <ul class="flex flex-wrap list-none flex-col sm:flex-row items-center">
+            <li class="mx-5 my-1 sm:my-0">
+                <a class="relative py-1 border-b-2 uppercase text-light dark:text-light hover:text-primary dark:hover:text-primary border-dark hover:border-primary" href="{{ url('/blog') }}">Главная</a>
+            </li>
             @foreach ($categories as $category)
                 <li class="mx-5 my-1 sm:my-0">
                     <a class="relative py-1 border-b-2 uppercase text-light dark:text-light hover:text-primary dark:hover:text-primary border-dark hover:border-primary" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
