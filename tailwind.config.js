@@ -21,8 +21,8 @@ module.exports = {
       current: 'currentColor',
       
       dark: {
-          DEFAULT: '#1c1c28',
-          lighter: '#23243a', //#28293d
+          DEFAULT: '#292929', //#1c1c28
+          lighter: '#303030', //#23243a
           gray: '#777',
         },
       
