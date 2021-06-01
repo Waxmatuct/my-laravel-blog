@@ -76,6 +76,29 @@
                 <div class="ya-share2" data-curtain data-size="s" data-services="vkontakte,facebook,odnoklassniki,telegram,twitter"></div>
             </div>
         </article>
+        <div id="comments" class="flex flex-col">
+            <div x-data="{show: false}">
+                <button @click="show = !show" class="button">Комментировать</button>
+                <div x-show.transition.in.opacity.duration.500ms.out.duration.200ms="show" x-cloak>
+                    <div class="flex flex-col w-full md:w-4/5">
+                        <div class="relative my-4">
+                            <label for="name" class="leading-7 text-sm text-black dark:text-gray">Имя</label>
+                            <input type="text" id="name" name="name" class="w-full bg-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary text-base outline-none text-black dark:text-light py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                          </div>
+                          <div class="relative mb-4">
+                            <label for="site" class="leading-7 text-sm text-black dark:text-gray">Сайт</label>
+                            <input type="text" id="site" name="site" class="w-full bg-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary text-base outline-none text-black dark:text-light py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                          </div>
+                          <div class="relative mb-4">
+                            <label for="message" class="leading-7 text-sm text-black dark:text-gray">Комментарий</label>
+                            <textarea id="message" name="message" class="w-full bg-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary h-32 text-base outline-none text-black dark:text-light py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                          </div>
+                          <button class="button">Отправить комментарий</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
 </main>
 @endsection

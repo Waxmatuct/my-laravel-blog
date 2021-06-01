@@ -21,8 +21,8 @@ module.exports = {
       current: 'currentColor',
       
       dark: {
-          DEFAULT: '#292929', //#1c1c28
-          lighter: '#303030', //#23243a
+          DEFAULT: '#111827', //#1c1c28
+          lighter: '#161e2d', //#23243a
           gray: '#777',
         },
       
@@ -47,7 +47,7 @@ module.exports = {
       },
       
     },
-
+// 
     borderWidth: {
       DEFAULT: '1px',
           '0': '0',
