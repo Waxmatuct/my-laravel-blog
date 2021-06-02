@@ -16,7 +16,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
 
-            <a class="mr-1 border-b border-primary-darker hover:border-primary-darker dark:hover:border-primary border-opacity-30" href="{{ route('getPostsByCategory', $post->category['slug']) }}">
+            <a class="mr-1 border-b border-primary hover:border-primary dark:hover:border-primary border-opacity-30" href="{{ route('getPostsByCategory', $post->category['slug']) }}">
                 {{$post->category['title']}}
             </a>
 
@@ -30,7 +30,7 @@
         </div>
         <article class="post mx-auto mt-8 w-full">
             <header class="post-header">
-                <h1 class="post-title font-bold text-2xl sm:text-3xl text-black dark:text-light-gray">{{$post->title}}</h1>
+                <h1 class="post-title font-bold text-2xl sm:text-3xl text-gray-900 dark:text-light-gray">{{$post->title}}</h1>
             </header>
             <section class="post-content my-3">
                 {!! $post->content !!}
@@ -49,7 +49,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                           </svg>
                         @foreach ($post->tags as $tag)
-                            <a class="text-xs mr-1 border-b border-primary-darker hover:border-primary-darker dark:hover:border-primary border-opacity-30" href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
+                            <a class="text-xs mr-1 border-b border-primary hover:border-primary dark:hover:border-primary border-opacity-30" href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
                         @endforeach
                     </span>	
                 @endif
@@ -76,29 +76,81 @@
                 <div class="ya-share2" data-curtain data-size="s" data-services="vkontakte,facebook,odnoklassniki,telegram,twitter"></div>
             </div>
         </article>
+        
         <div id="comments" class="flex flex-col">
+            <div class="comments-heading mb-4">
+                @if ($post->comments->isNotEmpty())
+                    <span class="text-base font-bold">
+                        {{ $post->comments->count()}} комментариев
+                    </span>
+                @else
+                    <span class="font-bold">
+                        Нет комментариев
+                    </span>
+                @endif
+            </div>
+            
+            @foreach ($post->comments as $comment)
+            @php
+                $const = 1;
+                $parent = $comment->child_comment_id + $const
+            @endphp
+            @if ($comment->id != 1 && $comment->id == $parent )
+            <div id="comment-{{ $comment->id }}" class="comment h-full flex flex-row justify-start text-left mb-4 ml-16">
+            @else
+            <div id="comment-{{ $comment->id }}" class="comment h-full flex flex-row justify-start text-left mb-4">
+            @endif
+                <div class="flex-shrink-0 w-12 h-12 bg-light-gray dark:bg-dark rounded-full inline-flex items-center justify-center">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-7 h-7" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <div class="flex flex-col flex-grow pl-4">
+                    @if ($comment->website)
+                        <a href="{{ $comment->website }}" class="font-bold">{{ $comment->username }}</a>
+                    @else
+                        <span class="font-bold">{{ $comment->username }}</span>
+                    @endif
+                    <span class="post-date text-xs mb-3">
+                        {{ $comment->created_at->diffForHumans() }}
+                    </span>
+                    <p class="mb-4">
+                        {{ $comment->comment }}
+                    </p>
+                    <span>{{$comment->id}} {{$parent}}</span>
+                </div>
+            </div>
+            @endforeach
+
             <div x-data="{show: false}">
                 <button @click="show = !show" class="button">Комментировать</button>
                 <div x-show.transition.in.opacity.duration.500ms.out.duration.200ms="show" x-cloak>
-                    <div class="flex flex-col w-full md:w-4/5">
-                        <div class="relative my-4">
-                            <label for="name" class="leading-7 text-sm text-black dark:text-gray">Имя</label>
-                            <input type="text" id="name" name="name" class="w-full bg-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary text-base outline-none text-black dark:text-light py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                          </div>
-                          <div class="relative mb-4">
-                            <label for="site" class="leading-7 text-sm text-black dark:text-gray">Сайт</label>
-                            <input type="text" id="site" name="site" class="w-full bg-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary text-base outline-none text-black dark:text-light py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                          </div>
-                          <div class="relative mb-4">
-                            <label for="message" class="leading-7 text-sm text-black dark:text-gray">Комментарий</label>
-                            <textarea id="message" name="message" class="w-full bg-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary h-32 text-base outline-none text-black dark:text-light py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
-                          </div>
-                          <button class="button">Отправить комментарий</button>
+                    <form action="?" method="POST">
+                        @csrf
+                        <div class="relative md:w-4/5 my-4">
+                            <label for="name" class="leading-7 text-sm text-black dark:text-gray">Имя*</label>
+                            <input type="text" id="name" name="name" class="w-full bg-light-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary text-base outline-none text-black dark:text-light py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
-                    </div>
+                        <div class="relative md:w-4/5 mb-4">
+                            <label for="site" class="leading-7 text-sm text-black dark:text-gray">Сайт</label>
+                            <input type="text" id="site" name="site" class="w-full bg-light-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary text-base outline-none text-black dark:text-light py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                        <div class="">
+                        <div class="relative md:w-4/5 mb-4">
+                            <label for="message" class="leading-7 text-sm text-black dark:text-gray">Комментарий*</label>
+                            <textarea id="message" name="message" class="w-full bg-light-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary h-32 text-base outline-none text-black dark:text-light py-1 px-3 resize-y leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                        </div>
+                        <div class="mb-4 g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                        <input type="submit" class="button" value="Отправить"></input>
+                    </form>
                 </div>
             </div>
         </div>
 	</div>
 </main>
 @endsection
+
+@push('recaptcha')
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+@endpush

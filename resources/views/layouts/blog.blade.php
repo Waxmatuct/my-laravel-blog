@@ -19,6 +19,7 @@
 				localStorage.removeItem('theme');
 			}
 		</script>
+		@stack('recaptcha')
 	</head>
 	<body class="bg-light text-black font-sans dark:bg-dark-lighter dark:text-gray">
 		<a href="#" onclick="return false" class="menu_link"><span></span></a>
@@ -29,7 +30,7 @@
 			<header class="site-home-header block md:hidden">
 				<div class="site-header-content flex flex-col justify-center mt-5 mb-3 items-center">
 					<a href="/">
-						<img class="site-avatar w-28 h-28 border-6 rounded-full mb-4 border-light-gray dark:border-dark-lighter hover:border-primary-darker dark:hover:border-primary transition duration-500 ease-in-out" src="{{ asset('/assets/images/logo.jpg') }}">
+						<img class="site-avatar w-28 h-28 border-6 rounded-full mb-4 border-light-gray dark:border-dark-lighter hover:border-primary dark:hover:border-primary transition duration-500 ease-in-out" src="{{ asset('/assets/images/logo.jpg') }}">
 					</a>
 					<h1 class="site-title font-bold text-5xl uppercase tracking-widest">
 							@if ($site_name)
@@ -48,7 +49,7 @@
 					<div class="subscribe hidden">
 						<a href="" class="sub_btn">Подписаться</a>
 					</div>
-					<div class="bg-primary-darker dark:bg-primary block mx-auto w-12 h-1 my-3"></div>
+					<div class="bg-primary dark:bg-primary block mx-auto w-12 h-1 my-3"></div>
 				</div>
 
 			</header>

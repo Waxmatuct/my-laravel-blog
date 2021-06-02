@@ -5,11 +5,11 @@
 
 @layer base {
     a {
-        @apply text-primary-darker dark:text-primary hover:text-black dark:hover:text-light transition duration-300 ease-in-out; 
+        @apply text-primary dark:text-primary hover:text-black dark:hover:text-light transition duration-300 ease-in-out; 
     }
 
     .button {
-        @apply py-2 px-4 text-dark dark:text-light bg-light-gray dark:bg-dark border border-primary rounded hover:text-light hover:bg-primary dark:hover:bg-primary transition duration-300 ease-in-out focus:outline-none;
+        @apply py-2 px-4 text-light dark:text-light bg-primary dark:bg-primary rounded hover:bg-primary-darker dark:hover:bg-primary-darker transition duration-300 ease-in-out focus:outline-none;
     }
     .site-home-header {
         /* min-height: 370px; */
@@ -138,7 +138,7 @@
     }
 
     .post-content pre {
-        @apply overflow-x-auto my-6 pl-3 py-3 text-sm font-mono bg-light-gray dark:bg-dark border-l-7 border-primary-darker dark:border-primary md:max-w-screen-sm lg:max-w-full;
+        @apply overflow-x-auto my-6 pl-3 py-3 text-sm font-mono bg-light-gray dark:bg-dark border-l-7 border-primary dark:border-primary md:max-w-screen-sm lg:max-w-full;
     }
 
     .post-content a {

@@ -27,14 +27,14 @@ module.exports = {
         },
       
       light: {
-        DEFAULT: '#f6f6f6',
-        white: '#ffffff',
+        DEFAULT: '#ffffff',
+        white: '#f9f9fa',
         gray: '#e9e9e9',
       },
 
-      'black': '#222',
-      'gray': '#a8a8a8',
-      'darkest-purple': '#171826', 
+      'black': '#374151',
+      'gray': '#9ca3af',
+      'gray-900': '#1f2937', 
       
       blue: {
           DEFAULT:'#539bf5',
@@ -43,7 +43,7 @@ module.exports = {
 
       'primary': {
           DEFAULT: '#00a457',//#98c376
-          darker: '#00a457',
+          darker: '#059669',
       },
       
     },

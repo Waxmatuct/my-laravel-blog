@@ -32,7 +32,7 @@
 							@if ($post->tags->isNotEmpty())
 								<span class="post-tag mt-1">
 									@foreach ($post->tags as $tag)
-										<a class="text-primary-darker dark:text-primary hover:text-primary-darker dark:hover:text-primary text-xs mr-1 border-b border-primary-darker hover:border-primary-darker dark:hover:border-primary border-opacity-30" href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
+										<a class="text-primary dark:text-primary hover:text-primary dark:hover:text-primary text-xs mr-1 border-b border-primary hover:border-primary dark:hover:border-primary border-opacity-30" href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
 									@endforeach
 								</span>	
 							@endif
@@ -41,7 +41,10 @@
 								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-								</svg>{{ $post->views }}
+								</svg><span class="mr-2">{{ $post->views }}</span>
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+								</svg><span>{{ $post->comments->count() }}</span>
 							</span>
 
 							@if (Auth::check())
@@ -58,7 +61,7 @@
 					
 						<div class="post-block w-full md:flex-grow">
 							<h2 class="post-title font-bold text-3xl">
-								<a class="text-black dark:text-light-gray hover:text-primary-darker dark:hover:text-primary" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a>
+								<a class="text-gray-900 dark:text-light-gray hover:text-primary dark:hover:text-primary" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a>
 							</h2>
 							
 							<section class="post-content my-3 text-md">

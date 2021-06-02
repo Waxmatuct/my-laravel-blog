@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\Comment;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,7 @@ class BlogController extends Controller
         $site_name = Setting::select(['id','option'])->find(1);
         $site_description = Setting::select(['id','option'])->find(2);
         $site_footer = Setting::select(['id','option'])->find(3);
+        $comments = Comment::get();
         $user = \Auth::user();
         
         return view('blog.index', [
@@ -25,6 +27,7 @@ class BlogController extends Controller
             'site_description' => $site_description->option,
             'site_footer' => $site_footer->option,
             'user' => $user,
+            'comments' => $comments,
         ]);
     }
 
@@ -64,6 +67,7 @@ class BlogController extends Controller
         $site_name = Setting::select(['id','option'])->find(1);
         $site_description = Setting::select(['id','option'])->find(2);
         $site_footer = Setting::select(['id','option'])->find(3);
+        $comments = Comment::get();
         $user = \Auth::user();
         
             if(\Auth::guest() || !(\Auth::user()->isAdmin)) {
@@ -78,6 +82,7 @@ class BlogController extends Controller
                     'site_description' => $site_description->option,
                     'site_footer' => $site_footer->option,
                     'user' => $user,
+                    'comments' => $comments,
 
                 ]);
             }
