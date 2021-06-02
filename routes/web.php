@@ -4,10 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\SettingResource;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,7 @@ Route::get('/blog/category/{slug}', [BlogController::class, 'getPostsByCategory'
 Route::get('/blog/tag/{slug}', [BlogController::class, 'getPostsByTag'])->name('getPostsByTag');
 Route::get('/blog/post/{slug_post}', [BlogController::class, 'getPost'])->name('getPost');
 Route::get('/blog/post/{slug_post}/edit', [BlogController::class, 'editPost'])->name('editPost');
+Route::post('/blog/post/{slug_post}/comment', [CommentController::class, 'storeComment'])->name('storeComment');
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 

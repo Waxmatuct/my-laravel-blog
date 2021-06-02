@@ -59,6 +59,6 @@
 		</div>
 
 		@include('blog.includes.footer')
-
+		@stack('fade')
 	</body>
 </html>

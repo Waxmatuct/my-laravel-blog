@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('post_id');
             $table->string('username');
             $table->text('comment');
-            $table->string('website');
+            $table->string('website')->nullable();
             $table->unsignedBigInteger('child_comment_id')->nullable();
             $table->boolean('online')->nullable()->default(true);
             $table->timestamps();

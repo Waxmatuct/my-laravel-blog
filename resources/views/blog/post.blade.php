@@ -4,6 +4,7 @@
 
 @section('content')
 <main id="site-main" class="site-main max-w-5xl mx-auto md:mt-10 px-8 flex flex-wrap justify-center rounded-3xl">
+    @include('blog.includes.message')
 	<div class="post-page mx-auto md:my-8 my-5 w-full md:w-4/5 flex flex-col justify-around">
         <div class="breadcrubs inline-flex text-sm items-center">
             <a class="flex items-center mr-1 pb-1" href="{{ url('/blog') }}">
@@ -77,80 +78,35 @@
             </div>
         </article>
         
-        <div id="comments" class="flex flex-col">
-            <div class="comments-heading mb-4">
-                @if ($post->comments->isNotEmpty())
-                    <span class="text-base font-bold">
-                        {{ $post->comments->count()}} комментариев
-                    </span>
-                @else
-                    <span class="font-bold">
-                        Нет комментариев
-                    </span>
-                @endif
-            </div>
-            
-            @foreach ($post->comments as $comment)
-            @php
-                $const = 1;
-                $parent = $comment->child_comment_id + $const
-            @endphp
-            @if ($comment->id != 1 && $comment->id == $parent )
-            <div id="comment-{{ $comment->id }}" class="comment h-full flex flex-row justify-start text-left mb-4 ml-16">
-            @else
-            <div id="comment-{{ $comment->id }}" class="comment h-full flex flex-row justify-start text-left mb-4">
-            @endif
-                <div class="flex-shrink-0 w-12 h-12 bg-light-gray dark:bg-dark rounded-full inline-flex items-center justify-center">
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-7 h-7" viewBox="0 0 24 24">
-                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                </div>
-                <div class="flex flex-col flex-grow pl-4">
-                    @if ($comment->website)
-                        <a href="{{ $comment->website }}" class="font-bold">{{ $comment->username }}</a>
-                    @else
-                        <span class="font-bold">{{ $comment->username }}</span>
-                    @endif
-                    <span class="post-date text-xs mb-3">
-                        {{ $comment->created_at->diffForHumans() }}
-                    </span>
-                    <p class="mb-4">
-                        {{ $comment->comment }}
-                    </p>
-                    <span>{{$comment->id}} {{$parent}}</span>
-                </div>
-            </div>
-            @endforeach
+        @include('blog.includes.comments')
 
-            <div x-data="{show: false}">
-                <button @click="show = !show" class="button">Комментировать</button>
-                <div x-show.transition.in.opacity.duration.500ms.out.duration.200ms="show" x-cloak>
-                    <form action="?" method="POST">
-                        @csrf
-                        <div class="relative md:w-4/5 my-4">
-                            <label for="name" class="leading-7 text-sm text-black dark:text-gray">Имя*</label>
-                            <input type="text" id="name" name="name" class="w-full bg-light-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary text-base outline-none text-black dark:text-light py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                        <div class="relative md:w-4/5 mb-4">
-                            <label for="site" class="leading-7 text-sm text-black dark:text-gray">Сайт</label>
-                            <input type="text" id="site" name="site" class="w-full bg-light-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary text-base outline-none text-black dark:text-light py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                        <div class="">
-                        <div class="relative md:w-4/5 mb-4">
-                            <label for="message" class="leading-7 text-sm text-black dark:text-gray">Комментарий*</label>
-                            <textarea id="message" name="message" class="w-full bg-light-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary h-32 text-base outline-none text-black dark:text-light py-1 px-3 resize-y leading-6 transition-colors duration-200 ease-in-out"></textarea>
-                        </div>
-                        <div class="mb-4 g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
-                        <input type="submit" class="button" value="Отправить"></input>
-                    </form>
-                </div>
-            </div>
-        </div>
 	</div>
 </main>
 @endsection
 
 @push('recaptcha')
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="text/javascript">
+        var onloadCallback = function() {
+        grecaptcha.render('recaptcha', {
+            'sitekey' : '6LconQgbAAAAAFtY79B7A9g4eLRLGZ1KSNPeuXLx',
+        });
+        };
+    </script>
+@endpush
+
+@push('fade')
+<script>
+    function fade(element) {
+        var op = 1;  // initial opacity
+        var timer = setInterval(function () {
+            if (op <= 0.1){
+                clearInterval(timer);
+                element.style.display = 'none';
+            }
+            element.style.opacity = op;
+            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+            op -= op * 0.1;
+        }, 50);
+    }
+</script>
 @endpush
