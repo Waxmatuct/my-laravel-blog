@@ -85,13 +85,20 @@
 @endsection
 
 @push('recaptcha')
-    <script type="text/javascript">
-        var onloadCallback = function() {
-        grecaptcha.render('recaptcha', {
-            'sitekey' : '6LconQgbAAAAAFtY79B7A9g4eLRLGZ1KSNPeuXLx',
-        });
-        };
-    </script>
+<script type="text/javascript">
+    var verifyCallback = function(response) {
+        document.getElementById("captcha").disabled = false;
+      };
+
+    var onloadCallback = function() {
+      grecaptcha.render('recaptcha', {
+        'sitekey' : '6LconQgbAAAAAFtY79B7A9g4eLRLGZ1KSNPeuXLx',
+        'callback' : verifyCallback,
+      });
+    };
+
+  </script>
+
 @endpush
 
 @push('fade')
