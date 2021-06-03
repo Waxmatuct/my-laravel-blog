@@ -42,8 +42,8 @@ module.exports = {
       },
 
       'primary': {
-          DEFAULT: '#00a457',//#98c376
-          darker: '#059669',
+          DEFAULT: '#0ba057',//#98c376
+          darker: '#48bb78',
       },
       
     },

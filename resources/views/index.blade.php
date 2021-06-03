@@ -13,7 +13,7 @@
 		<div class="flex flex-col flex-wrap lg:w-3/5 lg:pl-12 lg:text-left text-center" x-data="{ openTab: 1 }">
 
 			<div>
-				<ul class="flex border-b border-primary dark:border-primary">
+				<ul class="flex border-b border-primary dark:border-primary-darker">
 					<li class="-mb-px mr-1" @click="openTab = 1">
 						<a :class="openTab === 1 ? 'border-l border-t border-r rounded-t font-semibold' : 'hover:text-blue-800'" class="inline-block py-2 px-4 font-semibold" href="#">Обо мне</a>
 					</li>

@@ -1,39 +1,27 @@
-<nav class="site-nav flex justify-center py-4 sm:flex-row items-center flex-col relative md:py-2 bg-dark">						
+<nav class="site-nav">						
     <a class="hidden md:block" href="/">
-        <img class="site-avatar mr-4 w-12 h-12 border-4 rounded-full border-dark-lighter hover:border-primary transition duration-500 ease-in-out" src="{{ asset('/assets/images/logo.jpg') }}">
+        <img class="site-avatar" src="{{ asset('/assets/images/logo.jpg') }}">
     </a>
     <h1 class="hidden md:block site-title font-bold text-4xl uppercase tracking-widest">
         @if ($site_name)
-            <a class="text-primary dark:text-primary hover:text-light-gray" href="/">{{ $site_name }}</a>
+            <a class="text-primary dark:text-primary-darker hover:text-black dark:hover:text-light-gray" href="/">{{ $site_name }}</a>
         @else 
-            <a class="text-primary dark:text-primary hover:text-light-gray" href="/">alvar</a>
+            <a class="text-primary dark:text-primary-darker hover:text-black dark:hover:text-light-gray" href="/">alvar</a>
         @endif
     </h1>
     <div class="site-nav-content flex justify-center items-center mx-16">
         <ul class="flex flex-wrap list-none flex-col sm:flex-row items-center">
             <li class="mx-5 my-1 sm:my-0">
-                <a class="relative py-1 border-b-2 uppercase text-light dark:text-light hover:text-primary dark:hover:text-primary border-dark hover:border-primary" href="{{url('/blog')}}">Блокнот</a>
+                <a class="relative py-1 border-b-2 uppercase text-black dark:text-light hover:text-primary dark:hover:text-primary border-light-gray dark:border-dark hover:border-primary dark:hover:border-primary-darker" href="{{url('/blog')}}">Блокнот</a>
             </li>
         </ul>
     </div>
-    
-    <label id="switch" class="switch">
-        <input type="checkbox" id="switchTheme">
-        <span class="slider round"></span>
-    </label>
 
-    <script>
-        var elem = document.getElementById('switchTheme')
-        if (localStorage.theme === 'dark') {
-            elem.checked = true
-        } else {
-            elem.checked = false
-        }
-    </script>
+    @include('includes.switcher')
 
     @guest
     <div x-data="{modalShow: false}">    
-        <button class="block ml-16 text-light hover:text-primary" @click="modalShow = true">
+        <button class="block ml-16 text-black dark:text-light hover:text-primary dark:hover:text-primary-darker" @click="modalShow = true">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
@@ -43,10 +31,10 @@
         
     </div>
     @else
-        <span class="ml-16 text-sm inline-flex text-light">
+        <span class="ml-16 text-sm inline-flex text-black dark:text-light">
             {{ $user->name }}
         </span>
-        <a href="{{ route('logout') }}" class="block ml-1 text-light dark:text-light hover:text-primary dark:hover:text-primary" title="Выйти"
+        <a href="{{ route('logout') }}" class="block ml-1 text-black dark:text-light hover:text-primary dark:hover:text-primary-darker" title="Выйти"
         onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

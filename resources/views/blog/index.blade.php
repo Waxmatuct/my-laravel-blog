@@ -8,7 +8,7 @@
 	<ul class="flex flex-wrap list-none items-center justify-center">
 		@foreach ($categories as $category)
 			<li class="mx-2 mb-3 sm:my-0">
-				<a class="block py-1 px-2 border text-primary dark:text-primary hover:text-black dark:hover:text-light border-primary hover:border-primary  hover:bg-primary dark:hover:bg-primary" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
+				<a class="block py-1 px-2 border text-primary dark:text-primary-darker hover:text-black dark:hover:text-light border-primary hover:border-primary  hover:bg-primary dark:hover:bg-primary-darker" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
 			</li>
 		@endforeach
 	</ul>
@@ -32,7 +32,7 @@
 							@if ($post->tags->isNotEmpty())
 								<span class="post-tag mt-1">
 									@foreach ($post->tags as $tag)
-										<a class="text-primary dark:text-primary hover:text-primary dark:hover:text-primary text-xs mr-1 border-b border-primary hover:border-primary dark:hover:border-primary border-opacity-30" href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
+										<a class="text-primary dark:text-primary-darker hover:text-primary dark:hover:text-primary-darker text-xs mr-1 border-b border-primary hover:border-primary dark:hover:border-primary-darker border-opacity-30" href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
 									@endforeach
 								</span>	
 							@endif
@@ -61,7 +61,7 @@
 					
 						<div class="post-block w-full md:flex-grow">
 							<h2 class="post-title font-bold text-3xl">
-								<a class="text-gray-900 dark:text-light-gray hover:text-primary dark:hover:text-primary" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a>
+								<a class="text-gray-900 dark:text-light-gray hover:text-primary dark:hover:text-primary-darker" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a>
 							</h2>
 							
 							<section class="post-content my-3 text-md">
