@@ -8,7 +8,7 @@
 	<ul class="flex flex-wrap list-none items-center justify-center">
 		@foreach ($categories as $category)
 			<li class="mx-2 mb-3 sm:my-0">
-				<a class="block py-1 px-2 border text-primary dark:text-primary hover:text-black dark:hover:text-light border-primary hover:border-primary  hover:bg-primary dark:hover:bg-primary" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
+				<a class="category-button {{ request()->is('blog/category/*') ? 'active' : null }}" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
 			</li>
 		@endforeach
 	</ul>

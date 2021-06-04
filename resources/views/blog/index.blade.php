@@ -7,8 +7,8 @@
 <section class="categories max-w-5xl mx-auto md:mt-10 px-8 md:px-0 flex flex-wrap flex-col justify-center">
 	<ul class="flex flex-wrap list-none items-center justify-center">
 		@foreach ($categories as $category)
-			<li class="mx-2 mb-3 sm:my-0">
-				<a class="block py-1 px-2 border text-primary dark:text-primary-darker hover:text-black dark:hover:text-light border-primary hover:border-primary  hover:bg-primary dark:hover:bg-primary-darker" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
+			<li class="mx-2 mb-3 sm:my-0"> 
+				<a class="category-button" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
 			</li>
 		@endforeach
 	</ul>
