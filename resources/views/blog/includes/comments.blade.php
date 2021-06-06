@@ -69,7 +69,7 @@
             @csrf
             <div class="relative md:w-4/5 my-4">
                 <label for="username" class="leading-7 text-sm text-black dark:text-gray">Имя*</label>
-                <input type="text" id="username" name="username" @error('username') is-invalid @enderror" class="w-full bg-light-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary text-base outline-none text-black dark:text-light py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value="{{ old('username') }}" required autocomplete="username" autofocus>
+                <input type="text" id="username" name="username" @error('username') is-invalid @enderror" class="w-full bg-light-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary text-base outline-none text-black dark:text-light py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value="{{ old('username') }}" required autocomplete="username">
                 
                 @error('username')
                 <span class="invalid-feedback" role="alert">
@@ -79,7 +79,7 @@
             </div>
             <div class="relative md:w-4/5 mb-4">
                 <label for="website" class="leading-7 text-sm text-black dark:text-gray">Сайт</label>
-                <input type="text" id="website" name="website" class="w-full bg-light-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary text-base outline-none text-black dark:text-light py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value="{{ old('website') }}" autocomplete="website" autofocus>
+                <input type="text" id="website" name="website" class="w-full bg-light-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary text-base outline-none text-black dark:text-light py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value="{{ old('website') }}" autocomplete="website">
             </div>
             <div class="">
             <div class="relative md:w-4/5 mb-4">

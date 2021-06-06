@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section class="categories max-w-5xl mx-auto md:mt-10 px-8 md:px-0 flex flex-wrap flex-col justify-center">
+{{-- <section class="categories max-w-5xl mx-auto md:mt-10 px-8 md:px-0 flex flex-wrap flex-col justify-center">
 	<ul class="flex flex-wrap list-none items-center justify-center">
 		@foreach ($categories as $category)
 			<li class="mx-2 mb-3 sm:my-0">
@@ -12,19 +12,27 @@
 			</li>
 		@endforeach
 	</ul>
-</section>
+</section> --}}
 
-<main id="site-main" class="site-main max-w-5xl mx-auto md:mt-10 px-8 md:px-0 flex flex-wrap flex-col justify-center">
+<div class="max-w-7xl md:mt-10 px-8 mx-auto md:px-0 flex">
+	@if (Route::is('getPostsByCategory'))
+		<h1 class="text-5xl font-bold text-black dark:text-light-white">{{ $current_category->title }}</h1>
+	@else
+		<h1 class="text-5xl font-bold text-black dark:text-light-white">{{ $current_tag->name }}</h1>
+	@endif
+</div>
+
+<main id="site-main" class="site-main">
 	<div class="inner w-full mx-auto md:my-3 flex flex-col justify-around">
 	
 		@foreach ($posts as $post)
 			
-			<article class="posts mb-5 flex flex-wrap md:flex-nowrap border-b-2 border-gray border-opacity-10">
+			<article class="posts mb-7 flex flex-wrap md:flex-nowrap border-b-2 pb-2 border-gray border-opacity-10">
 
-						<div class="post-info md:w-56 md:mb-0 md:mt-2 mb-6 flex-shrink-0 flex flex-col"> 
-							<span class="post-category">
+						<div class="post-info md:w-60 md:mb-0 md:mt-2 mb-6 flex-shrink-0 flex flex-col"> 
+							{{-- <span class="post-category">
 								<a class="" href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a>
-							</span>
+							</span> --}}
 							<span class="post-date mt-1 text-xs">
 								<time>{{$post->created_at->diffForHumans()}}</time>
 							</span>
@@ -64,9 +72,9 @@
 								<a class="text-black dark:text-light-gray hover:text-primary dark:hover:text-primary" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a>
 							</h2>
 							
-							<section class="post-excerpt my-3 text-md"><p>{{ Str::words($post->description,20,) }}</p></section>
+							<section class="post-excerpt my-3"><p class="max-w-3xl">{{ Str::words($post->description,20,) }}</p></section>
 							
-							<div class="meta flex mt-5 mb-7 justify-between items-center">
+							{{-- <div class="meta flex mt-5 mb-7 justify-between items-center">
 								<span class="learn-more text-sm inline-flex">
 									<a class="inline-flex" href="{{ route('getPost', $post->slug) }}">
 										<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -82,7 +90,7 @@
 									</svg>{{ $post->views }}
 								</span>
 								
-							</div>
+							</div> --}}
 
 						</div>
 

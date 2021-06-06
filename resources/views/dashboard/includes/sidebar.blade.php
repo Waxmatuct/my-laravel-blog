@@ -2,7 +2,7 @@
     <div class="p-6">
         <div x-data="{ isOpen: false }" class="relative flex justify-center mb-3">
             <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
-                <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400">
+                <img src="{{ asset('/assets/images/avatar.jpg') }}">
             </button>
             <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
             <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
@@ -33,25 +33,25 @@
             <i class="fas fa-tachometer-alt mr-3"></i>
             Dashboard
         </a>
-        <a href="{{ route('dashboard-blank') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        {{-- <a href="{{ route('dashboard-blank') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-sticky-note mr-3"></i>
             Blank Page
-        </a>
+        </a> --}}
         <a href="{{ route('posts.index') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-table mr-3"></i>
             Посты
         </a>
-        <a href="{{ route('dashboard-forms') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        {{-- <a href="{{ route('dashboard-forms') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-align-left mr-3"></i>
             Forms
-        </a>
+        </a> --}}
         <a href="{{ route('settings.index') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-cogs mr-3"></i>
             Настройки
         </a>
-        <a href="{{ route('dashboard-calendar') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        {{-- <a href="{{ route('dashboard-calendar') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-calendar mr-3"></i>
             Calendar
-        </a>
+        </a> --}}
     </nav>
 </aside>

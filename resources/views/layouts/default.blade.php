@@ -28,7 +28,7 @@
 		@include('includes.navigation')
 
 		<div class="container mx-auto">
-			<header class="site-home-header block md:hidden">
+			{{-- <header class="site-home-header block md:hidden">
 				<div class="site-header-content flex flex-col justify-center mt-5 mb-3 items-center">
 					<a href="/">
 						<img class="site-avatar w-28 h-28 border-6 rounded-full mb-4 border-light-gray dark:border-dark-lighter hover:border-primary-darker dark:hover:border-primary transition duration-500 ease-in-out" src="{{ asset('/assets/images/logo.jpg') }}">
@@ -53,7 +53,7 @@
 					<div class="bg-primary-darker dark:bg-primary block mx-auto w-12 h-1 my-3"></div>
 				</div>
 
-			</header>
+			</header> --}}
                 
             @yield('content')
 

@@ -8,7 +8,7 @@ tinymce.init({
       'searchreplace visualblocks code fullscreen',
       'insertdatetime media table paste help wordcount codesample'
       ],
-  toolbar: 'undo redo preview code | formatselect | ' +
+  toolbar: 'undo redo preview code | styleselect | ' +
       'bold italic backcolor | alignleft aligncenter ' +
       'alignright alignjustify | bullist numlist outdent indent | link media codesample image table | ' +
       'removeformat | help'

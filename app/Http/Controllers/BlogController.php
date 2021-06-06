@@ -56,6 +56,7 @@ class BlogController extends Controller
             'site_description' => $site_description->option,
             'site_footer' => $site_footer->option,
             'user' => $user,
+            'current_category' => $current_category,
 
         ]);
     }
@@ -110,6 +111,7 @@ class BlogController extends Controller
             'site_description' => $site_description->option,
             'site_footer' => $site_footer->option,
             'user' => $user,
+            'current_tag' => $current_tag,
 
         ]);
     }

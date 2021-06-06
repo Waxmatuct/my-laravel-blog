@@ -24,10 +24,10 @@
 	<body class="bg-light text-black font-sans dark:bg-dark-lighter dark:text-gray">
 		<a href="#" onclick="return false" class="menu_link"><span></span></a>
 
-		@include('blog.includes.navigation')
+		@include('includes.navigation')
 
 		<div class="container mx-auto">
-			<header class="site-home-header block md:hidden">
+			{{-- <header class="site-home-header block md:hidden">
 				<div class="site-header-content flex flex-col justify-center mt-5 mb-3 items-center">
 					<a href="/">
 						<img class="site-avatar w-28 h-28 border-6 rounded-full mb-4 border-light-gray dark:border-dark-lighter hover:border-primary dark:hover:border-primary transition duration-500 ease-in-out" src="{{ asset('/assets/images/logo.jpg') }}">
@@ -52,7 +52,7 @@
 					<div class="bg-primary dark:bg-primary block mx-auto w-12 h-1 my-3"></div>
 				</div>
 
-			</header>
+			</header> --}}
                 
             @yield('content')
 

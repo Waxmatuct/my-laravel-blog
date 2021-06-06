@@ -5,8 +5,8 @@
 @section('content')
 <main id="site-main" class="site-main max-w-5xl mx-auto md:mt-10 px-8 flex flex-wrap justify-center rounded-3xl">
     @include('blog.includes.message')
-	<div class="post-page mx-auto md:my-8 my-5 w-full md:w-4/5 flex flex-col justify-around">
-        <div class="breadcrubs inline-flex text-sm items-center">
+	<div class="post-page mx-auto md:my-8 my-5 w-full flex flex-col justify-around">
+        <div class="breadcrubs inline-flex text-base items-center">
             <a class="flex items-center mr-1 pb-1" href="{{ url('/blog') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -31,7 +31,7 @@
         </div>
         <article class="post mx-auto mt-8 w-full">
             <header class="post-header">
-                <h1 class="post-title font-bold text-2xl sm:text-3xl text-gray-900 dark:text-light-gray">{{$post->title}}</h1>
+                <h1 class="post-title font-bold text-3xl sm:text-4xl text-gray-900 dark:text-light-gray">{{$post->title}}</h1>
             </header>
             <section class="post-content my-3">
                 {!! $post->content !!}

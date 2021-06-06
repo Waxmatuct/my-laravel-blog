@@ -644,9 +644,25 @@ a {
   /* height: 300px; */
 }
 
-.site-nav {
-  min-height: 40px;
-  /* @apply bg-light-gray dark:bg-dark; */
+.site-main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (min-width: 768px) {
+  .site-main {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 .menu-item {
@@ -670,9 +686,11 @@ a {
 }
 
 .menu-item {
-  border-bottom-width: 2px;
+  border-bottom-width: 3px;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   position: relative;
   --tw-text-opacity: 1;
   color: rgba(55, 65, 81, var(--tw-text-opacity));
@@ -697,22 +715,22 @@ a {
   text-transform: uppercase;
 }
 
-.menu-item-active {
+.menu-item.active {
   --tw-border-opacity: 1;
   border-color: rgba(11, 160, 87, var(--tw-border-opacity))
 }
 
-.dark .menu-item-active {
+.dark .menu-item.active {
   --tw-border-opacity: 1;
   border-color: rgba(72, 187, 120, var(--tw-border-opacity));
 }
 
-.menu-item-active {
+.menu-item.active {
   --tw-text-opacity: 1;
   color: rgba(11, 160, 87, var(--tw-text-opacity));
 }
 
-.dark .menu-item-active {
+.dark .menu-item.active {
   --tw-text-opacity: 1;
   color: rgba(72, 187, 120, var(--tw-text-opacity));
 }
@@ -818,11 +836,12 @@ a {
 }
 
 .post-page {
-  max-width: 960px;
+  /* max-width: 960px; */
+  max-width: 56rem
 }
 
 .post-block {
-  max-width: 768px;
+  max-width: 56rem;
 }
 
 .post-content h2 {
@@ -876,8 +895,8 @@ a {
 .post-content pre {
   border-left-width: 7px;
   font-family: monospace;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   overflow-x: auto;
@@ -899,6 +918,8 @@ a {
 }
 
 .post-content a {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   text-decoration: none;
 }
 
@@ -923,8 +944,19 @@ a {
 }
 
 .post-content p {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  max-width: 48rem
+}
+
+.post-content img{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-width: 100%
 }
 
 .post-content table {
