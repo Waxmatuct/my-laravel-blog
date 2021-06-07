@@ -29,23 +29,23 @@
 			
 			<article class="posts mb-7 flex flex-wrap md:flex-nowrap border-b-2 pb-2 border-gray border-opacity-10">
 
-						<div class="post-info md:w-60 md:mb-0 md:mt-2 mb-6 flex-shrink-0 flex flex-col"> 
+						<div class="post-info md:items-start md:w-48 md:mb-0 md:mt-2 mb-2 flex-shrink-0 flex md:flex-col md:space-x-0 md:space-y-1 flex-wrap w-full mt-5 items-center justify-start flex-row space-x-4"> 
 							{{-- <span class="post-category">
 								<a class="" href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a>
 							</span> --}}
-							<span class="post-date mt-1 text-xs">
+							<span class="post-date text-xs">
 								<time>{{$post->created_at->diffForHumans()}}</time>
 							</span>
 						
 							@if ($post->tags->isNotEmpty())
-								<span class="post-tag mt-1">
+								<span class="post-tag inline-flex">
 									@foreach ($post->tags as $tag)
 										<a class="text-primary dark:text-primary hover:text-primary dark:hover:text-primary text-xs mr-1 border-b border-primary hover:border-primary dark:hover:border-primary border-opacity-30" href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
 									@endforeach
 								</span>	
 							@endif
 
-							<span class="text-xs mt-1 inline-flex">
+							<span class="text-xs inline-flex">
 								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />

@@ -34,7 +34,7 @@
 					</span>
 				
 					@if ($post->tags->isNotEmpty())
-						<span class="post-tag">
+						<span class="post-tag inline-flex">
 							@foreach ($post->tags as $tag)
 								<a class="text-primary dark:text-primary-darker hover:text-primary dark:hover:text-primary-darker text-xs mr-1 border-b border-primary hover:border-primary dark:hover:border-primary-darker border-opacity-30" href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
 							@endforeach

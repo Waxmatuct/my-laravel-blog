@@ -106,7 +106,7 @@
     }
 
     .post-content pre {
-        @apply overflow-x-auto my-6 pl-3 py-3 text-base font-mono bg-light-gray dark:bg-dark border-l-7 border-primary dark:border-primary-darker md:max-w-screen-sm lg:max-w-full;
+        @apply overflow-x-auto rounded-lg my-6 pl-3 py-3 text-base font-mono bg-light-gray dark:bg-dark border-l-7 border-primary dark:border-primary-darker md:max-w-screen-sm lg:max-w-full;
     }
 
     .post-content a {
@@ -138,7 +138,7 @@
     }
 
     .post-content img{
-        @apply my-4 text-lg max-w-full
+        @apply my-4 max-w-full shadow-lg rounded-md
     }
 
     .post-content table {
