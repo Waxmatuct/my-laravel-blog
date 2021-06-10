@@ -686,7 +686,7 @@ a {
 }
 
 .menu-item {
-  border-bottom-width: 3px;
+  border-bottom-width: 2px;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   padding-left: 0.75rem;
@@ -717,7 +717,7 @@ a {
 
 .menu-item.active {
   --tw-border-opacity: 1;
-  border-color: rgba(11, 160, 87, var(--tw-border-opacity))
+  border-color: rgba(11, 160, 87, var(--tw-border-opacity));
 }
 
 .dark .menu-item.active {

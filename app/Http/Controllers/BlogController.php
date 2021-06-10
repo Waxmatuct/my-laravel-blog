@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     public function blog() {
-        $categories = Category::orderBy('title')->get();
+        $categories = Category::all();
         $posts = Post::where('online', true)->orderBy('id', 'desc')->paginate(7);
         $site_name = Setting::select(['id','option'])->find(1);
         $site_description = Setting::select(['id','option'])->find(2);
@@ -40,7 +40,7 @@ class BlogController extends Controller
     }
 
     public function getPostsByCategory($slug) {
-        $categories = Category::orderBy('title')->get();
+        $categories = Category::all();
         $tags = Tag::all();
         $current_category = Category::where('slug', $slug)->first();
         $site_name = Setting::select(['id','option'])->find(1);
@@ -63,7 +63,7 @@ class BlogController extends Controller
 
     public function getPost($slug_post) {
         
-        $categories = Category::get();
+        $categories = Category::all();
         $post = Post::where('slug', $slug_post)->first();
         $site_name = Setting::select(['id','option'])->find(1);
         $site_description = Setting::select(['id','option'])->find(2);

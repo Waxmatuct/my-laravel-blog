@@ -7,13 +7,19 @@
             <ul class="flex flex-wrap list-none sm:flex-row space-x-0 sm:space-x-7 space-y-3 sm:space-y-0 sm:items-start items-center flex-col">
                 @if ( request()->is('blog*') )
                     <li class="sm:mb-3">
-                        <a class="menu-item {{ request()->is('blog') ? 'active' : null }}" href="{{ url('/blog') }}">Главная</a>
+                        <a class="menu-item {{ request()->is('blog') ? 'active' : null }}" href="{{ url('/blog') }}">Блог</a>
+                    </li>
+                    <li class="sm:mb-3">
+                        <span class="hidden sm:block text-black dark:text-light">||</span>
                     </li>
                     @foreach ($categories as $category)
                         <li class="sm:mb-3"> 
                             <a class="menu-item" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
                         </li>
                     @endforeach
+                        <li class="sm:mb-3">
+                            <span class="hidden sm:block text-black dark:text-light">||</span>
+                        </li>
                         <li class="sm:mb-3">
                             @include('includes.switcher')
                         </li>                    
