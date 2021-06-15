@@ -711,10 +711,6 @@ a {
   color: rgba(72, 187, 120, var(--tw-text-opacity));
 }
 
-.menu-item {
-  text-transform: uppercase;
-}
-
 .menu-item.active {
   --tw-border-opacity: 1;
   border-color: rgba(11, 160, 87, var(--tw-border-opacity));
