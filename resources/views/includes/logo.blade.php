@@ -2,7 +2,7 @@
     <a class="md:block" href="{{ url('/') }}">
         <img class="site-avatar mr-4 w-10 h-10 rounded-full" src="{{ asset('/assets/images/avatar.jpg') }}">
     </a>
-    <div class="hidden sm:flex flex-col items-start">    
+    <div class="flex flex-col items-start">    
         <h1 class="md:inline-block site-title font-bold">
             @if ($site_name)
                 <a class="text-primary dark:text-primary-darker hover:text-black dark:hover:text-light-gray" href="{{ url('/') }}">{{ $site_name }}</a>

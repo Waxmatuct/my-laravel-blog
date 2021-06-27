@@ -16,9 +16,9 @@
 
 <div class="max-w-7xl md:mt-10 px-8 mx-auto md:px-0 flex">
 	@if (Route::is('getPostsByCategory'))
-		<h1 class="text-5xl font-bold text-black dark:text-light-white">{{ $current_category->title }}</h1>
+		<h1 class="text-4xl sm:text-5xl font-bold text-black dark:text-light-white">{{ $current_category->title }}</h1>
 	@else
-		<h1 class="text-5xl font-bold text-black dark:text-light-white">{{ $current_tag->name }}</h1>
+		<h1 class="text-4xl sm:text-5xl font-bold text-black dark:text-light-white">{{ $current_tag->name }}</h1>
 	@endif
 </div>
 

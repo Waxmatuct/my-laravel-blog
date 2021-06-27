@@ -15,7 +15,7 @@
 </section>
 
 <div class="max-w-7xl md:mt-10 px-8 mx-auto md:px-0 flex">
-	<h1 class="text-5xl font-bold text-black dark:text-light-white">Блог</h1>
+	<h1 class="text-4xl sm:text-5xl font-bold text-black dark:text-light-white">Блог</h1>
 </div>
 
 <main id="site-main" class="site-main">
@@ -64,11 +64,11 @@
 				</div>
 			
 				<div class="post-block w-full md:flex-grow">
-					<h2 class="post-title font-bold text-4xl">
+					<h2 class="post-title font-bold text-3xl sm:text-4xl">
 						<a class="text-gray-900 dark:text-light-gray hover:text-primary dark:hover:text-primary-darker" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a>
 					</h2>
 					
-					<section class="post-content my-3 text-md">
+					<section class="post-content my-3">
 						{!! $post->content !!}
 					</section>
 
