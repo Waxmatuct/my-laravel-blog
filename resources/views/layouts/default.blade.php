@@ -25,35 +25,39 @@
 	<body class="bg-light text-black font-sans dark:bg-dark-lighter dark:text-gray">
 		<a href="#" onclick="return false" class="menu_link"><span></span></a>
 
-		@include('includes.navigation')
-
 		<div class="container mx-auto">
-			{{-- <header class="site-home-header block md:hidden">
-				<div class="site-header-content flex flex-col justify-center mt-5 mb-3 items-center">
-					<a href="/">
-						<img class="site-avatar w-28 h-28 border-6 rounded-full mb-4 border-light-gray dark:border-dark-lighter hover:border-primary-darker dark:hover:border-primary transition duration-500 ease-in-out" src="{{ asset('/assets/images/logo.jpg') }}">
-					</a>
-					<h1 class="site-title font-bold text-5xl uppercase tracking-widest">
-							@if ($site_name)
-								<a class="text-primary-dark dark:text-primary hover:text-black dark:hover:text-light-gray" href="{{ url('/') }}">{{ $site_name }}</a>
-							@else 
-								<a class="text-primary-dark dark:text-primary hover:text-black dark:hover:text-light-gray" href="{{ url('/') }}">alvar</a>
-							@endif
-					</h1>
-					
-					@if ($site_description)
-						<h2 class="site-description text-black dark:text-gray font-normal my-2.5">{{ $site_description }}</h2>
-					@else
-						<h2 class="site-description text-dark-gray dark:text-gray font-normal my-2.5">Простой блог на Laravel</h2>
-					@endif
 
-					<div class="subscribe hidden">
-						<a href="" class="sub_btn">Подписаться</a>
-					</div>
-					<div class="bg-primary-darker dark:bg-primary block mx-auto w-12 h-1 my-3"></div>
-				</div>
+			<div class="flex justify-center p-2.5">
+				@include('includes.switcher')
+			</div>
+			
+			<div class="site-header-content flex flex-col justify-center mt-5 mb-3 items-center">
+				
+				<img class="site-avatar w-36 h-36 rounded-full mb-4 border-light-gray dark:border-dark" src="{{ asset('/assets/images/Alvar.jpg') }}">
+				
+				<h1 class="site-title font-bold text-3xl">
+						@if ($site_name)
+							<a class="text-primary-dark dark:text-primary hover:text-black dark:hover:text-light-gray" href="{{ url('/') }}">{{ $site_name }}</a>
+						@else 
+							<a class="text-primary-dark dark:text-primary hover:text-black dark:hover:text-light-gray" href="{{ url('/') }}">alvar</a>
+						@endif
+				</h1>
+				
+				@if ($site_description)
+					<h2 class="site-description text-black dark:text-gray font-normal my-2.5">{{ $site_description }}</h2>
+				@else
+					<h2 class="site-description text-dark-gray dark:text-gray font-normal my-2.5">Простой блог на Laravel</h2>
+				@endif
 
-			</header> --}}
+				{{-- <div class="subscribe hidden">
+					<a href="" class="sub_btn">Подписаться</a>
+				</div> --}}
+
+				<div class="bg-primary-darker dark:bg-primary block mx-auto w-12 h-1 my-3"></div>
+				
+			</div>
+
+
                 
             @yield('content')
 
