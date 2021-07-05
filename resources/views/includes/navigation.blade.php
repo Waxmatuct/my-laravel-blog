@@ -1,4 +1,4 @@
-<nav class="site-nav mt-2">						
+<nav class="site-nav sticky top-0 bg-light dark:bg-dark-lighter shadow-lg z-50">						
     <div class="site-nav-inner md:flex max-w-7xl px-8 lg:px-0 py-4 mx-auto justify-between sm:justify-start md:justify-center lg:justify-start md:py-2">
         
         @include('includes.logo')
@@ -9,8 +9,8 @@
                 </svg>
             </button>
 
-            <div id="menu" class="site-nav-content hidden sm:flex justify-center items-start sm:mx-8 lg:mx-16">
-                <ul class="flex flex-wrap list-none sm:flex-row space-x-0 sm:space-x-7 space-y-3 sm:space-y-0 sm:items-start items-center flex-col">
+            <div id="menu" class="site-nav-content hidden sm:flex justify-center items-center sm:mx-8 lg:mx-16">
+                <ul class="flex flex-wrap list-none sm:flex-row space-x-0 sm:space-x-7 space-y-3 sm:space-y-0 items-center sm:items-start flex-col">
                     @if ( request()->is('blog*') )
                         <li class="sm:mb-3">
                             <a class="menu-item {{ request()->is('blog') ? 'active' : null }} uppercase" href="{{ url('/blog') }}">Блог</a>
