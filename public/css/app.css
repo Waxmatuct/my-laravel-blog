@@ -554,6 +554,30 @@ video {
 }
 
 a {
+  --tw-border-opacity: 1;
+  border-color: rgba(11, 160, 87, var(--tw-border-opacity));
+}
+
+a:hover {
+  --tw-border-opacity: 1;
+  border-color: rgba(55, 65, 81, var(--tw-border-opacity));
+}
+
+.dark a:hover {
+  --tw-border-opacity: 1;
+  border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+}
+
+a {
+  --tw-border-opacity: 0.3;
+}
+
+.dark a {
+  --tw-border-opacity: 0.3;
+}
+
+a {
+  border-bottom-width: 1px;
   --tw-text-opacity: 1;
   color: rgba(11, 160, 87, var(--tw-text-opacity));
 }

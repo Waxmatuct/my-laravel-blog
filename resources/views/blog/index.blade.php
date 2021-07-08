@@ -1,6 +1,6 @@
 @extends('layouts.blog')
 
-@section('title', $site_name.' | '.$site_description)
+@section('title', env('APP_NAME') .' | ' .env('APP_DESCR'))
 
 @section('content')
 
@@ -8,13 +8,13 @@
 	<ul class="flex flex-wrap list-none items-center justify-center">
 		@foreach ($categories as $category)
 			<li class="mx-2 mb-3 sm:my-0"> 
-				<a class="category-button" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
+				<a class="category-button border-0" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
 			</li>
 		@endforeach
 	</ul>
 </section>
 
-<div class="max-w-7xl md:mt-10 px-8 mx-auto md:px-0 flex">
+<div class="max-w-7xl md:mt-7 px-8 mx-auto md:px-0 flex">
 	<h1 class="text-4xl sm:text-5xl font-bold text-black dark:text-light-white">Блог</h1>
 </div>
 
@@ -27,7 +27,7 @@
 
 				<div class="post-info md:items-start md:w-48 md:mb-0 md:mt-2 mb-2 flex-shrink-0 flex md:flex-col md:space-x-0 md:space-y-1 flex-wrap w-full mt-5 items-center justify-start flex-row space-x-4"> 
 					<span class="post-category">
-						<a class="" href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a>
+						<a class="border-0" href="{{route('getPostsByCategory', $post->category['slug'])}}">{{$post->category['title']}}</a>
 					</span>
 					<span class="post-date text-xs">
 						<time>{{$post->created_at->diffForHumans()}}</time>
@@ -36,7 +36,7 @@
 					@if ($post->tags->isNotEmpty())
 						<span class="post-tag inline-flex">
 							@foreach ($post->tags as $tag)
-								<a class="text-primary dark:text-primary-darker hover:text-primary dark:hover:text-primary-darker text-xs mr-1 border-b border-primary hover:border-primary dark:hover:border-primary-darker border-opacity-30" href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
+								<a class="text-primary dark:text-primary-darker hover:text-primary dark:hover:text-primary-darker text-xs mr-1 border-b border-primary hover:border-primary dark:hover:border-primary-darker border-opacity-30 dark:border-opacity-30" href="{{route('getPostsByTag', $tag['slug'])}}">{{ $tag->name }}</a>
 							@endforeach
 						</span>	
 					@endif
@@ -53,7 +53,7 @@
 
 					@if (Auth::check())
 						@if (Auth::user()->isAdmin)
-							<a class="text-xs inline-flex" href="{{route('posts.edit', $post)}}">
+							<a class="text-xs inline-flex border-0" href="{{route('posts.edit', $post)}}">
 								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
 								</svg>Правка
@@ -65,7 +65,7 @@
 			
 				<div class="post-block w-full md:flex-grow">
 					<h2 class="post-title font-bold text-3xl sm:text-4xl">
-						<a class="text-gray-900 dark:text-light-gray hover:text-primary dark:hover:text-primary-darker" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a>
+						<a class="text-gray-900 dark:text-light-gray hover:text-primary dark:hover:text-primary-darker border-0" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a>
 					</h2>
 					
 					<section class="post-content my-3">

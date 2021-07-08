@@ -1,6 +1,6 @@
 @extends('layouts.blog')
 
-@section('title', $site_name.' | '.$post->title)
+@section('title', env('APP_NAME') .' | ' .$post->title)
 
 @section('content')
 <main id="site-main" class="site-main max-w-5xl mx-auto md:mt-10 px-8 flex flex-wrap justify-center rounded-3xl">

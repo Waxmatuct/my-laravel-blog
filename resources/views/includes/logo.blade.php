@@ -1,20 +1,10 @@
-<div class="logo flex items-center self-start">
-    <a class="md:block" href="{{ url('/') }}">
+<div class="logo flex items-center self-start sm:mb-3">
+    <a class="md:block border-0" href="{{ url('/') }}">
         <img class="site-avatar mr-2 w-10 h-10 rounded-full" src="{{ asset('/assets/images/avatar.jpg') }}">
     </a>
     <div class="flex flex-col items-start w-20">    
         <h1 class="md:inline-block site-title text-sm font-bold leading-snug">
-            @if ($site_name)
-                <a class="text-primary dark:text-primary-darker hover:text-black dark:hover:text-light-gray" href="{{ url('/') }}">{{ $site_name }}</a>
-            @else 
-                <a class="text-primary dark:text-primary-darker hover:text-black dark:hover:text-light-gray" href="{{ url('/') }}">alvar</a>
-            @endif
+            <a class="text-primary dark:text-primary-darker hover:text-black dark:hover:text-light-gray border-0" href="{{ url('/') }}">{{ env('APP_NAME') }}</a>
         </h1>
-        
-        {{-- @if ($site_description)
-            <h2 class="site-description text-black dark:text-gray text-xs">{{ $site_description }}</h2>
-        @else
-            <h2 class="site-description text-dark-gray dark:text-gray text-xs">Простой блог на Laravel</h2>
-        @endif --}}
     </div>
 </div>

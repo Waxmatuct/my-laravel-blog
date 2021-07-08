@@ -21,7 +21,7 @@
         </div>
         <div class="flex flex-col flex-grow pl-4">
             @if ($comment->website)
-                <a href="{{ $comment->website }}" class="font-bold">{{ $comment->username }}</a>
+                <a class="border-0" href="{{ $comment->website }}" class="font-bold">{{ $comment->username }}</a>
             @else
                 <span class="font-bold">{{ $comment->username }}</span>
             @endif

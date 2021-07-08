@@ -3,12 +3,14 @@ tinymce.init({
     menubar: false,
     language: 'ru',
     file_picker_callback : elFinderBrowser,
+
     plugins: [
       'advlist autolink lists link image charmap print preview anchor',
       'searchreplace visualblocks code fullscreen',
       'insertdatetime media table paste help wordcount codesample'
       ],
-  toolbar: 'undo redo preview code | styleselect | ' +
+    
+    toolbar: 'undo redo preview code | styleselect | ' +
       'bold italic backcolor | alignleft aligncenter ' +
       'alignright alignjustify | bullist numlist outdent indent | link media codesample image table | ' +
       'removeformat | help'

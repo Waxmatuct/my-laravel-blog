@@ -25,7 +25,7 @@
 	<body class="bg-light text-black font-sans dark:bg-dark-lighter dark:text-gray">
 		<a href="#" onclick="return false" class="menu_link"><span></span></a>
 
-		<div class="container mx-auto">
+		<div class="container mx-auto max-w-2xl">
 
 			<div class="flex justify-center p-2.5">
 				@include('includes.switcher')
@@ -33,21 +33,15 @@
 			
 			<div class="site-header-content flex flex-col justify-center mt-5 mb-3 items-center">
 				
-				<img class="site-avatar w-36 h-36 rounded-full mb-4 border-light-gray dark:border-dark" src="{{ asset('/assets/images/Alvar.jpg') }}">
+				<img class="site-avatar w-36 h-36 rounded-3xl mb-4 border-light-gray dark:border-dark" src="{{ asset('/assets/images/Alvar.jpg') }}">
 				
-				<h1 class="site-title font-bold text-3xl">
-						@if ($site_name)
-							<a class="text-primary-dark dark:text-primary hover:text-black dark:hover:text-light-gray" href="{{ url('/') }}">{{ $site_name }}</a>
-						@else 
-							<a class="text-primary-dark dark:text-primary hover:text-black dark:hover:text-light-gray" href="{{ url('/') }}">alvar</a>
-						@endif
+				<h1 class="site-title font-bold text-3xl sm:text-4xl text-black dark:text-light-white">
+					{{ env('APP_NAME') }}
 				</h1>
 				
-				@if ($site_description)
-					<h2 class="site-description text-black dark:text-gray font-normal my-2.5">{{ $site_description }}</h2>
-				@else
-					<h2 class="site-description text-dark-gray dark:text-gray font-normal my-2.5">Простой блог на Laravel</h2>
-				@endif
+				<h2 class="site-description text-black dark:text-gray font-normal my-2.5">
+					{{ env('APP_DESCR') }}
+				</h2>
 
 				{{-- <div class="subscribe hidden">
 					<a href="" class="sub_btn">Подписаться</a>

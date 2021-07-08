@@ -5,7 +5,7 @@
 
 @layer base {
     a {
-        @apply text-primary dark:text-primary-darker hover:text-black dark:hover:text-light transition duration-300 ease-in-out; 
+        @apply text-primary dark:text-primary-darker border-b border-primary hover:border-black dark:hover:border-light hover:text-black dark:hover:text-light border-opacity-30 dark:border-opacity-30 transition duration-300 ease-in-out; 
     }
 
     .button {

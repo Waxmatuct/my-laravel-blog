@@ -13,7 +13,7 @@ class BlogController extends Controller
 {
     public function blog() {
         $categories = Category::all();
-        $posts = Post::where('online', true)->orderBy('id', 'desc')->paginate(7);
+        $posts = Post::where('online', true)->orderBy('id', 'desc')->paginate(5);
         $site_name = Setting::select(['id','option'])->find(1);
         $site_description = Setting::select(['id','option'])->find(2);
         $site_footer = Setting::select(['id','option'])->find(3);
