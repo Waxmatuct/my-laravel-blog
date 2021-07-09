@@ -20,15 +20,13 @@
 		</nav> --}}
 
 		<div class="main-content flex flex-wrap space-y-4 text-lg leading-snug">
-			<p><a href="{{ url('/blog') }}">Блог</a> • <a href="{{ url('/projects') }}">Проекты</a></p>
 			<p>
-				Работаю в редакционно-издательском центре Сочинского государственного университета. Разрабатываю для авторов университета информационно-справочный ресурс, который помогает авторам отслеживать...  
+				Разрабатываю веб-сайты под различные нужды от блогов до справочных ресурсов. Работаю в редакционно-издательском центре Сочинского государственного университета. 
 			</p>
-			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis error pariatur ab voluptate ipsum, autem doloribus? Quidem debitis dicta rem, obcaecati, magni ut expedita tempora culpa vel laborum reiciendis. Molestiae.</p>
-			<p>Sapiente vitae voluptate natus nostrum deleniti, rem libero reprehenderit laboriosam neque tenetur, officia, sequi placeat optio. Iste deserunt minima blanditiis ea in. Autem velit maiores culpa dolor libero enim est!</p>
-			<p>Ipsam voluptate distinctio, sed repellat inventore blanditiis pariatur sit, commodi delectus earum et quas? Necessitatibus, molestiae fuga? Doloremque animi magnam dolorum quam, exercitationem asperiores quisquam deleniti, inventore ea earum esse.</p>
-			<p>Laboriosam qui autem quis ipsa nesciunt possimus pariatur, error iusto rem quasi quam ea, ad minima placeat sint, officia sunt natus? Nostrum voluptate accusamus nisi repellendus! Atque reiciendis eius maiores?</p>
-			<p>Impedit laboriosam earum excepturi quod eveniet? Consequuntur ullam, necessitatibus natus adipisci quisquam esse dolor quidem consectetur eveniet provident aliquam doloremque non cum. Quasi dignissimos earum ducimus cupiditate? Tempore, quia cupiditate.</p>	
+			<div class="text-center w-full">
+				<a href="{{ url('/blog') }}">Блог</a> • <a href="{{ url('/projects') }}">Проекты</a> • <a href="mailto:pletnevsochi@yandex.ru">pletnevsochi@yandex.ru</a> • <a href="https://t.me/alvar_ru">@alvar_ru</a>
+			</div>
+			
 		</div>
 
 </main>
