@@ -19,10 +19,10 @@
 					
 		</nav> --}}
 
-		<div class="main-content flex flex-wrap space-y-3 text-lg">
+		<div class="main-content flex flex-wrap space-y-4 text-lg leading-snug">
 			<p><a href="{{ url('/blog') }}">Блог</a> • <a href="{{ url('/projects') }}">Проекты</a></p>
 			<p>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic dolore nobis temporibus culpa enim consequatur dignissimos facilis cumque blanditiis sed ipsum, adipisci accusamus aperiam, provident id odit illo voluptate atque.
+				Работаю в редакционно-издательском центре Сочинского государственного университета. Разрабатываю для авторов университета информационно-справочный ресурс, который помогает авторам отслеживать...  
 			</p>
 			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis error pariatur ab voluptate ipsum, autem doloribus? Quidem debitis dicta rem, obcaecati, magni ut expedita tempora culpa vel laborum reiciendis. Molestiae.</p>
 			<p>Sapiente vitae voluptate natus nostrum deleniti, rem libero reprehenderit laboriosam neque tenetur, officia, sequi placeat optio. Iste deserunt minima blanditiis ea in. Autem velit maiores culpa dolor libero enim est!</p>

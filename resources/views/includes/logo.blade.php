@@ -1,4 +1,4 @@
-<div class="logo flex items-center self-start sm:mb-3">
+<div class="logo flex items-center self-start">
     <a class="md:block border-0" href="{{ url('/') }}">
         <img class="site-avatar mr-2 w-10 h-10 rounded-full" src="{{ asset('/assets/images/avatar.jpg') }}">
     </a>
