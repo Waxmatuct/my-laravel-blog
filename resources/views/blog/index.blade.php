@@ -65,7 +65,7 @@
 			
 				<div class="post-block w-full md:flex-grow">
 					<h2 class="post-title font-bold text-3xl sm:text-4xl">
-						<a class="text-gray-900 dark:text-light-gray hover:text-primary dark:hover:text-primary-darker border-0" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a>
+						<a class="text-black dark:text-light-gray hover:text-primary dark:hover:text-primary-darker border-0" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a>
 					</h2>
 					
 					<section class="post-content my-3">

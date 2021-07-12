@@ -29,7 +29,7 @@
                 @foreach ($posts as $post)
                 <tr @if ($loop->even) class="bg-gray-200" @endif>
                     <td class="min-w-min text-center py-3 px-4">{{$post->id}}</td>
-                    <td class="text-center py-3 px-4">{{$post->title}}</td>
+                    <td class="text-center py-3 px-4"><a class="hover:text-green-400" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a></td>
                     <td class="text-center py-3 px-4">{{$post->slug}}</td>
                     <td class="text-center py-3 px-4">{{$post->category['title']}}</td>
                     <td class="text-center py-3 px-4">

@@ -14,18 +14,12 @@ class BlogController extends Controller
     public function blog() {
         $categories = Category::all();
         $posts = Post::where('online', true)->orderBy('id', 'desc')->paginate(5);
-        $site_name = Setting::select(['id','option'])->find(1);
-        $site_description = Setting::select(['id','option'])->find(2);
-        $site_footer = Setting::select(['id','option'])->find(3);
         $comments = Comment::get();
         $user = \Auth::user();
         
         return view('blog.index', [
             'posts' => $posts,
             'categories' => $categories,
-            'site_name' => $site_name->option,
-            'site_description' => $site_description->option,
-            'site_footer' => $site_footer->option,
             'user' => $user,
             'comments' => $comments,
         ]);
@@ -43,18 +37,12 @@ class BlogController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
         $current_category = Category::where('slug', $slug)->first();
-        $site_name = Setting::select(['id','option'])->find(1);
-        $site_description = Setting::select(['id','option'])->find(2);
-        $site_footer = Setting::select(['id','option'])->find(3);
         $user = \Auth::user();
         
         return view('blog.index_', [
             'posts' => $current_category->posts()->where('online', true)->orderBy('id', 'desc')->paginate(10),
             'categories' => $categories,
             'tags' => $tags,
-            'site_name' => $site_name->option,
-            'site_description' => $site_description->option,
-            'site_footer' => $site_footer->option,
             'user' => $user,
             'current_category' => $current_category,
 
@@ -65,9 +53,6 @@ class BlogController extends Controller
         
         $categories = Category::all();
         $post = Post::where('slug', $slug_post)->first();
-        $site_name = Setting::select(['id','option'])->find(1);
-        $site_description = Setting::select(['id','option'])->find(2);
-        $site_footer = Setting::select(['id','option'])->find(3);
         $comments = Comment::get();
         $user = \Auth::user();
         
@@ -79,9 +64,6 @@ class BlogController extends Controller
                 return view('blog.post', [
                     'post' => $post,
                     'categories' => $categories,
-                    'site_name' => $site_name->option,
-                    'site_description' => $site_description->option,
-                    'site_footer' => $site_footer->option,
                     'user' => $user,
                     'comments' => $comments,
 
@@ -98,18 +80,12 @@ class BlogController extends Controller
         $tags = Tag::orderBy('name')->get();
         $categories = Category::all();
         $current_tag = Tag::where('slug', $slug)->first();
-        $site_name = Setting::select(['id','option'])->find(1);
-        $site_description = Setting::select(['id','option'])->find(2);
-        $site_footer = Setting::select(['id','option'])->find(3);
         $user = \Auth::user();
         
         return view('blog.index_', [
             'posts' => $current_tag->posts()->where('online', true)->orderBy('id', 'desc')->paginate(10),
             'categories' => $categories,
             'tags' => $tags,
-            'site_name' => $site_name->option,
-            'site_description' => $site_description->option,
-            'site_footer' => $site_footer->option,
             'user' => $user,
             'current_tag' => $current_tag,
 
