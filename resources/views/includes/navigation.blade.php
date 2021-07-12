@@ -28,7 +28,26 @@
                             </li>
                             <li class="sm:mb-3">
                                 @include('includes.switcher')
-                            </li>                    
+                            </li>
+                            <li class="sm:mb-3">
+                                @auth
+                                <div class="flex flex-row px-3 py-1">
+                                    <span class="text-sm inline-flex text-black dark:text-light">
+                                        Выйти
+                                    </span>
+                                    <a href="{{ route('logout') }}" class="block border-0 ml-1 text-black dark:text-light hover:text-primary dark:hover:text-primary-darker" title="Выйти"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                        </svg>    
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                                @endauth
+                            </li>                  
                     @else
                         <li class="">
                             <a class="menu-item {{ request()->is('blog*') ? 'active' : null }} uppercase" href="{{ url('/blog') }}">Блог</a>

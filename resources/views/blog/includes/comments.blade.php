@@ -78,7 +78,7 @@
                 @enderror
             </div>
             <div class="relative md:w-4/5 mb-4">
-                <label for="website" class="leading-7 text-sm text-black dark:text-gray">Сайт</label>
+                <label for="website" class="leading-7 text-sm text-black dark:text-gray">Сайт (если есть)</label>
                 <input type="text" id="website" name="website" class="w-full bg-light-white dark:bg-dark rounded border border-gray focus:border-indigo-500 focus:border focus:border-primary text-base outline-none text-black dark:text-light py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value="{{ old('website') }}" autocomplete="website">
             </div>
             <div class="">

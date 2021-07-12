@@ -993,6 +993,14 @@ a {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
 }
 
+.post-content .caption {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 1.25rem;
+  max-width: 48rem;
+  text-align: center
+}
+
 .post-content table {
   margin-left: auto;
   margin-right: auto

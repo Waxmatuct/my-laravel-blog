@@ -1,6 +1,6 @@
 @extends('layouts.blog')
 
-@section('title', env('APP_NAME') .' | ' .$post->title)
+@section('title', $post->title)
 
 @section('content')
 <main id="site-main" class="site-main max-w-5xl mx-auto md:mt-10 px-8 flex flex-wrap justify-center rounded-3xl">
@@ -31,7 +31,7 @@
         </div>
         <article class="post mx-auto mt-8 w-full">
             <header class="post-header">
-                <h1 class="post-title font-bold text-3xl sm:text-4xl text-gray-900 dark:text-light-gray">{{$post->title}}</h1>
+                <h1 class="post-title font-bold text-3xl sm:text-4xl text-black dark:text-light-gray">{{$post->title}}</h1>
             </header>
             <section class="post-content my-3">
                 {!! $post->content !!}

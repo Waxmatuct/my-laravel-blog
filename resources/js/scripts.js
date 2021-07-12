@@ -21,19 +21,3 @@ document.getElementById('switchTheme').addEventListener('click', function() {
 	}
 
 });
-
-document.getElementById('showNav').addEventListener('click', function() {
-		
-	var menu = document.getElementById('menu').classList;
-
-	if (menu.contains('hidden')) {
-
-		menu.remove('hidden');
-
-	} else {
-
-		menu.add('hidden');
-
-	}
-
-});

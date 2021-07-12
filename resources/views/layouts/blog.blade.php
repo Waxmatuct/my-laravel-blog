@@ -36,7 +36,23 @@
 		
 		<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 		<script src="{{ asset('/js/scripts.js') }}"></script>
-		
+		<script>
+			document.getElementById('showNav').addEventListener('click', function() {
+
+				var menu = document.getElementById('menu').classList;
+
+				if (menu.contains('hidden')) {
+
+				menu.remove('hidden');
+
+				} else {
+
+				menu.add('hidden');
+
+				}
+
+			});
+		</script>
 		@stack('fade')
 	</body>
 	

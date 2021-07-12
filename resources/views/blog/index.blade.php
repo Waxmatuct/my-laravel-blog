@@ -21,7 +21,7 @@
 <main id="site-main" class="site-main">
 	<div class="inner w-full mx-auto md:my-3 flex flex-col justify-around">
 	
-		@foreach ($posts as $post)
+		@forelse ($posts as $post)
 			
 			<article class="posts mb-5 flex flex-wrap md:flex-nowrap border-b-2 border-gray border-opacity-10">
 
@@ -68,19 +68,22 @@
 						<a class="text-black dark:text-light-gray hover:text-primary dark:hover:text-primary-darker border-0" href="{{ route('getPost', $post->slug) }}">{{$post->title}}</a>
 					</h2>
 					
-					<section class="post-content my-3">
+					<section class="post-content mt-3 mb-8">
 						{!! $post->content !!}
 					</section>
 
-					<div class="my-8">
+					{{-- <div class="my-8">
 						<script src="https://yastatic.net/share2/share.js"></script>
 						<div class="ya-share2" data-curtain data-size="s" data-services="vkontakte,facebook,odnoklassniki,telegram,twitter"></div>
-					</div>
+					</div> --}}
 				</div>
 
 			</article>		
 
-		@endforeach
+			@empty
+			<p>Здесь пока ничего нет.</p>
+
+		@endforelse
 
 	</div>
 

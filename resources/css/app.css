@@ -141,6 +141,10 @@
         @apply my-4 max-w-full shadow-lg rounded-md
     }
 
+    .post-content .caption {
+        @apply text-sm mb-5 max-w-3xl text-center
+    }
+
     .post-content table {
         @apply mx-auto
     }
