@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\SettingResource;
+use App\Http\Controllers\Admin\CommentResource;
+
 
 
 /*
@@ -51,7 +53,12 @@ Route::middleware(['isAdmin'])->group(function () {
     // Dashboard settings
     Route::resource('/dashboard/settings', SettingResource::class);
 
+    // Dashboard Comments
+    Route::resource('/dashboard/comments', CommentResource::class);
+
     Route::patch('/dashboard/posts/online/{id}', [BlogController::class, 'online'])->name('online');
+    
+    Route::patch('/dashboard/comments/online/{id}', [CommentController::class, 'onlineComment'])->name('onlineComment');
 
     Route::get('/dashboard/blank', function () {
         return view('dashboard.blank');

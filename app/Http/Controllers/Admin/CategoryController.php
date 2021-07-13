@@ -41,11 +41,13 @@ class CategoryController extends Controller
         $request->validate([
             'title' => 'required',
             'slug' => 'required',
+            'description' => 'required|min:10',
         ]);
 
         Category::create([
             'title' => $request->get('title'),
             'slug' => Str::slug($request->get('slug')),
+            'description' => $request->get('description'),
         ]);
 
         return redirect()->route('categories.create')
@@ -70,9 +72,12 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('dashboard.edit-category', [
+            'category' => $category,
+        ]);
     }
 
     /**
@@ -82,9 +87,22 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required',
+            'description' => 'required|min:10',
+        ]);
+
+        $category = Category::find($id);
+        $category->title = $request->get('title');
+        $category->description = $request->get('description');
+        $category->slug = Str::slug($request->get('slug'));
+        $category->save();
+
+        return redirect()->route('categories.create')
+        ->with('success', 'Категория успешно отредактирована');
     }
 
     /**

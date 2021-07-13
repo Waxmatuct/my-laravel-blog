@@ -53,7 +53,7 @@ class BlogController extends Controller
         
         $categories = Category::all();
         $post = Post::where('slug', $slug_post)->first();
-        $comments = Comment::get();
+        $comments = Comment::all();
         $user = \Auth::user();
         
             if(\Auth::guest() || !(\Auth::user()->isAdmin)) {

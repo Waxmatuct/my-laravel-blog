@@ -18,11 +18,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        // $categories = Category::all();
         $posts = Post::orderBy('id', 'desc')->paginate(10);
         return view('dashboard.posts', [
             'posts' => $posts,
-            'categories' => $categories
+            // 'categories' => $categories
         ]);
     }
 
@@ -143,7 +143,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->delete();
-        return redirect()->route('dashboard-posts')
+        return redirect()->route('posts.index')
             ->with('success', 'Запись успешно удалена');
     }
 }

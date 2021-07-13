@@ -50,4 +50,19 @@ class CommentController extends Controller
         ->with('success', 'Комментарий успешно добавлен');
 
     }
+
+    public function onlineComment(Request $request, $id)
+    {
+        $comment = Comment::find($id);
+        $comment->online = $request->online;
+        $comment->save();
+
+        if ($request->online) {
+            return redirect()->route('comments.index')
+            ->with('success', 'Коммент «'.$comment->id.'» включен');
+        } else {
+            return redirect()->route('comments.index')
+            ->with('success', 'Коммент «'.$comment->id.'» выключен');
+        }
+    }
 }

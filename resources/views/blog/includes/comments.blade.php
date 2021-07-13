@@ -2,7 +2,7 @@
     <div class="comments-heading mb-4">
         @if ($post->comments->isNotEmpty())
             <span class="text-base font-bold">
-                {{ $post->comments->count()}} комментариев
+                {{ $post->comments->whereNotNull('online')->count() }} комментариев
             </span>
         @else
             <span class="font-bold">
@@ -11,7 +11,7 @@
         @endif
     </div>
     
-    @foreach ($post->comments as $comment)
+    @foreach ($post->comments->whereNotNull('online') as $comment)
     <div id="comment-{{ $comment->id }}" class="comment h-full flex flex-row justify-start text-left mb-4">
         <div class="flex-shrink-0 w-12 h-12 bg-light-gray dark:bg-dark rounded-full inline-flex items-center justify-center">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-7 h-7 text-primary dark:text-primary-darker" viewBox="0 0 24 24">

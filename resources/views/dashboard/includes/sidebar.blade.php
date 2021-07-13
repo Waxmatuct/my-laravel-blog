@@ -41,6 +41,11 @@
             <i class="fas fa-table mr-3"></i>
             Посты
         </a>
+
+        <a href="{{ route('comments.index') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <i class="fas fa-comments mr-3"></i>
+            Комменты
+        </a>
         {{-- <a href="{{ route('dashboard-forms') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-align-left mr-3"></i>
             Forms
