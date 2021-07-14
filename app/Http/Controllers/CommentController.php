@@ -25,7 +25,7 @@ class CommentController extends Controller
         $post = Post::where('id', $comment->post_id)->first();
 
         $error = true;
-        $secret = '6LconQgbAAAAAAvWU8WwEQ0pUpLtHk3GRVYWhVqi';
+        $secret = env('RECAPTCHA_SECRET');
         
         if (!empty($_POST['g-recaptcha-response'])) {
 

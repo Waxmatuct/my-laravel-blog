@@ -29,7 +29,7 @@
                 {{ $comment->created_at->diffForHumans() }}
             </span>
             <p class="mb-4">
-                {{ $comment->comment }}
+                {!! nl2br(e($comment->comment)) !!}
             </p>
         </div>
     </div>

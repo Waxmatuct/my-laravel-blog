@@ -1,8 +1,8 @@
-<footer class="site-footer w-full text-black dark:text-light bg-light-white dark:bg-dark">
+<footer class="site-footer w-full text-black dark:text-light">
 
         <section class="credits mx-auto py-8 w-full flex flex-col items-center justify-center">
-            <span class="credit text-sm">© {{ env('APP_NAME')}}.</span>
-            <span class="text-sm">{{ date('Y') }}. Все права защищены.</span>
+            <span class="credit text-sm">© {{ date('Y') }}. {{ env('APP_NAME')}}.</span>
+            <span class="text-sm">Все права защищены.</span>
             {{-- <span class="credit">
                 <div class="social-links flex my-2.5">
                     <a class="block border-0 w-5 h-5 mr-2.5" href="#" title="Telegram" target="_blank" rel="noopener">

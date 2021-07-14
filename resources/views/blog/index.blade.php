@@ -87,7 +87,7 @@
 
 	</div>
 
-	<div class="pagination-block flex justify-center mb-8 mx-auto">
+	<div class="pagination-block flex justify-center mb-3 mx-auto">
 		{{ $posts->links('vendor.pagination.semantic-ui') }}
 	</div>
 </main>

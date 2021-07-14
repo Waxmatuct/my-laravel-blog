@@ -10,7 +10,7 @@
 {{ $comments->links('vendor.pagination.tailwind') }}
 <div class="w-full mt-6">
     <div class="bg-white shadow-md rounded-lg overflow-auto">
-        <table class="min-w-full bg-white">
+        <table class="min-w-full bg-white table-auto">
             <thead class="bg-gray-500 text-white">
                 <tr>
                     <th class="min-w-min text-center py-3 px-4 uppercase font-semibold text-sm">ID</th>
@@ -28,8 +28,8 @@
                 @foreach ($comments as $comment)
                 <tr @if ($loop->even) class="bg-gray-200" @endif>
                     <td class="min-w-min text-center py-3 px-4">{{$comment->id}}</td>
-                    <td class="text-center py-3 px-4"><a class="hover:text-green-400" href="#">{{ $comment->post->title }}</a></td>
-                    <td class="text-center py-3 px-4">{{$comment->comment}}</td>
+                    <td class="text-center py-3 px-4"><a class="hover:text-green-400" href="{{ route('getPost', $comment->post->slug) }}">{{ $comment->post->title }}</a></td>
+                    <td class="text-left py-3 px-4">{!! nl2br(e($comment->comment)) !!}</td>
                     <td class="text-center py-3 px-4">{{$comment->username}}</td>
                     <td class="text-center py-3 px-4">{{$comment->website}}</td>
                     <td class="text-center py-3 px-4">
@@ -47,11 +47,11 @@
                             
                         </form>
                     </td>
-                    <td class="text-center py-3 px-4">{{$comment->created_at->isoFormat('D MMMM  YYYY')}}</td>
-                    <td class="text-center py-3 px-4"><a href="{{ route('comments.edit', $comment) }}" class="text-xs px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full">
-                        <i class="fas fa-pen mr-2"></i>Правка</a>
+                    <td class="text-center py-3 px-4 whitespace-nowrap">{{$comment->created_at->isoFormat('D MMMM  YYYY')}}</td>
+                    <td class="text-center py-3 px-4 whitespace-nowrap"><a href="{{ route('comments.edit', $comment) }}" class="text-xs px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full">
+                        <i class="fas fa-pen mr-2 whitespace-nowrap"></i>Правка</a>
                     </td>
-                    <td class="text-center py-3 px-4">
+                    <td class="text-center py-3 px-4 whitespace-nowrap">
                         <form action="{{ route('comments.destroy', $comment) }}" method="POST">
                             @csrf
                             @method('DELETE')

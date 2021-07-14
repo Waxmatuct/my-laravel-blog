@@ -4,21 +4,8 @@
 
 @section('content')
 
-<main id="site-main" class="site-main mb-10">
+<main id="site-main" class="site-main">
 		
-		{{-- <nav class="site-nav flex mx-auto mb-5">
-			
-				<ul class="flex flex-wrap uppercase space-x-3">
-					<li>
-						<a class="menu-item {{ request()->is('blog') ? 'active' : null }}" href="{{ url('/blog') }}">Блог</a>
-					</li>
-					<li>
-						<a class="menu-item {{ request()->is('projects') ? 'active' : null }}" href="{{ url('/projects') }}">Проекты</a>
-					</li>
-				</ul>
-					
-		</nav> --}}
-
 		<div class="main-content flex flex-col flex-wrap space-y-7 text-lg leading-snug">
 			<div id="info" class="flex flex-col space-y-4">
 				<p>
@@ -30,7 +17,6 @@
 			</div>
 			<div id="sites" class="flex flex-col space-y-4">
 				<h2 class="text-2xl font-bold">Веб-сайты</h2>
-				{{-- <h3 class="text-xl font-bold">Веб-сайты</h3> --}}
 				<p><a href="https://izd.sutr.ru" target="_blank">izd.sutr.ru</a> — сайт редакционно-издательского центра ФГБОУ ВО «Сочинский государственный университет». Основная задача — помощь авторам в издании научных трудов и ведение статистики по выполнению годового плана издания учебной и учебно-методической литературы.</p>
 				<p><a href="https://kvartalsveta.ru" target="_blank">kvartalsveta.ru</a> — сайт проекта «Квартал света», который направлен на формирование современной общественной зоны притяжения в центре города Пушкин.</p>
 				<p><a href="{{ url('/') }}" target="_blank">alvar.ru</a> — мой персональный сайт-портфолио и авторский блог.</p>
