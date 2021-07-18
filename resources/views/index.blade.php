@@ -24,11 +24,11 @@
 				<p><a href="https://alvheim.ru" target="_blank">alvheim.ru</a> — одностраничный сайт о музыкальной группе.</p>
 				<p><a href="https://pro-rs.ru" target="_blank">pro-rs.ru</a> — авторский блог Александры Ясинской.</p>
 			</div>
-			<div id="design" class="flex flex-col space-y-4">
+			{{-- <div id="design" class="flex flex-col space-y-4">
 				<h2 class="text-2xl font-bold">Полиграфия, дизайн, верстка</h2>
 				<p><a href="#" target="_blank">Газета «Сочинский университет»</a></p>
 				<p><a href="#" target="_blank">Журнал «Сочинский государственный университет» (факты, события, комментарии)</a></p>
-			</div>
+			</div> --}}
 
 		</div>
 

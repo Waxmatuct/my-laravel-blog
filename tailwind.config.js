@@ -35,12 +35,7 @@ module.exports = {
       'black': '#374151',
       'gray': '#9ca3af',
       'gray-900': '#1f2937', 
-      
-      blue: {
-          DEFAULT:'#539bf5',
-          darker: '#3f6798',
-      },
-
+    
       'primary': {
           DEFAULT: '#0ba057',//#98c376
           darker: '#48bb78',

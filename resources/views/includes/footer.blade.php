@@ -1,4 +1,4 @@
-<footer class="site-footer w-full text-black dark:text-light">
+<footer class="site-footer w-full text-black dark:text-gray">
 
         <section class="credits mx-auto py-8 w-full flex flex-col items-center justify-center">
             <span class="credit text-sm">© {{ date('Y') }}. {{ env('APP_NAME')}}.</span>
