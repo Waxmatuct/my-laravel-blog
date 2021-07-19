@@ -36,11 +36,11 @@
 				<img class="site-avatar w-36 h-36 rounded-3xl mb-4 border-light-gray dark:border-dark" src="{{ asset('/assets/images/Alvar.jpg') }}">
 				
 				<h1 class="site-title font-bold text-3xl sm:text-4xl text-black dark:text-light-white">
-					{{ env('APP_NAME') }}
+					{{ config('app.name') }}
 				</h1>
 				
 				<h2 class="site-description text-black dark:text-gray font-normal my-2.5">
-					{{ env('APP_DESCR') }}
+					{{ config('app.description') }}
 				</h2>
 
 				{{-- <div class="subscribe hidden">

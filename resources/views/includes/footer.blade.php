@@ -1,7 +1,7 @@
 <footer class="site-footer w-full text-black dark:text-gray">
 
         <section class="credits mx-auto py-8 w-full flex flex-col items-center justify-center">
-            <span class="credit text-sm">© {{ date('Y') }}. {{ env('APP_NAME')}}.</span>
+            <span class="credit text-sm">© {{ date('Y') }}. {{ config('app.name') }}.</span>
             <span class="text-sm">Все права защищены.</span>
             {{-- <span class="credit">
                 <div class="social-links flex my-2.5">
