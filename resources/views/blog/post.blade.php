@@ -92,7 +92,7 @@
 
     var onloadCallback = function() {
       grecaptcha.render('recaptcha', {
-        'sitekey' : '6LconQgbAAAAAFtY79B7A9g4eLRLGZ1KSNPeuXLx',
+        'sitekey' : '{{ config('app.recaptcha_site_key') }}',
         'callback' : verifyCallback,
       });
     };

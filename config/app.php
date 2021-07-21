@@ -236,4 +236,7 @@ return [
 
     ],
 
+    'recaptcha_site_key' => env('RECAPTCHA_SITE_KEY', '6LconQgbAAAAAFtY79B7A9g4eLRLGZ1KSNPeuXLx'),
+    'recaptcha_secret' => env('RECAPTCHA_SECRET', '6LconQgbAAAAAAvWU8WwEQ0pUpLtHk3GRVYWhVqi'),
+
 ];

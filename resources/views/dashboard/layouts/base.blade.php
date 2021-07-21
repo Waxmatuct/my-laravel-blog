@@ -6,6 +6,7 @@
         <title>@yield('title')</title>
         <meta name="author" content="David Grzyb">
         <meta name="description" content="">
+        <link rel="icon" href="{{ asset('favicon.ico') }}">
         @stack('editor') 
         @stack('switch')
         <!-- Tailwind -->

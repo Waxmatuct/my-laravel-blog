@@ -17,7 +17,7 @@
                 </form>
             </div>
         </div>
-        <a href="{{ route('index') }}" class="text-center block text-white text-2xl font-semibold hover:text-gray-300">На сайт</a>
+        <a href="{{ route('blog') }}" class="text-center block text-white text-2xl font-semibold hover:text-gray-300">На сайт</a>
         <a href="{{ route('posts.create') }}" class="w-full bg-green-500 cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-green-300 flex items-center justify-center">
             <i class="fas fa-plus mr-3"></i> Новый пост
         </a>
