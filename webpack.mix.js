@@ -33,3 +33,5 @@ mix.styles('node_modules/jquery-colorbox/example5/colorbox.css', 'public/css/col
 mix.postCss('resources/css/app.css', 'public/css', [
         require('tailwindcss'),
     ]);
+
+mix.browserSync('alvar.test');
