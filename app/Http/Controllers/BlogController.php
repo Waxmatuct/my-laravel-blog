@@ -6,7 +6,6 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Comment;
-use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -14,7 +13,7 @@ class BlogController extends Controller
     public function blog() {
         $categories = Category::all();
         $posts = Post::where('online', true)->orderBy('id', 'desc')->paginate(5);
-        $comments = Comment::get();
+        $comments = Comment::all();
         $user = \Auth::user();
         
         return view('blog.index', [
@@ -53,7 +52,6 @@ class BlogController extends Controller
         
         $categories = Category::all();
         $post = Post::where('slug', $slug_post)->first();
-        $comments = Comment::all();
         $user = \Auth::user();
         
             if(\Auth::guest() || !(\Auth::user()->isAdmin)) {
@@ -65,7 +63,7 @@ class BlogController extends Controller
                     'post' => $post,
                     'categories' => $categories,
                     'user' => $user,
-                    'comments' => $comments,
+                    'comments' => $post->comments()->whereNotNull('online')->get(),
 
                 ]);
             }
