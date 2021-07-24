@@ -12,3 +12,7 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 public/files
+public/js
+public/css/*
+!public/css/images/
+!public/css/app.css

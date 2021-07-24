@@ -13,20 +13,12 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js/auth.js')
-    .sass('resources/sass/app.scss', 'public/css/auth.css')
     .sourceMaps();
 
 mix.js('resources/js/admin.js', 'public/js/admin.js')
    .js('resources/js/scripts.js', 'public/js/scripts.js');
 
 mix.copy('node_modules/jquery-colorbox/jquery.colorbox-min.js', 'public/js/jquery.colorbox-min.js');
-
-mix.sass('resources/sass/styles.sass', 'public/assets/css/styles.css');
-
-mix.styles([
-    'public/assets/css/normalize.css',
-    'public/assets/css/styles.css'
- ], 'public/css/styles.css');
 
 mix.styles('node_modules/jquery-colorbox/example5/colorbox.css', 'public/css/colorbox.css');
 
