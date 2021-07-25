@@ -11,14 +11,6 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     public function index() {
-        $categories = Category::orderBy('title')->get();
-        $posts = Post::where('online', true)->orderBy('id', 'desc')->paginate(7);
-        $user = \Auth::user();
-        
-        return view('index', [
-            'posts' => $posts,
-            'categories' => $categories,
-            'user' => $user,
-        ]);
+        return view('index');
     }
 }

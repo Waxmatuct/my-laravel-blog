@@ -4,16 +4,6 @@
 
 @section('content')
 
-<section class="hidden categories max-w-5xl mx-auto md:mt-10 px-8 md:px-0 flex-wrap flex-col justify-center">
-	<ul class="flex flex-wrap list-none items-center justify-center">
-		@foreach ($categories as $category)
-			<li class="mx-2 mb-3 sm:my-0"> 
-				<a class="category-button border-0" id="{{ $category['id'] }}" href="{{route('getPostsByCategory', $category['slug'])}}">{{ $category['title'] }}</a>
-			</li>
-		@endforeach
-	</ul>
-</section>
-
 <div class="max-w-7xl md:mt-7 px-8 mx-auto md:px-0 flex">
 	<h1 class="text-4xl sm:text-5xl font-bold text-black dark:text-light-white">Блог</h1>
 </div>

@@ -29,7 +29,7 @@ Route::get('/blog', [BlogController::class, 'blog'])->name('blog');
 Route::get('/blog/category/{slug}', [BlogController::class, 'getPostsByCategory'])->name('getPostsByCategory');
 Route::get('/blog/tag/{slug}', [BlogController::class, 'getPostsByTag'])->name('getPostsByTag');
 Route::get('/blog/post/{slug_post}', [BlogController::class, 'getPost'])->name('getPost');
-Route::get('/blog/post/{slug_post}/edit', [BlogController::class, 'editPost'])->name('editPost');
+// Route::get('/blog/post/{slug_post}/edit', [BlogController::class, 'editPost'])->name('editPost');
 Route::post('/blog/post/{slug_post}/comment', [CommentController::class, 'storeComment'])->name('storeComment');
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');

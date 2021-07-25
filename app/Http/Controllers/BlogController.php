@@ -11,8 +11,8 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     public function blog() {
-        $categories = Category::all();
-        $posts = Post::where('online', true)->orderBy('id', 'desc')->paginate(5);
+        $categories = Category::orderBy('id', 'asc')->get();
+        $posts = Post::where('online', true)->orderBy('id', 'desc')->with('category')->paginate(5);
         $comments = Comment::all();
         $user = \Auth::user();
         
@@ -21,14 +21,6 @@ class BlogController extends Controller
             'categories' => $categories,
             'user' => $user,
             'comments' => $comments,
-        ]);
-    }
-
-    public function getCategories() {
-        $categories = Category::orderBy('id', 'asc')->get();
-
-        return view('includes.navigation', [
-            'categories' => $categories,
         ]);
     }
 
