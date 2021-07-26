@@ -62,13 +62,13 @@
                     <div class="mt-5">
                         <label class="block text-sm text-gray-600" for="category">Теги</label>
                         <div class="relative w-full">
-                            <div style="padding-bottom: 4px">
+                            <div class="pb-1">
                                 <span 
-                                    class="inline-block rounded-sm text-white bg-purple-700 px-2 py-1 text-xs font-bold mr-3 select-all">
+                                    class="inline-block rounded-md text-white bg-purple-700 px-2 py-1 text-xs font-bold mr-3 cursor-pointer select-all">
                                     Выбрать все
                                 </span>
                                 <span 
-                                    class="inline-block rounded-sm text-white bg-purple-700 px-2 py-1 text-xs font-bold mr-3 deselect-all">
+                                    class="inline-block rounded-md text-white bg-purple-700 px-2 py-1 text-xs font-bold mr-3 cursor-pointer deselect-all">
                                     Очистить
                                 </span>
                             </div>
