@@ -34,7 +34,7 @@
                     <td class="text-center py-3 px-4">{{$post->category['title']}}</td>
                     <td class="text-center py-3 px-4">
                         @foreach ($post->tags as $tag)
-                        <span class="inline-block rounded-min text-white bg-purple-500 px-2 py-1 text-xs font-bold mr-3">{{ $tag->name }}</span>
+                        <span class="inline-block rounded-md text-white bg-purple-500 px-2 py-1 text-xs font-bold mr-3">{{ $tag->name }}</span>
                         @endforeach
                     </td>
                     <td class="text-center py-3 px-4">

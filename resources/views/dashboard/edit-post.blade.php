@@ -66,7 +66,35 @@
 
                     <div class="mt-5">
                         <label class="block text-sm text-gray-600" for="category">Теги</label>
-                        @foreach ($tags as $tag)
+                        <div class="relative w-full">
+                            <div style="padding-bottom: 4px">
+                                <span 
+                                    class="inline-block rounded-md text-white bg-purple-700 px-2 py-1 text-xs font-bold select-all">
+                                    Выбрать все
+                                </span>
+                                <span
+                                    class="inline-block rounded-md text-white bg-purple-700 px-2 py-1 text-xs font-bold deselect-all">
+                                    Очистить
+                                </span>
+                            </div>
+                            <select 
+                                class="select2{{ $errors->has('tags') ? ' is-invalid' : '' }} w-full text-gray-600 bg-gray-200 rounded appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10"
+                                name="tags[]"
+                                id="tags"
+                                multiple="multiple">
+                            @foreach ($tags as $id => $tag)
+                                <option value="{{ $id }}"
+                                    {{ in_array($id, old('tags', [])) || $post->tags->contains($id) ? 'selected' : ''}}>
+                                    {{ $tag}}
+                                </option>
+                            @endforeach
+                            </select>
+                            {{-- <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span> --}}
+                        </div>
+
+                        {{-- @foreach ($tags as $tag)
                             <label for="tag{{ $tag->id }}" class="inline-flex items-center mr-3 wrap">
                                 <input type="checkbox" name="tags[]" id="tag{{ $tag->id }}" class="h-4 w-4 text-purple-600" value="{{ $tag->id }}"
                                 @foreach ($post->tags as $t )
@@ -74,12 +102,12 @@
                                 @endforeach
                                 ><span class="text-sm ml-1 text-gray-700">{{ $tag->name }}</span>
                             </label>    
-                        @endforeach
+                        @endforeach --}}
                     </div>
 
                     <div class="mt-5">
                         <label class="block text-sm text-gray-600" for="slug">Описание</label>
-                        <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="description" name="description" rows="3" required="" placeholder="" aria-label="Description">{{$post->description}}</textarea>
+                        <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded leading-normal" id="description" name="description" rows="3" required="" placeholder="" aria-label="Description">{{$post->description}}</textarea>
                     </div>
 
                     <div class="mt-5">
@@ -109,6 +137,21 @@
     <script src="https://cdn.tiny.cloud/1/7oc5a4pw1zhkloaxzcp0owb2if5b7vw0wbam8avvv26u7usu/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ asset('/js/jquery.colorbox-min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script type="text/javascript" src="/packages/barryvdh/elfinder/js/standalonepopup.js"></script>
     <script src="{{ asset('/js/admin.js') }}"></script>
+    <script>
+        $('.select-all').click(function () {
+            let $select2 = $(this).parent().siblings('.select2')
+            $select2.find('option').prop('selected', 'selected')
+            $select2.trigger('change')
+          })
+          $('.deselect-all').click(function () {
+            let $select2 = $(this).parent().siblings('.select2')
+            $select2.find('option').prop('selected', '')
+            $select2.trigger('change')
+          })
+        
+          $('.select2').select2()
+        </script>
 @endpush

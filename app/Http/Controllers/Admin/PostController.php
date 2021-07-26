@@ -34,7 +34,8 @@ class PostController extends Controller
     {
         $categories = Category::all();
         $posts = Post::all();
-        $tags = Tag::all();
+        // $tags = Tag::all();
+        $tags = Tag::pluck('name', 'id');
         return view('dashboard.new-post', [
             'posts' => $posts,
             'categories' => $categories,
@@ -93,7 +94,8 @@ class PostController extends Controller
     {   
         $post = Post::find($id);
         $categories = Category::all();
-        $tags = Tag::all();
+        // $tags = Tag::all();
+        $tags = Tag::pluck('name', 'id');
         return view('dashboard.edit-post', [
             'post' => $post,
             'categories' => $categories,

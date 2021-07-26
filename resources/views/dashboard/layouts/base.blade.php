@@ -11,6 +11,7 @@
         @stack('switch')
         <!-- Tailwind -->
         <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
          
         <style>
             /* @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap'); */
@@ -25,6 +26,7 @@
             .nav-item:hover { background: #5940b5; }
             .account-link:hover { background: #5940b5; }
             .leading-loose p { line-height: 1.4; }
+
         </style>
     </head>
     <body class="bg-gray-200 font-family-roboto flex">
