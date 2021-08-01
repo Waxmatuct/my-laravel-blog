@@ -6,9 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Repositories\Tags\TagRepositoryInterface;
 
 class TagController extends Controller
 {
+    private $tagRepository;
+    
+    public function __construct(
+        TagRepositoryInterface $tagRepository,
+    )
+
+    {
+        $this->tagRepository = $tagRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +37,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        $tags = Tag::all();
+        $tags = $this->tagRepository->all();
         return view('dashboard.new-tag', compact('tags'));
     }
 

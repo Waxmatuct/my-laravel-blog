@@ -3,12 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Post;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use App\Repositories\Comments\CommentRepositoryInterface;
 
 class CommentResource extends Controller
 {
+    private $commentRepository;
+    
+    public function __construct(
+        CommentRepositoryInterface $commentRepository,
+    )
+
+    {
+        $this->commentRepository = $commentRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +25,8 @@ class CommentResource extends Controller
      */
     public function index()
     {
-        $comments = Comment::orderBy('id', 'desc')->paginate(50);
+        $comments = $this->commentRepository->getComments()->paginate(50);
+        
         return view('dashboard.comments', [
             'comments' => $comments,
         ]);
@@ -85,8 +95,8 @@ class CommentResource extends Controller
      */
     public function destroy($id)
     {
-        $comment = comment::find($id);
-        $comment->delete();
+        $this->commentRepository->findComment($id)->delete();
+        
         return redirect()->route('comments.index')
             ->with('success', 'Коммент успешно удален');
     }

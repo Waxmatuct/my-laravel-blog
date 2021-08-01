@@ -5,12 +5,27 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Category;
+// use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Support\Str;
+use App\Repositories\Posts\PostRepositoryInterface;
+use App\Repositories\Categories\CategoryRepositoryInterface;
 
 class PostController extends Controller
 {
+    private $postRepository;
+    private $categoryRepository;
+    
+
+    public function __construct(
+        PostRepositoryInterface $postRepository,
+        CategoryRepositoryInterface $categoryRepository
+    )
+
+    {
+        $this->postRepository = $postRepository;
+        $this->categoryRepository = $categoryRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,10 +33,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id', 'desc')->with('category')->paginate(10);
-
         return view('dashboard.posts', [
-            'posts' => $posts,
+            'posts' => $this->postRepository->getAllPostsWithCategory()->paginate(10),
         ]);
     }
 
@@ -32,13 +45,11 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        $posts = Post::all();
-        // $tags = Tag::all();
+        // $categories = $this->categoryRepository->all();
         $tags = Tag::pluck('name', 'id');
         return view('dashboard.new-post', [
-            'posts' => $posts,
-            'categories' => $categories,
+            // 'posts' => $this->postRepository->all(),
+            'categories' => $this->categoryRepository->all(),
             'tags' => $tags,
         ]);
     }
@@ -92,13 +103,12 @@ class PostController extends Controller
      */
     public function edit($id)
     {   
-        $post = Post::find($id);
-        $categories = Category::all();
+        // $categories = Category::all();
         // $tags = Tag::all();
         $tags = Tag::pluck('name', 'id');
         return view('dashboard.edit-post', [
-            'post' => $post,
-            'categories' => $categories,
+            'post' => $this->postRepository->findPost($id),
+            'categories' => $this->categoryRepository->all(),
             'tags' => $tags,
         ]);
     }
@@ -120,7 +130,7 @@ class PostController extends Controller
             'slug' => 'required',
         ]);
 
-        $post = Post::find($id);
+        $post = $this->postRepository->findPost($id);
         $post->title = $request->get('title');
         $post->category_id = $request->get('category_id');
         $post->description = $request->get('description');
@@ -142,8 +152,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
-        $post->delete();
+        $this->postRepository->findPost($id)->delete();
+        
         return redirect()->route('posts.index')
             ->with('success', 'Запись успешно удалена');
     }

@@ -6,9 +6,22 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Repositories\Categories\CategoryRepositoryInterface;
 
 class CategoryController extends Controller
 {
+    private $categoryRepository;
+
+    public function __construct(
+        // PostRepositoryInterface $postRepository,
+        CategoryRepositoryInterface $categoryRepository
+    )
+
+    {
+        // $this->postRepository = $postRepository;
+        $this->categoryRepository = $categoryRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +39,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = $this->categoryRepository->all();
         return view('dashboard.new-category', compact('categories'));
     }
 
@@ -52,7 +65,6 @@ class CategoryController extends Controller
 
         return redirect()->route('categories.create')
             ->with('success', 'Категория успешно добавлена');
-
     }
 
     /**
@@ -74,9 +86,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
+        // $category = Category::find($id);
         return view('dashboard.edit-category', [
-            'category' => $category,
+            'category' => $this->categoryRepository->findCategory($id),
         ]);
     }
 
@@ -95,7 +107,7 @@ class CategoryController extends Controller
             'description' => 'required|min:10',
         ]);
 
-        $category = Category::find($id);
+        $category = $this->categoryRepository->findCategory($id);
         $category->title = $request->get('title');
         $category->description = $request->get('description');
         $category->slug = Str::slug($request->get('slug'));
