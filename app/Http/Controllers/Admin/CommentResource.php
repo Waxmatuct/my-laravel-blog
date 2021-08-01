@@ -12,7 +12,7 @@ class CommentResource extends Controller
     private $commentRepository;
     
     public function __construct(
-        CommentRepositoryInterface $commentRepository,
+        CommentRepositoryInterface $commentRepository
     )
 
     {
