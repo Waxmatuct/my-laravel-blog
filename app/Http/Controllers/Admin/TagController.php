@@ -13,7 +13,7 @@ class TagController extends Controller
     private $tagRepository;
     
     public function __construct(
-        TagRepositoryInterface $tagRepository,
+        TagRepositoryInterface $tagRepository
     )
 
     {
