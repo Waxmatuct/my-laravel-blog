@@ -22,7 +22,7 @@ class BlogController extends Controller
         PostRepositoryInterface $postRepository,
         CategoryRepositoryInterface $categoryRepository,
         CommentRepositoryInterface $commentRepository,
-        TagRepositoryInterface $tagRepository,
+        TagRepositoryInterface $tagRepository
     )
 
     {
