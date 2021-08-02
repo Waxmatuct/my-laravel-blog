@@ -10,6 +10,7 @@ use App\Repositories\Posts\PostRepositoryInterface;
 use App\Repositories\Categories\CategoryRepositoryInterface;
 use App\Repositories\Comments\CommentRepositoryInterface;
 use App\Repositories\Tags\TagRepositoryInterface;
+use App\Services\BlogService;
 
 class BlogController extends Controller
 {
@@ -17,12 +18,15 @@ class BlogController extends Controller
     private $categoryRepository;
     private $commentRepository;
     private $tagRepository;
+
+    protected $blogService;
     
     public function __construct(
         PostRepositoryInterface $postRepository,
         CategoryRepositoryInterface $categoryRepository,
         CommentRepositoryInterface $commentRepository,
-        TagRepositoryInterface $tagRepository
+        TagRepositoryInterface $tagRepository,
+        BlogService $blogService
     )
 
     {
@@ -30,13 +34,14 @@ class BlogController extends Controller
         $this->categoryRepository = $categoryRepository;
         $this->commentRepository = $commentRepository;
         $this->tagRepository = $tagRepository;
+        $this->blogService = $blogService;
     }
 
 
     public function blog()
     {
         $data = ([
-            'posts' => $this->postRepository->getAllOnlinePosts()->paginate(5),
+            'posts' => $this->blogService->getAllOnlinePostsWithPaginate(),
             'categories' => $this->categoryRepository->getCategories(),
             'user' => \Auth::user(),
             'comments' => $this->commentRepository->all(),
@@ -63,26 +68,26 @@ class BlogController extends Controller
     public function getPost($slug_post)
     {
         $post = $this->postRepository->getPost($slug_post);
+
+        if(\Auth::guest() || !(\Auth::user()->isAdmin)) {
+            $post->increment('views');
+        }
         
-            if(\Auth::guest() || !(\Auth::user()->isAdmin)) {
-                $post->increment('views');
-            }
-        
-            if ($post->online) {
+        if ($post->online) {
 
-                $data = ([
-                    'post' => $post,
-                    'categories' => $this->categoryRepository->all(),
-                    'user' => \Auth::user(),
-                    'comments' => $post->comments()->whereNotNull('online')->get(),
-                ]);
+            $data = ([
+                'post' => $post,
+                'categories' => $this->categoryRepository->all(),
+                'user' => \Auth::user(),
+                'comments' => $post->comments()->whereNotNull('online')->get(),
+            ]);
 
-                return view('blog.post', $data);
-            }
+            return view('blog.post', $data);
+        }
 
-            else {
-                return redirect()->route('blog');
-            }
+        else {
+            return redirect()->route('blog');
+        }
         
     }
 
