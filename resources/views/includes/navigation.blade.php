@@ -1,4 +1,4 @@
-<nav class="site-nav sticky mb-3 top-0 bg-light dark:bg-dark-lighter shadow-lg z-50">						
+{{-- <nav class="site-nav sticky mb-3 top-0 bg-light dark:bg-dark-lighter shadow-lg z-50">						
     <div class="site-nav-inner md:flex max-w-7xl px-8 lg:px-0 py-4 mx-auto justify-between sm:justify-start md:justify-center lg:justify-start md:py-2">
         
         @include('includes.logo')
@@ -64,4 +64,4 @@
             </div>
 
     </div>
-</nav>
+</nav> --}}

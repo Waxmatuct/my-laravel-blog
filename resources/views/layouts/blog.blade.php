@@ -24,7 +24,7 @@
 	<body class="bg-light text-black font-sans dark:bg-dark-lighter dark:text-gray">
 		<a href="#" onclick="return false" class="menu_link"><span></span></a>
 
-		@include('includes.navigation')
+		@include('blog.includes.navigation')
 
 		<div class="container mx-auto">
 

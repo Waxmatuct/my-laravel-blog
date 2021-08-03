@@ -29,9 +29,9 @@ class BlogService
         $this->tagRepository = $tagRepository;
     }
 
-    public function getAllOnlinePostsWithPaginate() {
+    // public function getAllOnlinePostsWithPaginate() {
         
-        return $this->postRepository->getAllOnlinePosts()->paginate(10);
+    //     return $this->postRepository->getAllOnlinePosts()->paginate(10);
         
-    }
+    // }
 }
