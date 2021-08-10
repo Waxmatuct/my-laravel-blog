@@ -2,50 +2,29 @@
 
 namespace App\Http\Controllers;
 
-// use App\Models\Category;
-// use App\Models\Tag;
-// use App\Models\Comment;
+use App\Services\BlogService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Repositories\Posts\PostRepositoryInterface;
-use App\Repositories\Categories\CategoryRepositoryInterface;
-use App\Repositories\Comments\CommentRepositoryInterface;
-use App\Repositories\Tags\TagRepositoryInterface;
-// use App\Services\BlogService;
 
 class BlogController extends Controller
 {
-    private $postRepository;
-    private $categoryRepository;
-    private $commentRepository;
-    private $tagRepository;
+    protected $blogService;
 
-    // protected $blogService;
-    
     public function __construct(
-        PostRepositoryInterface $postRepository,
-        CategoryRepositoryInterface $categoryRepository,
-        CommentRepositoryInterface $commentRepository,
-        TagRepositoryInterface $tagRepository,
-        // BlogService $blogService
+        BlogService $blogService
     )
 
     {
-        $this->postRepository = $postRepository;
-        $this->categoryRepository = $categoryRepository;
-        $this->commentRepository = $commentRepository;
-        $this->tagRepository = $tagRepository;
-        // $this->blogService = $blogService;
+        $this->blogService = $blogService;
     }
-
 
     public function blog()
     {
         $data = ([
-            'posts' => $this->postRepository->getAllOnlinePosts()->paginate(5),
-            'categories' => $this->categoryRepository->getCategories(),
+            'posts' => $this->blogService->getAllOnlinePosts(),
+            'categories' => $this->blogService->getAllCategoriesOrderedById(),
             'user' => Auth::user(),
-            'comments' => $this->commentRepository->all(),
+            'comments' => $this->blogService->getAllComments(),
         ]);
 
         return view('blog.index', $data);
@@ -53,12 +32,12 @@ class BlogController extends Controller
 
     public function getPostsByCategory($slug)
     {
-        $current_category = $this->categoryRepository->getCurrentCategory($slug);
+        $current_category = $this->blogService->getCurrentCategory($slug);
 
         $data = ([
             'posts' => $current_category->posts()->where('online', true)->orderBy('id', 'desc')->paginate(10),
-            'categories' => $this->categoryRepository->all(),
-            'tags' => $this->tagRepository->all(),
+            'categories' => $this->blogService->getAllCategories(),
+            'tags' => $this->blogService->getAllTags(),
             'user' => Auth::user(),
             'current_category' => $current_category,
         ]);
@@ -68,7 +47,7 @@ class BlogController extends Controller
 
     public function getPost($slug_post)
     {
-        $post = $this->postRepository->getPost($slug_post);
+        $post = $this->blogService->getPostWithSlug($slug_post);
 
         if(Auth::guest() || !(Auth::user()->isAdmin)) {
             $post->increment('views');
@@ -78,7 +57,7 @@ class BlogController extends Controller
 
             $data = ([
                 'post' => $post,
-                'categories' => $this->categoryRepository->all(),
+                'categories' => $this->blogService->getAllCategories(),
                 'user' => Auth::user(),
                 'comments' => $post->comments()->whereNotNull('online')->get(),
             ]);
@@ -94,12 +73,12 @@ class BlogController extends Controller
 
     public function getPostsByTag($slug)
     {
-        $current_tag = $this->tagRepository->getCurrentTag($slug);
+        $current_tag = $this->blogService->getCurrentTag($slug);
 
         $data = ([
             'posts' => $current_tag->posts()->where('online', true)->orderBy('id', 'desc')->paginate(10),
-            'categories' => $this->categoryRepository->all(),
-            'tags' => $this->tagRepository->getTags(),
+            'categories' => $this->blogService->getAllCategories(),
+            'tags' => $this->blogService->getTagsOrderedByName(),
             'user' => Auth::user(),
             'current_tag' => $current_tag,
         ]);
@@ -109,7 +88,7 @@ class BlogController extends Controller
 
     public function online(Request $request, $id)
     {
-        $post = $this->postRepository->findPost($id);
+        $post = $this->blogService->findPost($id);
         $post->online = $request->online;
         $post->save();
 

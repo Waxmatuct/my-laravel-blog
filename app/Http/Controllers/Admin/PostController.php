@@ -3,28 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreBlogPost;
 use App\Models\Post;
-// use App\Models\Category;
 use App\Models\Tag;
+use App\Services\BlogService;
 use Illuminate\Support\Str;
-use App\Repositories\Posts\PostRepositoryInterface;
-use App\Repositories\Categories\CategoryRepositoryInterface;
 
 class PostController extends Controller
 {
-    private $postRepository;
-    private $categoryRepository;
-    
+    protected $blogService;
 
     public function __construct(
-        PostRepositoryInterface $postRepository,
-        CategoryRepositoryInterface $categoryRepository
+        BlogService $blogService
     )
 
     {
-        $this->postRepository = $postRepository;
-        $this->categoryRepository = $categoryRepository;
+        $this->blogService = $blogService;
     }
     /**
      * Display a listing of the resource.
@@ -34,7 +28,7 @@ class PostController extends Controller
     public function index()
     {
         return view('dashboard.posts', [
-            'posts' => $this->postRepository->getAllPostsWithCategory()->paginate(10),
+            'posts' => $this->blogService->getAllPostsWithCategory(),
         ]);
     }
 
@@ -45,11 +39,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        // $categories = $this->categoryRepository->all();
         $tags = Tag::pluck('name', 'id');
         return view('dashboard.new-post', [
-            // 'posts' => $this->postRepository->all(),
-            'categories' => $this->categoryRepository->all(),
+            'categories' => $this->blogService->getAllCategories(),
             'tags' => $tags,
         ]);
     }
@@ -60,17 +52,11 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBlogPost $request)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'category_id' => 'required',
-            'description' => 'required|min:10',
-            'content' => 'required|min:100',
-            'slug' => 'required',
-        ]);
+        $request->validated();
 
-        $post = Post::create([
+        Post::create([
             'title' => $request->get('title'),
             'category_id' => $request->get('category_id'),
             'description' => $request->get('description'),
@@ -103,12 +89,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {   
-        // $categories = Category::all();
-        // $tags = Tag::all();
         $tags = Tag::pluck('name', 'id');
         return view('dashboard.edit-post', [
-            'post' => $this->postRepository->findPost($id),
-            'categories' => $this->categoryRepository->all(),
+            'post' => $this->blogService->findPost($id),
+            'categories' => $this->blogService->getAllCategories(),
             'tags' => $tags,
         ]);
     }
@@ -120,17 +104,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreBlogPost $request, $id)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'category_id' => 'required',
-            'description' => 'required|min:10',
-            'content' => 'required|min:100',
-            'slug' => 'required',
-        ]);
+        $request->validated();
 
-        $post = $this->postRepository->findPost($id);
+        $post = $this->blogService->findPost($id);
         $post->title = $request->get('title');
         $post->category_id = $request->get('category_id');
         $post->description = $request->get('description');
@@ -152,7 +130,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $this->postRepository->findPost($id)->delete();
+        $this->blogService->findPost($id)->delete();
         
         return redirect()->route('posts.index')
             ->with('success', 'Запись успешно удалена');
