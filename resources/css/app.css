@@ -5,7 +5,7 @@
 
 @layer base {
     a {
-        @apply text-primary dark:text-primary-darker border-b border-primary hover:border-black dark:hover:border-light hover:text-black dark:hover:text-light border-opacity-30 dark:border-opacity-30 transition duration-300 ease-in-out; 
+        @apply text-primary dark:text-primary-darker border-b border-primary hover:border-black dark:hover:border-light hover:text-black dark:hover:text-light border-opacity-30 dark:border-opacity-30 transition duration-300 ease-in-out;
     }
 
     .button {
@@ -18,7 +18,7 @@
     .site-header-content {
         /* height: 300px; */
     }
-    
+
     .site-main {
         @apply max-w-7xl mx-auto md:my-2 px-8 md:px-0 flex flex-wrap flex-col justify-center;
     }
@@ -46,8 +46,10 @@
         z-index: 999;
         background-color: #f6f6f6;
     }
-    
-    .menu_link span, .menu_link span::before, .menu_link span::after {
+
+    .menu_link span,
+    .menu_link span::before,
+    .menu_link span::after {
         position: absolute;
         display: block;
         top: 50%;
@@ -59,28 +61,28 @@
         background-color: #22272e;
         transition: all 0.3s;
     }
-    
+
     .menu_link span::before {
         content: "";
         margin-top: -5px;
     }
-    
+
     .menu_link span::after {
         content: "";
         margin-top: 3px;
     }
-    
+
     .menu_link_active span {
         background: transparent;
     }
-    
+
     .menu_link_active span::before {
         transform: rotate(-135deg);
         margin-top: 0;
         width: 12px;
         margin-left: -6px;
     }
-    
+
     .menu_link_active span::after {
         transform: rotate(135deg);
         margin-top: 0;
@@ -90,7 +92,7 @@
 
     .post-page {
         /* max-width: 960px; */
-        @apply max-w-4xl
+        @apply max-w-4xl;
     }
 
     .post-block {
@@ -98,11 +100,15 @@
     }
 
     .post-content h2 {
-        @apply text-xl text-dark dark:text-light-gray font-bold mt-6; 
+        @apply text-xl text-dark dark:text-light-gray font-bold mt-6;
     }
 
     .post-content h3 {
         @apply text-lg text-dark dark:text-light-gray font-bold mt-6;
+    }
+
+    .post-content code {
+        @apply text-sm font-mono bg-black dark:bg-gray text-light-gray dark:text-dark p-1 rounded-md;
     }
 
     .post-content pre {
@@ -111,17 +117,22 @@
 
     .post-content a {
         @apply no-underline text-lg;
-      }
-    
-    .post-content p, .post-content blockquote, .post-content ol li, .post-content ul li {
+    }
+
+    .post-content p,
+    .post-content blockquote,
+    .post-content ol li,
+    .post-content ul li {
         @apply leading-snug;
     }
 
-    .post-content ol li, .post-content ul li {
+    .post-content ol li,
+    .post-content ul li {
         @apply list-inside;
     }
 
-    .post-content ol, .post-content ul {
+    .post-content ol,
+    .post-content ul {
         @apply ml-4;
     }
 
@@ -134,29 +145,29 @@
     }
 
     .post-content p {
-        @apply my-4 sm:text-lg max-w-3xl
+        @apply my-4 sm:text-lg max-w-3xl;
     }
 
-    .post-content img{
-        @apply my-4 max-w-full shadow-lg rounded-md
+    .post-content img {
+        @apply my-4 max-w-full shadow-lg rounded-md;
     }
 
     .post-content .caption {
-        @apply text-sm mb-5 max-w-3xl text-center
+        @apply text-sm mb-5 max-w-3xl text-center;
     }
 
     .post-content table {
-        @apply mx-auto
+        @apply mx-auto;
     }
     .post-content table caption {
-        @apply my-2
+        @apply my-2;
     }
     .post-content th {
-        @apply text-center py-3 px-4 uppercase font-semibold border
+        @apply text-center py-3 px-4 uppercase font-semibold border;
     }
-      
+
     .post-content td {
-        @apply text-center py-3 px-4 border
+        @apply text-center py-3 px-4 border;
     }
 
     .switch {
@@ -166,7 +177,7 @@
         height: 20px;
     }
 
-    .switch input { 
+    .switch input {
         opacity: 0;
         width: 0;
         height: 0;
@@ -180,8 +191,8 @@
         right: 0;
         bottom: 0;
         background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
     }
 
     .slider:before {
@@ -192,8 +203,8 @@
         left: 2px;
         bottom: 2px;
         background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
     }
 
     input:checked + .slider {
@@ -216,6 +227,4 @@
     .slider.round:before {
         border-radius: 50%;
     }
-
-
 }
