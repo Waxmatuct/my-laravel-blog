@@ -7,8 +7,9 @@ module.exports = {
 
         fontFamily: {
             sans: ["Roboto", "sans-serif"],
-            serif: ["Noto Serif", "serif"],
-            mono: ["Fira Code", "monospace"],
+            header: ["Roboto", "sans-serif"],
+            mono: ["Ubuntu Mono", "monospace"],
+            blog: ["Roboto", "sans-serif"],
         },
 
         colors: {
