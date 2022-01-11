@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 // const tailwindcss = require('tailwindcss');
 
 /*
@@ -12,18 +12,24 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js/auth.js')
-    .sourceMaps();
+mix.js("resources/js/app.js", "public/js/auth.js").sourceMaps();
 
-mix.js('resources/js/admin.js', 'public/js/admin.js')
-   .js('resources/js/scripts.js', 'public/js/scripts.js');
+mix.js("resources/js/admin.js", "public/js/admin.js")
+    .js("resources/js/scripts.js", "public/js/scripts.js")
+    .js("resources/js/prism.js", "public/js/prism.js");
 
-mix.copy('node_modules/jquery-colorbox/jquery.colorbox-min.js', 'public/js/jquery.colorbox-min.js');
+mix.copy(
+    "node_modules/jquery-colorbox/jquery.colorbox-min.js",
+    "public/js/jquery.colorbox-min.js"
+);
 
-mix.styles('node_modules/jquery-colorbox/example5/colorbox.css', 'public/css/colorbox.css');
+mix.styles(
+    "node_modules/jquery-colorbox/example5/colorbox.css",
+    "public/css/colorbox.css"
+);
 
-mix.postCss('resources/css/app.css', 'public/css', [
-        require('tailwindcss'),
-    ]);
+mix.copy("resources/css/prism.css", "public/css/");
 
-mix.browserSync('alvar.test');
+mix.postCss("resources/css/app.css", "public/css", [require("tailwindcss")]);
+
+mix.browserSync("alvar.test");

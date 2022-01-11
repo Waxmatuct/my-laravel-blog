@@ -2,7 +2,9 @@
     "/js/auth.js": "/js/auth.js",
     "/js/admin.js": "/js/admin.js",
     "/js/scripts.js": "/js/scripts.js",
+    "/js/prism.js": "/js/prism.js",
     "/css/app.css": "/css/app.css",
     "/js/jquery.colorbox-min.js": "/js/jquery.colorbox-min.js",
-    "/css/colorbox.css": "/css/colorbox.css"
+    "/css/colorbox.css": "/css/colorbox.css",
+    "/css/prism.css": "/css/prism.css"
 }

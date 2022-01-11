@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Дмитрий Плетнев">
     <link rel="icon" href="{{ asset('favicon.ico') }}">
 
     <title>@yield('title')</title>
@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&display=swap&subset=cyrillic"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
     <script>
         if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark')
@@ -58,6 +59,7 @@
         });
     </script>
     @stack('fade')
+    <script src="{{ asset('/js/prism.js') }}"></script>
 </body>
 
 </html>

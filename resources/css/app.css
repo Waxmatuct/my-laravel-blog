@@ -111,12 +111,16 @@
         @apply text-lg text-dark dark:text-light-gray font-bold mt-6;
     }
 
-    .post-content code {
-        @apply text-sm font-mono bg-black dark:bg-gray text-light-gray dark:text-dark p-1 rounded-md;
+    .post-content p code {
+        @apply font-mono bg-black dark:bg-gray text-light-gray dark:text-dark p-1 rounded-md;
+    }
+
+    .post-content blockquote {
+        @apply bg-light-gray rounded-lg pl-3 py-1 dark:bg-dark border-l-7 border-primary dark:border-primary-darker;
     }
 
     .post-content pre {
-        @apply overflow-x-auto rounded-lg my-6 pl-3 py-3 text-sm sm:text-base font-mono bg-light-gray dark:bg-dark border-l-7 border-primary dark:border-primary-darker md:max-w-screen-sm lg:max-w-full;
+        @apply overflow-x-auto rounded-lg my-6 pl-3 py-3 text-sm sm:text-base font-mono md:max-w-screen-md lg:max-w-full;
     }
 
     .post-content a {
