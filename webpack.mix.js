@@ -32,4 +32,29 @@ mix.copy("resources/css/prism.css", "public/css/");
 
 mix.postCss("resources/css/app.css", "public/css", [require("tailwindcss")]);
 
-mix.browserSync("alvar.test");
+if (mix.inProduction()) {
+    mix.version();
+} else {
+    mix.browserSync({
+        proxy: "alvar.test",
+        files: [
+            "app/**/*.php",
+            "resources/views/**/*.php",
+            "resources/js/app.js",
+            "resources/js/components/*.vue",
+            "public/js/**/*.js",
+            "public/css/**/*.css",
+        ],
+        // browser: "firefox",
+        host: "alvar.test",
+        port: 3000,
+        open: false,
+        watchOptions: {
+            usePolling: true,
+            interval: 500,
+            poll: true,
+            ignored: /node_modules/,
+        },
+        logSnippet: true,
+    });
+}

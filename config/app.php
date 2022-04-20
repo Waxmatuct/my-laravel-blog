@@ -180,6 +180,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         Barryvdh\Elfinder\ElfinderServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
+        Jenssegers\Date\DateServiceProvider::class,
         
 
     ],

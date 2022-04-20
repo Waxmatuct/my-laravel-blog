@@ -1,15 +1,17 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
-    purge: ["./resources/**/*.blade.php", "./resources/**/*.js"],
+    content: ["./resources/**/*.blade.php", "./resources/**/*.js"],
     darkMode: "class", // or 'media' or 'class'
 
     theme: {
         extend: {},
 
         fontFamily: {
-            sans: ["Roboto", "sans-serif"],
-            header: ["Roboto", "sans-serif"],
-            mono: ["Ubuntu Mono", "monospace"],
-            blog: ["Roboto", "sans-serif"],
+            sans: ["Inter", "sans-serif"],
+            header: ["Inter", "sans-serif"],
+            mono: [defaultTheme.fontFamily.mono],
+            blog: ["Inter", "sans-serif"],
         },
 
         colors: {

@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="max-w-7xl md:mt-7 px-8 mx-auto md:px-0 flex">
-        <h1 class="text-4xl sm:text-5xl font-bold text-black dark:text-light-white">Блог</h1>
+        <h1 class="text-4xl font-bold text-black dark:text-light-white">Записи</h1>
     </div>
 
     <main id="site-main" class="site-main">
@@ -22,7 +22,7 @@
                                 href="{{ route('getPostsByCategory', $post->category['slug']) }}">{{ $post->category['title'] }}</a>
                         </span>
                         <span class="post-date text-xs">
-                            <time>{!! $post->created_at->formatLocalized('%d %b %Y') !!}</time>
+                            <time>{!! Date::parse($post->created_at)->format('d M Y') !!}</time>
                         </span>
 
                         @if ($post->tags->isNotEmpty())

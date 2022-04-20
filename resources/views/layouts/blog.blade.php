@@ -10,9 +10,9 @@
 
     <title>@yield('title')</title>
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&display=swap&subset=cyrillic"
+    {{-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&display=swap&subset=cyrillic"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
     <script>
         if (localStorage.theme === 'dark') {

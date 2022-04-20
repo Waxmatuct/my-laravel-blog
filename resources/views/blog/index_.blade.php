@@ -6,10 +6,10 @@
 
     <div class="max-w-7xl md:mt-7 px-8 mx-auto md:px-0 flex flex-col">
         @if (Route::is('getPostsByCategory'))
-            <h1 class="text-4xl sm:text-5xl font-bold text-black dark:text-light-white mb-3">{{ $current_category->title }}
+            <h1 class="text-4xl font-bold text-black dark:text-light-white mb-3">{{ $current_category->title }}
             </h1>
         @else
-            <h1 class="text-4xl sm:text-5xl font-bold text-black dark:text-light-white mb-3">{{ $current_tag->name }}</h1>
+            <h1 class="text-4xl font-bold text-black dark:text-light-white mb-3">{{ $current_tag->name }}</h1>
         @endif
         <small>В этой теме {{ $posts->count() }} записей</small>
     </div>
@@ -25,7 +25,7 @@
                         class="post-info md:items-start md:w-48 md:mb-0 md:mt-2 mb-2 flex-shrink-0 flex md:flex-col md:space-x-0 md:space-y-1 flex-wrap w-full mt-5 items-center justify-start flex-row space-x-4">
 
                         <span class="post-date text-xs">
-                            <time>{!! $post->created_at->formatLocalized('%d %b %Y') !!}</time>
+                            <time>{!! Date::parse($post->created_at)->format('d M Y') !!}</time>
                         </span>
 
                         @if ($post->tags->isNotEmpty())
