@@ -18,21 +18,17 @@
                 @if (request()->is('blog*'))
                     <li class="sm:mb-3">
                         <a class="menu-item {{ request()->is('blog') ? 'active' : null }} uppercase"
-                            href="{{ url('/blog') }}">Блог</a>
+                            href="{{ route('blog') }}">Записи</a>
                     </li>
                     <li class="sm:mb-3">
-                        <span class="hidden sm:block text-black dark:text-light">[</span>
+                        <span class="hidden sm:block text-black dark:text-light">-></span>
                     </li>
                     @foreach ($categories as $category)
                         <li class="sm:mb-3">
                             <a class="menu-item" id="{{ $category['id'] }}"
                                 href="{{ route('getPostsByCategory', $category['slug']) }}">"{{ $category['title'] }}"</a>
-                            {{-- <span>,</span> --}}
                         </li>
                     @endforeach
-                    <li class="sm:mb-3">
-                        <span class="hidden sm:block text-black dark:text-light">]</span>
-                    </li>
                     <li class="sm:mb-3">
                         @include('includes.switcher')
                     </li>
@@ -44,8 +40,9 @@
                                 </span>
                                 <a href="{{ route('logout') }}"
                                     class="block border-0 ml-1 text-black dark:text-light hover:text-primary dark:hover:text-primary-darker"
-                                    title="Выйти" onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
+                                    title="Выйти"
+                                    onclick="event.preventDefault();
+                                                                                document.getElementById('logout-form').submit();">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -62,7 +59,7 @@
                 @else
                     <li class="">
                         <a class="menu-item {{ request()->is('blog*') ? 'active' : null }} uppercase"
-                            href="{{ url('/blog') }}">Блог</a>
+                            href="{{ route('blog') }}">Блог</a>
                     </li>
                     <li class="">
                         <a class="menu-item {{ request()->is('projects') ? 'active' : null }} uppercase"
