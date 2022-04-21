@@ -14,19 +14,20 @@
 
         <div id="menu" class="site-nav-content hidden sm:flex justify-center items-center sm:mx-8 lg:mx-16">
             <ul
-                class="flex flex-wrap list-none sm:flex-row space-x-0 sm:space-x-7 space-y-3 sm:space-y-0 items-center sm:items-start flex-col">
+                class="flex flex-wrap list-none sm:flex-row space-x-0 sm:space-x-7 space-y-3 sm:space-y-0 items-center flex-col">
                 @if (request()->is('blog*'))
-                    <li class="sm:mb-3">
-                        <a class="menu-item {{ request()->is('blog') ? 'active' : null }} uppercase"
+                    <li class="">
+                        <a class="menu-item {{ request()->routeIs('blog') ? 'active' : null }} uppercase"
                             href="{{ route('blog') }}">Записи</a>
+                        {{-- <span class="text-black dark:text-light uppercase">Категории</span> --}}
                     </li>
-                    <li class="sm:mb-3">
-                        <span class="hidden sm:block text-black dark:text-light">-></span>
+                    <li class="hidden sm:block sm:mb-3">
+                        <span class="text-black dark:text-light">-></span>
                     </li>
                     @foreach ($categories as $category)
                         <li class="sm:mb-3">
                             <a class="menu-item" id="{{ $category['id'] }}"
-                                href="{{ route('getPostsByCategory', $category['slug']) }}">"{{ $category['title'] }}"</a>
+                                href="{{ route('getPostsByCategory', $category['slug']) }}">{{ $category['title'] }}</a>
                         </li>
                     @endforeach
                     <li class="sm:mb-3">
@@ -35,19 +36,21 @@
                     <li class="sm:mb-3">
                         @auth
                             <div class="flex flex-row px-3 py-1">
-                                <span class="text-sm inline-flex text-black dark:text-light">
+                                {{-- <span class="text-sm inline-flex text-black dark:text-light">
                                     Выйти
-                                </span>
+                                </span> --}}
                                 <a href="{{ route('logout') }}"
                                     class="block border-0 ml-1 text-black dark:text-light hover:text-primary dark:hover:text-primary-darker"
                                     title="Выйти"
-                                    onclick="event.preventDefault();
-                                                                                document.getElementById('logout-form').submit();">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <span class="menu-item">
+                                        Выйти
+                                    </span>
+                                    {{-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                    </svg>
+                                    </svg> --}}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                     class="d-none">

@@ -28,11 +28,11 @@
     }
 
     .menu-item {
-        @apply relative px-3 py-1 border-b-2 text-black dark:text-light hover:text-primary dark:hover:text-primary-darker border-light dark:border-dark-lighter hover:border-primary dark:hover:border-primary-darker;
+        @apply relative px-4 py-2 border-0 text-black dark:text-light hover:text-light dark:hover:text-light-white hover:bg-primary dark:hover:bg-primary-darker rounded-md;
     }
 
     .menu-item.active {
-        @apply text-primary dark:text-primary-darker border-primary dark:border-primary-darker;
+        @apply text-primary dark:text-primary-darker hover:text-light dark:hover:text-light-white;
     }
 
     .category-button {
