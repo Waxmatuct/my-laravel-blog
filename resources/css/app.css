@@ -24,11 +24,11 @@
     }
 
     .site-main {
-        @apply max-w-7xl mx-auto md:my-2 px-8 md:px-0 flex flex-wrap flex-col justify-center;
+        @apply max-w-7xl mx-auto md:my-2 px-5 md:px-0 flex flex-wrap flex-col justify-center;
     }
 
     .menu-item {
-        @apply relative px-4 py-2 border-0 text-black dark:text-light hover:text-light dark:hover:text-light-white hover:bg-primary dark:hover:bg-primary-darker rounded-md;
+        @apply block relative px-4 py-2 border-0 text-black dark:text-light hover:text-light dark:hover:text-light-white hover:bg-primary dark:hover:bg-primary-darker rounded-md;
     }
 
     .menu-item.active {

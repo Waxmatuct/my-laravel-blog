@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="max-w-7xl md:mt-7 px-8 mx-auto md:px-0 flex flex-col">
+    <div class="max-w-7xl md:mt-7 px-5 mx-auto md:px-0 flex flex-col">
         @if (Route::is('getPostsByCategory'))
             <h1 class="text-4xl font-bold text-black dark:text-light-white mb-3">{{ $current_category->title }}
             </h1>

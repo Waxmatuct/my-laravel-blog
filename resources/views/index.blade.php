@@ -13,7 +13,7 @@
                     редакционно-издательском центре Сочинского государственного университета.
                 </p>
                 <div class="text-center">
-                    <a href="{{ route('blog') }}">Записи</a> • <a
+                    <a href="{{ route('blog') }}">Блог</a> • <a
                         href="mailto:pletnevsochi@yandex.ru">pletnevsochi@yandex.ru</a> • <a
                         href="https://t.me/alvar_ru">@alvar_ru</a>
                 </div>

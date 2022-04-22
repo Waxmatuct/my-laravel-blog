@@ -9,11 +9,11 @@
     <link rel="icon" href="{{ asset('favicon.ico') }}">
 
     <title>@yield('title')</title>
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     {{-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&display=swap&subset=cyrillic"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/prism.css') }}">
     <script>
         if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark')
@@ -40,7 +40,7 @@
     @include('includes.footer')
 
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script src="{{ asset('/js/scripts.js') }}"></script>
+    <script src="{{ mix('/js/scripts.js') }}"></script>
     <script>
         document.getElementById('showNav').addEventListener('click', function() {
 
@@ -59,7 +59,7 @@
         });
     </script>
     @stack('fade')
-    <script src="{{ asset('/js/prism.js') }}"></script>
+    <script src="{{ mix('/js/prism.js') }}"></script>
 </body>
 
 </html>
