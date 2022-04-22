@@ -56,11 +56,11 @@
             <i class="fas fa-align-left mr-3"></i>
             Forms
         </a> --}}
-        <a href="{{ route('settings.index') }}"
+        {{-- <a href="{{ route('settings.index') }}"
             class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-cogs mr-3"></i>
             Настройки
-        </a>
+        </a> --}}
         <p class="py-4 pl-6">PHP @php
             echo phpversion();
         @endphp</p>

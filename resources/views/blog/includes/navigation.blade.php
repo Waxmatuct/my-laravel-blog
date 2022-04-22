@@ -34,11 +34,14 @@
                                 href="{{ route('getPostsByCategory', $category['slug']) }}">{{ $category['title'] }}</a>
                         </li>
                     @endforeach
-                    <li class="sm:mb-3">
+                    <li class="">
                         @include('includes.switcher')
                     </li>
-                    <li class="sm:mb-3">
-                        @auth
+                    @auth
+                        <li class="">
+                            <a class="menu-item" href="{{ route('dashboard') }}">Админка</a>
+                        </li>
+                        <li class="">
                             <div class="flex flex-row px-3 py-1">
                                 {{-- <span class="text-sm inline-flex text-black dark:text-light">
                                     Выйти
@@ -61,8 +64,8 @@
                                     @csrf
                                 </form>
                             </div>
-                        @endauth
-                    </li>
+                        </li>
+                    @endauth
                 @else
                     <li class="">
                         <a class="menu-item {{ request()->is('blog*') ? 'active' : null }} uppercase"
