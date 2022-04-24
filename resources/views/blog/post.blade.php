@@ -91,7 +91,7 @@
                 <div class="my-5">
                     <script src="https://yastatic.net/share2/share.js"></script>
                     <div class="ya-share2" data-curtain data-size="s"
-                        data-services="vkontakte,facebook,odnoklassniki,telegram,twitter"></div>
+                        data-services="vkontakte,odnoklassniki,telegram,twitter"></div>
                 </div>
             </article>
 

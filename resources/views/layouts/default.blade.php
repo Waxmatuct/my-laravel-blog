@@ -51,7 +51,7 @@
 					<a href="" class="sub_btn">Подписаться</a>
 				</div> --}}
 
-            <div class="bg-primary-darker dark:bg-primary block mx-auto w-12 h-1 my-3"></div>
+            <div class="bg-primary dark:bg-primary-darker block mx-auto w-12 h-1 my-3"></div>
 
         </div>
 
