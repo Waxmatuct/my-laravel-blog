@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\SettingResource;
 use App\Http\Controllers\Admin\CommentResource;
+use App\Http\Controllers\NoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,5 +67,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('/dashboard/forms', function () {
         return view('dashboard.forms');
     })->name('dashboard-forms');
+
+    Route::resource('/notes', NoteController::class);
     
 });
