@@ -14,7 +14,7 @@ class NoteFactory extends Factory
      * @var string
      */
     protected $model = Note::class;
-    
+
     /**
      * Define the model's default state.
      *
@@ -24,9 +24,9 @@ class NoteFactory extends Factory
     {
         return [
             'title' => $this->faker->words(3, true),
-            'content' => $this->faker->paragraph(),
+            'content' => $this->faker->paragraphs(3, true),
             'slug' => $this->faker->unique()->lexify(),
-            'created_at' => $this->faker->dateTimeBetween('-1 week', '+1 week'),
+            'created_at' => $this->faker->dateTimeThisMonth(),
         ];
     }
 }

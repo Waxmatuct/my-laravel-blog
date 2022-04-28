@@ -3,10 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Note;
+use App\Services\BlogService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class NoteController extends Controller
 {
+
+    protected $blogService;
+
+    public function __construct(
+        BlogService $blogService
+    ) {
+        $this->blogService = $blogService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +25,12 @@ class NoteController extends Controller
      */
     public function index()
     {
-        //
+        $notes = Note::orderByDesc('created_at')->get();
+
+        return view('notes.index', [
+            'notes' => $notes,
+            'categories' => $this->blogService->getAllCategoriesOrderedById(),
+        ]);
     }
 
     /**
@@ -24,7 +40,9 @@ class NoteController extends Controller
      */
     public function create()
     {
-        //
+        return view('notes.create', [
+            'categories' => $this->blogService->getAllCategoriesOrderedById(),
+        ]);
     }
 
     /**
@@ -35,7 +53,20 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+        Note::create([
+            'title' => $request->get('title'),
+            'slug' => Str::slug($request->get('title')),
+            'content' => $request->get('content'),
+        ]);
+
+        return redirect()->route('notes.index')
+            ->with('success', 'Запись успешно добавлена');
+
     }
 
     /**
@@ -46,7 +77,13 @@ class NoteController extends Controller
      */
     public function show(Note $note)
     {
-        //
+        $note = Note::findOrFail($note->id);
+
+        return view('notes.show', [
+            'note' => $note,
+            'categories' => $this->blogService->getAllCategoriesOrderedById(),
+        ]);
+
     }
 
     /**

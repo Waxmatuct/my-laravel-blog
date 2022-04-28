@@ -1,23 +1,35 @@
-document.getElementById('switchTheme').addEventListener('click', function() {
-		
-	let htmlClasses = document.querySelector('html').classList;
+import Editor from "@toast-ui/editor";
+// import "codemirror/lib/codemirror.css";
+import "@toast-ui/editor/dist/toastui-editor.css"; // Editor's Style
+import "@toast-ui/editor/dist/theme/toastui-editor-dark.css"; // Editor's Style
 
-	if (localStorage.theme == 'dark') {
+const editor = new Editor({
+    el: document.querySelector("#editor"),
+    height: "500px",
+    initialEditType: "markdown",
+    theme: "dark",
+});
 
-		htmlClasses.remove('dark');
+document.querySelector("#createPostForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    document.querySelector("#content").value = editor.getMarkdown();
+    e.target.submit();
+});
 
-		localStorage.removeItem('theme')
-		
-		this.checked = false
+document.getElementById("switchTheme").addEventListener("click", function () {
+    let htmlClasses = document.querySelector("html").classList;
 
-	} else {
+    if (localStorage.theme == "dark") {
+        htmlClasses.remove("dark");
 
-		htmlClasses.add('dark');
+        localStorage.removeItem("theme");
 
-		localStorage.theme = 'dark'
+        this.checked = false;
+    } else {
+        htmlClasses.add("dark");
 
-		this.checked = true
+        localStorage.theme = "dark";
 
-	}
-
+        this.checked = true;
+    }
 });

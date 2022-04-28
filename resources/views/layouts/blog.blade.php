@@ -29,7 +29,7 @@
 <body class="bg-light text-black font-sans dark:bg-dark-lighter dark:text-gray">
     <a href="#" onclick="return false" class="menu_link"><span></span></a>
 
-    @include('blog.includes.navigation')
+    @include('includes.navigation')
 
     <div class="container mx-auto">
 

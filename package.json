@@ -26,6 +26,7 @@
         "tailwindcss": "^3.0.24"
     },
     "dependencies": {
+        "@toast-ui/editor": "^3.1.5",
         "jquery-colorbox": "^1.6.4"
     }
 }
