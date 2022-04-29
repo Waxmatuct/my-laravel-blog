@@ -22,8 +22,8 @@
                                 href="{{ route('notes.show', $note) }}">{{ $note->title }}</a>
                         </h2>
 
-                        <section class="note text-sm leading-tight max-h-72 overflow-y-auto">
-                            {!! \Str::markdown($note->content) !!}
+                        <section class="note text-sm leading-tight">
+                            {!! \Str::limit(\Str::markdown($note->content), 200, '...') !!}
                         </section>
 
                         <div class="flex items-center space-x-5 text-xs">
@@ -43,8 +43,8 @@
 
         </div>
 
-        {{-- <div class="pagination-block flex justify-center mb-3 mx-auto">
-            {{ $posts->links('vendor.pagination.semantic-ui') }}
-        </div> --}}
+        <div class="pagination-block flex justify-center mb-3 mx-auto">
+            {{ $notes->links('vendor.pagination.semantic-ui') }}
+        </div>
     </main>
 @endsection

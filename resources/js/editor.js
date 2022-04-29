@@ -6,12 +6,16 @@ import "@toast-ui/editor/dist/i18n/ru-ru";
 
 const editor = new Editor({
     el: document.querySelector("#editor"),
-    height: "500px",
+    height: "400px",
     initialEditType: "markdown",
     theme: "dark",
     language: "ru",
     hideModeSwitch: true,
-    // toolbarItems: [],
+    toolbarItems: [
+        // ["bold", "italic", "strike"],
+        // ["ul", "ol", "indent", "outdent"],
+        ["table", "link", "image"],
+    ],
 });
 
 document.querySelector("#createPostForm").addEventListener("submit", (e) => {

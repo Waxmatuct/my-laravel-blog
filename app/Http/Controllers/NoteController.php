@@ -25,7 +25,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $notes = Note::orderByDesc('created_at')->get();
+        $notes = Note::orderByDesc('created_at')->paginate(12);
 
         return view('notes.index', [
             'notes' => $notes,
@@ -123,7 +123,7 @@ class NoteController extends Controller
         $note->content = $request->get('content');
         $note->save();
 
-        return redirect()->route('notes.index')
+        return redirect()->route('notes.show', $note)
             ->with('success', 'Запись сохранена');
     }
 

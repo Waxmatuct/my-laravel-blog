@@ -150,7 +150,7 @@
     }
 
     .post-content ol,
-    .post-content ul
+    .post-content ul,
     .note ol, .note ul {
         @apply ml-4;
     }
@@ -167,8 +167,16 @@
         @apply my-4 text-base sm:text-lg sm:leading-snug max-w-3xl;
     }
 
+    .note p {
+        @apply mb-4 last:mb-0;
+    }
+
     .post-content img {
         @apply my-4 max-w-full shadow-lg rounded-md;
+    }
+
+    .note img {
+        @apply my-2 rounded-sm;
     }
 
     .post-content .caption {
