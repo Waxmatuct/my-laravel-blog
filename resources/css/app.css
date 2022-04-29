@@ -123,11 +123,11 @@
         @apply font-mono bg-black dark:bg-gray text-light-gray dark:text-dark p-1 rounded-md;
     }
 
-    .post-content blockquote {
-        @apply bg-light-gray rounded-lg pl-3 py-1 dark:bg-dark border-l-7 border-primary dark:border-primary-darker;
+    .post-content blockquote, .note blockquote {
+        @apply bg-light-gray rounded-lg pl-3 py-1 my-5 dark:bg-dark border-l-7 border-primary dark:border-primary-darker;
     }
 
-    .post-content pre {
+    .post-content pre, .note pre {
         @apply overflow-x-auto rounded-lg my-6 pl-3 py-3 text-sm sm:text-base font-mono md:max-w-screen-md lg:max-w-full;
     }
 
@@ -144,20 +144,22 @@
     }
 
     .post-content ol li,
-    .post-content ul li {
+    .post-content ul li,
+    .note ol li, .note ul li {
         @apply list-inside;
     }
 
     .post-content ol,
-    .post-content ul {
+    .post-content ul
+    .note ol, .note ul {
         @apply ml-4;
     }
 
-    .post-content ol li {
+    .post-content ol li, .note ol li {
         @apply list-decimal;
     }
 
-    .post-content ul li {
+    .post-content ul li, .note ul li {
         @apply list-disc;
     }
 
@@ -173,17 +175,17 @@
         @apply text-sm mb-5 max-w-3xl text-center;
     }
 
-    .post-content table {
-        @apply mx-auto;
+    .post-content table, .note table {
+        @apply mx-auto my-5;
     }
-    .post-content table caption {
+    .post-content table caption, .note table caption {
         @apply my-2;
     }
-    .post-content th {
+    .post-content th, .note th {
         @apply text-center py-3 px-4 uppercase font-semibold border;
     }
 
-    .post-content td {
+    .post-content td, .note td {
         @apply text-center py-3 px-4 border;
     }
 

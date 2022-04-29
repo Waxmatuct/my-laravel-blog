@@ -10,7 +10,7 @@
     </div>
 
     <main id="site-main" class="site-main">
-        <div class="inner w-full mx-auto md:my-3 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="inner w-full mx-auto md:my-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
 
 
             @forelse ($notes as $note)
@@ -22,13 +22,16 @@
                                 href="{{ route('notes.show', $note) }}">{{ $note->title }}</a>
                         </h2>
 
-                        <section class="note text-sm leading-tight max-h-60 overflow-hidden">
+                        <section class="note text-sm leading-tight max-h-72 overflow-y-auto">
                             {!! \Str::markdown($note->content) !!}
                         </section>
 
-                        <span class="post-date text-xs">
-                            <time>{!! Date::parse($note->created_at)->format('d M Y') !!}</time>
-                        </span>
+                        <div class="flex items-center space-x-5 text-xs">
+                            <span>
+                                <time>{!! Date::parse($note->created_at)->format('d M Y') !!}</time>
+                            </span>
+                            <a href="{{ route('notes.edit', $note) }}">Редактировать</a>
+                        </div>
 
                     </div>
 
