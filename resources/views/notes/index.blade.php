@@ -10,7 +10,7 @@
     </div>
 
     <main id="site-main" class="site-main">
-        <div class="inner w-full mx-auto md:my-3 grid md:grid-cols-3 lg:grid-cols-5 gap-5">
+        <div class="inner w-full mx-auto md:my-3 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
 
 
             @forelse ($notes as $note)
@@ -22,7 +22,7 @@
                                 href="{{ route('notes.show', $note) }}">{{ $note->title }}</a>
                         </h2>
 
-                        <section class="text-sm leading-tight ">
+                        <section class="note text-sm leading-tight max-h-60 overflow-hidden">
                             {!! \Str::markdown($note->content) !!}
                         </section>
 

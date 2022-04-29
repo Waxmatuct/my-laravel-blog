@@ -94,7 +94,12 @@ class NoteController extends Controller
      */
     public function edit(Note $note)
     {
-        //
+        $note = Note::findOrFail($note->id);
+
+        return view('notes.edit', [
+            'note' => $note,
+            'categories' => $this->blogService->getAllCategoriesOrderedById(),
+        ]);
     }
 
     /**
@@ -106,7 +111,20 @@ class NoteController extends Controller
      */
     public function update(Request $request, Note $note)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+        $note = Note::findOrFail($note->id);
+
+        $note->title = $request->get('title');
+        $note->slug = Str::slug($request->get('title'));
+        $note->content = $request->get('content');
+        $note->save();
+
+        return redirect()->route('notes.index')
+            ->with('success', 'Запись сохранена');
     }
 
     /**

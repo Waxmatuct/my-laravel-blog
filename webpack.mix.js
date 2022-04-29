@@ -16,7 +16,8 @@ mix.js("resources/js/app.js", "public/js/auth.js").sourceMaps();
 
 mix.js("resources/js/admin.js", "public/js/admin.js")
     .js("resources/js/scripts.js", "public/js/scripts.js")
-    .js("resources/js/prism.js", "public/js/prism.js");
+    .js("resources/js/prism.js", "public/js/prism.js")
+    .js("resources/js/editor.js", "public/js/editor.js");
 
 mix.copy(
     "node_modules/jquery-colorbox/jquery.colorbox-min.js",
