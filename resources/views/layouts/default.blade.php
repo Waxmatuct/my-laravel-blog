@@ -12,17 +12,6 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&display=swap&subset=cyrillic"
         rel="stylesheet">
-    <script>
-        if (localStorage.theme === 'dark') {
-            document.documentElement.classList.add('dark')
-            localStorage.theme = 'dark';
-            document.getElementById('switchTheme').checked = true;
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.removeItem('theme');
-            document.getElementById('switchTheme').checked = false;
-        }
-    </script>
 </head>
 
 <body class="bg-light text-black font-sans dark:bg-dark-lighter dark:text-gray">
@@ -30,9 +19,9 @@
 
     <div class="container mx-auto max-w-2xl">
 
-        <div class="flex justify-center p-2.5">
-            @include('includes.switcher')
-        </div>
+        {{-- <div id="switcher" class="flex justify-center p-2.5">
+            <switcher-component></switcher-component>
+        </div> --}}
 
         <div class="site-header-content flex flex-col justify-center mt-5 mb-3 items-center">
 
@@ -63,7 +52,7 @@
     @include('includes.footer')
 
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script src="{{ mix('/js/scripts.js') }}"></script>
+    <script src="{{ mix('/js/app.js') }}"></script>
 </body>
 
 </html>

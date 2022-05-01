@@ -1,7 +1,6 @@
 {
-    "/js/auth.js": "/js/auth.js",
     "/js/admin.js": "/js/admin.js",
-    "/js/scripts.js": "/js/scripts.js",
+    "/js/app.js": "/js/app.js",
     "/js/prism.js": "/js/prism.js",
     "/js/editor.js": "/js/editor.js",
     "/css/app.css": "/css/app.css",

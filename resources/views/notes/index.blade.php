@@ -22,7 +22,7 @@
                                 href="{{ route('notes.show', $note) }}">{{ $note->title }}</a>
                         </h2>
 
-                        <section class="note text-sm leading-tight">
+                        <section class="note text-sm md:text-base md:leading-tight">
                             {!! \Str::limit(\Str::markdown($note->content), 200, '...') !!}
                         </section>
 
