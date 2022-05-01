@@ -39,10 +39,8 @@
         });
     </script>
     @stack('fade')
-    <script src="{{ mix('/js/prism.js') }}">
-        < /cript>
-        @stack('editor') <
-            /body>
+    <script src="{{ mix('/js/prism.js') }}"></script>
+    @stack('editor')
+</body>
 
-            <
-            /html>
+</html>
