@@ -52,7 +52,7 @@
     @include('includes.footer')
 
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script src="{{ mix('/js/app.js') }}"></script>
+    {{-- <script src="{{ mix('/js/app.js') }}"></script> --}}
 </body>
 
 </html>
