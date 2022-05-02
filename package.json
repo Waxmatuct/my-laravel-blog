@@ -30,6 +30,8 @@
     },
     "dependencies": {
         "@toast-ui/editor": "^3.1.5",
-        "jquery-colorbox": "^1.6.4"
+        "dompurify": "^2.3.6",
+        "jquery-colorbox": "^1.6.4",
+        "marked": "^4.0.15"
     }
 }

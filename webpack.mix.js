@@ -16,7 +16,7 @@ mix.js("resources/js/admin.js", "public/js/admin.js")
     .js("resources/js/app.js", "public/js/app.js")
     .js("resources/js/prism.js", "public/js/prism.js")
     .js("resources/js/editor.js", "public/js/editor.js")
-    // .vue()
+    .vue()
     .sourceMaps();
 
 mix.copy(
@@ -59,3 +59,9 @@ if (mix.inProduction()) {
         logSnippet: true,
     });
 }
+
+mix.webpackConfig({
+    output: {
+        chunkFilename: "js/vuejs/[name].js",
+    },
+});

@@ -11,7 +11,10 @@
     <main id="site-main" class="site-main">
         <div class="inner w-full sm:max-w-3xl mx-auto md:my-3 flex flex-col">
 
-            <form action="{{ route('notes.store') }}" method="POST" id="createPostForm">
+            <div id="note-crud">
+                <create-note></create-note>
+            </div>
+            {{-- <form action="{{ route('notes.store') }}" method="POST" id="createPostForm">
                 @csrf
                 <div class="">
                     <label class="leading-7 block text-sm text-gray-600" for="title">Заголовок</label>
@@ -31,7 +34,7 @@
                 <div class="mt-6">
                     <button class="button" type="submit">Отправить</button>
                 </div>
-            </form>
+            </form> --}}
 
         </div>
 
@@ -39,23 +42,5 @@
 @endsection
 
 @push('editor')
-    <script src="{{ mix('/js/editor.js') }}">
-        import Editor from "@toast-ui/editor";
-        // import "codemirror/lib/codemirror.css";
-        import "@toast-ui/editor/dist/toastui-editor.css"; // Editor's Style
-        import "@toast-ui/editor/dist/theme/toastui-editor-dark.css"; // Editor's Style
-
-        const editor = new Editor({
-            el: document.querySelector("#editor"),
-            height: "500px",
-            initialEditType: "markdown",
-            theme: "dark",
-        });
-
-        document.querySelector("#createPostForm").addEventListener("submit", (e) => {
-            e.preventDefault();
-            document.querySelector("#content").value = editor.getMarkdown();
-            e.target.submit();
-        });
-    </script>
+    <script src="{{ mix('/js/app.js') }}"></script>
 @endpush

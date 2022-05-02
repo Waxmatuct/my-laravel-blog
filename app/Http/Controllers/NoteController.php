@@ -109,22 +109,22 @@ class NoteController extends Controller
      * @param  \App\Models\Note  $note
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Note $note)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'title' => 'required',
             'content' => 'required',
         ]);
 
-        $note = Note::findOrFail($note->id);
+        $note = Note::findOrFail($id);
 
         $note->title = $request->get('title');
         $note->slug = Str::slug($request->get('title'));
         $note->content = $request->get('content');
         $note->save();
 
-        return redirect()->route('notes.show', $note)
-            ->with('success', 'Запись сохранена');
+        // return redirect()->route('notes.show', $id)
+        //     ->with('success', 'Запись сохранена');
     }
 
     /**

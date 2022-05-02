@@ -108,15 +108,15 @@
     }
 
     .post-content h1 {
-        @apply text-2xl text-dark dark:text-light-gray font-bold mt-6;
+        @apply text-2xl text-dark dark:text-light-gray font-bold mb-6;
     }
 
     .post-content h2 {
-        @apply text-xl text-dark dark:text-light-gray font-bold mt-6;
+        @apply text-xl text-dark dark:text-light-gray font-bold my-3;
     }
 
     .post-content h3 {
-        @apply text-lg text-dark dark:text-light-gray font-bold mt-6;
+        @apply text-lg text-dark dark:text-light-gray font-bold my-3;
     }
 
     .post-content p code {
@@ -152,7 +152,7 @@
     .post-content ol,
     .post-content ul,
     .note ol, .note ul {
-        @apply ml-4;
+        @apply ml-4 my-4;
     }
 
     .post-content ol li, .note ol li {
