@@ -98,3 +98,9 @@ export default {
     },
 };
 </script>
+
+<style>
+pre {
+    background: #2f2f2f;
+}
+</style>
