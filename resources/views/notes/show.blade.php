@@ -19,7 +19,7 @@
 
                 <div class="flex items-center space-x-5 text-xs">
                     <span>
-                        <time>{!! Date::parse($note->created_at)->format('d M Y') !!}</time>
+                        <time>{!! Date::parse($note->created_at)->format('d M Y, l') !!}</time>
                     </span>
                     <a href="{{ route('notes.edit', $note) }}">Редактировать</a>
                 </div>

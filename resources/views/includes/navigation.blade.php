@@ -14,7 +14,7 @@
 
         <div id="menu" class="site-nav-content hidden sm:flex justify-center items-center sm:mx-8 lg:mx-10">
             <ul
-                class="flex flex-wrap list-none sm:flex-row space-x-0 sm:space-x-5 space-y-1 sm:space-y-0 items-center flex-col">
+                class="flex flex-wrap list-none sm:flex-row space-x-0 sm:space-x-3 space-y-1 sm:space-y-0 items-center flex-col">
                 <li class="">
                     <a class="menu-item" href="{{ route('blog') }}" title="На главную">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -30,11 +30,11 @@
                             href="{{ route('getPostsByCategory', $category['slug']) }}">{{ $category['title'] }}</a>
                     </li>
                 @endforeach
-                <li class="">
-                    {{-- <div id="switcher" class="flex justify-center p-2.5">
+                {{-- <li class="">
+                    <div id="switcher" class="flex justify-center p-2.5">
                         <switcher-component></switcher-component>
-                    </div> --}}
-                </li>
+                    </div>
+                </li> --}}
                 @if (Auth::check())
                     @if (Auth::user()->isAdmin)
                         <li class="">

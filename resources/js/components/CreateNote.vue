@@ -38,14 +38,14 @@
                         name="content"
                         id=""
                         rows="20"
-                        class="p-2 w-full bg-light-white dark:bg-dark rounded border border-light-white dark:border-dark focus:border focus:border-primary text-sm md:text-base outline-none text-black dark:text-light resize-y leading-6 transition-colors duration-200 ease-in-out"
+                        class="p-3 w-full bg-light-white dark:bg-dark rounded border border-light-white dark:border-dark focus:border focus:border-primary text-sm md:text-base outline-none text-black dark:text-light resize-y leading-6 transition-colors duration-200 ease-in-out"
                     ></textarea>
                 </div>
                 <div v-show="isActive('viewer')" class="" id="viewer">
                     <div
                         v-html="markdownResult"
                         id=""
-                        class="post-content p-5 border border-primary dark:border-primary-darker"
+                        class="post-content px-5 border border-primary dark:border-primary-darker"
                     ></div>
                 </div>
             </div>
@@ -98,9 +98,3 @@ export default {
     },
 };
 </script>
-
-<style scoped>
-pre {
-    background-color: #2f2f2f !important;
-}
-</style>
