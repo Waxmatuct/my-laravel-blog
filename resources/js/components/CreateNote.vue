@@ -23,6 +23,7 @@
                 >
                     Пост
                 </a>
+                <span>|</span>
                 <a
                     href="#viewer"
                     @click.prevent="setActive('viewer')"
@@ -37,7 +38,7 @@
                         v-model="content"
                         name="content"
                         id=""
-                        rows="20"
+                        rows="13"
                         class="p-3 w-full bg-light-white dark:bg-dark rounded border border-light-white dark:border-dark focus:border focus:border-primary text-sm md:text-base outline-none text-black dark:text-light resize-y leading-6 transition-colors duration-200 ease-in-out"
                     ></textarea>
                 </div>
