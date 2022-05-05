@@ -13,7 +13,6 @@
                 v-model="title"
             />
         </div>
-
         <div class="mt-5">
             <div class="flex text-sm space-x-5 py-1 px-2">
                 <a
@@ -51,7 +50,14 @@
                 </div>
             </div>
         </div>
-
+        <div class="mt-6">
+            <div
+                ref="dropzone"
+                class="p-5 flex flex-col md:flex-row items-center justify-center space-y-5 bg-light-white dark:bg-dark rounded text-sm md:text-base outline-none text-black dark:text-light-gray"
+            >
+                Загрузить картинку
+            </div>
+        </div>
         <div class="mt-6">
             <button class="button" type="submit">Отправить</button>
         </div>
@@ -61,6 +67,8 @@
 <script>
 import { marked } from "marked";
 import DOMPurify from "dompurify";
+import Dropzone from "dropzone";
+import "dropzone/dist/dropzone.css";
 
 export default {
     data() {
@@ -68,9 +76,15 @@ export default {
             title: "",
             content: "",
             activeItem: "editor",
+            dropzone: null,
         };
     },
     mounted() {
+        this.dropzone = new Dropzone(this.$refs.dropzone, {
+            url: "/notes",
+            maxFilesize: 1,
+            autoProcessQueue: false,
+        });
         // console.log("It's working");
     },
     computed: {
@@ -90,6 +104,7 @@ export default {
                 .post("/notes", {
                     title: this.title,
                     content: this.content,
+                    images: this.dropzone.getAcceptedFiles(),
                 })
                 .then((response) => {
                     location.href = "/notes";

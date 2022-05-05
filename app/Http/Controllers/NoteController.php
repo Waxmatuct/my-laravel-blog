@@ -53,6 +53,9 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
+
+        // dump($request->all());
+
         $request->validate([
             'title' => 'required',
             'content' => 'required',
@@ -63,6 +66,9 @@ class NoteController extends Controller
             'slug' => Str::slug($request->get('title')),
             'content' => $request->get('content'),
         ]);
+
+        // return view('notes.create');
+        // return response()->json(['message' => 'success']);
 
         return redirect()->route('notes.index')
             ->with('success', 'Запись успешно добавлена');
