@@ -1,16 +1,17 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\IndexController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\SettingResource;
 use App\Http\Controllers\Admin\CommentResource;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\SettingResource;
+use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\StoreImageController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ use App\Http\Controllers\NoteController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/blog', [BlogController::class, 'blog'])->name('blog');
@@ -33,7 +34,7 @@ Route::post('/blog/post/{slug_post}/comment', [CommentController::class, 'storeC
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 
 Route::middleware(['isAdmin'])->group(function () {
-    
+
     // Dashboard routes
     Route::get('/dashboard', function () {
         return view('dashboard.index');
@@ -55,7 +56,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('/dashboard/comments', CommentResource::class);
 
     Route::patch('/dashboard/posts/online/{id}', [BlogController::class, 'online'])->name('online');
-    
+
     Route::patch('/dashboard/comments/online/{id}', [CommentController::class, 'onlineComment'])->name('onlineComment');
 
     Route::get('/dashboard/blank', function () {
@@ -69,5 +70,6 @@ Route::middleware(['isAdmin'])->group(function () {
     })->name('dashboard-forms');
 
     Route::resource('/notes', NoteController::class);
-    
+
+    Route::post('/image/upload', StoreImageController::class)->name('storeImage');
 });

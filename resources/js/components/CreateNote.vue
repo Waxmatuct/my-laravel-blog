@@ -50,13 +50,14 @@
                 </div>
             </div>
         </div>
-        <div class="mt-6">
+        <div class="mt-6 flex">
             <div
                 ref="dropzone"
                 class="p-5 flex flex-col md:flex-row items-center justify-center space-y-5 bg-light-white dark:bg-dark rounded text-sm md:text-base outline-none text-black dark:text-light-gray"
-            >
-                Загрузить картинку
-            </div>
+            ></div>
+            <button class="button" @click.prevent="storeImage">
+                Загрузить
+            </button>
         </div>
         <div class="mt-6">
             <button class="button" type="submit">Отправить</button>
@@ -81,9 +82,13 @@ export default {
     },
     mounted() {
         this.dropzone = new Dropzone(this.$refs.dropzone, {
-            url: "/notes",
+            url: "/image/upload",
             maxFilesize: 1,
             autoProcessQueue: false,
+            // addRemoveLinks: true,
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
         });
         // console.log("It's working");
     },
@@ -104,12 +109,16 @@ export default {
                 .post("/notes", {
                     title: this.title,
                     content: this.content,
-                    images: this.dropzone.getAcceptedFiles(),
+                    // images: this.dropzone.getAcceptedFiles(),
                 })
                 .then((response) => {
                     location.href = "/notes";
                 })
                 .catch((error) => alert("Ошибка"));
+        },
+        storeImage() {
+            this.dropzone.processQueue();
+            this.dropzone.removeAllFiles();
         },
     },
 };
@@ -118,5 +127,9 @@ export default {
 <style>
 pre {
     background: #2f2f2f;
+}
+.dz-success-mark,
+.dz-error-mark {
+    display: none;
 }
 </style>
