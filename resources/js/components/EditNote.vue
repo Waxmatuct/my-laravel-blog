@@ -85,8 +85,8 @@ export default {
             content: "",
             activeItem: "editor",
             dropzone: null,
-            http: "",
-            hostname: "",
+            http: window.location.protocol,
+            hostname: window.location.hostname,
         };
     },
     mounted() {
@@ -100,8 +100,6 @@ export default {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
         });
-        this.http = location.protocol;
-        this.hostname = location.hostname;
     },
     computed: {
         markdownResult() {
@@ -128,15 +126,25 @@ export default {
                 .catch((error) => alert("Ошибка"));
         },
         storeImage() {
+            const files = this.dropzone.getAcceptedFiles();
             this.dropzone.processQueue();
             const textarea = this.$refs["my-textarea"].value;
-            const data =
-                "![Описание картинки](" +
-                this.http +
-                "//" +
-                this.hostname +
-                "/storage/images/";
-            this.content = textarea + data;
+            const stringArray = [];
+            files.forEach((file) => {
+                const data =
+                    "![Описание](" +
+                    this.http +
+                    "//" +
+                    this.hostname +
+                    "/storage/images/" +
+                    this.currentDate() +
+                    "/" +
+                    file.name +
+                    ")";
+                stringArray.push(data);
+            });
+            const images = stringArray.join("\r\n");
+            this.content = textarea + images;
             this.$refs["my-textarea"].focus();
         },
     },

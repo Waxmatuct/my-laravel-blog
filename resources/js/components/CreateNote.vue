@@ -34,6 +34,7 @@
             <div>
                 <div v-show="isActive('editor')" class="" id="editor">
                     <textarea
+                        ref="my-textarea"
                         v-model="content"
                         name="content"
                         id=""
@@ -74,7 +75,6 @@
 import { marked } from "marked";
 import DOMPurify from "dompurify";
 import { Dropzone } from "dropzone";
-// import "dropzone/dist/basic.css";
 
 export default {
     data() {
@@ -83,8 +83,8 @@ export default {
             content: "",
             activeItem: "editor",
             dropzone: null,
-            http: "",
-            hostname: "",
+            http: window.location.protocol,
+            hostname: window.location.hostname,
         };
     },
     mounted() {
@@ -96,9 +96,7 @@ export default {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
         });
-        this.http = location.protocol;
-        this.hostname = location.hostname;
-        // console.log("It's working");
+        this.currentDate();
     },
     computed: {
         markdownResult() {
@@ -124,16 +122,31 @@ export default {
                 })
                 .catch((error) => alert("Ошибка"));
         },
+        currentDate() {
+            const current = new Date();
+            const date = `${current.getFullYear()}/${current.getMonth() + 1}`;
+            return date;
+        },
         storeImage() {
+            const files = this.dropzone.getAcceptedFiles();
             this.dropzone.processQueue();
             const textarea = this.$refs["my-textarea"].value;
-            const data =
-                "![Описание картинки](" +
-                this.http +
-                "//" +
-                this.hostname +
-                "/storage/images/";
-            this.content = textarea + data;
+            const stringArray = [];
+            files.forEach((file) => {
+                const data =
+                    "![Описание](" +
+                    this.http +
+                    "//" +
+                    this.hostname +
+                    "/storage/images/" +
+                    this.currentDate() +
+                    "/" +
+                    file.name +
+                    ")";
+                stringArray.push(data);
+            });
+            const images = stringArray.join("\r\n");
+            this.content = textarea + images;
             this.$refs["my-textarea"].focus();
         },
     },
