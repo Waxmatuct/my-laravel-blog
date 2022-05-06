@@ -35,6 +35,7 @@
             <div>
                 <div v-show="isActive('editor')" class="" id="editor">
                     <textarea
+                        ref="my-textarea"
                         v-model="content"
                         name="content"
                         id=""
@@ -51,7 +52,20 @@
                 </div>
             </div>
         </div>
-
+        <div class="mt-6">
+            <label class="leading-7 block text-sm text-gray-600" for="title">
+                Дропзона
+            </label>
+            <div class="flex space-x-5 items-start">
+                <div
+                    ref="dropzone"
+                    class="p-5 w-full flex flex-col md:flex-row items-center justify-center space-y-5 md:space-y-0 md:space-x-5 bg-light-white dark:bg-dark rounded text-sm md:text-base outline-none text-black dark:text-light-gray"
+                ></div>
+                <button class="button" @click.prevent="storeImage">
+                    Загрузить
+                </button>
+            </div>
+        </div>
         <div class="mt-6">
             <button class="button" type="submit">Отправить</button>
         </div>
@@ -61,6 +75,7 @@
 <script>
 import { marked } from "marked";
 import DOMPurify from "dompurify";
+import { Dropzone } from "dropzone";
 
 export default {
     props: ["note"],
@@ -69,11 +84,24 @@ export default {
             title: "",
             content: "",
             activeItem: "editor",
+            dropzone: null,
+            http: "",
+            hostname: "",
         };
     },
     mounted() {
         this.title = this.note.title;
         this.content = this.note.content;
+        this.dropzone = new Dropzone(this.$refs.dropzone, {
+            url: "/image/upload",
+            autoProcessQueue: false,
+            addRemoveLinks: true,
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        });
+        this.http = location.protocol;
+        this.hostname = location.hostname;
     },
     computed: {
         markdownResult() {
@@ -99,6 +127,18 @@ export default {
                 })
                 .catch((error) => alert("Ошибка"));
         },
+        storeImage() {
+            this.dropzone.processQueue();
+            const textarea = this.$refs["my-textarea"].value;
+            const data =
+                "![Описание картинки](" +
+                this.http +
+                "//" +
+                this.hostname +
+                "/storage/images/";
+            this.content = textarea + data;
+            this.$refs["my-textarea"].focus();
+        },
     },
 };
 </script>
@@ -106,5 +146,12 @@ export default {
 <style>
 pre {
     background: #2f2f2f;
+}
+.dz-success-mark,
+.dz-error-mark {
+    display: none;
+}
+.dz-image img {
+    margin: 0 auto;
 }
 </style>

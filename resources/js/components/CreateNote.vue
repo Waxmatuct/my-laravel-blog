@@ -50,14 +50,19 @@
                 </div>
             </div>
         </div>
-        <div class="mt-6 flex">
-            <div
-                ref="dropzone"
-                class="p-5 flex flex-col md:flex-row items-center justify-center space-y-5 bg-light-white dark:bg-dark rounded text-sm md:text-base outline-none text-black dark:text-light-gray"
-            ></div>
-            <button class="button" @click.prevent="storeImage">
-                Загрузить
-            </button>
+        <div class="mt-6">
+            <label class="leading-7 block text-sm text-gray-600" for="title">
+                Дропзона
+            </label>
+            <div class="flex space-x-5 items-start">
+                <div
+                    ref="dropzone"
+                    class="p-5 w-full flex flex-col md:flex-row items-center justify-center space-y-5 md:space-y-0 md:space-x-5 bg-light-white dark:bg-dark rounded text-sm md:text-base outline-none text-black dark:text-light-gray"
+                ></div>
+                <button class="button" @click.prevent="storeImage">
+                    Загрузить
+                </button>
+            </div>
         </div>
         <div class="mt-6">
             <button class="button" type="submit">Отправить</button>
@@ -68,8 +73,8 @@
 <script>
 import { marked } from "marked";
 import DOMPurify from "dompurify";
-import Dropzone from "dropzone";
-import "dropzone/dist/dropzone.css";
+import { Dropzone } from "dropzone";
+// import "dropzone/dist/basic.css";
 
 export default {
     data() {
@@ -78,18 +83,21 @@ export default {
             content: "",
             activeItem: "editor",
             dropzone: null,
+            http: "",
+            hostname: "",
         };
     },
     mounted() {
         this.dropzone = new Dropzone(this.$refs.dropzone, {
             url: "/image/upload",
-            maxFilesize: 1,
             autoProcessQueue: false,
-            // addRemoveLinks: true,
+            addRemoveLinks: true,
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
         });
+        this.http = location.protocol;
+        this.hostname = location.hostname;
         // console.log("It's working");
     },
     computed: {
@@ -118,7 +126,15 @@ export default {
         },
         storeImage() {
             this.dropzone.processQueue();
-            this.dropzone.removeAllFiles();
+            const textarea = this.$refs["my-textarea"].value;
+            const data =
+                "![Описание картинки](" +
+                this.http +
+                "//" +
+                this.hostname +
+                "/storage/images/";
+            this.content = textarea + data;
+            this.$refs["my-textarea"].focus();
         },
     },
 };
@@ -131,5 +147,8 @@ pre {
 .dz-success-mark,
 .dz-error-mark {
     display: none;
+}
+.dz-image img {
+    margin: 0 auto;
 }
 </style>

@@ -176,7 +176,7 @@
     }
 
     .note img {
-        @apply my-2 rounded-sm;
+        @apply my-2 rounded-md;
     }
 
     .post-content .caption {
