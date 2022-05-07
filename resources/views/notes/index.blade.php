@@ -22,8 +22,10 @@
                                 href="{{ route('notes.show', $note) }}">{{ $note->title }}</a>
                         </h2>
 
-                        <section class="note text-sm md:leading-tight">
-                            {!! \Str::limit(\Str::markdown($note->content), 300, '...') !!}
+                        <section class="note text-sm md:leading-tight max-h-80 overflow-hidden">
+                            {!! \Str::markdown($note->content, [
+    'html_input' => 'strip',
+]) !!}
                         </section>
 
                         <div class="flex items-center space-x-5 text-xs">

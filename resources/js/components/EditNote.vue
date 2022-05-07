@@ -85,8 +85,8 @@ export default {
             content: "",
             activeItem: "editor",
             dropzone: null,
-            http: window.location.protocol,
-            hostname: window.location.hostname,
+            // http: window.location.protocol,
+            // hostname: window.location.hostname,
         };
     },
     mounted() {
@@ -100,6 +100,7 @@ export default {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
         });
+        this.currentDate();
     },
     computed: {
         markdownResult() {
@@ -125,6 +126,11 @@ export default {
                 })
                 .catch((error) => alert("Ошибка"));
         },
+        currentDate() {
+            const current = new Date();
+            const date = `${current.getFullYear()}/${current.getMonth() + 1}`;
+            return date;
+        },
         storeImage() {
             const files = this.dropzone.getAcceptedFiles();
             this.dropzone.processQueue();
@@ -133,9 +139,9 @@ export default {
             files.forEach((file) => {
                 const data =
                     "![Описание](" +
-                    this.http +
+                    window.location.protocol +
                     "//" +
-                    this.hostname +
+                    window.location.hostname +
                     "/storage/images/" +
                     this.currentDate() +
                     "/" +

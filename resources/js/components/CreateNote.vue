@@ -83,8 +83,8 @@ export default {
             content: "",
             activeItem: "editor",
             dropzone: null,
-            http: window.location.protocol,
-            hostname: window.location.hostname,
+            // http: window.location.protocol,
+            // hostname: window.location.hostname,
         };
     },
     mounted() {
@@ -135,9 +135,9 @@ export default {
             files.forEach((file) => {
                 const data =
                     "![Описание](" +
-                    this.http +
+                    window.location.protocol +
                     "//" +
-                    this.hostname +
+                    window.location.hostname +
                     "/storage/images/" +
                     this.currentDate() +
                     "/" +
