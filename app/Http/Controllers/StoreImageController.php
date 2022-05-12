@@ -29,7 +29,7 @@ class StoreImageController extends Controller
         } else {
             //File upload
             $file = $request->file('file');
-            Storage::disk('public')->putFileAs('/images/' . date('Y') . '/' . Date::now()->format('n'), $file);
+            Storage::disk('public')->putFile('/images/' . date('Y') . '/' . Date::now()->format('n'), $file);
 
             //Response
             $data['success'] = 1;
