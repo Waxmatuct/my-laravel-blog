@@ -71,9 +71,9 @@
 </template>
 
 <script>
-import { marked } from "marked";
+import {marked} from "marked";
 import DOMPurify from "dompurify";
-import { Dropzone } from "dropzone";
+import {Dropzone} from "dropzone";
 
 export default {
     data() {
@@ -157,10 +157,12 @@ export default {
 pre {
     background: #2f2f2f;
 }
+
 .dz-success-mark,
 .dz-error-mark {
     display: none;
 }
+
 .dz-image img {
     margin: 0 auto;
 }
