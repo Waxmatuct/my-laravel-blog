@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/alvar_ru":{"type":null,"mount_options":["uid=1000","gid=1000","_netdev"],"guestpath":"/home/vagrant/alvar_ru","hostpath":"C:/Users/Dimas/Code/alvar_ru","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/Dimas/Code/alvar_ru","disabled":false,"__vagrantfile":true}}}

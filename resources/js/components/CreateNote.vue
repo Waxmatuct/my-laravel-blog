@@ -32,17 +32,16 @@
                 </a>
             </div>
             <div>
-                <div v-show="isActive('editor')" class="" id="editor">
+                <div v-show="isActive('editor')" id="editor">
                     <textarea
                         ref="my-textarea"
                         v-model="content"
                         name="content"
-                        id=""
                         rows="13"
                         class="p-3 w-full bg-light-white dark:bg-dark rounded border border-light-white dark:border-dark focus:border focus:border-primary text-sm md:text-base outline-none text-black dark:text-light resize-y leading-6 transition-colors duration-200 ease-in-out"
                     ></textarea>
                 </div>
-                <div v-show="isActive('viewer')" class="" id="viewer">
+                <div v-show="isActive('viewer')" id="viewer">
                     <div
                         v-html="markdownResult"
                         id=""
@@ -117,14 +116,15 @@ export default {
                     content: this.content,
                     // images: this.dropzone.getAcceptedFiles(),
                 })
-                .then((response) => {
+                .then(() => {
                     location.href = "/notes";
                 })
-                .catch((error) => alert("Ошибка"));
+                .catch(() => alert("Ошибка"));
         },
-        currentDate() {
-            const current = new Date();
-            const date = `${current.getFullYear()}/${current.getMonth() + 1}`;
+        currentDate: function () {
+            let current = new Date();
+            let date;
+            date = `${current.getFullYear()}/${current.getMonth() + 1}`;
             return date;
         },
         storeImage() {
