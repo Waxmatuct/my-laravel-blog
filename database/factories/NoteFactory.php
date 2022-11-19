@@ -26,7 +26,7 @@ class NoteFactory extends Factory
             'title' => $this->faker->words(3, true),
             'content' => $this->faker->paragraphs(3, true),
             'slug' => $this->faker->unique()->lexify(),
-            'created_at' => $this->faker->dateTimeThisMonth(),
+            'created_at' => $this->faker->dateTimeThisYear(),
         ];
     }
 }

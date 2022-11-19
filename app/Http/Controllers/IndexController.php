@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use App\Models\Category;
-use App\Models\Tag;
-use App\Models\Setting;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 
 class IndexController extends Controller
 {
-    public function index() {
+    public function index(): View
+    {
         return view('index');
     }
 }

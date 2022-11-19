@@ -3,22 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Services\BlogService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class BlogController extends Controller
 {
-    protected $blogService;
+    protected BlogService $blogService;
 
     public function __construct(
         BlogService $blogService
-    )
-
-    {
+    ) {
         $this->blogService = $blogService;
     }
 
-    public function blog()
+    /**
+     * @return View
+     */
+    public function blog():View
     {
         $data = ([
             'posts' => $this->blogService->getAllOnlinePosts(),
@@ -30,7 +33,11 @@ class BlogController extends Controller
         return view('blog.index', $data);
     }
 
-    public function getPostsByCategory($slug)
+    /**
+     * @param $slug
+     * @return View
+     */
+    public function getPostsByCategory($slug):View
     {
         $current_category = $this->blogService->getCurrentCategory($slug);
 
@@ -41,18 +48,22 @@ class BlogController extends Controller
             'user' => Auth::user(),
             'current_category' => $current_category,
         ]);
-        
-        return view('blog.index_', $data );
+
+        return view('blog.index_', $data);
     }
 
-    public function getPost($slug_post)
+    /**
+     * @param $slug_post
+     * @return View|RedirectResponse
+     */
+    public function getPost($slug_post):View|RedirectResponse
     {
         $post = $this->blogService->getPostWithSlug($slug_post);
 
-        if(Auth::guest() || !(Auth::user()->isAdmin)) {
+        if (Auth::guest() || !(Auth::user()->isAdmin)) {
             $post->increment('views');
         }
-        
+
         if ($post->online) {
 
             $data = ([
@@ -63,15 +74,16 @@ class BlogController extends Controller
             ]);
 
             return view('blog.post', $data);
-        }
-
-        else {
+        } else {
             return redirect()->route('blog');
         }
-        
     }
 
-    public function getPostsByTag($slug)
+    /**
+     * @param $slug
+     * @return View
+     */
+    public function getPostsByTag($slug):View
     {
         $current_tag = $this->blogService->getCurrentTag($slug);
 
@@ -82,11 +94,16 @@ class BlogController extends Controller
             'user' => Auth::user(),
             'current_tag' => $current_tag,
         ]);
-        
+
         return view('blog.index_', $data);
     }
 
-    public function online(Request $request, $id)
+    /**
+     * @param Request $request
+     * @param $id
+     * @return RedirectResponse
+     */
+    public function online(Request $request, $id): RedirectResponse
     {
         $post = $this->blogService->findPost($id);
         $post->online = $request->online;
@@ -94,11 +111,10 @@ class BlogController extends Controller
 
         if ($request->online) {
             return redirect()->route('posts.index')
-            ->with('success', 'Пост «'.$post->title.'» включен');
+                ->with('success', 'Пост «' . $post->title . '» включен');
         } else {
             return redirect()->route('posts.index')
-            ->with('success', 'Пост «'.$post->title.'» выключен');
+                ->with('success', 'Пост «' . $post->title . '» выключен');
         }
     }
-
 }

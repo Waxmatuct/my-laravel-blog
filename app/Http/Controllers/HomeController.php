@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use App\Models\Category;
-use App\Models\Tag;
-use App\Models\Setting;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class HomeController extends Controller
 {
@@ -23,16 +19,11 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     *
      */
-    public function home()
+    public function home(): RedirectResponse
     {
         return redirect()->route('dashboard');
-        // if (\Auth::user()->isAdmin) {
-        //     return redirect()->route('dashboard');
-        // } else {
-        //     return redirect()->route('index');
-        // }
 
     }
 

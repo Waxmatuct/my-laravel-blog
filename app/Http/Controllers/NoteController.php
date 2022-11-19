@@ -4,26 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use App\Services\BlogService;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+/**
+ * Class NoteController
+ * @package App\Http\Controllers
+ */
 class NoteController extends Controller
 {
 
-    protected $blogService;
+    protected BlogService $blogService;
 
     public function __construct(
         BlogService $blogService
-    ) {
+    )
+    {
         $this->blogService = $blogService;
     }
 
+
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         $notes = Note::orderByDesc('created_at')->paginate(12);
 
@@ -36,9 +42,9 @@ class NoteController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
         return view('notes.create', [
             'categories' => $this->blogService->getAllCategoriesOrderedById(),
@@ -48,10 +54,10 @@ class NoteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
 
         // dump($request->all());
@@ -72,16 +78,15 @@ class NoteController extends Controller
 
         return redirect()->route('notes.index')
             ->with('success', 'Запись успешно добавлена');
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Note  $note
-     * @return \Illuminate\Http\Response
+     * @param Note $note
+     * @return View
      */
-    public function show(Note $note)
+    public function show(Note $note): View
     {
         $note = Note::findOrFail($note->id);
 
@@ -89,16 +94,15 @@ class NoteController extends Controller
             'note' => $note,
             'categories' => $this->blogService->getAllCategoriesOrderedById(),
         ]);
-
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Note  $note
-     * @return \Illuminate\Http\Response
+     * @param Note $note
+     * @return View
      */
-    public function edit(Note $note)
+    public function edit(Note $note): View
     {
         $note = Note::findOrFail($note->id);
 
@@ -111,9 +115,9 @@ class NoteController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Note  $note
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return void
      */
     public function update(Request $request, $id)
     {
@@ -136,11 +140,13 @@ class NoteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Note  $note
-     * @return \Illuminate\Http\Response
+     * @param Note $note
+     * @return RedirectResponse
      */
-    public function destroy(Note $note)
+    public function destroy(Note $note): RedirectResponse
     {
-        //
+        Note::findOrFail($note->id)->delete();
+        return redirect()->route('notes.index')
+            ->with('success', 'Запись «' . $note->title . '» успешно удалена');
     }
 }
