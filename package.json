@@ -33,6 +33,7 @@
         "dompurify": "^2.3.6",
         "dropzone": "^6.0.0-beta.2",
         "jquery-colorbox": "^1.6.4",
-        "marked": "^4.0.15"
+        "marked": "^4.0.15",
+        "moment": "^2.29.4"
     }
 }
