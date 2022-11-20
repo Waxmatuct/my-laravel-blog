@@ -18,15 +18,6 @@ export default {
     components: {
         Note,
     },
-    // mounted() {
-    //     this.markdownResult();
-    // },
-    // computed: {
-    //     markdownResult() {
-    //         return DOMPurify.sanitize(marked(note.content));
-    //     },
-    // }
-
 }
 </script>
 

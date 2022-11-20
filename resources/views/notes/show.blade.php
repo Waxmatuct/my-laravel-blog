@@ -22,6 +22,15 @@
                         <time>{!! Date::parse($note->created_at)->format('d M Y, l') !!}</time>
                     </span>
                     <a href="{{ route('notes.edit', $note) }}">Править</a>
+                    <form action="{{ route('notes.destroy', $note) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button
+                            type="submit"
+                            class="text-primary dark:text-primary-darker border-b border-primary hover:border-black dark:hover:border-light hover:text-black dark:hover:text-light border-opacity-30 dark:border-opacity-30 transition duration-300 ease-in-out">
+                            Удалить
+                        </button>
+                    </form>
                 </div>
 
 

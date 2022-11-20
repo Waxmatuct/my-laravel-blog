@@ -31,10 +31,10 @@ class NoteController extends Controller
      */
     public function index(): View
     {
-        $notes = Note::orderByDesc('created_at')->get();
+        $notes = Note::orderByDesc('created_at')->paginate();
 
         return view('notes.index', [
-            'notes' => $notes->toJson(),
+            'notes' => $notes,
             'categories' => $this->blogService->getAllCategoriesOrderedById(),
         ]);
     }

@@ -10,36 +10,12 @@
 
     <main id="site-main" class="site-main">
         <div class="inner w-full sm:max-w-3xl mx-auto md:my-3 flex flex-col">
-
             <div id="note-crud">
                 <edit-note :note="{{ json_encode($note) }}"></edit-note>
             </div>
-            {{-- <form action="{{ route('notes.update', $note) }}" method="POST" id="createPostForm">
-                @csrf
-                @method('PATCH')
-                <div class="">
-                    <label class="leading-7 block text-sm text-gray-600" for="title">Заголовок</label>
-                    <input
-                        class="w-full bg-light-white dark:bg-dark rounded border border-light-white dark:border-dark focus:border focus:border-primary text-base outline-none text-black dark:text-light py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                        id="title" name="title" type="text" aria-label="Title" value="{{ $note->title }}">
-                </div>
-
-                <div class="mt-5">
-                    <label class="leading-7 block text-sm text-gray-600" for="message">Пост</label>
-                    <div id="editor"
-                        class="w-full bg-light-white dark:bg-dark rounded border border-light-white dark:border-dark focus:border focus:border-primary h-32 text-base outline-none text-black dark:text-light resize-y leading-6 transition-colors duration-200 ease-in-out"
-                        name="content" rows="15" placeholder="" aria-label="Content">{!! \Str::markdown($note->content) !!}</div>
-                    <input type="hidden" name="content" id="content">
-                </div>
-
-                <div class="mt-6">
-                    <button class="button" type="submit">Сохранить</button>
-                </div>
-            </form> --}}
-
         </div>
-
     </main>
+
 @endsection
 
 @push('editor')

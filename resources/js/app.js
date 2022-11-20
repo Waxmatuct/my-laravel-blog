@@ -16,8 +16,8 @@ window.onload = function () {
         components: {
             CreateNote: () => import("./components/CreateNote.vue"),
             EditNote: () => import("./components/EditNote.vue"),
-            Notes: () => import("./components/Notes.vue"),
-            Note: () => import("./components/Note.vue")
+            // Notes: () => import("./components/Notes.vue"),
+            // Note: () => import("./components/Note.vue")
         },
     });
 };

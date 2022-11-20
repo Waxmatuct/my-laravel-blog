@@ -10,10 +10,10 @@ use App\Repositories\Tags\TagRepositoryInterface;
 
 class BlogService
 {
-    private $postRepository;
-    private $categoryRepository;
-    private $commentRepository;
-    private $tagRepository;
+    private PostRepositoryInterface $postRepository;
+    private CategoryRepositoryInterface $categoryRepository;
+    private CommentRepositoryInterface $commentRepository;
+    private TagRepositoryInterface $tagRepository;
 
     public function __construct(
         PostRepositoryInterface $postRepository,
