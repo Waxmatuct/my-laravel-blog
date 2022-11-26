@@ -5,10 +5,10 @@
         @include('includes.logo')
 
         <button id="showNav"
-            class="block absolute right-3 top-3 px-2 py-2 sm:hidden text-black dark:text-light-white focus:outline-none">
+                class="block absolute right-3 top-3 px-2 py-2 sm:hidden text-black dark:text-light-white focus:outline-none">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                 stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
         </button>
 
@@ -18,16 +18,16 @@
                 <li class="">
                     <a class="menu-item" href="{{ route('blog') }}" title="На главную">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
+                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
                         </svg>
                     </a>
                 </li>
                 @foreach ($categories as $category)
                     <li class="">
                         <a class="menu-item" id="{{ $category['id'] }}"
-                            href="{{ route('getPostsByCategory', $category['slug']) }}">{{ $category['title'] }}</a>
+                           href="{{ route('getPostsByCategory', $category['slug']) }}">{{ $category['title'] }}</a>
                     </li>
                 @endforeach
                 {{-- <li class="">
@@ -38,21 +38,26 @@
                 @if (Auth::check())
                     @if (Auth::user()->isAdmin)
                         <li class="">
-                            <a class="menu-item" href="{{ url('/notes') }}">Дневник</a>
-                        </li>
-                        <li class="">
                             <a class="menu-item" href="{{ route('dashboard') }}">Админка</a>
                         </li>
                         <li class="">
                             <a href="{{ route('logout') }}" class="menu-item" title="Выйти"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 Выйти
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                class="d-none">
+                                  class="d-none">
                                 @csrf
                             </form>
                         </li>
+                        <li class="">
+                            <a class="menu-item" href="{{ route('notes.index') }}">Дневник</a>
+                        </li>
+                        @if (Route::is('notes.*') )
+                            <li class="">
+                                <a class="menu-item" href="{{ route('notes.create') }}">Добавить запись</a>
+                            </li>
+                        @endif
                     @endif
                 @endif
 

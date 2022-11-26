@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static findOrFail(mixed $id)
  * @method static create(array $array)
  * @method static orderByDesc(string $string)
+ * @method static whereMonth(string $string, int $month)
  */
 class Note extends Model
 {

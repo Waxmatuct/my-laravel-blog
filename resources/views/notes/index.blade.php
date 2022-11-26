@@ -12,7 +12,7 @@
 
     <div class="max-w-7xl md:mt-7 px-5 mx-auto md:px-0 mb-5 flex items-center space-x-5">
         <h1 class="text-4xl font-bold text-black dark:text-light-white">Дневник</h1>
-        <a href="{{ route('notes.create') }}">Добавить запись</a>
+{{--        <a href="{{ route('notes.create') }}">Добавить запись</a>--}}
     </div>
 
     <main id="site-main" class="site-main">
