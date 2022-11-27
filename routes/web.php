@@ -69,6 +69,7 @@ Route::middleware(['isAdmin'])->group(function () {
         return view('dashboard.forms');
     })->name('dashboard-forms');
 
+    Route::get('/notes/{year}-{month}', [NoteController::class, 'older_notes']);
     Route::resource('/notes', NoteController::class);
 
     Route::post('/image/upload', StoreImageController::class)->name('storeImage');

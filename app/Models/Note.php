@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static create(array $array)
  * @method static orderByDesc(string $string)
  * @method static whereMonth(string $string, int $month)
+ * @method static whereYear(string $string, string $string1, $year)
  */
 class Note extends Model
 {

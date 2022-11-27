@@ -53,11 +53,6 @@
                         <li class="">
                             <a class="menu-item" href="{{ route('notes.index') }}">Дневник</a>
                         </li>
-                        @if (Route::is('notes.*') )
-                            <li class="">
-                                <a class="menu-item" href="{{ route('notes.create') }}">Добавить запись</a>
-                            </li>
-                        @endif
                     @endif
                 @endif
 

@@ -41,6 +41,23 @@ class NoteController extends Controller
     }
 
     /**
+     * Выводит записи по году и месяцу по урлу /notes/year-month
+     * @param $year
+     * @param $month
+     * @return View
+     */
+    public function older_notes($year, $month): View
+    {
+        $notes = Note::whereYear('created_at', '=', $year)
+            ->whereMonth('created_at', '=', $month)->orderByDesc('created_at')->paginate();
+
+        return view('notes.index', [
+            'notes' => $notes,
+            'categories' => $this->blogService->getAllCategoriesOrderedById(),
+        ]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return View

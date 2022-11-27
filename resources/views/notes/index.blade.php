@@ -12,7 +12,7 @@
 
     <div class="max-w-7xl md:mt-7 px-5 mx-auto md:px-0 mb-5 flex items-center space-x-5">
         <h1 class="text-4xl font-bold text-black dark:text-light-white">Дневник</h1>
-{{--        <a href="{{ route('notes.create') }}">Добавить запись</a>--}}
+        <a href="{{ route('notes.create') }}">Добавить запись</a>
     </div>
 
     <main id="site-main" class="site-main">
@@ -39,15 +39,6 @@
                                 <time>{!! Date::parse($note->created_at)->format('d M Y, l') !!}</time>
                             </span>
                             <a href="{{ route('notes.edit', $note) }}">Править</a>
-                            <form action="{{ route('notes.destroy', $note) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button
-                                    type="submit"
-                                    class="text-primary dark:text-primary-darker border-b border-primary hover:border-black dark:hover:border-light hover:text-black dark:hover:text-light border-opacity-30 dark:border-opacity-30 transition duration-300 ease-in-out">
-                                    Удалить
-                                </button>
-                            </form>
                         </div>
 
                     </div>
